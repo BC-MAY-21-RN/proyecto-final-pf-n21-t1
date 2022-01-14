@@ -56,6 +56,7 @@ Algunos de los requerimientos sun un tanto genéricos, es decir no brindan el su
 ### Requerimientos no funcionales
 * Base de datos
     * La información se guardará en firebase
+    * Autenticación con firebase
 * Calidad
     * Utilizar un estilo de código estandarizado (revisado por Eslint)
     * Incluir pruebas unitarias
@@ -66,8 +67,9 @@ Algunos de los requerimientos sun un tanto genéricos, es decir no brindan el su
     * Debe ser lo más cercano posible al proporcionado
 * Código fuente
     * Métodos pequeños
+    * Paradigma programación funcional
 * Manejo del estado
-    * Redux para el manejo del estado de la App
+    * Redux para controlar el estado de la App
     
 ## Diseño del MVP
 
