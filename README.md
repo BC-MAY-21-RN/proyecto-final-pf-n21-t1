@@ -3,6 +3,8 @@
 # Nombre del proyecto
 App Dulce Hogar
 
+![App Dulce Hogar Logo](img/logo-dulce-hogar.png)
+
 ## Problematica que atiende
 Las necesidades de resolver problemas domésticos se encuentran al día, regularmente es sencillo llamar a un prestador de servicios ya conocido cuando tenemos un problema en el hogar, sin embargo, ¿qué sucedería si dicho prestador no puede acudir en el momento que necesitamos resolver la situación?. Desde otro punto de vista, ¿cuál sería la forma más rápida de contactar a un prestador de servicios? Aunado a esto, es importante tener la certeza de que la persona que está ingresando a nuestro hogar es confiable, honesta y brinda servicios de calidad. 
 App Dulce Hogar permite ofertar el servicio de prestadores locales para que puedan ser contratados de acuerdo a la ubicación y necesidad que se tenga en casa, todo esto de manera sencilla y efectiva. Su trabajo puede ser  calificado por el usuario contratador, para que así los demás usuarios tengan una referencia. 
