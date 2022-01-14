@@ -65,9 +65,7 @@ Algunos de los requerimientos sun un tanto genéricos, es decir no brindan el su
 * Diseño
     * Debe ser lo más cercano posible al proporcionado
 * Código fuente
-    * Orientado a Objetos
     * Métodos pequeños
-    * Aplicar los principios SOLID
 * Manejo del estado
     * Redux para el manejo del estado de la App
     
