@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.bcfinal">
+  package="com.appdulcehogar">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
