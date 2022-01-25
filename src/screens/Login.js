@@ -1,10 +1,6 @@
-import React from "react";
-import { Text } from "react-native";
-
+import React from 'react';
+import {Text} from 'react-native';
 
 export const Login = () => {
-
-    return(
-        <Text>Login</Text>
-    )
-}
+  return <Text>Login</Text>;
+};

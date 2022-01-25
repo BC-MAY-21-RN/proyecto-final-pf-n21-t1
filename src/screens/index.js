@@ -1,14 +1,14 @@
-export { Login } from './Login'
-export { Register } from './Register'
-export { Path } from './Path'
-export { CustomerOpinions } from './Provider/CustomerOpinions'
-export { ProviderCreation } from './Provider/ProviderCreation'
-export { ProviderPreview } from './Provider/ProviderPreview'
-export { UpcomingServices } from './Provider/UpcomingServices'
-export { DateSelection } from './Recruiter/DateSelection'
-export { ProviderCard } from './Recruiter/ProviderCard'
-export { ServiceGrid } from './Recruiter/ServiceGrid'
-export { ServiceProviders } from './Recruiter/ServiceProviders'
-export { ServiceScore } from './Recruiter/ServiceScore'
-export { ServicesHistory } from './Recruiter/ServicesHistory'
-export { ServiceTicket } from './Recruiter/ServiceTicket'
+export {Login} from './Login';
+export {Register} from './Register';
+export {Path} from './Path';
+export {CustomerOpinions} from './Provider/CustomerOpinions';
+export {ProviderCreation} from './Provider/ProviderCreation';
+export {ProviderPreview} from './Provider/ProviderPreview';
+export {UpcomingServices} from './Provider/UpcomingServices';
+export {DateSelection} from './Recruiter/DateSelection';
+export {ProviderCard} from './Recruiter/ProviderCard';
+export {ServiceGrid} from './Recruiter/ServiceGrid';
+export {ServiceProviders} from './Recruiter/ServiceProviders';
+export {ServiceScore} from './Recruiter/ServiceScore';
+export {ServicesHistory} from './Recruiter/ServicesHistory';
+export {ServiceTicket} from './Recruiter/ServiceTicket';

@@ -1,9 +1,6 @@
-import React from "react";
-import { Text } from "react-native";
+import React from 'react';
+import {Text} from 'react-native';
 
 export const Path = () => {
-
-    return(
-        <Text>Path</Text>
-    )
-}
+  return <Text>Path</Text>;
+};

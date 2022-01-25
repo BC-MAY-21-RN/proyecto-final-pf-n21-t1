@@ -1,9 +1,6 @@
-import React from "react";
-import { Text } from "react-native";
+import React from 'react';
+import {Text} from 'react-native';
 
 export const ServiceProviders = () => {
-
-    return(
-        <Text>ServiceProviders</Text>
-    )
-}
+  return <Text>ServiceProviders</Text>;
+};
