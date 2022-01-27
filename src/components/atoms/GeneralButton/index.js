@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'react-native-elements';
-import Color from '../../theme/default';
+import Color from '../../../theme/default';
 
 export const GeneralButton = ({size, title, color, icon}) => {
   size ? (size = size) : (size = 300);

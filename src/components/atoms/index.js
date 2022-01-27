@@ -1,1 +1,2 @@
-export {GeneralButton} from './GeneralButton.js';
+export {GeneralButton} from './GeneralButton';
+export {GeneralInput} from './GeneralInput';
