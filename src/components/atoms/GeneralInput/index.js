@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Input} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native';
-import Color from '../../../theme/default';
+import {Color} from '../../../theme/default';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const eyeButton = (visible, setVisible) => {
@@ -34,13 +34,12 @@ export const GeneralInput = ({title, placeholder, secret}) => {
 
   const labelStyle = {
     fontSize: 18,
-    fontFamily: 'Montserrat-Medium',
+    // fontFamily: 'Montserrat-Medium',
     fontWeight: 'normal',
   };
 
   const inputStyle = {
-    fontSize: 18,
-    fontFamily: 'Montserrat-Medium',
+    fontSize: 16,
   };
 
   return (
