@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {GeneralHeader} from '../components/atoms';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {GeneralHeader, GeneralInput} from '../components/atoms';
 
 export const Login = () => {
   return (
     <>
-      <GeneralHeader title="Esto es un Header" size={25} />
+      <SafeAreaView />
+      {/* <GeneralHeader title="holaaaaaaaasfskaa" size="h1" color="secondary" /> */}
+      <GeneralInput title="TEXTO DE PRUEBA" placeholder="TEXTO DE PRUEBA " />
     </>
   );
 };

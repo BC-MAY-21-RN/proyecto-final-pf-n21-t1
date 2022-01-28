@@ -39,7 +39,7 @@ export const GeneralInput = ({title, placeholder, secret}) => {
   };
 
   const inputStyle = {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Montserrat-Medium',
   };
 
