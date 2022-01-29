@@ -1,9 +1,6 @@
-import React from "react";
-import { Text } from "react-native";
+import React from 'react';
+import {Text} from 'react-native';
 
 export const DateSelection = () => {
-
-    return(
-        <Text>DateSelection</Text>
-    )
-}
+  return <Text>DateSelection</Text>;
+};

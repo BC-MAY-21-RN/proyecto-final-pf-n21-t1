@@ -1,9 +1,6 @@
-import React from "react";
-import { Text } from "react-native";
+import React from 'react';
+import {Text} from 'react-native';
 
 export const ProviderCreation = () => {
-
-    return(
-        <Text>ProviderCreation</Text>
-    )
-}
+  return <Text>ProviderCreation</Text>;
+};
