@@ -21,6 +21,7 @@ const eyeButton = (visible, setVisible) => {
 
 export const GeneralInput = ({title, placeholder, secret}) => {
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     setVisible(secret); //secret es el prop enviado desde login para forzar que el input tenga o no visible el RightIcon
   }, [secret]);
