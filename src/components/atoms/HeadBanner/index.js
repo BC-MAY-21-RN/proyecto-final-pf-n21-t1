@@ -1,16 +1,8 @@
 import React from 'react';
+import {View} from 'react-native';
 import {TouchableOpacity} from 'react-native';
-import {LinkStyle} from './styled';
-import {Color, Size} from '../../../theme/default';
+import {Cabecera} from './styled';
 
-export const GeneralLink = ({size, color, title, action}) => {
-  color ? (color = Color[color]) : (color = Color.text);
-
-  return (
-    <TouchableOpacity onPress={action}>
-      <LinkStyle size={Size[size]} color={color}>
-        {title}
-      </LinkStyle>
-    </TouchableOpacity>
-  );
+export const HeadBanner = () => {
+  return <Cabecera></Cabecera>;
 };
