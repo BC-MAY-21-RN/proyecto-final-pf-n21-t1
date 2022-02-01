@@ -15,11 +15,15 @@ export const Login = props => {
       <View>
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
         <View style={styles.inputContainer}>
-          <GeneralInput title="Email" placeholder="Email" size/>
+          <GeneralInput title="Email" placeholder="Email" size />
           <GeneralInput title="Password" placeholder="Password" secret />
         </View>
         <View style={styles.buttonContainer}>
-          <GeneralButton title="Iniciar sesión" color="primary" />
+          <GeneralButton
+            title="Iniciar sesión"
+            color="primary"
+            action={() => props.navigation.navigate('Path')}
+          />
           <GeneralButton title="Iniciar sesión con Facebook" />
         </View>
         <View style={styles.linkContainer}>
