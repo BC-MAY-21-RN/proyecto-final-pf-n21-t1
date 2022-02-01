@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header, Logo, HeaderContainer} from './styled';
 import {appLogo} from '../../../assets/images';

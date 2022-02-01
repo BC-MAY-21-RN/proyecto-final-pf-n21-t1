@@ -6,7 +6,7 @@ import {
   GeneralLink,
   GeneralText,
 } from '../components/atoms';
-import {GeneralHeader} from '../components/molecules/GeneralHeader';
+import {GeneralHeader} from '../components/molecules';
 
 export const Login = props => {
   return (
@@ -15,8 +15,13 @@ export const Login = props => {
       <View>
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
         <View style={styles.inputContainer}>
-          <GeneralInput title="Email" placeholder="Email" size />
-          <GeneralInput title="Password" placeholder="Password" secret />
+          <GeneralInput title="Email" placeholder="Email" leftIcon={'mail'} />
+          <GeneralInput
+            title="Password"
+            placeholder="Password"
+            secret
+            leftIcon={'key'}
+          />
         </View>
         <View style={styles.buttonContainer}>
           <GeneralButton

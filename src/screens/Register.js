@@ -1,54 +1,58 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import { GeneralButton, GeneralInput, GeneralLink, GeneralText } from '../components/atoms';
-import { GeneralHeader } from '../components/molecules/index'
+import {
+  GeneralButton,
+  GeneralInput,
+  GeneralLink,
+  GeneralText,
+} from '../components/atoms';
+import {GeneralHeader} from '../components/molecules/index';
 
-export const Register = (props) => {
+export const Register = props => {
   return (
-  <>
-    <GeneralHeader/>
+    <>
+      <GeneralHeader />
       <View style={styles.registro}>
-        <GeneralText 
-          size={"h1"}
-          color={"secondary"}
-          title={"Regístrate"}
+        <GeneralText
+          size={'h1'}
+          color={'secondary'}
+          title={'Regístrate'}
           weight
         />
       </View>
       <View style={styles.center}>
         <GeneralInput
-          title={"Nombre Completo"}
-          placeholder={"Tu nombre"}
+          title={'Nombre Completo'}
+          placeholder={'Tu nombre'}
+          leftIcon={'person'}
         />
         <GeneralInput
-          title={"Correo"}
-          placeholder={"Tu correo"}
+          title={'Correo'}
+          placeholder={'Tu correo'}
+          leftIcon={'mail'}
         />
         <GeneralInput
-          title={"Contraseña"}
-          placeholder={"Tu contraseña"}
+          title={'Contraseña'}
+          placeholder={'Tu contraseña'}
           secret
+          leftIcon={'key'}
         />
-        <GeneralButton
-          title={"Registrarse"}
-          color={"primary"}
-          size={340}
-        />
+        <GeneralButton title={'Registrarse'} color={'primary'} size={340} />
         <Text>O si gustas</Text>
         <GeneralButton
-          title={"Registrate con Facebook"}
-          color={"facebook"}
+          title={'Registrate con Facebook'}
+          color={'facebook'}
           size={340}
         />
         <GeneralLink
-          title={"¿Ya eres usuario? Inicia sesión"}
-          size={"h4"}
-          color={"secondary"}
+          title={'¿Ya eres usuario? Inicia sesión'}
+          size={'h4'}
+          color={'secondary'}
           action={() => props.navigation.navigate('Login')}
         />
       </View>
-  </>
-  )
+    </>
+  );
 };
 
 const styles = StyleSheet.create({

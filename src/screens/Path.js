@@ -3,29 +3,39 @@ import {GeneralButton, GeneralLink, GeneralText} from '../components/atoms';
 import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {View, StyleSheet} from 'react-native';
+
 export const Path = () => {
+  const generalButtons = [
+    {
+      title: 'Solucionar un problema en mi hogar',
+      color: 'primary',
+      icon: 'home',
+    },
+    {
+      title: 'Ofrecer servicios de mantenimiento',
+      color: 'secondary',
+      icon: 'hammer',
+    },
+  ];
+  const buttons = generalButtons.map(button => (
+    <GeneralButton
+      title={' ' + button.title}
+      color={button.color}
+      icon={<Icon name={button.icon} size={15} color="#ffff" />}
+    />
+  ));
+
   return (
     <View style={styles.totalScreen}>
       <GeneralHeader isMenuVisible />
       <View style={styles.screen2}>
         <GeneralText
-          title="Estamos felices que estés de regreso."
+          title="¿Que te trae hoy por aqui?"
           weight="bold"
           size="h1"
           color="secondary"
         />
-        <View style={styles.buttons}>
-          <GeneralButton
-            title="  Solucionar un problema en mi Hogar"
-            color="primary"
-            icon={<Icon name="home" size={15} color="#ffff" />}
-          />
-          <GeneralButton
-            title="  Ofrecer servicios de mantenimiento"
-            color="secondary"
-            icon={<Icon name="hammer" size={15} color="#ffff" />}
-          />
-        </View>
+        <View style={styles.buttons}>{buttons}</View>
         <GeneralLink weight title="Cerrar sesión" size="h5" color="secondary" />
       </View>
     </View>
