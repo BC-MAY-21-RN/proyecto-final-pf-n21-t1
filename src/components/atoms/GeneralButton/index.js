@@ -10,6 +10,7 @@ export const GeneralButton = ({size, title, color, icon}) => {
     width: size,
     backgroundColor: color,
     borderRadius: 8,
+    height: 50,
   };
 
   return <Button buttonStyle={buttonStyle} title={title} icon={icon} />;

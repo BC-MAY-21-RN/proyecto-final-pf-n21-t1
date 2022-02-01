@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
   GeneralButton,
   GeneralInput,
@@ -8,30 +8,52 @@ import {
 } from '../components/atoms';
 import {GeneralHeader} from '../components/molecules/GeneralHeader';
 
-export const Login = () => {
+export const Login = props => {
   return (
-    <>
+    <View style={styles.loginContainer}>
       <GeneralHeader />
       <View>
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
-        <View>
-          <GeneralInput title="Email" placeholder="Email" />
+        <View style={styles.inputContainer}>
+          <GeneralInput title="Email" placeholder="Email" size/>
           <GeneralInput title="Password" placeholder="Password" secret />
         </View>
-        <View>
+        <View style={styles.buttonContainer}>
           <GeneralButton title="Iniciar sesión" color="primary" />
           <GeneralButton title="Iniciar sesión con Facebook" />
         </View>
-        <View>
+        <View style={styles.linkContainer}>
           <GeneralLink
             title="¿Eres nuevo aquí? Regístrate"
             size="h3"
             weight={false}
             color="secondary"
-            action={() => console.log('hola')}
+            action={() => props.navigation.navigate('Register')}
           />
         </View>
       </View>
-    </>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  loginContainer: {
+    height: '100%',
+    width: '95%',
+    alignSelf: 'center',
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: '20%',
+  },
+  inputContainer: {
+    height: '40%',
+    justifyContent: 'center',
+  },
+  linkContainer: {
+    height: '20%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
