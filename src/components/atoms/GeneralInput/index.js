@@ -27,11 +27,12 @@ export const GeneralInput = ({title, placeholder, secret}) => {
   }, [secret]);
 
   const inputContainerStyle = {
-    height: 60,
+    height: 50,
     marginTop: 5,
     borderRadius: 8,
     borderBottomWidth: 0,
     backgroundColor: Color.input,
+    padding: 10,
   };
 
   const labelStyle = {
