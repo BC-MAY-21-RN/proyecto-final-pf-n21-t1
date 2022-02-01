@@ -3,8 +3,8 @@ import {GeneralText} from '..';
 import {Tab} from './styled';
 
 export const TabRender = props => {
-  const isRendered = props.isRendered;
-  if (isRendered) {
+  const isTabRendered = props.isTabRendered;
+  if (isTabRendered) {
     return (
       <Tab>
         <GeneralText
