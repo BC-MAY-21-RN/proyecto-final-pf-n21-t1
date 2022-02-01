@@ -4,23 +4,25 @@ import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 
-const buttonsRender = () => {
+const buttonsRender = navigation => {
   const generalButtons = [
     {
       title: 'Solucionar un problema en mi hogar',
       color: 'primary',
       icon: 'home',
+      action: () => navigation.navigate('Login'),
     },
     {
       title: 'Ofrecer servicios de mantenimiento',
       color: 'secondary',
       icon: 'hammer',
+      action: () => navigation.navigate('Login'),
     },
   ];
   return buttonsMapping(generalButtons);
 };
 
-export const Path = () => {
+export const Path = navigation => {
   return (
     <View style={styles.totalScreen}>
       <GeneralHeader isMenuVisible />
@@ -31,7 +33,7 @@ export const Path = () => {
           size="h1"
           color="secondary"
         />
-        <View style={styles.buttons}>{buttonsRender()}</View>
+        <View style={styles.buttons}>{buttonsRender(navigation)}</View>
         <GeneralLink weight title="Cerrar sesión" size="h5" color="secondary" />
       </View>
     </View>
