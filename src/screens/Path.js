@@ -4,7 +4,7 @@ import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {View, StyleSheet} from 'react-native';
 
-export const Path = () => {
+const buttonsRender = () => {
   const generalButtons = [
     {
       title: 'Solucionar un problema en mi hogar',
@@ -17,14 +17,18 @@ export const Path = () => {
       icon: 'hammer',
     },
   ];
-  const buttons = generalButtons.map(button => (
+  const buttons = generalButtons.map((button, index) => (
     <GeneralButton
+      key={index}
       title={' ' + button.title}
       color={button.color}
       icon={<Icon name={button.icon} size={15} color="#ffff" />}
     />
   ));
+  return buttons;
+};
 
+export const Path = () => {
   return (
     <View style={styles.totalScreen}>
       <GeneralHeader isMenuVisible />
@@ -35,7 +39,7 @@ export const Path = () => {
           size="h1"
           color="secondary"
         />
-        <View style={styles.buttons}>{buttons}</View>
+        <View style={styles.buttons}>{buttonsRender()}</View>
         <GeneralLink weight title="Cerrar sesión" size="h5" color="secondary" />
       </View>
     </View>
