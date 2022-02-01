@@ -5,7 +5,7 @@ export const HeaderContainer = styled.View`
   flex-direction: column;
   height: 20%;
   width: 100%;
-  margin-top: 15%;
+  //margin-top: 15%;
 `;
 
 export const Header = styled.View`
@@ -22,4 +22,3 @@ export const Logo = styled.Image`
   height: 65px;
   margin-left: 4;
 `;
-
