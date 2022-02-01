@@ -1,14 +1,50 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {
-  GeneralButton,
-  GeneralInput,
-  GeneralLink,
-  GeneralText,
-} from '../components/atoms';
+import {View, StyleSheet} from 'react-native';
+import {GeneralLink, GeneralText} from '../components/atoms';
 import {GeneralHeader} from '../components/molecules/index';
+import inputsMapping from '../utils/inputsMapping';
+import buttonsMapping from '../utils/buttonsMapping';
 
-export const Register = props => {
+const inputsRender = () => {
+  const generalInputs = [
+    {
+      title: 'Nombre completo',
+      placeholder: 'Tu nombre',
+      icon: 'person',
+    },
+    {
+      title: 'Correo',
+      placeholder: 'Tu correo',
+      icon: 'mail',
+    },
+    {
+      title: 'Password',
+      placeholder: 'Password',
+      icon: 'key',
+      secret: true,
+    },
+  ];
+
+  return inputsMapping(generalInputs);
+};
+
+const buttonsRender = navigation => {
+  const generalButtons = [
+    {
+      title: 'Registrarse',
+      color: 'primary',
+      action: () => navigation.navigate('Path'),
+    },
+    {
+      title: 'Registrarse con Facebook',
+      color: 'facebook',
+      icon: 'logo-facebook',
+    },
+  ];
+  return buttonsMapping(generalButtons);
+};
+
+export const Register = ({navigation}) => {
   return (
     <>
       <GeneralHeader />
@@ -21,34 +57,13 @@ export const Register = props => {
         />
       </View>
       <View style={styles.center}>
-        <GeneralInput
-          title={'Nombre Completo'}
-          placeholder={'Tu nombre'}
-          leftIcon={'person'}
-        />
-        <GeneralInput
-          title={'Correo'}
-          placeholder={'Tu correo'}
-          leftIcon={'mail'}
-        />
-        <GeneralInput
-          title={'Contraseña'}
-          placeholder={'Tu contraseña'}
-          secret
-          leftIcon={'key'}
-        />
-        <GeneralButton title={'Registrarse'} color={'primary'} size={340} />
-        <Text>O si gustas</Text>
-        <GeneralButton
-          title={'Registrate con Facebook'}
-          color={'facebook'}
-          size={340}
-        />
+        {inputsRender()}
+        <View style={styles.botones}>{buttonsRender(navigation)}</View>
         <GeneralLink
           title={'¿Ya eres usuario? Inicia sesión'}
           size={'h4'}
           color={'secondary'}
-          action={() => props.navigation.navigate('Login')}
+          action={() => navigation.navigate('Login')}
         />
       </View>
     </>
@@ -63,5 +78,10 @@ const styles = StyleSheet.create({
   },
   registro: {
     marginLeft: 10,
+  },
+  botones: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: '23%',
   },
 });

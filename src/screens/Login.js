@@ -1,43 +1,59 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {
-  GeneralButton,
-  GeneralInput,
-  GeneralLink,
-  GeneralText,
-} from '../components/atoms';
+import {GeneralLink, GeneralText} from '../components/atoms';
 import {GeneralHeader} from '../components/molecules';
+import inputsMapping from '../utils/inputsMapping';
+import buttonsMapping from '../utils/buttonsMapping';
 
-export const Login = props => {
+const inputsRender = () => {
+  const generalInputs = [
+    {
+      title: 'Email',
+      placeholder: 'Email',
+      icon: 'mail',
+    },
+    {
+      title: 'Password',
+      placeholder: 'Password',
+      icon: 'key',
+      secret: true,
+    },
+  ];
+
+  return inputsMapping(generalInputs);
+};
+
+const buttonsRender = navigation => {
+  const generalButtons = [
+    {
+      title: 'Iniciar sesión',
+      color: 'primary',
+      action: () => navigation.navigate('Path'),
+    },
+    {
+      title: 'Iniciar sesión con Facebook',
+      color: 'facebook',
+      icon: 'logo-facebook',
+    },
+  ];
+  return buttonsMapping(generalButtons);
+};
+
+export const Login = ({navigation}) => {
   return (
     <View style={styles.loginContainer}>
-      <GeneralHeader />
+      <GeneralHeader isTabRendered />
       <View>
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
-        <View style={styles.inputContainer}>
-          <GeneralInput title="Email" placeholder="Email" leftIcon={'mail'} />
-          <GeneralInput
-            title="Password"
-            placeholder="Password"
-            secret
-            leftIcon={'key'}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <GeneralButton
-            title="Iniciar sesión"
-            color="primary"
-            action={() => props.navigation.navigate('Path')}
-          />
-          <GeneralButton title="Iniciar sesión con Facebook" />
-        </View>
+        <View style={styles.inputContainer}>{inputsRender()}</View>
+        <View style={styles.buttonContainer}>{buttonsRender(navigation)}</View>
         <View style={styles.linkContainer}>
           <GeneralLink
             title="¿Eres nuevo aquí? Regístrate"
             size="h3"
             weight={false}
             color="secondary"
-            action={() => props.navigation.navigate('Register')}
+            action={() => navigation.navigate('Register')}
           />
         </View>
       </View>

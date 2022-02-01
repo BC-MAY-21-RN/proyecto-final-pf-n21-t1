@@ -1,8 +1,8 @@
 import React from 'react';
-import {GeneralButton, GeneralLink, GeneralText} from '../components/atoms';
+import {GeneralLink, GeneralText} from '../components/atoms';
 import {GeneralHeader} from '../components/molecules/GeneralHeader';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {View, StyleSheet} from 'react-native';
+import buttonsMapping from '../utils/buttonsMapping';
 
 const buttonsRender = () => {
   const generalButtons = [
@@ -17,15 +17,7 @@ const buttonsRender = () => {
       icon: 'hammer',
     },
   ];
-  const buttons = generalButtons.map((button, index) => (
-    <GeneralButton
-      key={index}
-      title={' ' + button.title}
-      color={button.color}
-      icon={<Icon name={button.icon} size={15} color="#ffff" />}
-    />
-  ));
-  return buttons;
+  return buttonsMapping(generalButtons);
 };
 
 export const Path = () => {
