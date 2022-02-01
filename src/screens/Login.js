@@ -23,7 +23,21 @@ const inputsRender = () => {
   return inputsMapping(generalInputs);
 };
 
-const buttonsRender = navigation => {
+const LinkContainer = ({navigation}) => {
+  return (
+    <View style={styles.linkContainer}>
+      <GeneralLink
+        title="¿Eres nuevo aquí? Regístrate"
+        size="h3"
+        weight={false}
+        color="secondary"
+        action={() => navigation.navigate('Register')}
+      />
+    </View>
+  );
+};
+
+export const Login = ({navigation}) => {
   const generalButtons = [
     {
       title: 'Iniciar sesión',
@@ -36,26 +50,16 @@ const buttonsRender = navigation => {
       icon: 'logo-facebook',
     },
   ];
-  return buttonsMapping(generalButtons);
-};
-
-export const Login = ({navigation}) => {
   return (
     <View style={styles.loginContainer}>
-      <GeneralHeader isTabRendered />
+      <GeneralHeader />
       <View>
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
         <View style={styles.inputContainer}>{inputsRender()}</View>
-        <View style={styles.buttonContainer}>{buttonsRender(navigation)}</View>
-        <View style={styles.linkContainer}>
-          <GeneralLink
-            title="¿Eres nuevo aquí? Regístrate"
-            size="h3"
-            weight={false}
-            color="secondary"
-            action={() => navigation.navigate('Register')}
-          />
+        <View style={styles.buttonContainer}>
+          {buttonsMapping(generalButtons)}
         </View>
+        <LinkContainer navigation={navigation} />
       </View>
     </View>
   );

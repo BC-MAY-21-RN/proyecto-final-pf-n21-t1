@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from 'react-native-elements';
-import {Color, Size} from '../../../theme/default';
+import {Color} from '../../../theme/default';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const GeneralButton = ({size, title, color, icon, action}) => {
   size ? (size = size) : (size = 300);
@@ -17,7 +18,7 @@ export const GeneralButton = ({size, title, color, icon, action}) => {
     <Button
       buttonStyle={buttonStyle}
       title={title}
-      icon={icon}
+      icon={<Icon name={icon} size={15} color="#ffff" />}
       onPress={action}
     />
   );

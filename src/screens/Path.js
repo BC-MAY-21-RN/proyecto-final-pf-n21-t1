@@ -22,7 +22,7 @@ const buttonsRender = navigation => {
   return buttonsMapping(generalButtons);
 };
 
-export const Path = navigation => {
+export const Path = ({navigation}) => {
   return (
     <View style={styles.totalScreen}>
       <GeneralHeader isMenuVisible />

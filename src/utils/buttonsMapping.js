@@ -14,7 +14,7 @@ export default function buttonsMapping(generalButtons) {
           key={index}
           title={spaceText + button.title}
           color={button.color}
-          icon={<Icon name={button.icon} size={15} color="#ffff" />}
+          icon={button.icon}
         />
       );
     },
