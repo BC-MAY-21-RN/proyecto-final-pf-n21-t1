@@ -14,6 +14,7 @@ export default function buttonsMapping(generalButtons) {
           title={spaceText + button.title}
           color={button.color}
           icon={button.icon}
+          action={button.action}
         />
       );
     },
