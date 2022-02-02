@@ -1,9 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {GeneralLink, GeneralText} from '../components/atoms';
-import {GeneralHeader} from '../components/molecules';
+import {GeneralHeader, SignButtons} from '../components/molecules';
 import inputsMapping from '../utils/inputsMapping';
-import buttonsMapping from '../utils/buttonsMapping';
 
 const inputsRender = () => {
   const generalInputs = [
@@ -28,7 +27,7 @@ const LinkContainer = ({navigation}) => {
     <View style={styles.linkContainer}>
       <GeneralLink
         title="¿Eres nuevo aquí? Regístrate"
-        size="h3"
+        size="h5"
         weight={false}
         color="secondary"
         action={() => navigation.navigate('Register')}
@@ -38,18 +37,6 @@ const LinkContainer = ({navigation}) => {
 };
 
 export const Login = ({navigation}) => {
-  const generalButtons = [
-    {
-      title: 'Iniciar sesión',
-      color: 'primary',
-      action: () => navigation.navigate('Path'),
-    },
-    {
-      title: 'Iniciar sesión con Facebook',
-      color: 'facebook',
-      icon: 'logo-facebook',
-    },
-  ];
   return (
     <View style={styles.loginContainer}>
       <GeneralHeader />
@@ -57,7 +44,7 @@ export const Login = ({navigation}) => {
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
         <View style={styles.inputContainer}>{inputsRender()}</View>
         <View style={styles.buttonContainer}>
-          {buttonsMapping(generalButtons)}
+          <SignButtons navigation={navigation} type="login" />
         </View>
         <LinkContainer navigation={navigation} />
       </View>

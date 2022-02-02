@@ -1,6 +1,5 @@
 import React from 'react';
 import {GeneralButton} from '../components/atoms';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function buttonsMapping(generalButtons) {
   const buttons = generalButtons.map(
