@@ -6,10 +6,14 @@ import {TabRender} from '../../atoms';
 import {TouchableOpacity} from 'react-native';
 import {Color} from '../../../theme/default';
 
-const MenuButton = () => {
+const MenuButton = props => {
   return (
     <TouchableOpacity>
-      <Icon name={'menu'} size={40} color={Color.primary} />
+      <Icon
+        name={props.isMenuVisible ? 'menu' : ''}
+        size={40}
+        color={Color.primary}
+      />
     </TouchableOpacity>
   );
 };
@@ -19,10 +23,10 @@ export const GeneralHeader = props => {
     <HeaderContainer>
       <Header>
         <Logo source={appLogo} />
-        <MenuButton />
+        <MenuButton isMenuVisible={props.isMenuVisible} />
       </Header>
       <TabRender
-        isRendered={props.isRendered}
+        isTabRendered={props.isTabRendered}
         title={props.title}
         color={props.color}
         weight={props.weight}

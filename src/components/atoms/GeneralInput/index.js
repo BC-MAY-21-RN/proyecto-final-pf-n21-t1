@@ -19,7 +19,7 @@ const eyeButton = (visible, setVisible) => {
   );
 };
 
-export const GeneralInput = ({title, placeholder, secret}) => {
+export const GeneralInput = ({title, placeholder, secret, leftIcon}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -27,10 +27,12 @@ export const GeneralInput = ({title, placeholder, secret}) => {
   }, [secret]);
 
   const inputContainerStyle = {
+    height: 50,
     marginTop: 5,
     borderRadius: 8,
     borderBottomWidth: 0,
     backgroundColor: Color.input,
+    padding: 10,
   };
 
   const labelStyle = {
@@ -52,6 +54,7 @@ export const GeneralInput = ({title, placeholder, secret}) => {
       inputStyle={inputStyle}
       secureTextEntry={visible}
       rightIcon={secret ? eyeButton(visible, setVisible) : undefined}
+      leftIcon={<Icon name={leftIcon} size={20} />}
     />
   );
 };
