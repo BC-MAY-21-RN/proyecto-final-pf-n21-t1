@@ -44,7 +44,11 @@ export const Login = ({navigation}) => {
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
         <View style={styles.inputContainer}>{inputsRender()}</View>
         <View style={styles.buttonContainer}>
-          <SignButtons navigation={navigation} type="login" />
+          <SignButtons
+            navigation={navigation}
+            type="login"
+            style={styles.botones}
+          />
         </View>
         <LinkContainer navigation={navigation} />
       </View>
@@ -71,5 +75,10 @@ const styles = StyleSheet.create({
     height: '20%',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  botones: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: '100%',
   },
 });
