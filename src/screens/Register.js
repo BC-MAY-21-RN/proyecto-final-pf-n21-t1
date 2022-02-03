@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {GeneralLink, GeneralText} from '../components/atoms';
+import {View} from 'react-native';
+import {Container, GeneralText} from '../components/atoms';
 import {GeneralHeader, SignButtons} from '../components/molecules/index';
 import inputsMapping from '../utils/inputsMapping';
+import {LinkContainer} from '../components/molecules';
 
 const inputsRender = () => {
   const generalInputs = [
@@ -29,41 +30,24 @@ const inputsRender = () => {
 
 export const Register = ({navigation}) => {
   return (
-    <>
+    <Container>
       <GeneralHeader />
-      <View style={styles.registro}>
+      <View>
         <GeneralText size={'h1'} color={'secondary'} title={'Regístrate'} />
       </View>
-      <View style={styles.center}>
-        {inputsRender()}
-        <SignButtons
-          style={styles.botones}
-          navigation={navigation}
-          type="register"
-        />
-        <GeneralLink
-          title={'¿Ya eres usuario? Inicia sesión'}
-          size={'h4'}
-          color={'secondary'}
-          action={() => navigation.navigate('Login')}
-        />
-      </View>
-    </>
+      {inputsRender()}
+      <SignButtons navigation={navigation} type="register" />
+
+      <LinkContainer
+        navigation={navigation}
+        title={'¿Ya eres usuario? Inicia sesión'}
+        action={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{name: 'Login'}],
+          })
+        }
+      />
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  registro: {
-    marginLeft: 10,
-  },
-  botones: {
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '23%',
-  },
-});

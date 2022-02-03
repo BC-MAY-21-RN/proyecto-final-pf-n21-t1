@@ -1,22 +1,30 @@
 import React from 'react';
-import {GeneralLink, GeneralText} from '../components/atoms';
+import {Container, GeneralText} from '../components/atoms';
 import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
+import {LinkContainer} from '../components/molecules';
 
 const buttonsRender = navigation => {
+  const action = () =>
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Login'}],
+    });
   const generalButtons = [
     {
       title: 'Solucionar un problema en mi hogar',
       color: 'primary',
       icon: 'home',
-      action: () => navigation.navigate('Login'),
+      size: 330,
+      action: action,
     },
     {
       title: 'Ofrecer servicios de mantenimiento',
       color: 'secondary',
       icon: 'hammer',
-      action: () => navigation.navigate('Login'),
+      size: 330,
+      action: action,
     },
   ];
   return buttonsMapping(generalButtons);
@@ -24,8 +32,14 @@ const buttonsRender = navigation => {
 
 export const Path = ({navigation}) => {
   return (
-    <View style={styles.totalScreen}>
-      <GeneralHeader isMenuVisible />
+    <Container>
+      <GeneralHeader
+        isTabRendered
+        title="Bienvenido"
+        color="background"
+        weight
+        size="h1"
+      />
       <View style={styles.screen2}>
         <GeneralText
           title="¿Que te trae hoy por aqui?"
@@ -34,18 +48,21 @@ export const Path = ({navigation}) => {
           color="secondary"
         />
         <View style={styles.buttons}>{buttonsRender(navigation)}</View>
-        <GeneralLink weight title="Cerrar sesión" size="h5" color="secondary" />
+        <LinkContainer
+          navigation={navigation}
+          title={'Cerrar sesión'}
+          action={() =>
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Login'}],
+            })
+          }
+        />
       </View>
-    </View>
+    </Container>
   );
 };
 const styles = StyleSheet.create({
-  totalScreen: {
-    height: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
   screen2: {
     height: '80%',
     flexDirection: 'column',

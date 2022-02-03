@@ -1,5 +1,6 @@
 import React from 'react';
 import {GeneralInput} from '../components/atoms';
+import {InputContainer} from '../components/atoms/GeneralInput/styled';
 
 export default function inputsMapping(generalInputs) {
   const inputs = generalInputs.map(
@@ -16,5 +17,5 @@ export default function inputsMapping(generalInputs) {
       />
     ),
   );
-  return inputs;
+  return <InputContainer>{inputs}</InputContainer>;
 }

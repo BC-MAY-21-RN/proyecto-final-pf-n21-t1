@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
 import buttonsMapping from '../../../utils/buttonsMapping';
+import {ButtonContainer, ButtonStyle} from './styled';
 
-export const SignButtons = ({type, navigation, style}) => {
+export const SignButtons = ({type, navigation}) => {
   const generalButtons = [
     {
       title: type === 'login' ? 'Iniciar sesión' : 'Registrarse',
@@ -18,5 +18,9 @@ export const SignButtons = ({type, navigation, style}) => {
       icon: 'logo-facebook',
     },
   ];
-  return <View style={style}>{buttonsMapping(generalButtons)}</View>;
+  return (
+    <ButtonContainer>
+      <ButtonStyle>{buttonsMapping(generalButtons)}</ButtonStyle>
+    </ButtonContainer>
+  );
 };
