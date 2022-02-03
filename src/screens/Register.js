@@ -37,17 +37,7 @@ export const Register = ({navigation}) => {
       </View>
       {inputsRender()}
       <SignButtons navigation={navigation} type="register" />
-
-      <LinkContainer
-        navigation={navigation}
-        title={'¿Ya eres usuario? Inicia sesión'}
-        action={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{name: 'Login'}],
-          })
-        }
-      />
+      <LinkContainer navigation={navigation} type="Login" />
     </Container>
   );
 };

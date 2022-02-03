@@ -48,16 +48,7 @@ export const Path = ({navigation}) => {
           color="secondary"
         />
         <View style={styles.buttons}>{buttonsRender(navigation)}</View>
-        <LinkContainer
-          navigation={navigation}
-          title={'Cerrar sesión'}
-          action={() =>
-            navigation.reset({
-              index: 0,
-              routes: [{name: 'Login'}],
-            })
-          }
-        />
+        <LinkContainer navigation={navigation} type="Logout" />
       </View>
     </Container>
   );
