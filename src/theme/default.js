@@ -1,7 +1,7 @@
 export const Color = {
   primary: '#26cbdf',
   secondary: '#017897',
-  hover: '#94e9f1',
+  hover: 'rgba(147, 233, 241, 0.52)',
   background: '#ffffff',
   text: '#888888',
   input: '#e0e0e0',
