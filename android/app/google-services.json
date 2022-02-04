@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "738397443752",
+    "project_id": "appdulcehogar",
+    "storage_bucket": "appdulcehogar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738397443752:android:7b478da56b1a52a44f949d",
+        "android_client_info": {
+          "package_name": "com.appdulcehogar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738397443752-d0unjcj4sag2o3j0a7lsrpeim2pcpubu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appdulcehogar",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "738397443752-ohjhhan7mm20180cue0odfp76kag2tdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7zMGHBopfEKu1XvXO1Fe1ZhciwQhvF04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738397443752-ohjhhan7mm20180cue0odfp76kag2tdb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
