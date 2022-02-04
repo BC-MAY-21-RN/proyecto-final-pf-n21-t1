@@ -1,4 +1,5 @@
 export {GeneralButton} from './GeneralButton';
+export {GeneralContainer} from './GeneralContainer';
 export {GeneralInput} from './GeneralInput';
 export {GeneralText} from './GeneralText';
 export {GeneralPicker} from './GeneralPicker';
