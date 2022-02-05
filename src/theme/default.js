@@ -5,7 +5,6 @@ export const Color = {
   background: '#ffffff',
   text: '#888888',
   input: '#e0e0e0',
-  facebook: '#017897',
 };
 
 export const Size = {
