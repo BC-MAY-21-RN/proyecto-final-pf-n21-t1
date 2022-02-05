@@ -20,5 +20,5 @@ export const Header = styled.View`
 export const Logo = styled.Image`
   width: 130px;
   height: 65px;
-  margin-left: 4;
+  margin-left: 4px;
 `;
