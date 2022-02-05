@@ -14,7 +14,13 @@ export const ServiceProviders = () => {
         weight
         size="h1"
       />
-        <ProviderCard />
+      <ProviderCard
+        width="360px"
+        height="180px"
+        name="José Rodríguez"
+        number="312-123-4329"
+        zone="Colima y Tecomán"
+      />
     </>
   );
 };

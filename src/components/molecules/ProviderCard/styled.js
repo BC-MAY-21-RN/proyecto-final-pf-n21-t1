@@ -21,3 +21,7 @@ export const StarsContainer = styled.View`
   width: 100%;
   height: 30%;
 `;
+
+export const NumberRow = styled.View`
+  flex-direction: row;
+`;
