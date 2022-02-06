@@ -1,6 +1,12 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {StarButton} from '../../components/atoms';
 
 export const ServiceScore = () => {
-  return <Text>ServiceScore</Text>;
+  return (
+    <>
+      <SafeAreaView />
+      <StarButton filled />
+    </>
+  );
 };
