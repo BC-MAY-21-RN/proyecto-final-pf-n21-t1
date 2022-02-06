@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {GeneralContainer} from '../../atoms';
 
 export const CardDetailsContainer = styled.View`
   flex-direction: row;

@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {GeneralContainer} from '../../components/atoms';
 import {GeneralHeader, ProviderCard} from '../../components/molecules';
-import { jose } from '../../assets/images';
+import {jose} from '../../assets/images';
 
 export const ServiceProviders = () => {
   return (

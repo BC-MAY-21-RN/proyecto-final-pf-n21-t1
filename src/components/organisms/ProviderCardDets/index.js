@@ -3,7 +3,7 @@ import {Icon} from 'react-native-elements/dist/icons/Icon';
 import {Color} from '../../../theme/default';
 import {jose} from '../../../assets/images';
 import {Container, GeneralContainer, GeneralText} from '../../atoms';
-import {GeneralHeader, LinkContainer, ProviderCard} from '../../molecules';
+import {LinkContainer, ProviderCard} from '../../molecules';
 import {
   CardDetailsContainer,
   DetailsContainer,
@@ -12,16 +12,9 @@ import {
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
 
-export const ProviderCardDets = ({navigation}) => {
+export const ProviderCardDets = ({navigation, buttonType}) => {
   return (
     <Container>
-      <GeneralHeader
-        isTabRendered
-        isMenuVisible
-        title="FONTANERÍA"
-        color="background"
-        size="h1"
-      />
       <CardDetailsContainer>
         <ProviderCard
           width={360}
@@ -46,7 +39,7 @@ export const ProviderCardDets = ({navigation}) => {
           size="h4"
           color="text"
         />
-        <GeneralContainer width={340} height={70}>
+        <GeneralContainer width="340px" height="70px">
           <TextContainer>
             <GeneralText
               title="Notas importantes"
@@ -70,7 +63,7 @@ export const ProviderCardDets = ({navigation}) => {
           height="40px"
         />
       </LinkContain>
-      <CardButtons navigation={navigation} type="ProviderCardData" />
+      <CardButtons navigation={navigation} type={buttonType} />
     </Container>
   );
 };
