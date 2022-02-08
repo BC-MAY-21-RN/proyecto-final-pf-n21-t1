@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {GeneralText} from '../../atoms';
+import {GeneralText, StarRating} from '../../atoms';
 import {
   AvatarImg,
   ImgContainer,
@@ -22,7 +22,7 @@ export const ProviderCard = ({name, number, zone, image}) => {
           <GeneralText title={number} size="h4" color="text" />
         </NumberRow>
         <GeneralText title={zone} size="h4" color="text" />
-        <StarsContainer />
+        <StarRating quantity={5} readBoolean={true} startValue={5} />
       </InfoContainer>
     </>
   );
