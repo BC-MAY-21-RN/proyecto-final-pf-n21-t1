@@ -1,8 +1,12 @@
 import React from 'react';
 import {Rating} from 'react-native-elements';
-import {Color} from '../../../theme/default';
 
-export const StarRating = ({quantity, readBoolean, startValue}) => {
+export const StarRating = ({
+  quantity,
+  readBoolean,
+  startValue,
+  backgroundColor,
+}) => {
   const ratingCompleted = rating => {
     console.log('Rating is ' + rating);
   };
@@ -15,7 +19,7 @@ export const StarRating = ({quantity, readBoolean, startValue}) => {
       startingValue={startValue}
       imageSize={30}
       style={{alignSelf: aligning}}
-      tintColor={Color.hover}
+      tintColor={backgroundColor}
     />
   );
 };

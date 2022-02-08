@@ -1,15 +1,9 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {GeneralText, StarRating} from '../../atoms';
-import {
-  AvatarImg,
-  ImgContainer,
-  InfoContainer,
-  NumberRow,
-  StarsContainer,
-} from './styled';
+import {AvatarImg, ImgContainer, InfoContainer, NumberRow} from './styled';
 
-export const ProviderCard = ({name, number, zone, image}) => {
+export const ProviderCard = ({name, number, zone, image, backgroundColor}) => {
   return (
     <>
       <ImgContainer>
@@ -22,7 +16,12 @@ export const ProviderCard = ({name, number, zone, image}) => {
           <GeneralText title={number} size="h4" color="text" />
         </NumberRow>
         <GeneralText title={zone} size="h4" color="text" />
-        <StarRating quantity={5} readBoolean={true} startValue={5} />
+        <StarRating
+          quantity={5}
+          readBoolean={true}
+          startValue={5}
+          backgroundColor={backgroundColor}
+        />
       </InfoContainer>
     </>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Icon} from 'react-native-elements/dist/icons/Icon';
 import {Color} from '../../../theme/default';
-import {jose} from '../../../assets/images';
 import {Container, GeneralContainer, GeneralText} from '../../atoms';
 import {LinkContainer, ProviderCard} from '../../molecules';
 import {
@@ -16,14 +15,7 @@ export const ProviderCardDets = ({navigation, buttonType}) => {
   return (
     <Container>
       <CardDetailsContainer>
-        <ProviderCard
-          width={360}
-          height={180}
-          name="José Rodríguez"
-          number="312-123-4329"
-          zone="Colima y Tecomán"
-          image={jose}
-        />
+        <ProviderCard width={360} height={180} />
       </CardDetailsContainer>
       <DetailsContainer>
         <GeneralText
@@ -32,13 +24,9 @@ export const ProviderCardDets = ({navigation, buttonType}) => {
           color="text"
           weight
         />
-        <GeneralText title="8 am a 4 pm" size="h4" color="text" />
+        <GeneralText title="" size="h4" color="text" />
         <GeneralText title="Descripción" size="h3" color="text" weight />
-        <GeneralText
-          title="Prestador de servicios de fontanería"
-          size="h4"
-          color="text"
-        />
+        <GeneralText title="" size="h4" color="text" />
         <GeneralContainer width="340px" height="70px">
           <TextContainer>
             <GeneralText
@@ -47,11 +35,7 @@ export const ProviderCardDets = ({navigation, buttonType}) => {
               color="secondary"
               weight
             />
-            <GeneralText
-              title="Estoy disponible los 365 días del año"
-              size="h4"
-              color="secondary"
-            />
+            <GeneralText title="" size="h4" color="secondary" />
           </TextContainer>
         </GeneralContainer>
       </DetailsContainer>
