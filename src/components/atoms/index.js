@@ -7,3 +7,4 @@ export {GeneralLink} from './GeneralLink';
 export {TabRender} from './TabRender';
 export {Container} from './Container';
 export {StarButton} from './StarButton';
+export {StarRating} from './StarRating';

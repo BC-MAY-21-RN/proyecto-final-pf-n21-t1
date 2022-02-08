@@ -1,6 +1,6 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {useState} from 'react';
 import {StarButton} from '../components/atoms';
+import {StarsContainer} from '../components/atoms/StarButton/styled';
 
 export default function starsHandle() {
   var stars = [];
@@ -10,5 +10,5 @@ export default function starsHandle() {
   const starsMap = stars.map((button, index) => {
     return <StarButton key={index} filled />;
   });
-  return starsMap;
+  return <StarsContainer>{starsMap}</StarsContainer>;
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {StarButton} from '../../components/atoms';
-import starsHandle from '../../utils/starsHandle';
+import { StarRating } from '../../components/atoms';
 
 export const ServiceScore = () => {
   return (
     <>
       <SafeAreaView />
-      {starsHandle()}
+      <StarRating />
     </>
   );
 };
