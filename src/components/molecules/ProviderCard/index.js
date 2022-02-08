@@ -19,7 +19,7 @@ export const ProviderCard = ({name, number, zone, image, backgroundColor}) => {
         <StarRating
           quantity={5}
           readBoolean={true}
-          startValue={5}
+          startValue={4}
           backgroundColor={backgroundColor}
         />
       </InfoContainer>
