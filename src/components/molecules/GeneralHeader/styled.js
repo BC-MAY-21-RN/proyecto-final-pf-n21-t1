@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.View`
-  align-self: center;
   flex-direction: column;
   height: 20%;
   width: 100%;
@@ -10,7 +9,6 @@ export const HeaderContainer = styled.View`
 
 export const Header = styled.View`
   background-color: #ffff;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 50%;

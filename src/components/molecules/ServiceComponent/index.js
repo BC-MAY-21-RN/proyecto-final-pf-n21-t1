@@ -17,6 +17,8 @@ export const ServiceComponent = navigation => {
   } */
 
   return (
-    <ServiceButtons>{ServiceButtonMapping(serviceButtonsData,navigation)}</ServiceButtons>
+    <ServiceButtons>
+      {ServiceButtonMapping(serviceButtonsData, navigation)}
+    </ServiceButtons>
   );
 };
