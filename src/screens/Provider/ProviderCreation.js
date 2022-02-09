@@ -7,7 +7,7 @@ import {
   GeneralButton,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {PickerWrapper, CenterView, MarginView} from './styled';
+import {PickerWrapper, CenterView, MarginView} from '../styled';
 
 export const ProviderCreation = () => {
   const style = {
