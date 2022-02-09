@@ -1,6 +1,10 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {CardOrganism} from '../../components/organisms';
 
-export const ProviderPreview = () => {
-  return <Text>ProviderPreview</Text>;
+export const ProviderPreview = ({navigation}) => {
+  return (
+    <>
+      <CardOrganism navigation={navigation} />
+    </>
+  );
 };

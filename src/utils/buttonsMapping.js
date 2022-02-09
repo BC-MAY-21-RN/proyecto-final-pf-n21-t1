@@ -1,8 +1,8 @@
 import React from 'react';
 import {GeneralButton} from '../components/atoms';
 
-export default function buttonsMapping(generalButtons) {
-  const buttons = generalButtons.map(
+export default function buttonsMapping(buttonsData) {
+  const buttons = buttonsData.map(
     (
       button,
       index, //button=item

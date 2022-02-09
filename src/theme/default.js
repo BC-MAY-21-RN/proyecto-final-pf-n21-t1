@@ -1,11 +1,10 @@
 export const Color = {
   primary: '#26cbdf',
   secondary: '#017897',
-  hover: 'rgba(147, 233, 241, 0.52)',
+  hover: 'rgba(180, 233, 248, 1)',
   background: '#ffffff',
   text: '#888888',
   input: '#e0e0e0',
-  facebook: '#3b5998',
 };
 
 export const Size = {

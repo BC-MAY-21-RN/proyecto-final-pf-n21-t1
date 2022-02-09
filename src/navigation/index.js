@@ -5,7 +5,7 @@ import {
   DateSelection,
   Login,
   Path,
-  ProviderCard,
+  ProviderCardData,
   ProviderCreation,
   ProviderPreview,
   Register,
@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 const Navigate = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="ProviderPreview"
       screenOptions={{
         headerShown: false,
       }}>
@@ -34,7 +34,7 @@ const Navigate = () => {
       <Stack.Screen name="ProviderPreview" component={ProviderPreview} />
       <Stack.Screen name="UpcomingServices" component={UpcomingServices} />
       <Stack.Screen name="DateSelection" component={DateSelection} />
-      <Stack.Screen name="ProviderCard" component={ProviderCard} />
+      <Stack.Screen name="ProviderCardData" component={ProviderCardData} />
       <Stack.Screen name="ServiceGrid" component={ServiceGrid} />
       <Stack.Screen name="ServiceProviders" component={ServiceProviders} />
       <Stack.Screen name="ServiceScore" component={ServiceScore} />
