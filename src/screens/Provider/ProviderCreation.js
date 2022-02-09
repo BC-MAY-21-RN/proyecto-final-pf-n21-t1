@@ -9,18 +9,9 @@ import {
 import {GeneralHeader} from '../../components/molecules';
 import {PickerWrapper, CenterView, MarginView} from '../styled';
 
-export const ProviderCreation = () => {
-  const style = {
-    width: '50%',
-  };
-  const data = [
-    {
-      value: 0,
-      label: 'Prueba',
-    },
-  ];
+const Header = () => {
   return (
-    <View>
+    <>
       <GeneralHeader
         title="Tarjeta de presentación"
         isTabRendered={true}
@@ -40,6 +31,13 @@ export const ProviderCreation = () => {
           size="h5"
         />
       </CenterView>
+    </>
+  );
+};
+
+const Form = ({data, style}) => {
+  return (
+    <>
       <MarginView>
         <GeneralText title="Servicios" size="h4" />
       </MarginView>
@@ -56,6 +54,24 @@ export const ProviderCreation = () => {
         title="Notas importantes"
         placeholder="Trabajo días festivos..."
       />
+    </>
+  );
+};
+
+export const ProviderCreation = () => {
+  const style = {
+    width: '50%',
+  };
+  const data = [
+    {
+      value: 0,
+      label: 'Prueba',
+    },
+  ];
+  return (
+    <View>
+      <Header />
+      <Form data={data} style={style} />
       <CenterView>
         <GeneralButton title="Empezar" color="secondary" />
       </CenterView>
