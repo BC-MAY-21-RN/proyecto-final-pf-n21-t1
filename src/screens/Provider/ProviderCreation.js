@@ -7,7 +7,7 @@ import {
   GeneralButton,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {PickerWrapper, CenterView} from './styled';
+import {PickerWrapper, CenterView, MarginView} from './styled';
 
 export const ProviderCreation = () => {
   const style = {
@@ -40,19 +40,25 @@ export const ProviderCreation = () => {
           size="h5"
         />
       </CenterView>
-      <GeneralText title="Servicios" size="h4" />
+      <MarginView>
+        <GeneralText title="Servicios" size="h4" />
+      </MarginView>
       <GeneralPicker data={data} />
       <GeneralInput title="Telefono celular" placeholder="1234567890" />
-      <GeneralText title="Horario de disponibilidad" size="h4" />
-      <PickerWrapper>
-        <GeneralPicker data={data} style={style} />
-        <GeneralPicker data={data} style={style} />
-      </PickerWrapper>
+      <MarginView>
+        <GeneralText title="Horario de disponibilidad" size="h4" />
+        <PickerWrapper>
+          <GeneralPicker data={data} style={style} />
+          <GeneralPicker data={data} style={style} />
+        </PickerWrapper>
+      </MarginView>
       <GeneralInput
         title="Notas importantes"
         placeholder="Trabajo días festivos..."
       />
-      <GeneralButton title="Empezar" color="secondary" />
+      <CenterView>
+        <GeneralButton title="Empezar" color="secondary" />
+      </CenterView>
     </View>
   );
 };
