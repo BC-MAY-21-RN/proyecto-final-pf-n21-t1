@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
 
-export const GeneralPicker = ({data}) => {
+export const GeneralPicker = ({data, style}) => {
   const [value, setValue] = useState();
   const [selected, setSelected] = useState(0);
   useEffect(() => {
@@ -15,6 +15,7 @@ export const GeneralPicker = ({data}) => {
 
   return (
     <Picker
+      style={style}
       selectedValue={selected}
       onValueChange={({itemValue}) => setSelected(itemValue)}>
       {value}
