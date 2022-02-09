@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import { jose } from '../../assets/images';
+import {jose} from '../../assets/images';
 import {GeneralContainer} from '../../components/atoms';
 import {GeneralHeader, ProviderCard} from '../../components/molecules';
 import {Color} from '../../theme/default';

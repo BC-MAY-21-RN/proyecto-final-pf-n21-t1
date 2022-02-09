@@ -3,14 +3,16 @@ import {GeneralText, GeneralButton, Container} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import DatePicker from 'react-native-date-picker';
 import {CenterView} from '../styled';
+import {View} from 'react-native';
 
 export const DateSelection = () => {
   const [date, setDate] = useState(new Date());
   return (
-    <Container>
+    <>
       <GeneralHeader
         title="Contratar"
-        isTabRendered={true}
+        isTabRendered
+        isMenuVisible
         size="h1"
         color="background"
         weight
@@ -25,6 +27,6 @@ export const DateSelection = () => {
         <DatePicker mode="datetime" date={date} onDateChange={setDate} />
         <GeneralButton title="Siguiente" color="secondary" />
       </CenterView>
-    </Container>
+    </>
   );
 };
