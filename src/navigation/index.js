@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 const Navigate = () => {
   return (
     <Stack.Navigator
-      initialRouteName="ServiceProviders"
+      initialRouteName="ServiceGrid"
       screenOptions={{
         headerShown: false,
       }}>
