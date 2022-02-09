@@ -54,7 +54,7 @@ export const GeneralInput = ({title, placeholder, secret, leftIcon}) => {
       inputStyle={inputStyle}
       secureTextEntry={visible}
       rightIcon={secret ? eyeButton(visible, setVisible) : undefined}
-      leftIcon={<Icon name={leftIcon} size={20} />}
+      leftIcon={leftIcon ? <Icon name={leftIcon} size={20} /> : undefined}
     />
   );
 };

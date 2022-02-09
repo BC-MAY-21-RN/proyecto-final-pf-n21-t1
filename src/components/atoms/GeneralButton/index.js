@@ -18,7 +18,7 @@ export const GeneralButton = ({size, title, color, icon, action}) => {
     <Button
       buttonStyle={buttonStyle}
       title={title}
-      icon={<Icon name={icon} size={15} color="#ffff" />}
+      icon={icon ? <Icon name={icon} size={15} color="#ffff" /> : undefined}
       onPress={action}
     />
   );
