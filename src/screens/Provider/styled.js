@@ -7,3 +7,7 @@ export const PickerWrapper = styled.View`
 export const CenterView = styled.View`
   align-items: center;
 `;
+
+export const MarginView = styled.View`
+  margin-horizontal: 10px;
+`;
