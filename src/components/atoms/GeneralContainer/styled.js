@@ -9,6 +9,5 @@ export const ContainerGeneral = styled.View`
   align-self: center;
   flex-direction: ${props => (props.direction ? 'row' : 'column')};
   justify-content: space-around;
-  align-items: center;
   margin-bottom: ${props => props.marginBottom};
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
+import {TouchableOpacity} from 'react-native';
 import {GeneralContainer, GeneralText} from '../components/atoms';
 import {ServiceImage} from '../components/molecules/ServiceComponent/styled';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function ServiceButtonMapping(serviceButtonsData) {
   const serviceButtons = serviceButtonsData.map(
