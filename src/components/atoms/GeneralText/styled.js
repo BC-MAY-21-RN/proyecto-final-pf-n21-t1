@@ -5,3 +5,8 @@ export const AppText = styled.Text`
   color: ${props => props.color};
   font-weight: ${props => (props.weight ? 'bold' : 'normal')};
 `;
+
+export const TextContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
