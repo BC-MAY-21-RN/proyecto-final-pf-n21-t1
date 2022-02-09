@@ -7,6 +7,6 @@ export const ContainerGeneral = styled.View`
   background-color: ${Color.hover};
   border-radius: 15px;
   align-self: center;
-  flex-direction: column;
+  flex-direction: ${props => (props.direction ? 'row' : 'column')};
   justify-content: space-around;
 `;

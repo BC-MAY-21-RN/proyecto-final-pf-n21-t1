@@ -6,7 +6,7 @@ export {ProviderCreation} from './Provider/ProviderCreation';
 export {ProviderPreview} from './Provider/ProviderPreview';
 export {UpcomingServices} from './Provider/UpcomingServices';
 export {DateSelection} from './Recruiter/DateSelection';
-export {ProviderCard} from './Recruiter/ProviderCard';
+export {ProviderCardData} from './Recruiter/ProviderCardData';
 export {ServiceGrid} from './Recruiter/ServiceGrid';
 export {ServiceProviders} from './Recruiter/ServiceProviders';
 export {ServiceScore} from './Recruiter/ServiceScore';

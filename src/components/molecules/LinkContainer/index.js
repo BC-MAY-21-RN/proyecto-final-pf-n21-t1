@@ -2,11 +2,12 @@ import React from 'react';
 import {GeneralLink} from '../../atoms';
 import {LinkBox} from './styled';
 
-export const LinkContainer = ({type, navigation}) => {
+export const LinkContainer = ({type, navigation, height}) => {
   const linkType = {
     Login: '¿Ya eres usuario? Inicia sesión',
     Register: '¿Eres nuevo aquí? Regístrate',
     Logout: 'Cerrar sesión',
+    CustomerOpinions: 'Conoce la opinión de sus clientes',
   };
   const action = () =>
     navigation.reset({
@@ -15,10 +16,10 @@ export const LinkContainer = ({type, navigation}) => {
     });
 
   return (
-    <LinkBox>
+    <LinkBox height={height}>
       <GeneralLink
         title={linkType[type]}
-        size="h5"
+        size="h4"
         color="secondary"
         action={action}
       />
