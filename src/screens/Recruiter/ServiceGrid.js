@@ -1,8 +1,9 @@
 import React from 'react';
 import {Container} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
+import {ServiceComponent} from '../../components/molecules/ServiceComponent';
 
-export const ServiceGrid = () => {
+export const ServiceGrid = navigation => {
   return (
     <Container>
       <GeneralHeader
@@ -13,6 +14,7 @@ export const ServiceGrid = () => {
         weight
         size="h1"
       />
+      <ServiceComponent navigation={navigation} />
     </Container>
   );
 };
