@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const PickerWrapper = styled.View`
   flex-direction: row;
+  height: 10%;
 `;
 
 export const CenterView = styled.View`
@@ -10,4 +11,5 @@ export const CenterView = styled.View`
 
 export const MarginView = styled.View`
   margin-horizontal: 10px;
+  height: 15%;
 `;

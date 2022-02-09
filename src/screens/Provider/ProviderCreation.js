@@ -14,7 +14,8 @@ const Header = () => {
     <>
       <GeneralHeader
         title="Tarjeta de presentación"
-        isTabRendered={true}
+        isMenuVisible
+        isTabRendered
         size="h1"
         color="background"
         weight
@@ -69,12 +70,12 @@ export const ProviderCreation = () => {
     },
   ];
   return (
-    <View>
+    <>
       <Header />
       <Form data={data} style={style} />
       <CenterView>
         <GeneralButton title="Empezar" color="secondary" />
       </CenterView>
-    </View>
+    </>
   );
 };
