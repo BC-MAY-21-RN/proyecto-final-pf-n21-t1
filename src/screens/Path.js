@@ -6,25 +6,20 @@ import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
 
 const buttonsRender = navigation => {
-  const action = () =>
-    navigation.reset({
-      index: 0,
-      routes: [{name: 'Login'}],
-    });
   const generalButtons = [
     {
       title: 'Solucionar un problema en mi hogar',
       color: 'primary',
       icon: 'home',
       size: 330,
-      action: action,
+      action: () => navigation.navigate('ServiceProviders'),
     },
     {
       title: 'Ofrecer servicios de mantenimiento',
       color: 'secondary',
       icon: 'hammer',
       size: 330,
-      action: action,
+      action: () => navigation.navigate('ProviderCreation'),
     },
   ];
   return buttonsMapping(generalButtons);

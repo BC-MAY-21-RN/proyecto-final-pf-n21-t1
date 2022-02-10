@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const CardOpacity = styled.TouchableOpacity`
+  width: 95%;
+  flex-direction: row;
+`;
+
 export const ImgContainer = styled.View`
   align-items: center;
   justify-content: center;
