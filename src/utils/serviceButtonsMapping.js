@@ -4,7 +4,6 @@ import {
   ServiceImage,
   Touchable,
 } from '../components/molecules/ServiceComponent/styled';
-import {StyleSheet} from 'react-native';
 
 export default function ServiceButtonMapping(serviceButtonsData) {
   const serviceButtons = serviceButtonsData.map(
@@ -37,15 +36,3 @@ export default function ServiceButtonMapping(serviceButtonsData) {
   );
   return serviceButtons;
 }
-/* 
-const styles = StyleSheet.create({
-  touchable: {
-    width: '50%',
-    alignSelf: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    boxShadow: '0px 8px 10px rgba(0, 0, 0, 0.2)', //Adri favor de quitarselo si se ve feo
-  },
-});
- */
