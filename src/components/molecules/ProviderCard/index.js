@@ -1,11 +1,17 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {GeneralText, StarRating} from '../../atoms';
-import {AvatarImg, ImgContainer, InfoContainer, NumberRow} from './styled';
+import {
+  AvatarImg,
+  CardOpacity,
+  ImgContainer,
+  InfoContainer,
+  NumberRow,
+} from './styled';
 
 export const ProviderCard = ({name, number, zone, image, backgroundColor}) => {
   return (
-    <>
+    <CardOpacity>
       <ImgContainer>
         <AvatarImg source={image} />
       </ImgContainer>
@@ -23,6 +29,6 @@ export const ProviderCard = ({name, number, zone, image, backgroundColor}) => {
           backgroundColor={backgroundColor}
         />
       </InfoContainer>
-    </>
+    </CardOpacity>
   );
 };

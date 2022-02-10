@@ -8,7 +8,14 @@ import {Color} from '../../theme/default';
 export const ServiceProviders = () => {
   return (
     <>
-      <GeneralHeader />
+      <GeneralHeader
+        isTabRendered
+        isMenuVisible
+        title="FONTANERÍA"
+        size="h1"
+        color="background"
+        weight
+      />
       <TouchableOpacity activeOpacity={1}>
         <GeneralContainer width="360px" height="180px" direction>
           <ProviderCard
