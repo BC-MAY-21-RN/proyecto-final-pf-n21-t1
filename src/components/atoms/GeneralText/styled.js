@@ -6,3 +6,8 @@ export const AppText = styled.Text`
   font-weight: ${props => (props.weight ? 'bold' : 'normal')};
   align-self: ${props => (props.alignSelf ? props.alignSelf : 'auto')};
 `;
+
+export const TextContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
