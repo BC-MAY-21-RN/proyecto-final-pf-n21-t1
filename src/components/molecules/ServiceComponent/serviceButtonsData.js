@@ -10,7 +10,7 @@ const serviceButtonsData = ({navigation}) => {
     {
       width: '90%',
       height: '20%',
-      marginBottom: '10%',
+      marginBottom: '20%',
       serviceTitle: 'Fontanero',
       icon: plumbering,
       toScreen: () => navigation.navigate('Login'),
@@ -18,7 +18,7 @@ const serviceButtonsData = ({navigation}) => {
     {
       width: '90%',
       height: '20%',
-      marginBottom: '10%',
+      marginBottom: '20%',
       serviceTitle: 'Constructor',
       icon: constructor,
       toScreen: () => navigation.navigate('Login'),
@@ -26,7 +26,7 @@ const serviceButtonsData = ({navigation}) => {
     {
       width: '90%',
       height: '20%',
-      marginBottom: '10%',
+      marginBottom: '20%',
       serviceTitle: 'Ténico',
       icon: electronics,
       toScreen: () => navigation.navigate('Login'),
@@ -34,7 +34,7 @@ const serviceButtonsData = ({navigation}) => {
     {
       width: '90%',
       height: '20%',
-      marginBottom: '10%',
+      marginBottom: '20%',
       serviceTitle: 'Electricista',
       icon: electrician,
       toScreen: () => navigation.navigate('Login'),
@@ -42,7 +42,7 @@ const serviceButtonsData = ({navigation}) => {
     {
       width: '90%',
       height: '20%',
-      marginBottom: '10%',
+      marginBottom: '20%',
       serviceTitle: 'Carpintero',
       icon: carpenter,
       toScreen: () => navigation.navigate('Login'),
@@ -50,7 +50,7 @@ const serviceButtonsData = ({navigation}) => {
     {
       width: '90%',
       height: '20%',
-      marginBottom: '10%',
+      marginBottom: '20%',
       serviceTitle: 'Pintor',
       icon: painter,
       toScreen: () => navigation.navigate('Login'),
@@ -59,3 +59,14 @@ const serviceButtonsData = ({navigation}) => {
 };
 
 export default serviceButtonsData;
+
+/*  Este es un ejemplo de como evitar el data en caso de que todos los items del data sean iguales:  let serviceButtonsData = [];
+  for (let i = 0; i < 6; i++) {
+    serviceButtonsData.push({
+      width: '40%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Escoga su servicio',
+      action: () => navigation.navigate('Login'),
+    });
+  } */
