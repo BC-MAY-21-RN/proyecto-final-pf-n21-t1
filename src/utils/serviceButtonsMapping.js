@@ -4,7 +4,6 @@ import {
   ServiceImage,
   Touchable,
 } from '../components/molecules/ServiceComponent/styled';
-import {StyleSheet} from 'react-native';
 
 export default function ServiceButtonMapping(serviceButtonsData) {
   const serviceButtons = serviceButtonsData.map(
