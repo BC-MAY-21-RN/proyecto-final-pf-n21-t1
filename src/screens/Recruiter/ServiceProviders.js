@@ -1,13 +1,13 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {jose} from '../../assets/images';
-import {GeneralContainer} from '../../components/atoms';
+import {Container, GeneralContainer} from '../../components/atoms';
 import {GeneralHeader, ProviderCard} from '../../components/molecules';
 import {Color} from '../../theme/default';
 
-export const ServiceProviders = () => {
+export const ServiceProviders = ({navigation}) => {
   return (
-    <>
+    <Container>
       <GeneralHeader
         isTabRendered
         isMenuVisible
@@ -26,9 +26,10 @@ export const ServiceProviders = () => {
             number={'3123100157'}
             zone={'Colima y VdeA'}
             image={jose}
+            navigation={navigation}
           />
         </GeneralContainer>
       </TouchableOpacity>
-    </>
+    </Container>
   );
 };

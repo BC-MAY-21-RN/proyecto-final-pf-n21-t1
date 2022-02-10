@@ -9,9 +9,19 @@ import {
   NumberRow,
 } from './styled';
 
-export const ProviderCard = ({name, number, zone, image, backgroundColor}) => {
+export const ProviderCard = ({
+  name,
+  number,
+  zone,
+  image,
+  backgroundColor,
+  navigation,
+}) => {
+  const handleCardPress = () => {
+    navigation ? navigation.navigate('ProviderCardData') : null;
+  };
   return (
-    <CardOpacity>
+    <CardOpacity activeOpacity={1} onPress={handleCardPress}>
       <ImgContainer>
         <AvatarImg source={image} />
       </ImgContainer>
