@@ -5,48 +5,68 @@ import electrician from '../../../assets/images/electrician.png';
 import carpenter from '../../../assets/images/carpenter.png';
 import electronics from '../../../assets/images/electronics.png';
 
-const serviceButtonsData = [
-  {
-    width: '40%',
-    height: '20%',
-    marginBottom: '10%',
-    serviceTitle: 'Fontanero',
-    icon: plumbering,
-  },
-  {
-    width: '40%',
-    height: '20%',
-    marginBottom: '10%',
-    serviceTitle: 'Constructor',
-    icon: constructor,
-  },
-  {
-    width: '40%',
-    height: '20%',
-    marginBottom: '10%',
-    serviceTitle: 'Ténico',
-    icon: electronics,
-  },
-  {
-    width: '40%',
-    height: '20%',
-    marginBottom: '10%',
-    serviceTitle: 'Electricista',
-    icon: electrician,
-  },
-  {
-    width: '40%',
-    height: '20%',
-    marginBottom: '10%',
-    serviceTitle: 'Carpintero',
-    icon: carpenter,
-  },
-  {
-    width: '40%',
-    height: '20%',
-    marginBottom: '10%',
-    serviceTitle: 'Pintor',
-    icon: painter,
-  },
-];
+const serviceButtonsData = ({navigation}) => {
+  return [
+    {
+      width: '90%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Fontanero',
+      icon: plumbering,
+      toScreen: () => navigation.navigate('Login'),
+    },
+    {
+      width: '90%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Constructor',
+      icon: constructor,
+      toScreen: () => navigation.navigate('Login'),
+    },
+    {
+      width: '90%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Ténico',
+      icon: electronics,
+      toScreen: () => navigation.navigate('Login'),
+    },
+    {
+      width: '90%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Electricista',
+      icon: electrician,
+      toScreen: () => navigation.navigate('Login'),
+    },
+    {
+      width: '90%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Carpintero',
+      icon: carpenter,
+      toScreen: () => navigation.navigate('Login'),
+    },
+    {
+      width: '90%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Pintor',
+      icon: painter,
+      toScreen: () => navigation.navigate('Login'),
+    },
+  ];
+};
+
 export default serviceButtonsData;
+
+/*  Este es un ejemplo de como evitar el data en caso de que todos los items del data sean iguales:  let serviceButtonsData = [];
+  for (let i = 0; i < 6; i++) {
+    serviceButtonsData.push({
+      width: '40%',
+      height: '20%',
+      marginBottom: '20%',
+      serviceTitle: 'Escoga su servicio',
+      action: () => navigation.navigate('Login'),
+    });
+  } */

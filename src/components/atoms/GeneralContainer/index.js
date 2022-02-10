@@ -7,6 +7,7 @@ export const GeneralContainer = ({
   direction,
   children,
   marginBottom,
+  alignItems,
 }) => {
   width ? (width = width) : (width = '100%');
   height ? (height = height) : (height = '20%');
@@ -17,7 +18,8 @@ export const GeneralContainer = ({
       width={width}
       height={height}
       direction={direction}
-      marginBottom={marginBottom}>
+      marginBottom={marginBottom}
+      alignItems={alignItems}>
       {children}
     </ContainerGeneral>
   );

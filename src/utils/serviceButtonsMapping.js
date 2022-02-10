@@ -1,32 +1,32 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 import {GeneralContainer, GeneralText} from '../components/atoms';
-import {ServiceImage} from '../components/molecules/ServiceComponent/styled';
+import {
+  ServiceImage,
+  Touchable,
+  ServiceTitle,
+} from '../components/molecules/ServiceComponent/styled';
 
 export default function ServiceButtonMapping(serviceButtonsData) {
-  const serviceButtons = serviceButtonsData.map(
-    (
-      service,
-      index, //button=item
-    ) => {
-      return (
+  const serviceButtons = serviceButtonsData.map((service, index) => {
+    return (
+      <Touchable onPress={service.toScreen} key={index}>
         <GeneralContainer
-          key={index}
           width={service.width}
           height={service.height}
           marginBottom={service.marginBottom}>
-          <TouchableOpacity onPress={service.action}>
-            <ServiceImage source={service.icon} />
+          <ServiceImage source={service.icon} />
+          <ServiceTitle>
             <GeneralText
-              weight
               title={service.serviceTitle}
+              weight
               size="h4"
               color="secondary"
             />
-          </TouchableOpacity>
+          </ServiceTitle>
         </GeneralContainer>
-      );
-    },
-  );
+      </Touchable>
+    );
+  });
   return serviceButtons;
 }
