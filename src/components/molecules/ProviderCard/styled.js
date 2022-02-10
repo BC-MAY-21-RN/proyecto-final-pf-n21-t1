@@ -27,12 +27,6 @@ export const StarsContainer = styled.View`
   height: 30%;
 `;
 
-export const NumberRow = styled.View`
-  justify-content: space-around;
-  flex-direction: row;
-  width: 70%;
-`;
-
 export const CardContainer = styled.View`
   height: 180px;
 `;

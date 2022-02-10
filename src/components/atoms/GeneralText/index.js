@@ -18,10 +18,10 @@ export const GeneralText = ({size, color, title, weight, icon, alignSelf}) => {
     <TextContainer>
       {icon ? <Icon name={icon} size={sizeIcon[size]} color /> : undefined}
       <AppText
-      size={Size[size]}
-      color={color}
-      weight={weight}
-      alignSelf={alignSelf}>
+        size={Size[size]}
+        color={color}
+        weight={weight}
+        alignSelf={alignSelf}>
         {icon ? ' ' : undefined}
         {title}
       </AppText>
