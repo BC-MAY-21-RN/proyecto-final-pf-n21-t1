@@ -18,7 +18,6 @@ export const GeneralText = ({size, color, title, weight, icon}) => {
     <TextContainer>
       {icon ? <Icon name={icon} size={sizeIcon[size]} color /> : undefined}
       <AppText size={Size[size]} color={color} weight={weight}>
-        816 : undefined}
         {title}
       </AppText>
     </TextContainer>
