@@ -12,7 +12,7 @@ export const ServiceButtons = styled.View`
 
 export const ServiceImage = styled.Image`
   margin-top: 10%;
-  width: 90px;
-  height: 85px;
+  width: 70%;
+  height: 65%;
   align-self: center;
 `;

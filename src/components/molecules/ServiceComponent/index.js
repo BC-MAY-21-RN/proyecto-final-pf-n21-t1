@@ -3,9 +3,8 @@ import {ServiceButtons} from './styled';
 import ServiceButtonMapping from '../../../utils/serviceButtonsMapping';
 import serviceButtonsData from './serviceButtonsData';
 
-
-export const ServiceComponent = navigation => {
-  /*   let serviceButtonsData = [];
+export const ServiceComponent = ({navigation}) => {
+  /*  Este es un ejemplo de como evitar el data en caso de que todos los items del data sean iguales:  let serviceButtonsData = [];
   for (let i = 0; i < 6; i++) {
     serviceButtonsData.push({
       width: '40%',
@@ -15,10 +14,9 @@ export const ServiceComponent = navigation => {
       action: () => navigation.navigate('Login'),
     });
   } */
+  const serviceButtons = serviceButtonsData(navigation);
 
   return (
-    <ServiceButtons>
-      {ServiceButtonMapping(serviceButtonsData, navigation)}
-    </ServiceButtons>
+    <ServiceButtons>{ServiceButtonMapping(serviceButtons)}</ServiceButtons>
   );
 };
