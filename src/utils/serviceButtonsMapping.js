@@ -1,7 +1,9 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
 import {GeneralContainer, GeneralText} from '../components/atoms';
-import {ServiceImage} from '../components/molecules/ServiceComponent/styled';
+import {
+  ServiceImage,
+  Touchable,
+} from '../components/molecules/ServiceComponent/styled';
 import {StyleSheet} from 'react-native';
 
 export default function ServiceButtonMapping(serviceButtonsData) {
@@ -11,7 +13,7 @@ export default function ServiceButtonMapping(serviceButtonsData) {
       index, //button=item
     ) => {
       return (
-        <TouchableOpacity
+        <Touchable
           style={styles.touchable}
           onPress={service.toScreen}
           key={index}>
@@ -29,13 +31,13 @@ export default function ServiceButtonMapping(serviceButtonsData) {
               alignSelf="center"
             />
           </GeneralContainer>
-        </TouchableOpacity>
+        </Touchable>
       );
     },
   );
   return serviceButtons;
 }
-
+/* 
 const styles = StyleSheet.create({
   touchable: {
     width: '50%',
@@ -46,3 +48,4 @@ const styles = StyleSheet.create({
     boxShadow: '0px 8px 10px rgba(0, 0, 0, 0.2)', //Adri favor de quitarselo si se ve feo
   },
 });
+ */
