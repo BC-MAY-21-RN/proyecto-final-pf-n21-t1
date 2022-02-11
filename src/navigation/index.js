@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 const Navigate = () => {
   return (
     <Stack.Navigator
-      initialRouteName="ServiceTicket"
+      initialRouteName="UpcomingServices"
       screenOptions={{
         headerShown: false,
       }}>
