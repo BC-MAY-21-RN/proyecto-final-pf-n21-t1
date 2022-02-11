@@ -3,15 +3,17 @@ import {Button} from 'react-native-elements';
 import {Color} from '../../../theme/default';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export const GeneralButton = ({size, title, color, icon, action}) => {
-  size ? (size = size) : (size = 300);
+export const GeneralButton = ({width, height, title, color, icon, action}) => {
+  height ? (height = height) : (height = 25);
+  width ? (width = width) : (width = 300);
   color ? (color = Color[color]) : (color = Color.secondary);
 
   const buttonStyle = {
-    width: size,
+    width: width,
+    height: height,
     backgroundColor: color,
     borderRadius: 8,
-    height: 50,
+   
   };
 
   return (
