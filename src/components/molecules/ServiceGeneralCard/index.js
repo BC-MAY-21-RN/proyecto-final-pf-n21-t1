@@ -5,7 +5,6 @@ import { GroupRow, GroupColumn, ShadowView } from './styled';
 import ServiceCardMapping from '../../../utils/ServiceCardMapping';
 import serviceCardData from './ServiceCardData';
 
-
 export const ServiceGeneralCard = ({ servicio, botones, status }) => {
   const serviceText = serviceCardData();
   return (
@@ -33,4 +32,3 @@ export const ServiceGeneralCard = ({ servicio, botones, status }) => {
     </ShadowView>
   );
 };
-
