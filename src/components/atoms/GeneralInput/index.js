@@ -19,7 +19,15 @@ const eyeButton = (visible, setVisible) => {
   );
 };
 
-export const GeneralInput = ({title, placeholder, secret, leftIcon}) => {
+export const GeneralInput = ({
+  title,
+  placeholder,
+  secret,
+  leftIcon,
+  value,
+  onChangeText,
+  errorMessage,
+}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -55,6 +63,9 @@ export const GeneralInput = ({title, placeholder, secret, leftIcon}) => {
       secureTextEntry={visible}
       rightIcon={secret ? eyeButton(visible, setVisible) : undefined}
       leftIcon={leftIcon ? <Icon name={leftIcon} size={20} /> : undefined}
+      value={value}
+      onChangeText={onChangeText}
+      errorMessage={errorMessage}
     />
   );
 };

@@ -16,6 +16,7 @@ export default function buttonsMapping(buttonsData) {
           icon={button.icon}
           action={button.action}
           size={button.size}
+          disabled={button.disabled}
         />
       );
     },

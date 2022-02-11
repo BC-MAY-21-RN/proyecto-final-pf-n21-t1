@@ -1,6 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
-import { AcceptDeclineBtns, GeneralHeader, UpcomingServiceComponent } from '../../components/molecules';
+import {
+  GeneralHeader,
+  UpcomingServiceComponent,
+} from '../../components/molecules';
 
 export const UpcomingServices = () => {
   return (
@@ -13,9 +15,7 @@ export const UpcomingServices = () => {
         size="h1"
         isMenuVisible
       />
-      <UpcomingServiceComponent
-        servicio={"Fontanero"}
-      />
+      <UpcomingServiceComponent servicio={'Fontanero'} />
     </>
   );
 };
