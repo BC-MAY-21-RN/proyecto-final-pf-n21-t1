@@ -1,4 +1,5 @@
 import React from 'react';
+import {Container, ContainerWhite} from '../../components/atoms';
 import {
   GeneralHeader,
   UpcomingServiceComponent,
@@ -6,16 +7,18 @@ import {
 
 export const UpcomingServices = () => {
   return (
-    <>
-      <GeneralHeader
-        isTabRendered
-        title="Servicios Pendientes"
-        color="background"
-        weight
-        size="h1"
-        isMenuVisible
-      />
-      <UpcomingServiceComponent servicio={'Fontanero'} />
-    </>
+    <ContainerWhite>
+      <Container>
+        <GeneralHeader
+          isTabRendered
+          title="Servicios Pendientes"
+          color="background"
+          weight
+          size="h1"
+          isMenuVisible
+        />
+        <UpcomingServiceComponent servicio={'Fontanero'} />
+      </Container>
+    </ContainerWhite>
   );
 };

@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 const Navigate = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Register"
+      initialRouteName="ServiceProviders"
       screenOptions={{
         headerShown: false,
       }}>
