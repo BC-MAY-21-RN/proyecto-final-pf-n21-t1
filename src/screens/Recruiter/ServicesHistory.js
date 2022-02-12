@@ -25,10 +25,10 @@ export const ServicesHistory = () => {
           servicio={'Fontanero'}
           status={'SERVICIO FINALIZADO'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
         />
-        <ServiceGeneralCard
+ {/*        <ServiceGeneralCard
           servicio={'Fontanero'}
           status={'SERVICIO ACEPTADO'}
-        />
+        /> */}
         <ServiceGeneralCard
           servicio={'Fontanero'}
           status={'SERVICIO RECHAZADO'}
