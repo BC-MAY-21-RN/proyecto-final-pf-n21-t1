@@ -5,19 +5,17 @@ import { CenterStatus } from './styled';
 
 export const ServiceStatus = ({ status }) => {
   let color = '';
-  if (status ==='SERVICIO FINALIZADO'){
-    color='text'}else if (status==='SERVICIO ACEPTADO'){
-      color='primary'}else{
-        color='red'
-      }
+  if (status === 'SERVICIO FINALIZADO') {
+    color = 'text';
+  } else if (status === 'SERVICIO ACEPTADO') {
+    color = 'primary';
+  } else {
+    color = 'red';
+  }
+
   return (
     <CenterStatus>
-      <GeneralText
-        weight={'bold'}
-        title={status}
-        size={'h1'}
-        color={color}
-      />
+      <GeneralText weight={'bold'} title={status} size={'h2'} color={color} />
     </CenterStatus>
   );
 };

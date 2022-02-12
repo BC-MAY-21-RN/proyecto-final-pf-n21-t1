@@ -15,4 +15,6 @@ export const Size = {
   h4: '18px',
   h5: '16px',
   h6: '14px',
+  h7: '12px',
+  h8: '10px',
 };

@@ -11,7 +11,7 @@ const serviceCardData = () => {
       color: 'text',
     },
     {
-      title: 'Proveedor de Servicio:',
+      title: 'Proveedor de Servicio: Angel Abraham Flores Ramirez',
       size: 'h6',
       color: 'text',
     },
