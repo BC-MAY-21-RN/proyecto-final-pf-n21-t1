@@ -1,17 +1,28 @@
 import React from 'react';
-import { GeneralContainer, GeneralText, StarRating } from '../../atoms';
-import { StarsPosition, OpinionText, CustomerName } from './styled';
-import { ShadowView } from '../ServiceGeneralCard/styled';
+import {GeneralContainer, GeneralText, StarRating} from '../../atoms';
+import {StarsPosition, OpinionText, CustomerName} from './styled';
+import {ShadowView} from '../ServiceGeneralCard/styled';
 
 export const OpinionComponent = ({opinion, customer, calification}) => {
   return (
     <ShadowView>
       <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
         <CustomerName>
-          <GeneralText title={customer} color={'secondary'} size={'h5'} weight />
+          <GeneralText
+            title={customer}
+            color={'secondary'}
+            size={'h5'}
+            weight
+          />
         </CustomerName>
         <OpinionText>
-          <GeneralText  italic title={opinion} color={'text'} size={'h5'} justify />
+          <GeneralText
+            italic
+            title={opinion}
+            color={'text'}
+            size={'h5'}
+            justify
+          />
         </OpinionText>
         <StarsPosition>
           <StarRating

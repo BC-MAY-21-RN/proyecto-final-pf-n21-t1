@@ -4,7 +4,7 @@ import {Color} from '../../../theme/default';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export const GeneralButton = ({width, height, title, color, icon, action}) => {
-  height ? (height = height) : (height = 25);
+  height ? (height = height) : (height = 55);
   width ? (width = width) : (width = 300);
   color ? (color = Color[color]) : (color = Color.secondary);
 
@@ -13,7 +13,6 @@ export const GeneralButton = ({width, height, title, color, icon, action}) => {
     height: height,
     backgroundColor: color,
     borderRadius: 8,
-   
   };
 
   return (

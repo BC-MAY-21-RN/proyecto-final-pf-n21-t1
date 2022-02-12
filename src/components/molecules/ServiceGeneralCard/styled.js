@@ -17,3 +17,9 @@ export const GroupColumn = styled.View`
 export const ShadowView = styled.View`
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
 `;
+
+export const StarAndServiceRow = styled.View`
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 5%;
+`;

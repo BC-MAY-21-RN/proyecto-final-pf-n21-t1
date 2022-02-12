@@ -6,5 +6,4 @@ export {OpinionComponent} from './OpionionComponent';
 export {ProviderCard} from './ProviderCard';
 export {QualifyButton} from './QualifyButton';
 export {ServiceGeneralCard} from './ServiceGeneralCard';
-
-
+export {CommentAndQualify} from './CommentAndQualify';
