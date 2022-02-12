@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const GroupRow = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: ${props => (props.qualifyButton ? 'space-evenly' : 'center')};
   margin-top: 1%;
 `
 export const GroupColumn = styled.View`

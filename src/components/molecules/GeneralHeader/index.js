@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Header, Logo, HeaderContainer} from './styled';
+import {Header, Logo, HeaderContainer, Menu} from './styled';
 import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {TouchableOpacity} from 'react-native';
@@ -8,9 +8,9 @@ import {Color} from '../../../theme/default';
 
 const MenuButton = () => {
   return (
-    <TouchableOpacity>
+    <Menu>
       <Icon name={'menu'} size={40} color={Color.primary} />
-    </TouchableOpacity>
+    </Menu>
   );
 };
 

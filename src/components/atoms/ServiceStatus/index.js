@@ -12,9 +12,10 @@ export const ServiceStatus = ({ status }) => {
   } else {
     color = 'red';
   }
+
   return (
     <CenterStatus>
-      <GeneralText weight={'bold'} title={status} size={'h1'} color={color} />
+      <GeneralText weight={'bold'} title={status} size={'h2'} color={color} />
     </CenterStatus>
   );
 };

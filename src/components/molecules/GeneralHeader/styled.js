@@ -20,3 +20,7 @@ export const Logo = styled.Image`
   height: 65px;
   margin-left: 4px;
 `;
+
+export const Menu = styled.TouchableOpacity`
+  margin-top: 10px;
+`;

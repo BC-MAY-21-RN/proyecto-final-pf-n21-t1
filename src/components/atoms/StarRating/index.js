@@ -1,5 +1,6 @@
 import React from 'react';
 import {Rating} from 'react-native-elements';
+import { Color } from '../../../theme/default';
 
 export const StarRating = ({
   quantity, //cantidad de estrellas totales, por defecto 5
@@ -7,6 +8,7 @@ export const StarRating = ({
   startValue, //cantidad de estrellas seleccionadas/llenas
   backgroundColor, //color de fondo del contenedor de las estrellas, por defecto blanco
 }) => {
+  backgroundColor = Color[backgroundColor]
   const ratingCompleted = rating => {
     console.log('Rating is ' + rating);
   };
