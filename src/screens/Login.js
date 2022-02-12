@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
-import {Container, GeneralText} from '../components/atoms';
+import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {
   GeneralHeader,
   LinkContainer,
@@ -54,18 +54,25 @@ export const Login = ({navigation}) => {
   }, [form.email.value, form.password.value]);
 
   return (
-    <Container>
-      <GeneralHeader />
-      <View>
-        <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
-        {inputsRender(form, setForm, errorEmail, errorPassword)}
-        <SignButtons
-          navigation={navigation}
-          type="login"
-          disabled={form.submit}
-        />
-        <LinkContainer navigation={navigation} type="Register" />
-      </View>
-    </Container>
+    <ContainerWhite>
+      <Container>
+        <GeneralHeader />
+        <View>
+          <GeneralText
+            title="Inicia sesión"
+            weight
+            size="h1"
+            color="secondary"
+          />
+          {inputsRender(form, setForm, errorEmail, errorPassword)}
+          <SignButtons
+            navigation={navigation}
+            type="login"
+            disabled={form.submit}
+          />
+          <LinkContainer navigation={navigation} type="Register" />
+        </View>
+      </Container>
+    </ContainerWhite>
   );
 };

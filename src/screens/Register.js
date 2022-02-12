@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {Container, GeneralText} from '../components/atoms';
+import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {GeneralHeader, SignButtons} from '../components/molecules/index';
 import inputsMapping from '../utils/inputsMapping';
 import {LinkContainer} from '../components/molecules';
@@ -30,14 +30,21 @@ const inputsRender = () => {
 
 export const Register = ({navigation}) => {
   return (
-    <Container>
-      <GeneralHeader />
-      <View>
-        <GeneralText size={'h1'} color={'secondary'} title={'Regístrate'} />
-      </View>
-      {inputsRender()}
-      <SignButtons navigation={navigation} type="register" />
-      <LinkContainer navigation={navigation} type="Login" />
-    </Container>
+    <ContainerWhite>
+      <Container>
+        <GeneralHeader />
+        <View>
+          <GeneralText
+            size={'h1'}
+            color={'secondary'}
+            title={'Regístrate'}
+            weight
+          />
+        </View>
+        {inputsRender()}
+        <SignButtons navigation={navigation} type="register" />
+        <LinkContainer navigation={navigation} type="Login" />
+      </Container>
+  </ContainerWhite>
   );
 };
