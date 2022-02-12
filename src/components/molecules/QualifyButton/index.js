@@ -1,11 +1,16 @@
-import { View, Text, Touchable } from 'react-native';
 import React from 'react';
-import { GeneralText, StarRating } from '../../atoms';
-import { StarPosition, TextCenter } from './styled';
+import {GeneralText, StarRating} from '../../atoms';
+import {StarPosition, TextCenter} from './styled';
 
 export const QualifyButton = () => {
   return (
-    <StarPosition onPress={()=>console.log("Hola")/* abrir el pop up de del componente para escribir la opinion */}  >
+    <StarPosition
+      onPress={
+        () =>
+          console.log(
+            'Hola',
+          ) /* abrir el pop up de del componente para escribir la opinion */
+      }>
       <TextCenter>
         <StarRating
           quantity={1}
@@ -14,7 +19,7 @@ export const QualifyButton = () => {
           backgroundColor={'hover'}
         />
       </TextCenter>
-      <GeneralText color= 'secondary'weight title={'Calificar'} size={'h7'} />
+      <GeneralText color="secondary" weight title={'Calificar'} size={'h7'} />
     </StarPosition>
   );
 };

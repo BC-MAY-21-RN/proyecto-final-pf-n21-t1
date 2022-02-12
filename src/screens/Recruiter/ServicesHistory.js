@@ -1,22 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
-import {
-  AcceptDeclineBtns,
-  GeneralHeader,
-  ServiceGeneralCard,
-} from '../../components/molecules';
-import { Container } from '../../components/atoms';
-import { ScrollView } from 'react-native';
+import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
+import {Container} from '../../components/atoms';
+import {ScrollView} from 'react-native';
 
 export const ServicesHistory = () => {
   return (
     <Container>
       <GeneralHeader
         isTabRendered
-        title='Servicios Solicitados '
-        color='background'
+        title="Servicios Solicitados "
+        color="background"
         weight
-        size='h1'
+        size="h1"
         isMenuVisible
       />
       <ScrollView>
@@ -25,12 +20,8 @@ export const ServicesHistory = () => {
           servicio={'Fontanero'}
           status={'SERVICIO FINALIZADO'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
         />
- {/*        <ServiceGeneralCard
-          servicio={'Fontanero'}
-          status={'SERVICIO ACEPTADO'}
-        /> */}
         <ServiceGeneralCard
-          servicio={'Fontanero'}
+          servicio={'Carpintero'}
           status={'SERVICIO RECHAZADO'}
         />
       </ScrollView>
