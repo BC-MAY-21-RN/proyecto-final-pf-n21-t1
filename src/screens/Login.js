@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {View} from 'react-native';
 import {Container, GeneralText} from '../components/atoms';
 import {
@@ -9,6 +9,7 @@ import {
 import inputsMapping from '../utils/inputsMapping';
 import {useLogin} from '../assets/hooks/useLogin';
 import triggerValidation from '../utils/authentication/inputValidations';
+import {AuthContext} from '../navigation/AuthProvider';
 
 const inputsRender = (form, setForm, errorEmail, errorPassword) => {
   const generalInputs = [
@@ -39,6 +40,8 @@ export const Login = ({navigation}) => {
   const [errorEmail, setErrorEmail] = useState();
   const [errorPassword, setErrorPassword] = useState();
 
+  const {login} = useContext(AuthContext);
+
   useEffect(() => {
     setForm(
       'email',
@@ -63,6 +66,7 @@ export const Login = ({navigation}) => {
           navigation={navigation}
           type="login"
           disabled={form.submit}
+          action={() => login(form.email.value, form.password.value, setForm)}
         />
         <LinkContainer navigation={navigation} type="Register" />
       </View>

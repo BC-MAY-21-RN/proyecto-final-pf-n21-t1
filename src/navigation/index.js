@@ -16,31 +16,34 @@ import {
   ServiceTicket,
   UpcomingServices,
 } from '../screens';
+import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 
 const Navigate = () => {
   return (
-    <Stack.Navigator
-      initialRouteName="Login"
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Register" component={Register} />
-      <Stack.Screen name="Path" component={Path} />
-      <Stack.Screen name="CustomerOpinions" component={CustomerOpinions} />
-      <Stack.Screen name="ProviderCreation" component={ProviderCreation} />
-      <Stack.Screen name="ProviderPreview" component={ProviderPreview} />
-      <Stack.Screen name="UpcomingServices" component={UpcomingServices} />
-      <Stack.Screen name="DateSelection" component={DateSelection} />
-      <Stack.Screen name="ProviderCardData" component={ProviderCardData} />
-      <Stack.Screen name="ServiceGrid" component={ServiceGrid} />
-      <Stack.Screen name="ServiceProviders" component={ServiceProviders} />
-      <Stack.Screen name="ServiceScore" component={ServiceScore} />
-      <Stack.Screen name="ServicesHistory" component={ServicesHistory} />
-      <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
-    </Stack.Navigator>
+    <AuthProvider>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Path" component={Path} />
+        <Stack.Screen name="CustomerOpinions" component={CustomerOpinions} />
+        <Stack.Screen name="ProviderCreation" component={ProviderCreation} />
+        <Stack.Screen name="ProviderPreview" component={ProviderPreview} />
+        <Stack.Screen name="UpcomingServices" component={UpcomingServices} />
+        <Stack.Screen name="DateSelection" component={DateSelection} />
+        <Stack.Screen name="ProviderCardData" component={ProviderCardData} />
+        <Stack.Screen name="ServiceGrid" component={ServiceGrid} />
+        <Stack.Screen name="ServiceProviders" component={ServiceProviders} />
+        <Stack.Screen name="ServiceScore" component={ServiceScore} />
+        <Stack.Screen name="ServicesHistory" component={ServicesHistory} />
+        <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
+      </Stack.Navigator>
+    </AuthProvider>
   );
 };
 
