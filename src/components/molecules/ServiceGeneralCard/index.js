@@ -10,7 +10,7 @@ export const ServiceGeneralCard = ({
   botones,
   status,
   qualifyButton,
-  setShowQualify,
+  /*setShowQualify, */
 }) => {
   const serviceText = serviceCardData();
   if (status === 'Servicio Finalizado') {
@@ -35,9 +35,7 @@ export const ServiceGeneralCard = ({
         {botones ? <AcceptDeclineBtns /> : null}
         <StarAndServiceRow qualifyButton>
           {status ? <ServiceStatus status={status} /> : null}
-          {qualifyButton ? (
-            <QualifyButton setShowQualify={setShowQualify} />
-          ) : null}
+          {qualifyButton ? <QualifyButton /> : null}
         </StarAndServiceRow>
       </GeneralContainer>
     </ShadowView>

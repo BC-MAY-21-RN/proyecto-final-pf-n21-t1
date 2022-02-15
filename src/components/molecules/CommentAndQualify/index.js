@@ -13,11 +13,8 @@ import {
   StarRatingPosition,
   SendButton,
 } from './styled';
-
-import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
-
-export const CommentAndQualify = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+import {View} from 'react-native';
+export const CommentAndQualify = ({setModalVisible, modalVisible}) => {
   return (
     <ShadowView>
       <GeneralContainer height={'180px'} width={'90%'} marginBottom={'5%'}>
@@ -44,8 +41,21 @@ export const CommentAndQualify = () => {
             whiteBackground
           />
         </OpinionInput>
+
         <SendButton>
-          <GeneralButton width={100} title={'Enviar'} height={35} />
+          <GeneralButton
+            width={100}
+            title={'Enviar'}
+            height={35}
+            color={'primary'}
+          />
+
+          <GeneralButton
+            width={100}
+            title={'Cerrar'}
+            height={35}
+            action={() => setModalVisible(!modalVisible)}
+          />
         </SendButton>
       </GeneralContainer>
     </ShadowView>
