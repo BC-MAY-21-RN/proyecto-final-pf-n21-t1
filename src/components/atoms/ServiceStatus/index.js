@@ -1,13 +1,13 @@
 import React from 'react';
-import { GeneralText } from '..';
-import { View, StyleSheet } from 'react-native';
-import { CenterStatus } from './styled';
+import {GeneralText} from '..';
+import {View, StyleSheet} from 'react-native';
+import {CenterStatus} from './styled';
 
-export const ServiceStatus = ({ status }) => {
+export const ServiceStatus = ({status}) => {
   let color = '';
-  if (status === 'SERVICIO FINALIZADO') {
+  if (status === 'Servicio Finalizado') {
     color = 'text';
-  } else if (status === 'SERVICIO ACEPTADO') {
+  } else if (status === 'Servicio Aceptado') {
     color = 'primary';
   } else {
     color = 'red';
@@ -15,7 +15,7 @@ export const ServiceStatus = ({ status }) => {
 
   return (
     <CenterStatus>
-      <GeneralText weight={'bold'} title={status} size={'h2'} color={color} />
+      <GeneralText weight={'bold'} title={status} size={'h3'} color={color} />
     </CenterStatus>
   );
 };

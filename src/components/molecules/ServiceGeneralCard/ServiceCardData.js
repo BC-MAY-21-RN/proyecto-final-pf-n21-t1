@@ -1,23 +1,23 @@
 const serviceCardData = () => {
   return [
     {
-      title: 'Fecha:' /* + ${prop.fecha} */,
-      size: 'h6',
+      title: 'Fecha: 04/02/2022' /* + ${prop.fecha} */,
+      size: 'h7',
       color: 'text',
     },
     {
-      title: 'Horario:',
-      size: 'h6',
+      title: 'Horario: 4:00pm',
+      size: 'h7',
       color: 'text',
     },
     {
-      title: 'Proveedor de Servicio: Angel Abraham Flores Ramirez',
-      size: 'h6',
+      title: 'Proveedor de Servicio: Angel Abraham Flores',
+      size: 'h7',
       color: 'text',
     },
     {
-      title: 'Cliente:',
-      size: 'h6',
+      title: 'Cliente: Marecela Rodriguez',
+      size: 'h7',
       color: 'text',
     },
   ];

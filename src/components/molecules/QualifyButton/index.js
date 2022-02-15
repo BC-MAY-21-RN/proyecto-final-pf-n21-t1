@@ -1,25 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {GeneralText, StarRating} from '../../atoms';
-import {StarPosition, TextCenter} from './styled';
+import {CenteredView, ModalView, StarPosition, TextCenter} from './styled';
+import {CommentAndQualify, OneStarButton} from '..';
+import {Alert, Modal} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 export const QualifyButton = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
-    <StarPosition
-      onPress={
-        () =>
-          console.log(
-            'Hola',
-          ) /* abrir el pop up de del componente para escribir la opinion */
-      }>
-      <TextCenter>
-        <StarRating
-          quantity={1}
-          startValue={1}
-          readBoolean={true}
-          backgroundColor={'hover'}
-        />
-      </TextCenter>
-      <GeneralText color="secondary" weight title={'Calificar'} size={'h7'} />
-    </StarPosition>
+    <CenteredView>
+      <OneStarButton setModalVisible={setModalVisible} />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}>
+        <CenteredView>
+          <ModalView>
+            <CommentAndQualify
+              modalVisible={modalVisible}
+              setModalVisible={setModalVisible}
+            />
+          </ModalView>
+        </CenteredView>
+      </Modal>
+    </CenteredView>
   );
 };

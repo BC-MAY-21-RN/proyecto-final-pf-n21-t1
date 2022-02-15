@@ -14,7 +14,7 @@ export const SignButtons = ({type, navigation}) => {
         type === 'login'
           ? 'Iniciar sesión con Facebook'
           : 'Registrarse con Facebook',
-      color: 'secondary',
+      color: 'facebook',
       icon: 'logo-facebook',
     },
   ];
