@@ -19,13 +19,7 @@ export const CustomerOpinions = () => {
           'Llegó tarde y al final me cobró mucho mas de lo que habiamos acordado, no lo recomiendo'
         }
       />
-      <OpinionComponent
-        calification={'5'}
-        customer={'Mariela'}
-        opinion={
-          'Excelente servicio , 5 estrellas lo recomiendo , cumplió con lo acordado y su trabajo implecable, quiero que se me descomponga otra cosa'
-        }
-      />
+      <OpinionComponent calification={'5'} customer={'Mariela'} />
       {/* nombre de customer y opinion se recibiran de firebase en una flat list y se envian como props al componente */}
     </Container>
   );

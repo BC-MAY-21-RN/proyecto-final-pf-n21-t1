@@ -6,17 +6,13 @@ import {OneStarPosition, TextPosition} from './styled';
 export const OneStarButton = ({setModalVisible}) => {
   return (
     <TouchableOpacity onPress={() => setModalVisible(true)}>
-      <OneStarPosition>
-        <StarRating
-          quantity={1}
-          startValue={1}
-          readBoolean={true}
-          backgroundColor={'hover'}
-        />
-      </OneStarPosition>
-      <TextPosition>
-        <GeneralText color="secondary" weight title={'Calificar'} size={'h7'} />
-      </TextPosition>
+      <StarRating
+        quantity={1}
+        startValue={1}
+        readBoolean={true}
+        backgroundColor={'hover'}
+      />
+      <GeneralText color="secondary" weight title={'Calificar'} size={'h7'} />
     </TouchableOpacity>
   );
 };
