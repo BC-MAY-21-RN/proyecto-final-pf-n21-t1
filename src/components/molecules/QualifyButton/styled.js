@@ -7,7 +7,7 @@ export const CenteredView = styled.View`
 `;
 export const ModalView = styled.View`
   padding-top: 5%;
-  background-color: white;
+  background-color: #e0e0e0;
   border-radius: 20;
   width: 370;
   justify-content: center;

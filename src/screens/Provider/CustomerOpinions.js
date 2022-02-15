@@ -1,7 +1,6 @@
 import React from 'react';
 import {GeneralHeader, OpinionComponent} from '../../components/molecules';
 import {Container} from '../../components/atoms';
-
 export const CustomerOpinions = () => {
   return (
     <Container>
@@ -17,14 +16,14 @@ export const CustomerOpinions = () => {
         calification={'1'}
         customer={'Fernanda'}
         opinion={
-          'Llegó tarde y le olia muy feo la boca, al final me cobró mucho mas de lo que habiamos acordado, no lo recomiendo'
+          'Llegó tarde y al final me cobró mucho mas de lo que habiamos acordado, no lo recomiendo'
         }
       />
       <OpinionComponent
         calification={'5'}
         customer={'Mariela'}
         opinion={
-          'Excelente servicio , 5 estrellas lo recomiendo ampliamente, cumplió con lo acordado y su trabajo fue implecable, quiero que se me descomponga otra cosa para que regrese'
+          'Excelente servicio , 5 estrellas lo recomiendo , cumplió con lo acordado y su trabajo implecable, quiero que se me descomponga otra cosa'
         }
       />
       {/* nombre de customer y opinion se recibiran de firebase en una flat list y se envian como props al componente */}
