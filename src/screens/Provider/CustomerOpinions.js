@@ -13,14 +13,6 @@ export const CustomerOpinions = () => {
         size="h1"
         isMenuVisible
       />
-
-      <OpinionComponent
-        calification={'3'}
-        customer={'Angel'}
-        opinion={
-          'El fontanero vino y se fue a medio trabajo, no terminó pero me dejó su herramienta, lo perdono.'
-        }
-      />
       <OpinionComponent
         calification={'1'}
         customer={'Fernanda'}

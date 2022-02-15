@@ -13,7 +13,6 @@ import {
   StarRatingPosition,
   SendButton,
 } from './styled';
-import {View} from 'react-native';
 export const CommentAndQualify = ({setModalVisible, modalVisible}) => {
   return (
     <ShadowView>
