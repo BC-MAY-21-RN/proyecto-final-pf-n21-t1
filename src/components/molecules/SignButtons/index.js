@@ -2,12 +2,12 @@ import React from 'react';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonContainer, ButtonStyle} from './styled';
 
-export const SignButtons = ({type, navigation, disabled}) => {
+export const SignButtons = ({type, navigation, disabled, action}) => {
   const generalButtons = [
     {
       title: type === 'login' ? 'Iniciar sesión' : 'Registrarse',
       color: 'primary',
-      action: () => navigation.navigate('Path'),
+      action,
       disabled,
     },
     {
