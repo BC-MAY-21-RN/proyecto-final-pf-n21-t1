@@ -33,7 +33,7 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
         {botones ? <AcceptDeclineBtns /> : null}
-        <StarAndServiceRow qualifyButton>
+        <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
           {qualifyButton ? <QualifyButton /> : null}
         </StarAndServiceRow>

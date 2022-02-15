@@ -17,11 +17,3 @@ export const ModalView = styled.View`
   elevation: 5;
   shadow-offset: {width: 0, height: 2};
 `;
-
-export const StarPosition = styled.TouchableOpacity`
-  margin-bottom: 3%;
-`;
-
-export const TextCenter = styled.View`
-  margin-left: 11%;
-`;

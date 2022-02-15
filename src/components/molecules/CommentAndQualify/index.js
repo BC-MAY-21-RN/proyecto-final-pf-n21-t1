@@ -40,7 +40,6 @@ export const CommentAndQualify = ({setModalVisible, modalVisible}) => {
             whiteBackground
           />
         </OpinionInput>
-
         <SendButton>
           <GeneralButton
             width={100}
