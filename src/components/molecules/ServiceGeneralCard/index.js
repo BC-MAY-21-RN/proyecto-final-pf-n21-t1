@@ -12,7 +12,7 @@ export const ServiceGeneralCard = ({
   qualifyButton,
 }) => {
   const serviceText = serviceCardData();
-  if (status === 'SERVICIO FINALIZADO') {
+  if (status === 'Servicio Finalizado') {
     qualifyButton = true;
   } else {
     qualifyButton = false;

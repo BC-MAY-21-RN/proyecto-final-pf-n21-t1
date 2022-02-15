@@ -5,9 +5,9 @@ import {CenterStatus} from './styled';
 
 export const ServiceStatus = ({status}) => {
   let color = '';
-  if (status === 'SERVICIO FINALIZADO') {
+  if (status === 'Servicio Finalizado') {
     color = 'text';
-  } else if (status === 'SERVICIO ACEPTADO') {
+  } else if (status === 'Servicio Aceptado') {
     color = 'primary';
   } else {
     color = 'red';

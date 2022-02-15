@@ -19,15 +19,15 @@ export const ServicesHistory = () => {
 
         <ServiceGeneralCard
           servicio={'Fontanero'}
-          status={'SERVICIO FINALIZADO'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
+          status={'Servicio Finalizado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
         />
         <ServiceGeneralCard
           servicio={'Carpintero'}
-          status={'SERVICIO ACEPTADO'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
+          status={'Servicio Aceptado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
         />
         <ServiceGeneralCard
           servicio={'Pintor'}
-          status={'SERVICIO RECHAZADO'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
+          status={'Servicio Rechazado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
         />
       </ScrollView>
     </Container>
