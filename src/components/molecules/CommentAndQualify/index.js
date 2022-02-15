@@ -1,5 +1,4 @@
-import React from 'react';
-import {OpinionComponent} from '..';
+import React, {useState} from 'react';
 import {
   GeneralButton,
   GeneralContainer,
@@ -15,10 +14,12 @@ import {
   SendButton,
 } from './styled';
 
+import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+
 export const CommentAndQualify = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <ShadowView>
-      <OpinionComponent />
       <GeneralContainer height={'180px'} width={'90%'} marginBottom={'5%'}>
         <QualifyQuestion>
           <GeneralText

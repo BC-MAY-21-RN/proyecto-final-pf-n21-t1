@@ -3,17 +3,9 @@ import {GeneralText, StarRating} from '../../atoms';
 import {StarPosition, TextCenter} from './styled';
 import {CommentAndQualify} from '..';
 
-function commentBubble() {
-  return <CommentAndQualify />; //AQUI SE SUMMONE EL COMPONENTE PERO NO APARECE
-}
-export const QualifyButton = () => {
+export const QualifyButton = ({setShowQualify}) => {
   return (
-    <StarPosition
-      /* abrir el pop up de del componente para escribir la opinion */
-      onPress={
-        (() => commentBubble(),
-        console.log('Deberia aparecer el CommentAndQualify'))
-      }>
+    <StarPosition onPress={() => setShowQualify(true) }>
       <TextCenter>
         <StarRating
           quantity={1}
