@@ -66,6 +66,7 @@ export const GeneralInput = ({
       value={value}
       onChangeText={onChangeText}
       errorMessage={errorMessage}
+      autoCapitalize={'none'}
     />
   );
 };

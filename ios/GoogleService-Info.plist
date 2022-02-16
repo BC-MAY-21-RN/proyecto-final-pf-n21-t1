@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>738397443752-8ucsstgejpfaqb35tenau43oluf6ta6f.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.738397443752-8ucsstgejpfaqb35tenau43oluf6ta6f</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>738397443752-d0unjcj4sag2o3j0a7lsrpeim2pcpubu.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAlYe7pslN7ANduVlA5ub5m9Vcor_zf5eo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>738397443752</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.appDulceHogar</string>
+	<key>PROJECT_ID</key>
+	<string>appdulcehogar</string>
+	<key>STORAGE_BUCKET</key>
+	<string>appdulcehogar.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:738397443752:ios:32ab57178b60fb014f949d</string>
+</dict>
+</plist>

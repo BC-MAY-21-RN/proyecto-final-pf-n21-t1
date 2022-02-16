@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1EA7BD0C597A64F3A4BCEF1F /* libPods-appDulceHogar-appDulceHogarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEA67634BDC61E094D85579 /* libPods-appDulceHogar-appDulceHogarTests.a */; };
+		77362F1227BC81150000B11F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77362F0F27BC7FEE0000B11F /* GoogleService-Info.plist */; };
 		8EC3C9BF0353C40F31AB4BC2 /* libPods-appDulceHogar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B7F4239F79E2ABDBB6638F /* libPods-appDulceHogar.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		5870F28217A94091B00044A0 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		5FF79BCC85794A668441FD0B /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		678F1C43EF38494B8A96784E /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		77362F0F27BC7FEE0000B11F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A39263A3886DEF185B8D11F /* Pods-appDulceHogar-appDulceHogarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appDulceHogar-appDulceHogarTests.release.xcconfig"; path = "Target Support Files/Pods-appDulceHogar-appDulceHogarTests/Pods-appDulceHogar-appDulceHogarTests.release.xcconfig"; sourceTree = "<group>"; };
 		7AD560AE8AF7473BB9DBC1F7 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = appDulceHogar/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				77362F0F27BC7FEE0000B11F /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* appDulceHogar */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* appDulceHogarTests */,
@@ -226,6 +229,7 @@
 				CA094A7EA899A4F9331C0D2F /* [CP] Embed Pods Frameworks */,
 				C15B68F46BCE706BC9C6FBBC /* [CP] Copy Pods Resources */,
 				5A75C99C6E83447A382831D8 /* [CP-User] [RNFB] Core Configuration */,
+				77362F1127BC81060000B11F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -277,6 +281,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77362F1127BC81060000B11F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77362F1227BC81150000B11F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
