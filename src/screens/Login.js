@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {View} from 'react-native';
-import {Container, ContainerWhite, GeneralText} from '../components/atoms';
+import {Container, GeneralText} from '../components/atoms';
 import {
   GeneralHeader,
   LinkContainer,
