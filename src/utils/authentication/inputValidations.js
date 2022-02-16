@@ -33,23 +33,21 @@ const checkRegex = (value, validation) => {
 };
 
 const triggerValidation = (value, validation, setError) => {
+  let error = false;
   validation = inputValidations[validation];
   if (!value) {
     setError(LOG.empty);
-    return false;
   } else if (value.length < validation.min) {
     setError(LOG.min);
-    return false;
   } else if (value.length > validation.max) {
     setError(LOG.max);
-    return false;
   } else if (checkRegex(value, validation)) {
     setError(LOG.regex);
-    return false;
   } else {
     setError(undefined);
-    return true;
+    error = true;
   }
+  return error;
 };
 
 export default triggerValidation;

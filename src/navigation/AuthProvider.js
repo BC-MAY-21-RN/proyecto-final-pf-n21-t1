@@ -32,7 +32,7 @@ export const AuthProvider = ({children}) => {
               .createUserWithEmailAndPassword(email, password)
               .then(() => {
                 firestore()
-                  .collection('users')
+                  .collection('Users')
                   .doc(auth().currentUser.uid)
                   .set({
                     name: name,
