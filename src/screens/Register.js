@@ -8,35 +8,40 @@ import triggerValidation from '../utils/authentication/inputValidations';
 import {useRegister} from '../assets/hooks/useRegister';
 import {AuthContext} from '../navigation/AuthProvider';
 
-const inputsRender = (form, setForm, errorEmail, errorPassword, errorName) => {
-  const generalInputs = [
-    {
+const getInput = (type, form, setForm, errorMessage) => {
+  const typeObject = {
+    name: {
       title: 'Nombre completo',
       placeholder: 'Tu nombre',
       icon: 'person',
-      value: form.name.value,
-      onChangeText: value => setForm('name', value, form.name.isOk),
-      errorMessage: errorName,
     },
-    {
+    email: {
       title: 'Correo',
       placeholder: 'Tu correo',
       icon: 'mail',
-      value: form.email.value,
-      onChangeText: value => setForm('email', value, form.email.isOk),
-      errorMessage: errorEmail,
     },
-    {
+    password: {
       title: 'Password',
       placeholder: 'Password',
       icon: 'key',
-      secret: true,
-      value: form.password.value,
-      onChangeText: value => setForm('password', value, form.password.isOk),
-      errorMessage: errorPassword,
     },
-  ];
+  };
+  return {
+    title: typeObject[type].title,
+    placeholder: typeObject[type].placeholder,
+    icon: typeObject[type].icon,
+    value: form[type].value,
+    onChangeText: value => setForm(type, value, form[type].isOk),
+    errorMessage,
+  };
+};
 
+const inputsRender = (form, setForm, errorEmail, errorPassword, errorName) => {
+  const generalInputs = [
+    getInput('name', form, setForm, errorName),
+    getInput('email', form, setForm, errorPassword),
+    getInput('password', form, setForm, errorName),
+  ];
   return inputsMapping(generalInputs);
 };
 

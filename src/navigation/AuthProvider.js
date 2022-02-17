@@ -31,6 +31,7 @@ export const AuthProvider = ({children}) => {
             await auth()
               .createUserWithEmailAndPassword(email, password)
               .then(() => {
+                console.log(auth().currentUser.uid);
                 firestore()
                   .collection('Users')
                   .doc(auth().currentUser.uid)
@@ -40,6 +41,8 @@ export const AuthProvider = ({children}) => {
                     password: password,
                     createdAt: firestore.Timestamp.fromDate(new Date()),
                   })
+                  .then(value => console.log(value))
+                  .catch(error => console.log(error))
                   .catch(error => {
                     if (error.code === 'auth/email-already-in-use') {
                       Alert.alert('That email address is already in use!');
