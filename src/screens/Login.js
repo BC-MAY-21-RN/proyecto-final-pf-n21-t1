@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {View} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 import {Container, GeneralText} from '../components/atoms';
 import {
   GeneralHeader,
@@ -40,7 +40,7 @@ export const Login = ({navigation}) => {
   const [errorEmail, setErrorEmail] = useState();
   const [errorPassword, setErrorPassword] = useState();
 
-  const {login} = useContext(AuthContext);
+  const {login, googleLogin} = useContext(AuthContext);
 
   useEffect(() => {
     setForm(
@@ -58,6 +58,7 @@ export const Login = ({navigation}) => {
 
   return (
     <Container>
+      <SafeAreaView />
       <GeneralHeader />
       <View>
         <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
@@ -67,6 +68,7 @@ export const Login = ({navigation}) => {
           type="login"
           disabled={form.submit}
           action={() => login(form.email.value, form.password.value, setForm)}
+          actionGoogle={() => googleLogin()}
         />
         <LinkContainer navigation={navigation} type="Register" />
       </View>

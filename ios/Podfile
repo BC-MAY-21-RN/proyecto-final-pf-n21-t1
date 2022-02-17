@@ -13,6 +13,7 @@ target 'appDulceHogar' do
   )
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'GoogleSignIn', '~> 6.0.2'
 
   target 'appDulceHogarTests' do
     inherit! :complete

@@ -1,7 +1,8 @@
 import React, {createContext} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import {Alert} from 'react-native';
+import {Alert, Platform} from 'react-native';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 export const AuthContext = createContext();
 
 const login = (email, password, setForm) => {
@@ -59,18 +60,36 @@ const register = async (name, email, password) => {
 const logout = async () => {
   try {
     await auth().signOut();
+    await GoogleSignin.signOut();
   } catch (e) {
     console.log(e);
   }
 };
 
+const googleLogin = async () => {
+  try {
+    const { idToken } = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    await auth().signInWithCredential(googleCredential)
+    .catch(error => {
+      console.log(error);
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const AuthProvider = ({children}) => {
+  GoogleSignin.configure({
+    webClientId: '738397443752-ohjhhan7mm20180cue0odfp76kag2tdb.apps.googleusercontent.com',
+  });
   return (
     <AuthContext.Provider
       value={{
         login,
         register,
         logout,
+        googleLogin,
       }}>
       {children}
     </AuthContext.Provider>

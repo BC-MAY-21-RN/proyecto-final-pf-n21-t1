@@ -17,5 +17,5 @@ export const Color = {
   text: '#888888',
   input: '#e0e0e0',
   red: '#FF0000',
-  facebook: '#3b5998',
+  facebook: '#EA4335',
 };
