@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {GeneralHeader, SignButtons} from '../components/molecules/index';
 import inputsMapping from '../utils/inputsMapping';
@@ -56,7 +56,7 @@ export const Register = ({navigation}) => {
   const [errorPassword, setErrorPassword] = useState();
   const [errorName, setErrorName] = useState();
 
-  const {register} = useContext(AuthContext);
+  const {register, googleLogin} = useContext(AuthContext);
 
   useEffect(() => {
     setForm(
@@ -96,6 +96,7 @@ export const Register = ({navigation}) => {
           action={() =>
             register(form.name.value, form.email.value, form.password.value)
           }
+          actionGoogle={() => googleLogin()}
         />
         <LinkContainer navigation={navigation} type="Login" />
       </Container>
