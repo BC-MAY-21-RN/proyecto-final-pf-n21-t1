@@ -5,8 +5,8 @@ import {GeneralHeader, SignButtons} from '../components/molecules/index';
 import inputsMapping from '../utils/inputsMapping';
 import {LinkContainer} from '../components/molecules';
 import triggerValidation from '../utils/authentication/inputValidations';
-import {useRegister} from '../assets/hooks/useRegister';
 import {AuthContext} from '../navigation/AuthProvider';
+import {useForm} from '../assets/hooks/useForm';
 
 const getInput = (type, form, setForm, errorMessage) => {
   const typeObject = {
@@ -33,6 +33,7 @@ const getInput = (type, form, setForm, errorMessage) => {
     value: form[type].value,
     onChangeText: value => setForm(type, value, form[type].isOk),
     errorMessage,
+    secret: type === 'password' ? true : false,
   };
 };
 
@@ -46,7 +47,7 @@ const inputsRender = (form, setForm, errorEmail, errorPassword, errorName) => {
 };
 
 export const Register = ({navigation}) => {
-  const [form, setForm] = useRegister();
+  const [form, setForm] = useForm('register');
   const [errorEmail, setErrorEmail] = useState();
   const [errorPassword, setErrorPassword] = useState();
   const [errorName, setErrorName] = useState();

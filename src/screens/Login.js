@@ -7,9 +7,9 @@ import {
   SignButtons,
 } from '../components/molecules';
 import inputsMapping from '../utils/inputsMapping';
-import {useLogin} from '../assets/hooks/useLogin';
 import triggerValidation from '../utils/authentication/inputValidations';
 import {AuthContext} from '../navigation/AuthProvider';
+import {useForm} from '../assets/hooks/useForm';
 
 const inputsRender = (form, setForm, errorEmail, errorPassword) => {
   const generalInputs = [
@@ -36,7 +36,7 @@ const inputsRender = (form, setForm, errorEmail, errorPassword) => {
 };
 //Container no es un styled component, es un componente contenerdor vacio para ser eutilizable que dentro tomo como children todo lo contenido en container y lo regresa con estilos
 export const Login = ({navigation}) => {
-  const [form, setForm] = useLogin();
+  const [form, setForm] = useForm('login');
   const [errorEmail, setErrorEmail] = useState();
   const [errorPassword, setErrorPassword] = useState();
 
