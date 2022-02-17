@@ -3,23 +3,25 @@ import buttonsMapping from '../../../utils/buttonsMapping'
 import {ButtonGroup, ButtonStyles} from './styled';
 
 export const AcceptDeclineBtns = () => {
-  const generalButtons = [
+  const buttonsData = [
     {
-      title: 'Accept',
+      title: 'Aceptar',
       color: 'primary',
       action: () => console.log("Aceptaste :)"),
-      size: 100,
+      width: 100,
+      height: 37,
     },
     {
-      title: 'Decline',
+      title: 'Cancelar',
       color: 'secondary',
       action: () => console.log("Declinaste :("),
-      size: 100,
+      width: 100,
+      height: 37,
     },
   ];
   return (
     <ButtonGroup>
-      <ButtonStyles>{buttonsMapping(generalButtons)}</ButtonStyles>
+      <ButtonStyles>{buttonsMapping(buttonsData)}</ButtonStyles>
     </ButtonGroup>
   );
 };

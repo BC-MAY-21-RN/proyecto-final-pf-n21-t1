@@ -15,8 +15,9 @@ export default function buttonsMapping(buttonsData) {
           color={button.color}
           icon={button.icon}
           action={button.action}
-          size={button.size}
           disabled={button.disabled}
+          width={button.width}
+          height={button.height}
         />
       );
     },

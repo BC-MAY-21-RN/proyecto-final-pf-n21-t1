@@ -20,6 +20,7 @@ const eyeButton = (visible, setVisible) => {
 };
 
 export const GeneralInput = ({
+  height,
   title,
   placeholder,
   secret,
@@ -27,19 +28,25 @@ export const GeneralInput = ({
   value,
   onChangeText,
   errorMessage,
+  whiteBackground,
 }) => {
   const [visible, setVisible] = useState(false);
+  height ? (height = height) : (height = 50);
+  let backgroundColor;
+  whiteBackground
+    ? (backgroundColor = Color.background)
+    : (backgroundColor = Color.input);
 
   useEffect(() => {
     setVisible(secret); //secret es el prop enviado desde login para forzar que el input tenga o no visible el RightIcon
   }, [secret]);
 
   const inputContainerStyle = {
-    height: 50,
+    height: height,
     marginTop: 5,
     borderRadius: 8,
     borderBottomWidth: 0,
-    backgroundColor: Color.input,
+    backgroundColor: backgroundColor,
     padding: 10,
   };
 

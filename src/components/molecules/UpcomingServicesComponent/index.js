@@ -12,7 +12,7 @@ export const UpcomingServiceComponent = ({servicio}) => {
       <GeneralContainer height={'30%'}>
         <Container>
           <GroupRow>
-            <GeneralText 
+            <GeneralText
               title={'Servicio: '}
               weight
               size={'h2'}

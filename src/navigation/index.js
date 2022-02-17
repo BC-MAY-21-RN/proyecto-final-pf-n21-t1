@@ -44,6 +44,7 @@ const Navigate = () => {
         <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
       </Stack.Navigator>
     </AuthProvider>
+
   );
 };
 

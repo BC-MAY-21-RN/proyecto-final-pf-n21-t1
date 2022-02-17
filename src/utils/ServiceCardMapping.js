@@ -1,10 +1,11 @@
 import React from 'react';
 import {GeneralText} from '../components/atoms';
 
-export default function UpcomingServiceMapping(upcomingServiceData) {
-  const serviceText = upcomingServiceData.map((service, index) => {
+export default function ServiceCardMapping(serviceCardData) {
+  const serviceText = serviceCardData.map((service, index) => {
     return (
-      <GeneralText key={index}
+      <GeneralText
+        key={index}
         title={service.title}
         weight
         size={service.size}
