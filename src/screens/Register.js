@@ -39,8 +39,8 @@ const getInput = (type, form, setForm, errorMessage) => {
 const inputsRender = (form, setForm, errorEmail, errorPassword, errorName) => {
   const generalInputs = [
     getInput('name', form, setForm, errorName),
-    getInput('email', form, setForm, errorPassword),
-    getInput('password', form, setForm, errorName),
+    getInput('email', form, setForm, errorEmail),
+    getInput('password', form, setForm, errorPassword),
   ];
   return inputsMapping(generalInputs);
 };
