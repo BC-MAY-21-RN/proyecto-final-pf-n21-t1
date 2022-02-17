@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const CardOpacity = styled.TouchableOpacity`
+  width: 95%;
+  flex-direction: row;
+`;
+
 export const ImgContainer = styled.View`
   align-items: center;
   justify-content: center;
@@ -20,12 +25,6 @@ export const InfoContainer = styled.View`
 export const StarsContainer = styled.View`
   width: 100%;
   height: 30%;
-`;
-
-export const NumberRow = styled.View`
-  justify-content: space-around;
-  flex-direction: row;
-  width: 70%;
 `;
 
 export const CardContainer = styled.View`

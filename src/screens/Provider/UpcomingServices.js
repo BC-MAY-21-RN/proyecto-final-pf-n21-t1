@@ -1,12 +1,8 @@
 import React from 'react';
-import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
-import {Container} from '../../components/atoms';
+import {Container, ContainerWhite} from '../../components/atoms';
+import {GeneralHeader, ServiceGeneralCard, UpcomingServiceComponent, AcceptDeclineBtns} from '../../components/molecules';
 import {ScrollView} from 'react-native';
 import {Text} from 'react-native';
-import {
-  AcceptDeclineBtns,
-  UpcomingServiceComponent,
-} from '../../components/molecules';
 
 export const UpcomingServices = () => {
   return (

@@ -25,6 +25,9 @@ export const GeneralInput = ({
   placeholder,
   secret,
   leftIcon,
+  value,
+  onChangeText,
+  errorMessage,
   whiteBackground,
 }) => {
   const [visible, setVisible] = useState(false);
@@ -67,6 +70,10 @@ export const GeneralInput = ({
       secureTextEntry={visible}
       rightIcon={secret ? eyeButton(visible, setVisible) : undefined}
       leftIcon={leftIcon ? <Icon name={leftIcon} size={20} /> : undefined}
+      value={value}
+      onChangeText={onChangeText}
+      errorMessage={errorMessage}
+      autoCapitalize={'none'}
     />
   );
 };

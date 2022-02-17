@@ -13,7 +13,7 @@ const serviceButtonsData = ({navigation}) => {
       marginBottom: '20%',
       serviceTitle: 'Fontanero',
       icon: plumbering,
-      toScreen: () => navigation.navigate('Login'),
+      toScreen: () => navigation.navigate('ServiceProviders'),
     },
     {
       width: '90%',
@@ -27,7 +27,7 @@ const serviceButtonsData = ({navigation}) => {
       width: '90%',
       height: '20%',
       marginBottom: '20%',
-      serviceTitle: 'Ténico',
+      serviceTitle: 'Técnico',
       icon: electronics,
       toScreen: () => navigation.navigate('Login'),
     },

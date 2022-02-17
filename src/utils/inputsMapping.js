@@ -14,6 +14,9 @@ export default function inputsMapping(generalInputs) {
         placeholder={input.placeholder}
         leftIcon={input.icon}
         secret={input.secret}
+        value={input.value}
+        onChangeText={input.onChangeText}
+        errorMessage={input.errorMessage}
       />
     ),
   );

@@ -1,10 +1,13 @@
 import React from 'react';
+import {Container, ContainerWhite} from '../../components/atoms';
 import {CardOrganism} from '../../components/organisms';
 
 export const ProviderPreview = ({navigation}) => {
   return (
-    <>
-      <CardOrganism navigation={navigation} />
-    </>
+    <ContainerWhite>
+      <Container>
+        <CardOrganism navigation={navigation} />
+      </Container>
+    </ContainerWhite>
   );
 };

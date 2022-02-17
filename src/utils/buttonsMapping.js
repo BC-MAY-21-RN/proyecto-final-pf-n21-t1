@@ -15,6 +15,7 @@ export default function buttonsMapping(buttonsData) {
           color={button.color}
           icon={button.icon}
           action={button.action}
+          disabled={button.disabled}
           width={button.width}
           height={button.height}
         />

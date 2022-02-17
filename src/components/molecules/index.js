@@ -4,6 +4,7 @@ export {SignButtons} from './SignButtons';
 export {LinkContainer} from './LinkContainer';
 export {OpinionComponent} from './OpionionComponent';
 export {ProviderCard} from './ProviderCard';
+export {UpcomingServiceComponent} from './UpcomingServicesComponent';
 export {QualifyButton} from './QualifyButton';
 export {ServiceGeneralCard} from './ServiceGeneralCard';
 export {CommentAndQualify} from './CommentAndQualify';

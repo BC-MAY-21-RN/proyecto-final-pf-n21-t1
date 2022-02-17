@@ -5,6 +5,8 @@ import {
   GeneralText,
   GeneralPicker,
   GeneralButton,
+  ContainerWhite,
+  Container,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {PickerWrapper, CenterView, MarginView} from '../styled';
@@ -70,12 +72,14 @@ export const ProviderCreation = () => {
     },
   ];
   return (
-    <>
-      <Header />
-      <Form data={data} style={style} />
-      <CenterView>
-        <GeneralButton title="Empezar" color="secondary" />
-      </CenterView>
-    </>
+    <ContainerWhite>
+      <Container>
+        <Header />
+        <Form data={data} style={style} />
+        <CenterView>
+          <GeneralButton title="Empezar" color="secondary" />
+        </CenterView>
+      </Container>
+    </ContainerWhite>
   );
 };
