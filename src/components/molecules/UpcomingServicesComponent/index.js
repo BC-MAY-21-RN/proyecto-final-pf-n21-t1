@@ -2,7 +2,6 @@ import React from 'react';
 import {Container, GeneralContainer, GeneralText} from '../../atoms';
 import {AcceptDeclineBtns} from '../index';
 import {GroupRow, GroupColumn} from './styled';
-import UpcomingServiceMapping from '../../../utils/upcomingServiceMapping';
 import upcomingServiceData from './upcomingServiceData';
 
 export const UpcomingServiceComponent = ({servicio}) => {
