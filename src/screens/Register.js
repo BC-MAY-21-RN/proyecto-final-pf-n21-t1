@@ -8,8 +8,8 @@ import triggerValidation from '../utils/authentication/inputValidations';
 import {AuthContext} from '../navigation/AuthProvider';
 import {useForm} from '../assets/hooks/useForm';
 
-const getInput = (type, form, setForm, errorMessage) => {
-  const typeObject = {
+const getTypeObject = () => {
+  return {
     name: {
       title: 'Nombre completo',
       placeholder: 'Tu nombre',
@@ -26,6 +26,10 @@ const getInput = (type, form, setForm, errorMessage) => {
       icon: 'key',
     },
   };
+};
+
+const getInput = (type, form, setForm, errorMessage) => {
+  const typeObject = getTypeObject();
   return {
     title: typeObject[type].title,
     placeholder: typeObject[type].placeholder,

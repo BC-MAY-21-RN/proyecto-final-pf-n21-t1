@@ -20,33 +20,34 @@ const login = (email, password, setForm) => {
   setForm('password', '', false);
 };
 
+const userTemplate = (name, email, password) => {
+  return {name, email, password};
+};
+
+const handleError = error => {
+  if (
+    error.code === 'auth/email-already-in-use' ||
+    error.code === 'auth/invalid-email'
+  ) {
+    Alert.alert('That email address is already in use or is invalid');
+  }
+};
+
 const register = async (name, email, password) => {
+  const user = userTemplate(name, email, password);
   try {
     await auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        console.log(auth().currentUser.uid);
         firestore()
           .collection('Users')
           .doc(auth().currentUser.uid)
-          .set({
-            name: name,
-            email: email,
-            password: password,
-            createdAt: firestore.Timestamp.fromDate(new Date()),
-          })
+          .set(user)
           .then(value => console.log(value))
-          .catch(error => console.log(error))
           .catch(error => {
-            if (error.code === 'auth/email-already-in-use') {
-              Alert.alert('That email address is already in use!');
-            }
-            if (error.code === 'auth/invalid-email') {
-              Alert.alert('That email address is invalid!');
-            }
+            handleError(error);
           });
       })
-      //we need to catch the whole sign up process if it fails too.
       .catch(error => {
         console.log('Something went wrong with sign up: ', error);
       });
