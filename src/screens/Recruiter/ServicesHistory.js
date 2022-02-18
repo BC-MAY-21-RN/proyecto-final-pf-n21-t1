@@ -3,7 +3,7 @@ import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
 import {Container} from '../../components/atoms';
 import {ScrollView} from 'react-native';
 
-export const ServicesHistory = () => {
+export const ServicesHistory = ({navigation}) => {
   return (
     <Container>
       <GeneralHeader
@@ -19,10 +19,12 @@ export const ServicesHistory = () => {
         <ServiceGeneralCard
           servicio={'Fontanero'}
           status={'Servicio Finalizado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
+          navigation={navigation}
         />
         <ServiceGeneralCard
           servicio={'Pintor'}
           status={'Servicio Rechazado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
+          navigation={navigation}
         />
       </ScrollView>
     </Container>

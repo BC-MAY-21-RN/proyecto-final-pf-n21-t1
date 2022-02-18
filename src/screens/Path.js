@@ -12,7 +12,7 @@ const buttonsRender = navigation => {
       color: 'primary',
       icon: 'home',
       size: 330,
-      action: () => navigation.navigate('ServiceProviders'),
+      action: () => navigation.navigate('RecruiterCreation'),
     },
     {
       title: 'Ofrecer servicios de mantenimiento',
