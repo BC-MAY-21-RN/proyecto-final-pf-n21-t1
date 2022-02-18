@@ -5,7 +5,7 @@ import {CommentAndQualify, OneStarButton} from '..';
 import {Alert, Modal} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 
-export const QualifyButton = () => {
+export const QualifyButton = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <CenteredView>
@@ -22,6 +22,7 @@ export const QualifyButton = () => {
             <CommentAndQualify
               modalVisible={modalVisible}
               setModalVisible={setModalVisible}
+              navigation={navigation}
             />
           </ModalView>
         </CenteredView>

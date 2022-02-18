@@ -37,7 +37,7 @@ const Service = ({serviceItem}) => {
   );
 };
 
-const FooterWrapper = () => {
+const FooterWrapper = ({navigation}) => {
   const style = {
     position: 'absolute',
     bottom: 20,
@@ -51,12 +51,12 @@ const FooterWrapper = () => {
         title="Favor de esperar confirmacion del provedor en un maximo de 5hrs."
         icon="alert-outline"
       />
-      <GeneralButton title="Entendido" color="secondary" />
+      <GeneralButton title="Entendido" color="secondary" action={() => navigation.navigate("ServicesHistory")} />
     </CenterView>
   );
 };
 
-export const ServiceTicket = ({service}) => {
+export const ServiceTicket = ({service, navigation}) => {
   service = {
     datetime: 'hey',
     provider: 'a',
@@ -81,7 +81,7 @@ export const ServiceTicket = ({service}) => {
         />
       </CenterView>
       <Service serviceItem={service} />
-      <FooterWrapper />
+      <FooterWrapper navigation={navigation} />
     </Container>
   );
 };

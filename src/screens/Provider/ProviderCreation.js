@@ -61,7 +61,7 @@ const Form = ({data, style}) => {
   );
 };
 
-export const ProviderCreation = () => {
+export const ProviderCreation = ({navigation}) => {
   const style = {
     width: '50%',
   };
@@ -77,7 +77,7 @@ export const ProviderCreation = () => {
         <Header />
         <Form data={data} style={style} />
         <CenterView>
-          <GeneralButton title="Empezar" color="secondary" />
+          <GeneralButton title="Empezar" color="secondary" action={()=>navigation.navigate("ProviderPreview")}/>
         </CenterView>
       </Container>
     </ContainerWhite>

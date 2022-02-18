@@ -21,7 +21,7 @@ const serviceButtonsData = ({navigation}) => {
       marginBottom: '20%',
       serviceTitle: 'Constructor',
       icon: constructor,
-      toScreen: () => navigation.navigate('Login'),
+      toScreen: () => navigation.navigate('ServiceProviders'),
     },
     {
       width: '90%',
@@ -29,7 +29,7 @@ const serviceButtonsData = ({navigation}) => {
       marginBottom: '20%',
       serviceTitle: 'Técnico',
       icon: electronics,
-      toScreen: () => navigation.navigate('Login'),
+      toScreen: () => navigation.navigate('ServiceProviders'),
     },
     {
       width: '90%',
@@ -37,7 +37,7 @@ const serviceButtonsData = ({navigation}) => {
       marginBottom: '20%',
       serviceTitle: 'Electricista',
       icon: electrician,
-      toScreen: () => navigation.navigate('Login'),
+      toScreen: () => navigation.navigate('ServiceProviders'),
     },
     {
       width: '90%',
@@ -45,7 +45,7 @@ const serviceButtonsData = ({navigation}) => {
       marginBottom: '20%',
       serviceTitle: 'Carpintero',
       icon: carpenter,
-      toScreen: () => navigation.navigate('Login'),
+      toScreen: () => navigation.navigate('ServiceProviders'),
     },
     {
       width: '90%',
@@ -53,7 +53,7 @@ const serviceButtonsData = ({navigation}) => {
       marginBottom: '20%',
       serviceTitle: 'Pintor',
       icon: painter,
-      toScreen: () => navigation.navigate('Login'),
+      toScreen: () => navigation.navigate('ServiceProviders'),
     },
   ];
 };

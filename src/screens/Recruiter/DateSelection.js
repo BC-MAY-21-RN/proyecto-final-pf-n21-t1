@@ -9,7 +9,7 @@ import {GeneralHeader} from '../../components/molecules';
 import DatePicker from 'react-native-date-picker';
 import {CenterView} from '../styled';
 
-export const DateSelection = () => {
+export const DateSelection = ({navigation}) => {
   const [date, setDate] = useState(new Date());
   return (
     <ContainerWhite>
@@ -30,7 +30,7 @@ export const DateSelection = () => {
             weight
           />
           <DatePicker mode="datetime" date={date} onDateChange={setDate} />
-          <GeneralButton title="Siguiente" color="secondary" />
+          <GeneralButton title="Siguiente" color="secondary" action={() => navigation.navigate("ServiceTicket")} />
         </CenterView>
       </Container>
     </ContainerWhite>

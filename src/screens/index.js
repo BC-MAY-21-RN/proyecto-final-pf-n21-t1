@@ -12,3 +12,4 @@ export {ServiceProviders} from './Recruiter/ServiceProviders';
 export {ServiceScore} from './Recruiter/ServiceScore';
 export {ServicesHistory} from './Recruiter/ServicesHistory';
 export {ServiceTicket} from './Recruiter/ServiceTicket';
+export {RecruiterCreation} from './Recruiter/RecruiterCreation';

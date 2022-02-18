@@ -10,6 +10,7 @@ export const ServiceGeneralCard = ({
   botones,
   status,
   qualifyButton,
+  navigation
   /*setShowQualify, */
 }) => {
   const serviceText = serviceCardData();
@@ -35,7 +36,7 @@ export const ServiceGeneralCard = ({
         {botones ? <AcceptDeclineBtns /> : null}
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
-          {qualifyButton ? <QualifyButton /> : null}
+          {qualifyButton ? <QualifyButton navigation={navigation} /> : null}
         </StarAndServiceRow>
       </GeneralContainer>
     </ShadowView>

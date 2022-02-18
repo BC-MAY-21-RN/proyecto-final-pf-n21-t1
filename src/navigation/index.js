@@ -15,6 +15,7 @@ import {
   ServicesHistory,
   ServiceTicket,
   UpcomingServices,
+  RecruiterCreation
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
@@ -42,6 +43,7 @@ const Navigate = () => {
         <Stack.Screen name="ServiceScore" component={ServiceScore} />
         <Stack.Screen name="ServicesHistory" component={ServicesHistory} />
         <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
+        <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
       </Stack.Navigator>
     </AuthProvider>
 
