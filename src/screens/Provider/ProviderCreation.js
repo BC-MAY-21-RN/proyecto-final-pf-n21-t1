@@ -44,7 +44,7 @@ const Form = ({data, style}) => {
       <MarginView>
         <GeneralText title="Servicios" size="h4" />
       </MarginView>
-      <GeneralPicker data={data} />
+      {/*<GeneralPicker data={data} />*/}
       <GeneralInput title="Telefono celular" placeholder="1234567890" />
       <MarginView>
         <GeneralText title="Horario de disponibilidad" size="h4" />

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export const GeneralButton = ({width, height, title, color, icon, action, disabled}) => {
   height ? (height = height) : (height = 55);
-  width ? (width = width) : (width = 300);
+  width ? (width = width) : (width = 350);
   color ? (color = Color[color]) : (color = Color.secondary);
 
   const buttonStyle = {

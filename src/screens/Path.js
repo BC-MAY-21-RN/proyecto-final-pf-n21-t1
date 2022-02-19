@@ -4,6 +4,12 @@ import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
+import auth from '@react-native-firebase/auth'
+//auth().currentUser.uid
+
+const pathSwitching = () => {
+  
+}
 
 const buttonsRender = navigation => {
   const generalButtons = [

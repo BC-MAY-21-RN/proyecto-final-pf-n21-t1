@@ -67,7 +67,7 @@ export const Login = ({navigation}) => {
           navigation={navigation}
           type="login"
           disabled={form.submit}
-          action={() => login(form.email.value, form.password.value, setForm)}
+          action={() => login(form.email.value, form.password.value, setForm, navigation) }
           actionGoogle={() => googleLogin()}
         />
         <LinkContainer navigation={navigation} type="Register" />
