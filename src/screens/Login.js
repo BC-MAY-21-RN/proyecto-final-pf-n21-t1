@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {View, SafeAreaView} from 'react-native';
-import {Container, GeneralText} from '../components/atoms';
+import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {
   GeneralHeader,
   LinkContainer,
@@ -57,21 +57,24 @@ export const Login = ({navigation}) => {
   }, [form.email.value, form.password.value]);
 
   return (
-    <Container>
-      <SafeAreaView />
-      <GeneralHeader />
-      <View>
-        <GeneralText title="Inicia sesión" weight size="h1" color="secondary" />
-        {inputsRender(form, setForm, errorEmail, errorPassword)}
-        <SignButtons
-          navigation={navigation}
-          type="login"
-          disabled={form.submit}
-          action={() => login(form.email.value, form.password.value, setForm, navigation) }
-          actionGoogle={() => googleLogin()}
-        />
-        <LinkContainer navigation={navigation} type="Register" />
-      </View>
-    </Container>
+    <ContainerWhite>
+      <Container>
+        <SafeAreaView />
+        <GeneralHeader />
+        <View>
+          <GeneralText title="Inicia sesión" weight size="h1" color="secondary"/>
+          {inputsRender(form, setForm, errorEmail, errorPassword)}
+          <SignButtons
+            navigation={navigation}
+            type="login"
+            disabled={form.submit}
+            action={() => login(form.email.value, form.password.value, setForm, navigation) }
+            actionGoogle={() => googleLogin()}
+            />
+          <LinkContainer navigation={navigation} type="Register" />
+        </View>
+      </Container>
+    </ContainerWhite>
   );
 };
+
