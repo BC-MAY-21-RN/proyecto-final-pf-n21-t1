@@ -9,7 +9,7 @@ import {
   Container,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {PickerWrapper, CenterView, MarginView} from '../styled';
+import {CenterView, MarginView} from '../styled';
 
 const Header = () => {
   return (
@@ -28,11 +28,9 @@ const Header = () => {
           size="h1"
           color="secondary"
           weight
+          justify={'center'}
         />
-        <GeneralText
-          title="Antes de comenzar cuentanos un poco de ti..."
-          size="h5"
-        />
+      
       </CenterView>
     </>
   );
@@ -42,21 +40,10 @@ const Form = ({data, style}) => {
   return (
     <>
       <MarginView>
-        <GeneralText title="Servicios" size="h4" />
+        <GeneralText title="¿Qué servicio deseas proveer?" size="h2" color={'primary'} weight={'bold'} />
       </MarginView>
-      {/*<GeneralPicker data={data} />*/}
+      <GeneralPicker data={data} />
       <GeneralInput title="Telefono celular" placeholder="1234567890" />
-      <MarginView>
-        <GeneralText title="Horario de disponibilidad" size="h4" />
-        <PickerWrapper>
-          <GeneralPicker data={data} style={style} />
-          <GeneralPicker data={data} style={style} />
-        </PickerWrapper>
-      </MarginView>
-      <GeneralInput
-        title="Notas importantes"
-        placeholder="Trabajo días festivos..."
-      />
     </>
   );
 };
@@ -77,7 +64,7 @@ export const ProviderCreation = ({navigation}) => {
         <Header />
         <Form data={data} style={style} />
         <CenterView>
-          <GeneralButton title="Empezar" color="secondary" action={()=>navigation.navigate("ProviderPreview")}/>
+          <GeneralButton title="Siguiente" color="secondary" action={()=>navigation.navigate("CreationSecondary")}/>
         </CenterView>
       </Container>
     </ContainerWhite>
