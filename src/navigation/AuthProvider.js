@@ -1,7 +1,7 @@
 import React, {createContext} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import {Alert, Platform} from 'react-native';
+import {Alert} from 'react-native';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 export const AuthContext = createContext();
 

@@ -5,10 +5,13 @@ import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
 import auth from '@react-native-firebase/auth'
+import firestore from '@react-native-firebase/firestore';
 //auth().currentUser.uid
 
-const pathSwitching = () => {
-  
+const recruiterValidation = navigation => {
+  firestore().collection('Users').doc(auth().currentUser.uid).get().then(documentSnapshot => {
+    documentSnapshot.data().providerRegistered === 'true' ? navigation.navigate('UpcomingServices') : navigation.navigate('ProviderCreation')
+  })
 }
 
 const buttonsRender = navigation => {
@@ -25,7 +28,7 @@ const buttonsRender = navigation => {
       color: 'secondary',
       icon: 'hammer',
       size: 330,
-      action: () => navigation.navigate('ProviderCreation'),
+      action: () => recruiterValidation(navigation)
     },
   ];
   return buttonsMapping(generalButtons);
