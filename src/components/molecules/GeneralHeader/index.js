@@ -3,7 +3,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {Header, Logo, HeaderContainer, Menu} from './styled';
 import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
-import {TouchableOpacity} from 'react-native';
 import {Color} from '../../../theme/default';
 
 const MenuButton = () => {

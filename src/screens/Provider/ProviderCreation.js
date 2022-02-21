@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {View} from 'react-native';
 import {
   GeneralInput,
   GeneralText,
@@ -36,12 +35,7 @@ const Header = () => {
   );
 };
 
-const Form = ({data, style}) => {
-  const [service, setService] = useState('');
-  const [value, setValue] = useState();
-  const handleText = text => {
-    setValue(text)
-  }
+const Form = ({data, service, setService, handleText, value}) => {
   return (
     <>
       <MarginView>
@@ -54,7 +48,11 @@ const Form = ({data, style}) => {
 };
 
 export const ProviderCreation = ({navigation}) => {
-
+  const [service, setService] = useState('');
+  const [value, setValue] = useState();
+  const handleText = text => {
+    setValue(text)
+  }
   const style = {
     width: '50%',
   };
@@ -88,11 +86,12 @@ export const ProviderCreation = ({navigation}) => {
     <ContainerWhite>
       <Container>
         <Header />
-        <Form data={data} style={style} />
+        <Form data={data} style={style} service={service} setService={setService} handleText={handleText} value={value}/>
         <CenterView>
-          <GeneralButton title="Siguiente" color="secondary" action={()=>navigation.navigate("CreationSecondary")}/>
+          <GeneralButton title="Siguiente" color="secondary" action={()=>navigation.navigate("CreationSecondary", {InputNumber: value, ServicePicker: service})}/>
         </CenterView>
       </Container>
     </ContainerWhite>
   );
 };
+
