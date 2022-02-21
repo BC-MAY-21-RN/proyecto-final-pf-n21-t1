@@ -26,7 +26,7 @@ const Navigate = () => {
   return (
     <AuthProvider>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="ProviderCreation"
         screenOptions={{
           headerShown: false,
         }}>
