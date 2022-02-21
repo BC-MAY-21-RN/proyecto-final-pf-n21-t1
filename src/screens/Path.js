@@ -42,7 +42,7 @@ export const Path = ({navigation}) => {
             weight="bold"
             size="h1"
             color="secondary"
-            />
+          />
           <View style={styles.buttons}>{buttonsRender(navigation)}</View>
           <LinkContainer navigation={navigation} type="Logout" />
         </View>
