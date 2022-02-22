@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text} from 'react-native-elements';
 import {
   Modal,
@@ -8,6 +8,8 @@ import {
   StyleSheet,
 } from 'react-native';
 import {} from './styled';
+import {GeneralLink, GeneralText} from '../../atoms';
+import HomeIcon from '../../../assets/icons/Home';
 
 export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
   return (
@@ -24,7 +26,32 @@ export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
         onPressOut={() => setModalVisible(false)}>
         <View style={style.container}>
           <TouchableWithoutFeedback>
-            <Text>Hey</Text>
+            <View>
+              <TouchableOpacity style={style.inicio}>
+                <HomeIcon />
+                <GeneralText title="  Inicio" size="h4" color="primary" />
+              </TouchableOpacity>
+              <GeneralLink
+                title={'Contratar Sevicios'}
+                size="h5"
+                color="secondary"
+              />
+              <GeneralLink
+                title={'Servicios Contratados'}
+                size="h5"
+                color="secondary"
+              />
+              <GeneralLink
+                title={'Cerrar sesión'}
+                size="h5"
+                color="secondary"
+              />
+              <GeneralLink
+                title={'Editar dirección'}
+                size="h5"
+                color="secondary"
+              />
+            </View>
           </TouchableWithoutFeedback>
         </View>
       </TouchableOpacity>
@@ -33,6 +60,12 @@ export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
 };
 
 const style = StyleSheet.create({
+  inicio: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    alignSelf: 'flex-start',
+  },
   containerScreen: {
     width: '100%',
     height: '100%',
@@ -50,5 +83,8 @@ const style = StyleSheet.create({
     borderBottomRightRadius: 15,
     borderBottomLeftRadius: 15,
     elevation: 5,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
   },
 });
