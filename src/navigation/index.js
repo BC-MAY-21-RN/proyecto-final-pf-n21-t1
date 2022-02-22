@@ -21,15 +21,17 @@ import {
 import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
+const stackNavigatorProps = {
+  initialRouteName: 'Login',
+  screenOptions: {
+    headerShown: false,
+  },
+};
 
 const Navigate = () => {
   return (
     <AuthProvider>
-      <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{
-          headerShown: false,
-        }}>
+      <Stack.Navigator {...stackNavigatorProps}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Path" component={Path} />
