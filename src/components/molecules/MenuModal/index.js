@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text} from 'react-native-elements';
 import {
   Modal,
   View,
@@ -10,6 +9,17 @@ import {
 import {} from './styled';
 import {GeneralLink, GeneralText} from '../../atoms';
 import HomeIcon from '../../../assets/icons/Home';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {Color} from '../../../theme/default';
+
+const LinkIcon = ({icon, title}) => {
+  return (
+    <View style={style.inicio}>
+      <Icon name={icon} size={22} color={Color.secondary} />
+      <GeneralLink title={'  ' + title} size="h5" color="secondary" />
+    </View>
+  );
+};
 
 export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
   return (
@@ -28,29 +38,13 @@ export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
           <TouchableWithoutFeedback>
             <View>
               <TouchableOpacity style={style.inicio}>
-                <HomeIcon />
-                <GeneralText title="  Inicio" size="h4" color="primary" />
+                <HomeIcon width={22} colorIcon="secondary" />
+                <GeneralText title="  Inicio" size="h4" color="secondary" />
               </TouchableOpacity>
-              <GeneralLink
-                title={'Contratar Sevicios'}
-                size="h5"
-                color="secondary"
-              />
-              <GeneralLink
-                title={'Servicios Contratados'}
-                size="h5"
-                color="secondary"
-              />
-              <GeneralLink
-                title={'Cerrar sesión'}
-                size="h5"
-                color="secondary"
-              />
-              <GeneralLink
-                title={'Editar dirección'}
-                size="h5"
-                color="secondary"
-              />
+              <LinkIcon title="Contratar servicios" icon="hammer" />
+              <LinkIcon title="Servicios contratados" icon="cog" />
+              <LinkIcon title="Editar dirección" icon="create" />
+              <LinkIcon title="Cerrar sesión" icon="log-out" />
             </View>
           </TouchableWithoutFeedback>
         </View>
@@ -73,7 +67,7 @@ const style = StyleSheet.create({
   },
   container: {
     backgroundColor: 'white',
-    width: 170,
+    width: 200,
     height: 100,
     marginTop: '18.1%',
     position: 'absolute',
