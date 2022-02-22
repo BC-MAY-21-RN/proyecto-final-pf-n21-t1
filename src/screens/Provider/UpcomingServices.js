@@ -14,6 +14,7 @@ export const UpcomingServices = () => {
           weight
           size="h1"
           isMenuVisible
+          userType="Provider"
           />
         <ScrollView>
           <ServiceGeneralCard servicio={'Fontanero'} botones />

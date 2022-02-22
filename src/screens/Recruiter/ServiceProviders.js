@@ -20,6 +20,7 @@ export const ServiceProviders = ({navigation}) => {
           size="h1"
           color="background"
           weight
+          userType="Recruiter"
         />
         <TouchableOpacity activeOpacity={1}>
           <GeneralContainer width="360px" height="180px" direction>

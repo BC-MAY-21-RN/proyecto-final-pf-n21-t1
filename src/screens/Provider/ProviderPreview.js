@@ -6,7 +6,7 @@ export const ProviderPreview = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
-        <CardOrganism navigation={navigation} />
+        <CardOrganism navigation={navigation} userType="Provider" />
       </Container>
     </ContainerWhite>
   );

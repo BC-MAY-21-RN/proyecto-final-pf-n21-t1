@@ -1,84 +1,75 @@
 import React from 'react';
-import {
-  Modal,
-  View,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  StyleSheet,
-} from 'react-native';
-import {} from './styled';
-import {GeneralLink, GeneralText} from '../../atoms';
+import {View, TouchableWithoutFeedback} from 'react-native';
+import {Container, ContainerScreen, LinkStyle} from './styled';
+import {GeneralLink, GeneralModal, GeneralText} from '../../atoms';
 import HomeIcon from '../../../assets/icons/Home';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Color} from '../../../theme/default';
 
 const LinkIcon = ({icon, title}) => {
   return (
-    <View style={style.inicio}>
+    <LinkStyle>
       <Icon name={icon} size={22} color={Color.secondary} />
       <GeneralLink title={'  ' + title} size="h5" color="secondary" />
+    </LinkStyle>
+  );
+};
+
+const RecruiterModal = () => {
+  return (
+    <View>
+      <LinkStyle>
+        <HomeIcon width={22} colorIcon="secondary" />
+        <GeneralText title="  Inicio" size="h4" color="secondary" />
+      </LinkStyle>
+      <LinkIcon title="Contratar servicios" icon="hammer" />
+      <LinkIcon title="Servicios contratados" icon="cog" />
+      <LinkIcon title="Editar dirección" icon="create" />
+      <LinkIcon title="Cerrar sesión" icon="log-out" />
     </View>
   );
 };
 
-export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
+const ProviderModal = () => {
   return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => {
-        setModalVisible(!modalVisible);
-      }}>
-      <TouchableOpacity
-        style={style.containerScreen}
-        activeOpacity={1}
-        onPressOut={() => setModalVisible(false)}>
-        <View style={style.container}>
-          <TouchableWithoutFeedback>
-            <View>
-              <TouchableOpacity style={style.inicio}>
-                <HomeIcon width={22} colorIcon="secondary" />
-                <GeneralText title="  Inicio" size="h4" color="secondary" />
-              </TouchableOpacity>
-              <LinkIcon title="Contratar servicios" icon="hammer" />
-              <LinkIcon title="Servicios contratados" icon="cog" />
-              <LinkIcon title="Editar dirección" icon="create" />
-              <LinkIcon title="Cerrar sesión" icon="log-out" />
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      </TouchableOpacity>
-    </Modal>
+    <View>
+      <LinkIcon title="Solicitudes de servicios" icon="hammer" />
+      <LinkIcon title="Opiniones de clientes" icon="star" />
+      <LinkIcon title="Chats" icon="chatbubble" />
+      <LinkIcon title="Editar perfil" icon="person" />
+      <LinkIcon title="Cerrar sesión" icon="log-out" />
+    </View>
   );
 };
 
-const style = StyleSheet.create({
-  inicio: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    alignSelf: 'flex-start',
-  },
-  containerScreen: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-  },
-  container: {
-    backgroundColor: 'white',
-    width: 200,
-    height: 100,
-    marginTop: '18.1%',
-    position: 'absolute',
-    right: 0,
-    marginRight: '4%',
-    boxShadow: '0px 8px 10px rgba(0, 0, 0, 0.2)',
-    borderBottomRightRadius: 15,
-    borderBottomLeftRadius: 15,
-    elevation: 5,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-  },
-});
+export const MenuModal = ({
+  navigation,
+  modalVisible,
+  setModalVisible,
+  userType,
+}) => {
+  var userModal = null;
+
+  const ModalType = type => {
+    if (type === 'Provider') {
+      userModal = <ProviderModal />;
+    } else if (type === 'Recruiter') {
+      userModal = <RecruiterModal />;
+    }
+  };
+  ModalType(userType);
+  return (
+    <GeneralModal
+      animation="fade"
+      modalVisible={modalVisible}
+      setModalVisible={setModalVisible}>
+      <ContainerScreen
+        activeOpacity={1}
+        onPressOut={() => setModalVisible(false)}>
+        <Container>
+          <TouchableWithoutFeedback>{userModal}</TouchableWithoutFeedback>
+        </Container>
+      </ContainerScreen>
+    </GeneralModal>
+  );
+};

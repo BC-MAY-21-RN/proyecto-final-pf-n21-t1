@@ -13,6 +13,7 @@ export const ServicesHistory = ({navigation}) => {
         weight
         size="h1"
         isMenuVisible
+        userType="Recruiter"
       />
       <ScrollView>
         {/* AQUI DEBE IR CON MAPPING/FLATLIST CON LAS LECTURAS A FIREBASE Y QUE SE GENEREN LOS UPCOMINGSERVICECOMPONENTS NECESARIOS */}

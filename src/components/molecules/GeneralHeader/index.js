@@ -34,6 +34,7 @@ export const GeneralHeader = props => {
       <MenuModal
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
+        userType={props.userType}
       />
     </HeaderContainer>
   );

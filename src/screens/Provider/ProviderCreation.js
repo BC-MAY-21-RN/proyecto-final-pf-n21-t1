@@ -19,6 +19,7 @@ const Header = () => {
         size="h1"
         color="background"
         weight
+        userType="Provider"
       />
       <CenterView>
         <GeneralText
