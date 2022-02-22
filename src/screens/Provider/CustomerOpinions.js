@@ -11,6 +11,7 @@ export const CustomerOpinions = () => {
         weight
         size="h1"
         isMenuVisible
+        userType="Provider"
       />
       <OpinionComponent
         calification={'1'}

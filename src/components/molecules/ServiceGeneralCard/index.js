@@ -10,7 +10,7 @@ export const ServiceGeneralCard = ({
   botones,
   status,
   qualifyButton,
-  navigation
+  navigation,
   /*setShowQualify, */
 }) => {
   const serviceText = serviceCardData();

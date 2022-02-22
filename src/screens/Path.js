@@ -4,6 +4,7 @@ import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const buttonsRender = navigation => {
   const generalButtons = [
@@ -42,7 +43,7 @@ export const Path = ({navigation}) => {
             weight="bold"
             size="h1"
             color="secondary"
-            />
+          />
           <View style={styles.buttons}>{buttonsRender(navigation)}</View>
           <LinkContainer navigation={navigation} type="Logout" />
         </View>

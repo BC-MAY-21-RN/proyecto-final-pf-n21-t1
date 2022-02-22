@@ -2,7 +2,13 @@ import React from 'react';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonContainer, ButtonStyle} from './styled';
 
-export const SignButtons = ({type, navigation, disabled, action, actionGoogle}) => {
+export const SignButtons = ({
+  type,
+  navigation,
+  disabled,
+  action,
+  actionGoogle,
+}) => {
   const generalButtons = [
     {
       title: type === 'login' ? 'Iniciar sesión' : 'Registrarse',

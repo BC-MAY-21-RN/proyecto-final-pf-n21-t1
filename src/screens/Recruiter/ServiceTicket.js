@@ -51,7 +51,11 @@ const FooterWrapper = ({navigation}) => {
         title="Favor de esperar confirmacion del provedor en un maximo de 5hrs."
         icon="alert-outline"
       />
-      <GeneralButton title="Entendido" color="secondary" action={() => navigation.navigate("ServicesHistory")} />
+      <GeneralButton
+        title="Entendido"
+        color="secondary"
+        action={() => navigation.navigate('ServicesHistory')}
+      />
     </CenterView>
   );
 };
@@ -71,6 +75,7 @@ export const ServiceTicket = ({service, navigation}) => {
         size="h1"
         color="background"
         weight
+        userType="Recruiter"
       />
       <CenterView>
         <GeneralText

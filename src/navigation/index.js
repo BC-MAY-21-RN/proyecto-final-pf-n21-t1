@@ -15,7 +15,7 @@ import {
   ServicesHistory,
   ServiceTicket,
   UpcomingServices,
-  RecruiterCreation
+  RecruiterCreation,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
@@ -25,7 +25,7 @@ const Navigate = () => {
   return (
     <AuthProvider>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="ProviderCreation"
         screenOptions={{
           headerShown: false,
         }}>
@@ -46,7 +46,6 @@ const Navigate = () => {
         <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
       </Stack.Navigator>
     </AuthProvider>
-
   );
 };
 

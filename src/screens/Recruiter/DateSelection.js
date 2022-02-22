@@ -21,6 +21,7 @@ export const DateSelection = ({navigation}) => {
           size="h1"
           color="background"
           weight
+          userType="Recruiter"
         />
         <CenterView>
           <GeneralText
@@ -30,7 +31,11 @@ export const DateSelection = ({navigation}) => {
             weight
           />
           <DatePicker mode="datetime" date={date} onDateChange={setDate} />
-          <GeneralButton title="Siguiente" color="secondary" action={() => navigation.navigate("ServiceTicket")} />
+          <GeneralButton
+            title="Siguiente"
+            color="secondary"
+            action={() => navigation.navigate('ServiceTicket')}
+          />
         </CenterView>
       </Container>
     </ContainerWhite>
