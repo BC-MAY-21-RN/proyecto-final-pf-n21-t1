@@ -83,5 +83,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow access library?</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow access library?</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow access library?</string>
+
 </dict>
 </plist>

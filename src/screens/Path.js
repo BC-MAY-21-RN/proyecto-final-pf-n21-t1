@@ -4,7 +4,7 @@ import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
-import auth from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 const providerValidation = navigation => {
@@ -13,11 +13,11 @@ const providerValidation = navigation => {
     .doc(auth().currentUser.uid)
     .get()
     .then(documentSnapshot => {
-      documentSnapshot.data()
-      .providerRegistered === 'true' ? 
-        navigation.navigate('UpcomingServices') : navigation.navigate('ProviderCreation')
-  })
-}
+      documentSnapshot.data().providerRegistered === 'true'
+        ? navigation.navigate('UpcomingServices')
+        : navigation.navigate('ProviderCreation');
+    });
+};
 
 const buttonsRender = navigation => {
   const generalButtons = [
@@ -33,7 +33,7 @@ const buttonsRender = navigation => {
       color: 'secondary',
       icon: 'hammer',
       size: 330,
-      action: () => providerValidation(navigation)
+      action: () => providerValidation(navigation),
     },
   ];
   return buttonsMapping(generalButtons);
