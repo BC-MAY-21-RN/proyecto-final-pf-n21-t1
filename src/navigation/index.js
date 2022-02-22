@@ -16,7 +16,7 @@ import {
   ServiceTicket,
   UpcomingServices,
   RecruiterCreation,
-  CreationSecondary
+  CreationSecondary,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
@@ -26,7 +26,7 @@ const Navigate = () => {
   return (
     <AuthProvider>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Path"
         screenOptions={{
           headerShown: false,
         }}>
@@ -48,7 +48,6 @@ const Navigate = () => {
         <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
       </Stack.Navigator>
     </AuthProvider>
-
   );
 };
 
