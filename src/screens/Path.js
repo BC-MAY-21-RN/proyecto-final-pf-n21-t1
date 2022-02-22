@@ -4,6 +4,7 @@ import {GeneralHeader} from '../components/molecules/GeneralHeader';
 import {View, StyleSheet} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const buttonsRender = navigation => {
   const generalButtons = [
@@ -29,8 +30,10 @@ export const Path = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           isTabRendered
+          isMenuVisible
           title="Bienvenido"
           color="background"
           weight
