@@ -90,11 +90,10 @@ export const Register = ({navigation}) => {
         </View>
         {inputsRender(form, setForm, errorEmail, errorPassword, errorName)}
         <SignButtons
-          navigation={navigation}
           type="register"
           disabled={form.submit}
           action={() =>
-            register(form.name.value, form.email.value, form.password.value)
+            register(navigation, form.name.value, form.email.value, form.password.value)
           }
           actionGoogle={() => googleLogin()}
         />

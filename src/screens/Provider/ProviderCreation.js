@@ -9,7 +9,6 @@ import {
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {CenterView, MarginView} from '../styled';
-
 const Header = () => {
   return (
     <>

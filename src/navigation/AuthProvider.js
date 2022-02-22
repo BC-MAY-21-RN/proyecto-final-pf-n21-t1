@@ -34,7 +34,7 @@ const handleError = error => {
   }
 };
 
-const register = async (name, email, password) => {
+const register = async (navigation, name, email, password) => {
   const user = userTemplate(name, email, password);
   try {
     await auth()

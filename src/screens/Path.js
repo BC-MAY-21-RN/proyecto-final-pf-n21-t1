@@ -6,11 +6,16 @@ import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore';
-//auth().currentUser.uid
 
-const recruiterValidation = navigation => {
-  firestore().collection('Users').doc(auth().currentUser.uid).get().then(documentSnapshot => {
-    documentSnapshot.data().providerRegistered === 'true' ? navigation.navigate('UpcomingServices') : navigation.navigate('ProviderCreation')
+const providerValidation = navigation => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(documentSnapshot => {
+      documentSnapshot.data()
+      .providerRegistered === 'true' ? 
+        navigation.navigate('UpcomingServices') : navigation.navigate('ProviderCreation')
   })
 }
 
@@ -28,7 +33,7 @@ const buttonsRender = navigation => {
       color: 'secondary',
       icon: 'hammer',
       size: 330,
-      action: () => recruiterValidation(navigation)
+      action: () => providerValidation(navigation)
     },
   ];
   return buttonsMapping(generalButtons);

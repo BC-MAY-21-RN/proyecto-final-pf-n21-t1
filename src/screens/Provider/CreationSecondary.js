@@ -9,6 +9,8 @@ import {
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {PickerWrapper, CenterView, MarginView, InputView} from '../styled';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 
 const Form = ({data, style, beginTime, setBeginTime, finishTime, setFinishTime, handleNotes, notes}) => {
@@ -32,6 +34,16 @@ const Form = ({data, style, beginTime, setBeginTime, finishTime, setFinishTime, 
     </>
   );
 };
+
+const providerRegistration = (navigation, inputNumber, servicePicker, beginTime, finishTime, notes) => {
+  console.log('Data' + inputNumber, servicePicker, beginTime, finishTime, notes);
+  const provider = {inputNumber: inputNumber, servicePicker: servicePicker, beginTime: beginTime, finishTime: finishTime, notes: notes, providerRegistered: 'true'}
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .set(provider, {merge: true})
+    .then(() => navigation.navigate('UpcomingServices'))
+}
 
 export const CreationSecondary = ({navigation, route}) => {
   const [beginTime, setBeginTime] = useState('');
@@ -98,7 +110,8 @@ export const CreationSecondary = ({navigation, route}) => {
           />
         <Form data={data} style={style} beginTime={beginTime} setBeginTime={setBeginTime} finishTime={finishTime} setFinishTime={setFinishTime} notes={notes} handleNotes={handleNotes}/>
         <CenterView>
-          <GeneralButton title="Empezar" color="secondary" action={()=>navigation.navigate("ProviderPreview")}/>
+          {console.log(route.params.InputNumber, route.params.ServicePicker, beginTime, finishTime, notes)}
+          <GeneralButton title="Empezar" color="secondary" action={()=> providerRegistration(navigation, route.params.InputNumber, route.params.ServicePicker, beginTime, finishTime, notes)}/>
         </CenterView>
       </Container>
     </ContainerWhite>
