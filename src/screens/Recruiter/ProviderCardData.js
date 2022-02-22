@@ -6,7 +6,11 @@ export const ProviderCardData = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
-        <CardOrganism navigation={navigation} buttonType={'ProviderCardData'} />
+        <CardOrganism
+          navigation={navigation}
+          buttonType={'ProviderCardData'}
+          userType="Recruiter"
+        />
       </Container>
     </ContainerWhite>
   );

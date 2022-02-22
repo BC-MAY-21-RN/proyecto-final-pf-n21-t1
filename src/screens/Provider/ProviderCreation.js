@@ -21,6 +21,7 @@ const Header = () => {
         size="h1"
         color="background"
         weight
+        userType="Provider"
       />
       <CenterView>
         <GeneralText
@@ -77,7 +78,11 @@ export const ProviderCreation = ({navigation}) => {
         <Header />
         <Form data={data} style={style} />
         <CenterView>
-          <GeneralButton title="Empezar" color="secondary" action={()=>navigation.navigate("ProviderPreview")}/>
+          <GeneralButton
+            title="Empezar"
+            color="secondary"
+            action={() => navigation.navigate('ProviderPreview')}
+          />
         </CenterView>
       </Container>
     </ContainerWhite>

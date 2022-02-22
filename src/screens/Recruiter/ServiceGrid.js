@@ -14,6 +14,7 @@ export const ServiceGrid = navigation => {
           color="background"
           weight
           size="h1"
+          userType="Recruiter"
         />
         <ServiceComponent navigation={navigation} />
       </Container>
