@@ -15,7 +15,49 @@ const LinkIcon = ({icon, title}) => {
   );
 };
 
-export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
+const RecruiterModal = () => {
+  return (
+    <View>
+      <LinkStyle>
+        <HomeIcon width={22} colorIcon="secondary" />
+        <GeneralText title="  Inicio" size="h4" color="secondary" />
+      </LinkStyle>
+      <LinkIcon title="Contratar servicios" icon="hammer" />
+      <LinkIcon title="Servicios contratados" icon="cog" />
+      <LinkIcon title="Editar dirección" icon="create" />
+      <LinkIcon title="Cerrar sesión" icon="log-out" />
+    </View>
+  );
+};
+
+const ProviderModal = () => {
+  return (
+    <View>
+      <LinkIcon title="Solicitudes de servicios" icon="hammer" />
+      <LinkIcon title="Opiniones de clientes" icon="star" />
+      <LinkIcon title="Chats" icon="chatbubble" />
+      <LinkIcon title="Editar perfil" icon="person" />
+      <LinkIcon title="Cerrar sesión" icon="log-out" />
+    </View>
+  );
+};
+
+export const MenuModal = ({
+  navigation,
+  modalVisible,
+  setModalVisible,
+  userType,
+}) => {
+  var userModal = null;
+
+  const ModalType = type => {
+    if (type === 'Provider') {
+      userModal = <ProviderModal />;
+    } else if (type === 'Recruiter') {
+      userModal = <RecruiterModal />;
+    }
+  };
+  ModalType(userType);
   return (
     <GeneralModal
       animation="fade"
@@ -25,18 +67,7 @@ export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
         activeOpacity={1}
         onPressOut={() => setModalVisible(false)}>
         <Container>
-          <TouchableWithoutFeedback>
-            <View>
-              <LinkStyle>
-                <HomeIcon width={22} colorIcon="secondary" />
-                <GeneralText title="  Inicio" size="h4" color="secondary" />
-              </LinkStyle>
-              <LinkIcon title="Contratar servicios" icon="hammer" />
-              <LinkIcon title="Servicios contratados" icon="cog" />
-              <LinkIcon title="Editar dirección" icon="create" />
-              <LinkIcon title="Cerrar sesión" icon="log-out" />
-            </View>
-          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback>{userModal}</TouchableWithoutFeedback>
         </Container>
       </ContainerScreen>
     </GeneralModal>

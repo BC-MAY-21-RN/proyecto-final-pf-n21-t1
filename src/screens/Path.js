@@ -30,10 +30,8 @@ export const Path = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
-        <SafeAreaView />
         <GeneralHeader
           isTabRendered
-          isMenuVisible
           title="Bienvenido"
           color="background"
           weight
