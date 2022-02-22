@@ -8,4 +8,5 @@ export {TabRender} from './TabRender';
 export {Container} from './Container';
 export {StarRating} from './StarRating';
 export {ContainerWhite} from './ContainerWhite';
-export {ServiceStatus} from './ServiceStatus'
+export {ServiceStatus} from './ServiceStatus';
+export {GeneralModal} from './GeneralModal';

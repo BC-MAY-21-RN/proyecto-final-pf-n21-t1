@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {} from './styled';
-import {GeneralLink, GeneralText} from '../../atoms';
+import {GeneralLink, GeneralModal, GeneralText} from '../../atoms';
 import HomeIcon from '../../../assets/icons/Home';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Color} from '../../../theme/default';
@@ -23,13 +23,10 @@ const LinkIcon = ({icon, title}) => {
 
 export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
   return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => {
-        setModalVisible(!modalVisible);
-      }}>
+    <GeneralModal
+      animation="fade"
+      modalVisible={modalVisible}
+      setModalVisible={setModalVisible}>
       <TouchableOpacity
         style={style.containerScreen}
         activeOpacity={1}
@@ -49,7 +46,7 @@ export const MenuModal = ({navigation, modalVisible, setModalVisible}) => {
           </TouchableWithoutFeedback>
         </View>
       </TouchableOpacity>
-    </Modal>
+    </GeneralModal>
   );
 };
 
