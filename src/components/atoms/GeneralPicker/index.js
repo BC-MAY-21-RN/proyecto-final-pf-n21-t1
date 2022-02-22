@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
 
-export const GeneralPicker = ({data, style}) => {
+export const GeneralPicker = ({data, style, selected, setSelected}) => {
   const [value, setValue] = useState();
-  const [selected, setSelected] = useState(0);
+  
   useEffect(() => {
     const dataPicker = data.map(item => {
       return (
@@ -17,7 +17,7 @@ export const GeneralPicker = ({data, style}) => {
     <Picker
       style={style}
       selectedValue={selected}
-      onValueChange={({itemValue}) => setSelected(itemValue)}>
+      onValueChange={(itemValue) => setSelected(itemValue)}>
       {value}
     </Picker>
   );

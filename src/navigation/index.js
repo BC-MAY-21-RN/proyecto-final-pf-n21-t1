@@ -16,19 +16,22 @@ import {
   ServiceTicket,
   UpcomingServices,
   RecruiterCreation,
+  CreationSecondary,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
+const stackNavigatorProps = {
+  initialRouteName: 'Login',
+  screenOptions: {
+    headerShown: false,
+  },
+};
 
 const Navigate = () => {
   return (
     <AuthProvider>
-      <Stack.Navigator
-        initialRouteName="ProviderCreation"
-        screenOptions={{
-          headerShown: false,
-        }}>
+      <Stack.Navigator {...stackNavigatorProps}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Path" component={Path} />
@@ -44,6 +47,7 @@ const Navigate = () => {
         <Stack.Screen name="ServicesHistory" component={ServicesHistory} />
         <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
         <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
+        <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
       </Stack.Navigator>
     </AuthProvider>
   );

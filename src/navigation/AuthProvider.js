@@ -1,15 +1,15 @@
 import React, {createContext} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import {Alert, Platform} from 'react-native';
+import {Alert} from 'react-native';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 export const AuthContext = createContext();
 
-const login = (email, password, setForm) => {
+const login = (email, password, setForm, navigation) => {
   auth()
     .signInWithEmailAndPassword(email, password)
     .then(() => {
-      console.log('logged in succesfully');
+      navigation.navigate('Path')
     })
     .catch(error => {
       if (error.code === 'auth/invalid-email') {
@@ -22,7 +22,7 @@ const login = (email, password, setForm) => {
 };
 
 const userTemplate = (name, email, password) => {
-  return {name, email, password};
+  return {name, email, password, providerRegistered: 'false', recruiterRegistered: 'false'};
 };
 
 const handleError = error => {
@@ -34,12 +34,13 @@ const handleError = error => {
   }
 };
 
-const register = async (name, email, password) => {
+const register = async (navigation, name, email, password) => {
   const user = userTemplate(name, email, password);
   try {
     await auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
+        navigation.navigate('Path')
         firestore()
           .collection('Users')
           .doc(auth().currentUser.uid)

@@ -1,5 +1,4 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, { useState } from 'react';
 import {
   GeneralInput,
   GeneralText,
@@ -9,8 +8,7 @@ import {
   Container,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {PickerWrapper, CenterView, MarginView} from '../styled';
-
+import {CenterView, MarginView} from '../styled';
 const Header = () => {
   return (
     <>
@@ -29,62 +27,71 @@ const Header = () => {
           size="h1"
           color="secondary"
           weight
+          justify={'center'}
         />
-        <GeneralText
-          title="Antes de comenzar cuentanos un poco de ti..."
-          size="h5"
-        />
+      
       </CenterView>
     </>
   );
 };
 
-const Form = ({data, style}) => {
+const Form = ({data, service, setService, handleText, value}) => {
   return (
     <>
       <MarginView>
-        <GeneralText title="Servicios" size="h4" />
+        <GeneralText title="¿Qué servicio deseas proveer?" size="h2" color={'primary'} weight={'bold'} />
       </MarginView>
-      <GeneralPicker data={data} />
-      <GeneralInput title="Telefono celular" placeholder="1234567890" />
-      <MarginView>
-        <GeneralText title="Horario de disponibilidad" size="h4" />
-        <PickerWrapper>
-          <GeneralPicker data={data} style={style} />
-          <GeneralPicker data={data} style={style} />
-        </PickerWrapper>
-      </MarginView>
-      <GeneralInput
-        title="Notas importantes"
-        placeholder="Trabajo días festivos..."
-      />
+      <GeneralPicker data={data} selected={service} setSelected={setService}/>
+      <GeneralInput title="Telefono celular" placeholder="1234567890" value={value} onChangeText={handleText}/>
     </>
   );
 };
 
 export const ProviderCreation = ({navigation}) => {
+  const [service, setService] = useState('');
+  const [value, setValue] = useState();
+  const handleText = text => {
+    setValue(text)
+  }
   const style = {
     width: '50%',
   };
   const data = [
     {
-      value: 0,
-      label: 'Prueba',
+      value: 'Fontanería',
+      label: 'Fontanería',
+    },
+    {
+      value: 'Construcción',
+      label: 'Construcción'
+    },
+    {
+      value: 'Técnico',
+      label: 'Técnico'
+    },
+    {
+      value: 'Electricista',
+      label: 'Electricista'
+    },
+    {
+      value: 'Carpintero',
+      label: 'Carpintero'
+    },
+    {
+      value: 'Pintor',
+      label: 'Pintor'
     },
   ];
   return (
     <ContainerWhite>
       <Container>
         <Header />
-        <Form data={data} style={style} />
+        <Form data={data} style={style} service={service} setService={setService} handleText={handleText} value={value}/>
         <CenterView>
-          <GeneralButton
-            title="Empezar"
-            color="secondary"
-            action={() => navigation.navigate('ProviderPreview')}
-          />
+          <GeneralButton title="Siguiente" color="secondary" action={()=>navigation.navigate("CreationSecondary", {InputNumber: value, ServicePicker: service})}/>
         </CenterView>
       </Container>
     </ContainerWhite>
   );
 };
+

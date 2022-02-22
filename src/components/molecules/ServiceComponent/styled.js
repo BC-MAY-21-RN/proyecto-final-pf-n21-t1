@@ -21,7 +21,7 @@ export const Touchable = styled.TouchableOpacity`
   width: 50%;
   align-self: center;
   justify-content: space-around;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2); //Adri favor de quitarselo si se ve feo en IOS;
+
 `;
 
 export const ServiceTitle = styled.View`
