@@ -2,7 +2,7 @@ import React from 'react';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonContainer, ButtonStyle} from './styled';
 
-export const SignButtons = ({type, disabled, action, actionGoogle}) => {
+export const SignButtons = ({type, disabled, action, actionGoogle, height}) => {
   const generalButtons = [
     {
       title: type === 'login' ? 'Iniciar sesión' : 'Registrarse',
@@ -21,7 +21,7 @@ export const SignButtons = ({type, disabled, action, actionGoogle}) => {
     },
   ];
   return (
-    <ButtonContainer>
+    <ButtonContainer height={height}>
       <ButtonStyle>{buttonsMapping(generalButtons)}</ButtonStyle>
     </ButtonContainer>
   );

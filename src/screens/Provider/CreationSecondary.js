@@ -11,6 +11,7 @@ import {GeneralHeader} from '../../components/molecules';
 import {PickerWrapper, CenterView, MarginView, InputView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import { SafeAreaView } from 'react-native';
 
 const Form = ({
   data,
@@ -144,6 +145,7 @@ export const CreationSecondary = ({navigation, route}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           title="Tarjeta de presentación"
           isMenuVisible

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {ServiceComponent} from '../../components/molecules/ServiceComponent';
@@ -7,6 +8,7 @@ export const ServiceGrid = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           isTabRendered
           isMenuVisible

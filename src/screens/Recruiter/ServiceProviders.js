@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {SafeAreaView, TouchableOpacity} from 'react-native';
 import {jose} from '../../assets/images';
 import {
   Container,
@@ -13,6 +13,7 @@ export const ServiceProviders = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           isTabRendered
           isMenuVisible

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { SafeAreaView } from 'react-native';
 import {
   GeneralInput,
   GeneralText,
@@ -94,10 +95,27 @@ export const ProviderCreation = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <Header />
-        <Form data={data} style={style} service={service} setService={setService} handleText={handleText} value={value}/>
+        <Form
+          data={data}
+          style={style}
+          service={service}
+          setService={setService}
+          handleText={handleText}
+          value={value}
+        />
         <CenterView>
-          <GeneralButton title="Siguiente" color="secondary" action={()=>navigation.navigate("CreationSecondary", {InputNumber: value, ServicePicker: service})}/>
+          <GeneralButton
+            title="Siguiente"
+            color="secondary"
+            action={() =>
+              navigation.navigate('CreationSecondary', {
+                InputNumber: value,
+                ServicePicker: service,
+              })
+            }
+          />
         </CenterView>
       </Container>
     </ContainerWhite>

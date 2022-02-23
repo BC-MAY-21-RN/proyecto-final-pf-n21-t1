@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {GeneralHeader} from '../components/molecules/GeneralHeader';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, SafeAreaView} from 'react-native';
 import buttonsMapping from '../utils/buttonsMapping';
 import {LinkContainer} from '../components/molecules';
 import auth from '@react-native-firebase/auth';
@@ -43,6 +43,7 @@ export const Path = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           isTabRendered
           title="Bienvenido"
