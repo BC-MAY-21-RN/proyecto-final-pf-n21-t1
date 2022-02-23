@@ -14,6 +14,7 @@ export const ServicesHistory = ({navigation}) => {
         size="h1"
         isMenuVisible
         userType="Recruiter"
+        navigation={navigation}
       />
       <ScrollView>
         {/* AQUI DEBE IR CON MAPPING/FLATLIST CON LAS LECTURAS A FIREBASE Y QUE SE GENEREN LOS UPCOMINGSERVICECOMPONENTS NECESARIOS */}

@@ -52,7 +52,7 @@ export const Path = ({navigation}) => {
         />
         <View style={styles.screen2}>
           <GeneralText
-            title="¿Que te trae hoy por aqui?"
+            title="¿Qué deseas hacer?"
             weight="bold"
             size="h1"
             color="secondary"

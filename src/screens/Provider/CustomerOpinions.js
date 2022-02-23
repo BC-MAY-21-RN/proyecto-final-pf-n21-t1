@@ -1,7 +1,7 @@
 import React from 'react';
 import {GeneralHeader, OpinionComponent} from '../../components/molecules';
 import {Container} from '../../components/atoms';
-export const CustomerOpinions = () => {
+export const CustomerOpinions = ({navigation}) => {
   return (
     <Container>
       <GeneralHeader
@@ -12,6 +12,7 @@ export const CustomerOpinions = () => {
         size="h1"
         isMenuVisible
         userType="Provider"
+        navigation={navigation}
       />
       <OpinionComponent
         calification={'1'}

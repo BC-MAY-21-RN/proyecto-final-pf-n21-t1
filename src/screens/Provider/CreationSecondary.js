@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   GeneralInput,
   GeneralText,
@@ -12,15 +12,39 @@ import {PickerWrapper, CenterView, MarginView, InputView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-
-const Form = ({data, style, beginTime, setBeginTime, finishTime, setFinishTime, handleNotes, notes}) => {
+const Form = ({
+  data,
+  style,
+  beginTime,
+  setBeginTime,
+  finishTime,
+  setFinishTime,
+  handleNotes,
+  notes,
+}) => {
   return (
     <>
-      <MarginView height={"280px"}>
-        <GeneralText title="¿Cuál es tu horario de disponibilidad?" size="h2" color={'primary'} weight={'bold'}  justify={'center'} />
+      <MarginView height={'280px'}>
+        <GeneralText
+          title="¿Cuál es tu horario de disponibilidad?"
+          size="h2"
+          color={'primary'}
+          weight={'bold'}
+          justify={'center'}
+        />
         <PickerWrapper>
-          <GeneralPicker data={data} style={style} selected={beginTime} setSelected={setBeginTime}/>
-          <GeneralPicker data={data} style={style} selected={finishTime} setSelected={setFinishTime}/>
+          <GeneralPicker
+            data={data}
+            style={style}
+            selected={beginTime}
+            setSelected={setBeginTime}
+          />
+          <GeneralPicker
+            data={data}
+            style={style}
+            selected={finishTime}
+            setSelected={setFinishTime}
+          />
         </PickerWrapper>
       </MarginView>
       <InputView>
@@ -29,21 +53,41 @@ const Form = ({data, style, beginTime, setBeginTime, finishTime, setFinishTime, 
           placeholder="Describe tus servicios"
           value={notes}
           onChangeText={handleNotes}
-          />
+        />
       </InputView>
     </>
   );
 };
 
-const providerRegistration = (navigation, inputNumber, servicePicker, beginTime, finishTime, notes) => {
-  console.log('Data' + inputNumber, servicePicker, beginTime, finishTime, notes);
-  const provider = {inputNumber: inputNumber, servicePicker: servicePicker, beginTime: beginTime, finishTime: finishTime, notes: notes, providerRegistered: 'true'}
+const providerRegistration = (
+  navigation,
+  inputNumber,
+  servicePicker,
+  beginTime,
+  finishTime,
+  notes,
+) => {
+  console.log(
+    'Data' + inputNumber,
+    servicePicker,
+    beginTime,
+    finishTime,
+    notes,
+  );
+  const provider = {
+    inputNumber: inputNumber,
+    servicePicker: servicePicker,
+    beginTime: beginTime,
+    finishTime: finishTime,
+    notes: notes,
+    providerRegistered: 'true',
+  };
   firestore()
     .collection('Users')
     .doc(auth().currentUser.uid)
     .set(provider, {merge: true})
-    .then(() => navigation.navigate('UpcomingServices'))
-}
+    .then(() => navigation.navigate('UpcomingServices'));
+};
 
 export const CreationSecondary = ({navigation, route}) => {
   const [beginTime, setBeginTime] = useState('');
@@ -107,11 +151,40 @@ export const CreationSecondary = ({navigation, route}) => {
           size="h1"
           color="background"
           weight
-          />
-        <Form data={data} style={style} beginTime={beginTime} setBeginTime={setBeginTime} finishTime={finishTime} setFinishTime={setFinishTime} notes={notes} handleNotes={handleNotes}/>
+          userType="Provider"
+        />
+        <Form
+          data={data}
+          style={style}
+          beginTime={beginTime}
+          setBeginTime={setBeginTime}
+          finishTime={finishTime}
+          setFinishTime={setFinishTime}
+          notes={notes}
+          handleNotes={handleNotes}
+        />
         <CenterView>
-          {console.log(route.params.InputNumber, route.params.ServicePicker, beginTime, finishTime, notes)}
-          <GeneralButton title="Empezar" color="secondary" action={()=> providerRegistration(navigation, route.params.InputNumber, route.params.ServicePicker, beginTime, finishTime, notes)}/>
+          {console.log(
+            route.params.InputNumber,
+            route.params.ServicePicker,
+            beginTime,
+            finishTime,
+            notes,
+          )}
+          <GeneralButton
+            title="Empezar"
+            color="secondary"
+            action={() =>
+              providerRegistration(
+                navigation,
+                route.params.InputNumber,
+                route.params.ServicePicker,
+                beginTime,
+                finishTime,
+                notes,
+              )
+            }
+          />
         </CenterView>
       </Container>
     </ContainerWhite>

@@ -3,7 +3,15 @@ import {AppText, TextContainer} from './styled';
 import {Color, Size} from '../../../theme/default';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export const GeneralText = ({size, color, title, weight, icon, italic, justify}) => {
+export const GeneralText = ({
+  size,
+  color,
+  title,
+  weight,
+  icon,
+  italic,
+  justify,
+}) => {
   color ? (color = Color[color]) : (color = Color.text);
   const sizeIcon = {
     h1: 24,
@@ -17,7 +25,12 @@ export const GeneralText = ({size, color, title, weight, icon, italic, justify})
   return (
     <TextContainer>
       {icon ? <Icon name={icon} size={sizeIcon[size]} color /> : undefined}
-      <AppText justify={justify} italic={italic} size={Size[size]} color={color} weight={weight}>
+      <AppText
+        justify={justify}
+        italic={italic}
+        size={Size[size]}
+        color={color}
+        weight={weight}>
         {title}
       </AppText>
     </TextContainer>

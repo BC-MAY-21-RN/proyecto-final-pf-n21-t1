@@ -16,8 +16,8 @@ export const ContainerScreen = styled.TouchableOpacity`
 
 export const Container = styled.TouchableOpacity`
   background-color: ${Color.background};
-  width: 230px;
-  height: 100px;
+  width: 220px;
+  height: 130px;
   margin-top: 20%;
   position: absolute;
   right: 0;
@@ -28,5 +28,5 @@ export const Container = styled.TouchableOpacity`
   elevation: 5;
   align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 `;

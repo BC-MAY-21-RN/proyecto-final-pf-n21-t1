@@ -22,5 +22,4 @@ export const MarginView = styled.View`
 export const InputView = styled.View`
   height: 22%;
   ${center}
-`
-
+`;

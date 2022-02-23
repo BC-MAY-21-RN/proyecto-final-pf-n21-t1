@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   GeneralInput,
   GeneralText,
@@ -29,7 +29,6 @@ const Header = () => {
           weight
           justify={'center'}
         />
-      
       </CenterView>
     </>
   );
@@ -39,10 +38,20 @@ const Form = ({data, service, setService, handleText, value}) => {
   return (
     <>
       <MarginView>
-        <GeneralText title="¿Qué servicio deseas proveer?" size="h2" color={'primary'} weight={'bold'} />
+        <GeneralText
+          title="¿Qué servicio deseas proveer?"
+          size="h2"
+          color={'primary'}
+          weight={'bold'}
+        />
       </MarginView>
       <GeneralPicker data={data} selected={service} setSelected={setService}/>
-      <GeneralInput title="Telefono celular" placeholder="1234567890" value={value} onChangeText={handleText}/>
+      <GeneralInput
+        title="Telefono celular"
+        placeholder="1234567890"
+        value={value}
+        onChangeText={handleText}
+      />
     </>
   );
 };

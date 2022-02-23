@@ -35,6 +35,7 @@ export const GeneralHeader = props => {
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
         userType={props.userType}
+        navigation={props.navigation}
       />
     </HeaderContainer>
   );
