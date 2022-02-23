@@ -17,6 +17,6 @@ export const OpinionInput = styled.View`
 export const SendButton = styled.View`
   justify-content: space-evenly;
   margin-bottom: 3%;
-  margin-top: -3%;
+  margin-top: -1%;
   flex-direction: row;
 `;
