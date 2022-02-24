@@ -9,7 +9,7 @@ const login = (email, password, setForm, navigation) => {
   auth()
     .signInWithEmailAndPassword(email, password)
     .then(() => {
-      navigation.navigate('Path')
+      navigation.navigate('Path');
     })
     .catch(error => {
       if (error.code === 'auth/invalid-email') {
@@ -22,7 +22,13 @@ const login = (email, password, setForm, navigation) => {
 };
 
 const userTemplate = (name, email, password) => {
-  return {name, email, password, providerRegistered: 'false', recruiterRegistered: 'false'};
+  return {
+    name,
+    email,
+    password,
+    providerRegistered: 'false',
+    recruiterRegistered: 'false',
+  };
 };
 
 const handleError = error => {
@@ -40,7 +46,7 @@ const register = async (navigation, name, email, password) => {
     await auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        navigation.navigate('Path')
+        navigation.navigate('Path');
         firestore()
           .collection('Users')
           .doc(auth().currentUser.uid)
@@ -67,22 +73,27 @@ const logout = async () => {
   }
 };
 
-const googleLogin = async () => {
+const googleLogin = async (navigation) => {
   try {
-    const { idToken } = await GoogleSignin.signIn();
+    const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    await auth().signInWithCredential(googleCredential)
-    .catch(error => {
-      console.log(error);
-    })
+    await auth()
+      .signInWithCredential(googleCredential)
+      .then(() => {
+        navigation.navigate('Path');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const AuthProvider = ({children}) => {
   GoogleSignin.configure({
-    webClientId: '738397443752-ohjhhan7mm20180cue0odfp76kag2tdb.apps.googleusercontent.com',
+    webClientId:
+      '738397443752-ohjhhan7mm20180cue0odfp76kag2tdb.apps.googleusercontent.com',
   });
   return (
     <AuthContext.Provider

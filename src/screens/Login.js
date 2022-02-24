@@ -76,12 +76,11 @@ export const Login = ({navigation}) => {
             action={() =>
               login(form.email.value, form.password.value, setForm, navigation)
             }
-            actionGoogle={() => googleLogin()}
-            />
+            actionGoogle={() => googleLogin(navigation)}
+          />
           <LinkContainer navigation={navigation} type="Register" />
         </View>
       </Container>
     </ContainerWhite>
   );
 };
-
