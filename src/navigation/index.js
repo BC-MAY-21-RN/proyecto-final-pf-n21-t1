@@ -19,7 +19,10 @@ import {
   CreationSecondary,
   MapDirection,
   EditProvider,
+<<<<<<< HEAD
   EditDates,
+=======
+>>>>>>> Created the inputs for EditProvider screen
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
