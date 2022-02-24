@@ -73,7 +73,7 @@ const logout = async () => {
   }
 };
 
-const googleLogin = async (navigation) => {
+const googleLogin = async navigation => {
   try {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
