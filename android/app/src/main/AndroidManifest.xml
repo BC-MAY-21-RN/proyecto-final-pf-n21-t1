@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.appdulcehogar">
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,6 +9,9 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -21,5 +23,6 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 </manifest>
