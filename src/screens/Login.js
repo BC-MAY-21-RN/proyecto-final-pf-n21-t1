@@ -62,19 +62,25 @@ export const Login = ({navigation}) => {
         <SafeAreaView />
         <GeneralHeader />
         <View>
-          <GeneralText title="Inicia sesión" weight size="h1" color="secondary"/>
+          <GeneralText
+            title="Inicia sesión"
+            weight
+            size="h1"
+            color="secondary"
+          />
           {inputsRender(form, setForm, errorEmail, errorPassword)}
           <SignButtons
             navigation={navigation}
             type="login"
             disabled={form.submit}
-            action={() => login(form.email.value, form.password.value, setForm, navigation) }
+            action={() =>
+              login(form.email.value, form.password.value, setForm, navigation)
+            }
             actionGoogle={() => googleLogin()}
-            />
+          />
           <LinkContainer navigation={navigation} type="Register" />
         </View>
       </Container>
     </ContainerWhite>
   );
 };
-
