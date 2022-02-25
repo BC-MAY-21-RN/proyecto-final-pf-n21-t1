@@ -19,16 +19,14 @@ import {
   CreationSecondary,
   MapDirection,
   EditProvider,
-<<<<<<< HEAD
   EditDates,
-=======
->>>>>>> Created the inputs for EditProvider screen
+  MapDirection,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'EditProvider',
+  initialRouteName: 'Login',
   screenOptions: {
     headerShown: false,
   },
