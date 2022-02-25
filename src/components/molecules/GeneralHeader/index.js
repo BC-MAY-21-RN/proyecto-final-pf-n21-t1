@@ -14,21 +14,37 @@ const MenuButton = ({setModalVisible}) => {
   );
 };
 
+const GoBackButton = props => {
+  return (
+    <BackButton onPress={() => props.navigation.goBack()}>
+      <Icon name="chevron-back" size={30} color={Color.secondary} />
+    </BackButton>
+  );
+};
+
+const RowHeader = props => {
+  return (
+    <Row>
+      <GoBackButton navigation={props.navigation} />
+      <Header>
+        <Logo source={appLogo} />
+        {props.isMenuVisible ? (
+          <MenuButton setModalVisible={props.setModalVisible} />
+        ) : undefined}
+      </Header>
+    </Row>
+  )
+}
+
 export const GeneralHeader = props => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <HeaderContainer>
-      <Row>
-        <BackButton onPress={() => props.navigation.goBack()}>
-          <Icon name="chevron-back" size={30} color={Color.secondary} />
-        </BackButton>
-        <Header>
-          <Logo source={appLogo} />
-          {props.isMenuVisible ? (
-            <MenuButton setModalVisible={setModalVisible} />
-          ) : undefined}
-        </Header>
-      </Row>
+      <RowHeader
+        navigation={props.navigation}
+        isMenuVisible={props.isMenuVisible}
+        setModalVisible={setModalVisible}
+      />
       <TabRender
         isTabRendered={props.isTabRendered}
         title={props.title}
