@@ -5,7 +5,7 @@ import electrician from '../../../assets/images/electrician.png';
 import carpenter from '../../../assets/images/carpenter.png';
 import electronics from '../../../assets/images/electronics.png';
 
-const serviceButtonsData = ({navigation}) => {
+const serviceButtonsData = navigation => {
   return [
     {
       width: '90%',

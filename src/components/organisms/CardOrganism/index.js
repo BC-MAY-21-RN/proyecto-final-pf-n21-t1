@@ -13,6 +13,7 @@ export const CardOrganism = ({navigation, buttonType, userType}) => {
         color="background"
         weight
         userType={userType}
+        navigation={navigation}
       />
       <ProviderCardDets navigation={navigation} buttonType={buttonType} />
     </>

@@ -22,13 +22,14 @@ export const ServiceProviders = ({navigation}) => {
           color="background"
           weight
           userType="Recruiter"
+          navigation={navigation}
         />
         <TouchableOpacity activeOpacity={1}>
           <GeneralContainer width="360px" height="180px" direction>
             <ProviderCard
               width="360px"
               height="180px"
-              backgroundColor={Color.hover}
+              backgroundColor={'hover'}
               name={'José Rodríguez'}
               number={'3123100157'}
               zone={'Colima y VdeA'}

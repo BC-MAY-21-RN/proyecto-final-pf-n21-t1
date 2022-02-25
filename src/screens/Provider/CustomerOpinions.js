@@ -16,7 +16,7 @@ export const CustomerOpinions = ({navigation}) => {
           isMenuVisible
           userType="Provider"
           navigation={navigation}
-          />
+        />
         <OpinionComponent
           calification={'1'}
           customer={'Fernanda'}

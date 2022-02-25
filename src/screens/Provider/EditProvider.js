@@ -18,6 +18,7 @@ export const EditProvider = ({navigation}) => {
           color="background"
           weight
           userType="Provider"
+          navigation={navigation}
         />
       </Container>
     </ContainerWhite>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Header, Logo, HeaderContainer, Menu} from './styled';
+import {Header, Logo, HeaderContainer, Menu, Row, BackButton} from './styled';
 import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {Color} from '../../../theme/default';
@@ -18,12 +18,17 @@ export const GeneralHeader = props => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <HeaderContainer>
-      <Header>
-        <Logo source={appLogo} />
-        {props.isMenuVisible ? (
-          <MenuButton setModalVisible={setModalVisible} />
-        ) : undefined}
-      </Header>
+      <Row>
+        <BackButton onPress={() => props.navigation.goBack()}>
+          <Icon name="chevron-back" size={30} color={Color.secondary} />
+        </BackButton>
+        <Header>
+          <Logo source={appLogo} />
+          {props.isMenuVisible ? (
+            <MenuButton setModalVisible={setModalVisible} />
+          ) : undefined}
+        </Header>
+      </Row>
       <TabRender
         isTabRendered={props.isTabRendered}
         title={props.title}

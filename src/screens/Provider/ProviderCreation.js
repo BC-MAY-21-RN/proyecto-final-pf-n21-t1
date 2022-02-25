@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SafeAreaView } from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {
   GeneralInput,
   GeneralText,
@@ -13,15 +13,6 @@ import {CenterView, MarginView} from '../styled';
 const Header = () => {
   return (
     <>
-      <GeneralHeader
-        title="Tarjeta de presentación"
-        isMenuVisible
-        isTabRendered
-        size="h1"
-        color="background"
-        weight
-        userType="Provider"
-      />
       <CenterView>
         <GeneralText
           title="Nos alegra que ofrezcas tus servicios"
@@ -96,6 +87,16 @@ export const ProviderCreation = ({navigation}) => {
     <ContainerWhite>
       <Container>
         <SafeAreaView />
+        <GeneralHeader
+          title="Tarjeta de presentación"
+          isMenuVisible
+          isTabRendered
+          size="h1"
+          color="background"
+          weight
+          userType="Provider"
+          navigation={navigation}
+        />
         <Header />
         <Form
           data={data}

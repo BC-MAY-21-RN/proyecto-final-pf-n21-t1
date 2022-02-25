@@ -10,5 +10,5 @@ export const ContainerGeneral = styled.View`
   flex-direction: ${props => (props.direction ? 'row' : 'column')};
   justify-content: space-around;
   margin-bottom: ${props => props.marginBottom};
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
 `;

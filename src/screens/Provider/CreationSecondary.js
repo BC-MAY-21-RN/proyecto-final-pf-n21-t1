@@ -154,6 +154,7 @@ export const CreationSecondary = ({navigation, route}) => {
           color="background"
           weight
           userType="Provider"
+          navigation={navigation}
         />
         <Form
           data={data}

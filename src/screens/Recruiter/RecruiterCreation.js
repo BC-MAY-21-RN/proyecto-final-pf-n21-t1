@@ -14,6 +14,7 @@ export const RecruiterCreation = ({navigation}) => {
           size="h1"
           color="background"
           weight
+          navigation={navigation}
         />
         <GeneralButton
           title="Empezar"

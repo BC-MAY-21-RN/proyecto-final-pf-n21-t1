@@ -79,6 +79,7 @@ export const ServiceTicket = ({service, navigation}) => {
           color="background"
           weight
           userType="Recruiter"
+          navigation={navigation}
         />
         <CenterView>
           <GeneralText

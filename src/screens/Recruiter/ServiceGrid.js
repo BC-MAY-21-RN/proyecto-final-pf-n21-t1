@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {ServiceComponent} from '../../components/molecules/ServiceComponent';

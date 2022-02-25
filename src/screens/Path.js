@@ -50,6 +50,7 @@ export const Path = ({navigation}) => {
           color="background"
           weight
           size="h1"
+          navigation={navigation}
         />
         <View style={styles.screen2}>
           <GeneralText

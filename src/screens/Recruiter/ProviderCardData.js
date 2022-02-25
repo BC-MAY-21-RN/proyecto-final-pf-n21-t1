@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {Container, ContainerWhite} from '../../components/atoms/index.js';
 import {CardOrganism} from '../../components/organisms/index.js';
 

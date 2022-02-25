@@ -24,6 +24,7 @@ export const DateSelection = ({navigation}) => {
           color="background"
           weight
           userType="Recruiter"
+          navigation={navigation}
         />
         <CenterView>
           <GeneralText
