@@ -84,4 +84,3 @@ export const Login = ({navigation}) => {
     </ContainerWhite>
   );
 };
-
