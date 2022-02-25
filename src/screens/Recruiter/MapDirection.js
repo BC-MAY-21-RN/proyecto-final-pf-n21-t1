@@ -29,14 +29,12 @@ export const MapDirection = navigation => {
               size="h1"
               color="secondary"
             />
-
             <GeneralText
               title="Indica en el mapa la ubicación del inmueble para que el proveedor del servicio pueda acudir."
               size="h6"
               justify={'center'}
             />
           </View>
-          {/*  COLOCAR AQUI EL COMPONENTE DEL MAP */}
           <GeneralButton title={'Asignar dirección'} />
         </View>
       </Container>
