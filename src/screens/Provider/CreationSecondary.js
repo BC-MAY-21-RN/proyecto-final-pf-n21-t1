@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import {
-  GeneralText,
-  GeneralButton,
-  ContainerWhite,
-  Container,
-} from '../../components/atoms';
+import {ContainerWhite, Container} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
-import {MarginView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {SafeAreaView} from 'react-native';

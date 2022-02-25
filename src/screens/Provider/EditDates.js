@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import {
-  Container,
-  ContainerWhite,
-  GeneralButton,
-  GeneralText,
-} from '../../components/atoms';
+import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
-import {MarginView} from '../styled';
+
+export const providerModification = () => {
+  console.log('hola');
+}
 
 export const EditDates = () => {
   const [beginTime, setBeginTime] = useState(new Date());
@@ -31,6 +29,7 @@ export const EditDates = () => {
             'Modifica el intervalo de tiempo para brindar tus servicios'
           }
           buttonTitle={'Confirmar'}
+          action={() => providerModification()}
         />
       </Container>
     </ContainerWhite>

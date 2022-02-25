@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
-import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
 import {Avatar} from 'react-native-elements';
-import {Container, ContainerWhite, GeneralInput} from '../../components/atoms';
+import {Container, ContainerWhite, GeneralButton, GeneralInput} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native';
 import triggerValidation from '../../utils/authentication/inputValidations';
 
-export const EditProvider = () => {
+
+export const EditProvider = ({navigation}) => {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -112,6 +111,12 @@ export const EditProvider = () => {
             errorMessage={notesError}
             value={form.notes}
           />
+          <GeneralButton
+            title="Siguiente"
+            color="secondary"
+            action={() => navigation.navigate('EditDates')}
+          />
+          <SafeAreaView />
         </ScrollView>
       </Container>
     </ContainerWhite>
