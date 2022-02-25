@@ -24,7 +24,7 @@ import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'ProviderCreation',
+  initialRouteName: 'RecruiterCreation',
   screenOptions: {
     headerShown: false,
   },
