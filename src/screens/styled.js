@@ -3,7 +3,10 @@ const center = 'align-items: center; justify-content: center;';
 const centerEnd = 'align-items: center; justify-content: flex-end;';
 
 export const PickerWrapper = styled.View`
-  flex-direction: row;
+  height: 70%;
+  flex-direction: column;
+  margin: 20px;
+  margin-bottom: 40px;
 `;
 
 export const CenterView = styled.View`

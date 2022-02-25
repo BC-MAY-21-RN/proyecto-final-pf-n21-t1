@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import {
   GeneralInput,
   GeneralText,
-  GeneralPicker,
   GeneralButton,
   ContainerWhite,
   Container,
 } from '../../components/atoms';
-import {GeneralHeader} from '../../components/molecules';
-import {CenterView, MarginView} from '../styled';
+import {GeneralHeader, ServicePicker} from '../../components/molecules';
+import {CenterView, InputView} from '../styled';
 const Header = () => {
   return (
     <>
@@ -29,20 +28,27 @@ const Header = () => {
           weight
           justify={'center'}
         />
-      
       </CenterView>
     </>
   );
 };
 
-const Form = ({data, service, setService, handleText, value}) => {
+const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
   return (
     <>
-      <MarginView>
-        <GeneralText title="¿Qué servicio deseas proveer?" size="h2" color={'primary'} weight={'bold'} />
-      </MarginView>
-      <GeneralPicker data={data} selected={service} setSelected={setService}/>
-      <GeneralInput title="Telefono celular" placeholder="1234567890" value={value} onChangeText={handleText}/>
+      <ServicePicker service={service} setService={setService} />
+      <GeneralInput
+        title="Telefono celular"
+        placeholder="1234567890"
+        value={value}
+        onChangeText={handleText}
+      />
+      <GeneralInput
+        title="Notas importantes"
+        placeholder="Describe tus servicios"
+        value={notes}
+        onChangeText={handleNotes}
+      />
     </>
   );
 };
@@ -50,48 +56,43 @@ const Form = ({data, service, setService, handleText, value}) => {
 export const ProviderCreation = ({navigation}) => {
   const [service, setService] = useState('');
   const [value, setValue] = useState();
+  const [notes, setNotes] = useState();
   const handleText = text => {
-    setValue(text)
-  }
+    setValue(text);
+  };
+  const handleNotes = text => {
+    setNotes(text);
+  };
   const style = {
     width: '50%',
   };
-  const data = [
-    {
-      value: 'Fontanería',
-      label: 'Fontanería',
-    },
-    {
-      value: 'Construcción',
-      label: 'Construcción'
-    },
-    {
-      value: 'Técnico',
-      label: 'Técnico'
-    },
-    {
-      value: 'Electricista',
-      label: 'Electricista'
-    },
-    {
-      value: 'Carpintero',
-      label: 'Carpintero'
-    },
-    {
-      value: 'Pintor',
-      label: 'Pintor'
-    },
-  ];
   return (
     <ContainerWhite>
       <Container>
         <Header />
-        <Form data={data} style={style} service={service} setService={setService} handleText={handleText} value={value}/>
+        <Form
+          style={style}
+          service={service}
+          setService={setService}
+          handleText={handleText}
+          value={value}
+          notes={notes}
+          handleNotes={handleNotes}
+        />
         <CenterView>
-          <GeneralButton title="Siguiente" color="secondary" action={()=>navigation.navigate("CreationSecondary", {InputNumber: value, ServicePicker: service})}/>
+          <GeneralButton
+            title="Siguiente"
+            color="secondary"
+            action={() =>
+              navigation.navigate('CreationSecondary', {
+                InputNumber: value,
+                ServicePicker: service,
+                InputNotes: notes,
+              })
+            }
+          />
         </CenterView>
       </Container>
     </ContainerWhite>
   );
 };
-
