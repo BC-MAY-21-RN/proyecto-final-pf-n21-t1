@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
 import {Avatar} from 'react-native-elements';
 import {
   Container,
@@ -12,7 +10,8 @@ import {GeneralHeader, ServicePicker} from '../../components/molecules';
 import {SafeAreaView, ScrollView, Text} from 'react-native';
 import triggerValidation from '../../utils/authentication/inputValidations';
 
-export const EditProvider = () => {
+
+export const EditProvider = ({navigation}) => {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -26,33 +25,6 @@ export const EditProvider = () => {
   const [passwordError, setPasswordError] = useState();
   const [phoneError, setPhoneError] = useState();
   const [notesError, setNotesError] = useState();
-  const [service, setService] = useState('');
-  const data = [
-    {
-      value: 'Fontanería',
-      label: 'Fontanería',
-    },
-    {
-      value: 'Construcción',
-      label: 'Construcción',
-    },
-    {
-      value: 'Técnico',
-      label: 'Técnico',
-    },
-    {
-      value: 'Electricista',
-      label: 'Electricista',
-    },
-    {
-      value: 'Carpintero',
-      label: 'Carpintero',
-    },
-    {
-      value: 'Pintor',
-      label: 'Pintor',
-    },
-  ];
 
   return (
     <ContainerWhite>
@@ -145,7 +117,7 @@ export const EditProvider = () => {
           <GeneralButton
             title="Siguiente"
             color="secondary"
-            action={console.log('hola')}
+            action={() => navigation.navigate('EditDates')}
           />
           <SafeAreaView />
         </ScrollView>
