@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import {
-  GeneralText,
-  GeneralButton,
-  ContainerWhite,
-  Container,
-} from '../../components/atoms';
+import {ContainerWhite, Container} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
-import {MarginView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
@@ -41,20 +35,6 @@ const Form = ({
             )
           }
         />
-        {/*<GeneralButton
-          title="Empezar"
-          color="secondary"
-          action={() =>
-            providerRegistration(
-              navigation,
-              route.params.InputNumber,
-              route.params.ServicePicker,
-              beginTime,
-              finishTime,
-              route.params.InputNotes,
-              )
-            }
-          />*/}
       </Container>
     </ContainerWhite>
   );
