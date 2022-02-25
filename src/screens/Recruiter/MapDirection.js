@@ -8,6 +8,28 @@ import {
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 
+const ScreenInfo = () => {
+  return (
+    <View style={styles.mapScreen}>
+      <View style={styles.mapTexts}>
+        <GeneralText
+          title="¿Cuál es tu dirección?"
+          weight="bold"
+          size="h1"
+          color="secondary"
+        />
+        <GeneralText
+          title="Indica en el mapa la ubicación del inmueble para que el proveedor del servicio pueda acudir."
+          size="h6"
+          justify={'center'}
+        />
+      </View>
+      {/* COLOCAR AQUI EL MAPA */}
+      <GeneralButton title={'Asignar dirección'} />
+    </View>
+  );
+};
+
 export const MapDirection = navigation => {
   return (
     <ContainerWhite>
@@ -21,22 +43,7 @@ export const MapDirection = navigation => {
           size="h1"
           userType="Recruiter"
         />
-        <View style={styles.mapScreen}>
-          <View style={styles.mapTexts}>
-            <GeneralText
-              title="¿Cuál es tu dirección?"
-              weight="bold"
-              size="h1"
-              color="secondary"
-            />
-            <GeneralText
-              title="Indica en el mapa la ubicación del inmueble para que el proveedor del servicio pueda acudir."
-              size="h6"
-              justify={'center'}
-            />
-          </View>
-          <GeneralButton title={'Asignar dirección'} />
-        </View>
+        <ScreenInfo />
       </Container>
     </ContainerWhite>
   );
