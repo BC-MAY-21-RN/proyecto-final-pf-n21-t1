@@ -2,10 +2,14 @@ import React, {useState} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {Avatar} from 'react-native-elements';
-import {Container, ContainerWhite, GeneralInput} from '../../components/atoms';
-import {GeneralHeader} from '../../components/molecules';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {ScrollView} from 'react-native';
+import {
+  Container,
+  ContainerWhite,
+  GeneralButton,
+  GeneralInput,
+} from '../../components/atoms';
+import {GeneralHeader, ServicePicker} from '../../components/molecules';
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import triggerValidation from '../../utils/authentication/inputValidations';
 
 export const EditProvider = () => {
@@ -22,11 +26,37 @@ export const EditProvider = () => {
   const [passwordError, setPasswordError] = useState();
   const [phoneError, setPhoneError] = useState();
   const [notesError, setNotesError] = useState();
+  const [service, setService] = useState('');
+  const data = [
+    {
+      value: 'Fontanería',
+      label: 'Fontanería',
+    },
+    {
+      value: 'Construcción',
+      label: 'Construcción',
+    },
+    {
+      value: 'Técnico',
+      label: 'Técnico',
+    },
+    {
+      value: 'Electricista',
+      label: 'Electricista',
+    },
+    {
+      value: 'Carpintero',
+      label: 'Carpintero',
+    },
+    {
+      value: 'Pintor',
+      label: 'Pintor',
+    },
+  ];
 
   return (
     <ContainerWhite>
       <Container>
-        <SafeAreaView />
         <GeneralHeader
           title="Edita tu perfil"
           isMenuVisible
@@ -82,8 +112,8 @@ export const EditProvider = () => {
             value={form.email}
           />
           <GeneralInput
-            title="Password"
-            placeholder="Password"
+            title="Contraseña"
+            placeholder="Contraseña"
             secret
             onChangeText={text => {
               setForm({...form, password: text});
@@ -112,6 +142,12 @@ export const EditProvider = () => {
             errorMessage={notesError}
             value={form.notes}
           />
+          <GeneralButton
+            title="Siguiente"
+            color="secondary"
+            action={console.log('hola')}
+          />
+          <SafeAreaView />
         </ScrollView>
       </Container>
     </ContainerWhite>
