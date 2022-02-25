@@ -26,7 +26,7 @@ import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'Login',
+  initialRouteName: 'EditProvider',
   screenOptions: {
     headerShown: false,
   },
