@@ -19,24 +19,17 @@ const Form = ({
   route,
 }) => {
   return (
-    <>
-      <MarginView height={'600px'}>
-        <GeneralText
-          title="Escoge un intervalo de tiempo para brindar tus servicios"
-          size="h2"
-          color={'primary'}
-          weight={'bold'}
-          justify={'center'}
-        />
+    <ContainerWhite>
+      <Container>
         <TimePickers
           beginTime={beginTime}
           setBeginTime={setBeginTime}
           finishTime={finishTime}
           setFinishTime={setFinishTime}
-        />
-        <GeneralButton
-          title="Empezar"
-          color="secondary"
+          textTitle={
+            'Selecciona un intervalo de tiempo para brindar tus servicios'
+          }
+          buttonTitle={'Crear'}
           action={() =>
             providerRegistration(
               navigation,
@@ -48,8 +41,22 @@ const Form = ({
             )
           }
         />
-      </MarginView>
-    </>
+        {/*<GeneralButton
+          title="Empezar"
+          color="secondary"
+          action={() =>
+            providerRegistration(
+              navigation,
+              route.params.InputNumber,
+              route.params.ServicePicker,
+              beginTime,
+              finishTime,
+              route.params.InputNotes,
+              )
+            }
+          />*/}
+      </Container>
+    </ContainerWhite>
   );
 };
 
