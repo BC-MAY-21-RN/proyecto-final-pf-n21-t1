@@ -23,7 +23,7 @@ import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'ServiceGrid',
+  initialRouteName: 'Login',
   screenOptions: {
     headerShown: false,
   },
