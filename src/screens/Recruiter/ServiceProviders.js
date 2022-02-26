@@ -7,7 +7,6 @@ import {
   GeneralContainer,
 } from '../../components/atoms';
 import {GeneralHeader, ProviderCard} from '../../components/molecules';
-import {Color} from '../../theme/default';
 
 export const ServiceProviders = ({navigation}) => {
   return (

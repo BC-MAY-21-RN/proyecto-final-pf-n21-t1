@@ -6,14 +6,13 @@ import {
   ServiceTitle,
 } from '../components/molecules/ServiceComponent/styled';
 
-export default function ServiceButtonMapping(serviceButtonsData) {
+export default function ServiceButtonMapping(serviceButtonsData, navigation) {
   const serviceButtons = serviceButtonsData.map((service, index) => {
     return (
-      <Touchable onPress={service.toScreen} key={index}>
-        <GeneralContainer
-          width={service.width}
-          height={service.height}
-          marginBottom={service.marginBottom}>
+      <Touchable
+        onPress={() => navigation.navigate('ServiceProviders')}
+        key={index}>
+        <GeneralContainer width={'90%'} height={'20%'} marginBottom={'20%'}>
           <ServiceImage source={service.icon} />
           <ServiceTitle>
             <GeneralText

@@ -33,8 +33,8 @@ const RowHeader = props => {
         ) : undefined}
       </Header>
     </Row>
-  )
-}
+  );
+};
 
 export const GeneralHeader = props => {
   const [modalVisible, setModalVisible] = useState(false);
