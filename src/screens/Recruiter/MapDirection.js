@@ -5,10 +5,12 @@ import {
   ContainerWhite,
   GeneralButton,
   GeneralText,
+  GeneralInput,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
+import Geocoder from 'react-native-geocoding';
 
 const requestPermission = async setPermission => {
   try {
@@ -30,9 +32,14 @@ const ScreenInfo = () => {
   const [isPermission, setPermission] = useState(false);
   const [location, setLocation] = useState();
   const [markerLocation, setMarkerLocation] = useState(undefined);
+  const [address, setAddress] = useState();
 
   useEffect(() => {
     if (!isPermission) requestPermission(setPermission);
+    Geocoder.init('AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s');
+  }, []);
+
+  useEffect(() => {
     Geolocation.getCurrentPosition(
       position => {
         const {latitude, longitude} = position.coords;
@@ -45,6 +52,14 @@ const ScreenInfo = () => {
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
   }, [isPermission]);
+
+  useEffect(() => {
+    if (markerLocation)
+      Geocoder.from({
+        latitude: markerLocation.latitude,
+        longitude: markerLocation.longitude,
+      }).then(res => setAddress(res.results[0].formatted_address));
+  }, [markerLocation]);
 
   return (
     <View style={styles.mapScreen}>
@@ -61,6 +76,7 @@ const ScreenInfo = () => {
           justify={'center'}
         />
       </View>
+        <GeneralInput placeholder="Direccion" leftIcon="location-outline" value={address} />
       {location !== undefined && markerLocation !== undefined ? (
         <MapView
           style={{width: '100%', height: '60%'}}
