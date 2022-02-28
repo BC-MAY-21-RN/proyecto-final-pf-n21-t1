@@ -44,10 +44,7 @@ const selectImage = setImage => {
   });
 };*/
 
-export const ImageButton = () => {
-  const [image, setImage] = useState(
-    'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
-  );
+export const ImageButton = ({image, setImage}) => {
   return (
     <Avatar
       activeOpacity={1}
