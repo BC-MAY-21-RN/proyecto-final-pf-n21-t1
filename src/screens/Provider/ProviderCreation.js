@@ -37,7 +37,7 @@ const Form = ({data, service, setService, handleText, value}) => {
           weight={'bold'}
         />
       </MarginView>
-      <GeneralPicker data={data} selected={service} setSelected={setService}/>
+      <GeneralPicker data={data} selected={service} setSelected={setService} />
       <GeneralInput
         title="Telefono celular"
         placeholder="1234567890"

@@ -20,28 +20,30 @@ const LinkIcon = ({icon, title, action}) => {
   );
 };
 
-const RecruiterModal = ({navigation, logout}) => {
+const MenuTemplate = ({navigation, logout, type}) => {
+  const myData = type === 'Provider' ? 'ProviderPreview' : 'ServiceGrid';
+  const serviceNav = type === 'Provider' ? 'UpcomingServices' : 'ServiceGrid';
   return (
     <View>
+      <ItemMenu navigation={navigation} type={type} />
       <LinkIcon
-        title="Contratar servicios"
+        title={
+          type === 'Provider'
+            ? 'Solicitudes de servicios'
+            : 'Contratar servicios'
+        }
         icon="hammer"
-        action={() => navigation.navigate('ServiceGrid')}
-      />
-      <LinkIcon
-        title="Servicios contratados"
-        icon="cog"
-        action={() => navigation.navigate('ServicesHistory')}
+        action={() => navigation.navigate(serviceNav)}
       />
       <LinkIcon
         title="Chats"
         icon="chatbubble"
-        action={() => navigation.navigate('ServiceGrid')}
+        action={() => navigation.navigate(myData)}
       />
       <LinkIcon
         title="Mis datos"
-        icon="create"
-        action={() => navigation.navigate('ServiceGrid')}
+        icon="person"
+        action={() => navigation.navigate(myData)}
       />
       <LinkIcon
         title="Cerrar sesión"
@@ -52,35 +54,21 @@ const RecruiterModal = ({navigation, logout}) => {
   );
 };
 
-const ProviderModal = ({navigation, logout}) => {
+const ItemMenu = ({navigation, type}) => {
+  var itemData = {title: '', icon: 'star', action: ''};
+  if (type === 'Provider') {
+    itemData.title = 'Opiniones de clientes';
+    itemData.action = 'CustomerOpinions';
+  } else if (type === 'Recruiter') {
+    itemData.title = 'Servicios contratados';
+    itemData.action = 'ServicesHistory';
+  }
   return (
-    <View>
-      <LinkIcon
-        title="Solicitudes de servicios"
-        icon="hammer"
-        action={() => navigation.navigate('UpcomingServices')}
-      />
-      <LinkIcon
-        title="Opiniones de clientes"
-        icon="star"
-        action={() => navigation.navigate('CustomerOpinions')}
-      />
-      <LinkIcon
-        title="Chats"
-        icon="chatbubble"
-        action={() => navigation.navigate('ProviderPreview')}
-      />
-      <LinkIcon
-        title="Ver perfil"
-        icon="person"
-        action={() => navigation.navigate('ProviderPreview')}
-      />
-      <LinkIcon
-        title="Cerrar sesión"
-        icon="log-out"
-        action={() => logout() && navigation.navigate('Login')}
-      />
-    </View>
+    <LinkIcon
+      title={itemData.title}
+      icon={itemData.icon}
+      action={() => navigation.navigate(itemData.action)}
+    />
   );
 };
 
@@ -91,20 +79,17 @@ export const MenuModal = ({
   userType,
 }) => {
   const {logout} = useContext(AuthContext);
-  var userModal = null;
 
-  const ModalType = type => {
-    if (type === 'Provider') {
-      userModal = (
-        <ProviderModal navigation={navigation} logout={() => logout()} />
-      );
-    } else if (type === 'Recruiter') {
-      userModal = (
-        <RecruiterModal navigation={navigation} logout={() => logout()} />
-      );
-    }
-  };
-  ModalType(userType);
+  var userModal = (
+    <>
+      <MenuTemplate
+        navigation={navigation}
+        logout={() => logout()}
+        type={userType}
+      />
+    </>
+  );
+
   return (
     <GeneralModal
       animation="fade"
