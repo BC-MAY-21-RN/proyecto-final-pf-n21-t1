@@ -10,3 +10,4 @@ export {StarRating} from './StarRating';
 export {ContainerWhite} from './ContainerWhite';
 export {ServiceStatus} from './ServiceStatus';
 export {GeneralModal} from './GeneralModal';
+export {ImageButton} from './ImageButton';

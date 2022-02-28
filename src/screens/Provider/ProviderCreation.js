@@ -7,6 +7,7 @@ import {
   GeneralButton,
   ContainerWhite,
   Container,
+  ImageButton,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {CenterView, MarginView} from '../styled';
@@ -98,6 +99,7 @@ export const ProviderCreation = ({navigation}) => {
           navigation={navigation}
         />
         <Header />
+        <ImageButton />
         <Form
           data={data}
           style={style}
