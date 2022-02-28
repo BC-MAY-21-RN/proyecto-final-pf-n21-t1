@@ -62,7 +62,6 @@ export const ProviderCreation = ({navigation}) => {
           color="background"
           weight
           userType="Provider"
-          navigation={navigation}
         />
         <ScrollView>
           <ImageDetails image={image} setImage={setImage} />
