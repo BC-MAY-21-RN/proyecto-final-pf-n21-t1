@@ -3,10 +3,10 @@ import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 
 export const providerModification = () => {
-  console.log('hola');
-}
+  console.log('si');
+};
 
-export const EditDates = () => {
+export const EditDates = ({navigation}) => {
   const [beginTime, setBeginTime] = useState(new Date());
   const [finishTime, setFinishTime] = useState(new Date());
   return (
@@ -19,6 +19,7 @@ export const EditDates = () => {
           size="h1"
           color="background"
           weight
+          navigation={navigation}
         />
         <TimePickers
           beginTime={beginTime}

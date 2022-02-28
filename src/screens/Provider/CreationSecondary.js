@@ -83,7 +83,6 @@ export const CreationSecondary = ({navigation, route}) => {
         <SafeAreaView />
         <GeneralHeader
           title="Tarjeta de presentación"
-          isMenuVisible
           isTabRendered
           size="h1"
           color="background"

@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import {Avatar} from 'react-native-elements';
-import {Container, ContainerWhite, GeneralButton, GeneralInput} from '../../components/atoms';
+import {
+  Container,
+  ContainerWhite,
+  GeneralButton,
+  GeneralInput,
+  ImageButton,
+} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native';
@@ -21,6 +27,9 @@ export const EditProvider = ({navigation}) => {
   const [passwordError, setPasswordError] = useState();
   const [phoneError, setPhoneError] = useState();
   const [notesError, setNotesError] = useState();
+  const [image, setImage] = useState(
+    'https://www.larutadelagarnacha.mx/wp-content/uploads/2021/06/tripita5.jpeg',
+  );
 
   return (
     <ContainerWhite>
@@ -34,6 +43,7 @@ export const EditProvider = ({navigation}) => {
           color="background"
           weight
           userType="Provider"
+          navigation={navigation}
         />
         <ScrollView
           // eslint-disable-next-line react-native/no-inline-styles
@@ -41,25 +51,7 @@ export const EditProvider = ({navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Avatar
-            activeOpacity={0.2}
-            avatarStyle={{}}
-            // eslint-disable-next-line react-native/no-inline-styles
-            containerStyle={{backgroundColor: '#BDBDBD'}}
-            iconStyle={{}}
-            imageProps={{}}
-            onLongPress={() => console.log('onLongPress')}
-            onPress={() => console.log('onPress')}
-            overlayContainerStyle={{}}
-            placeholderStyle={{}}
-            rounded
-            size="xlarge"
-            source={{
-              uri: 'https://www.larutadelagarnacha.mx/wp-content/uploads/2021/06/tripita5.jpeg',
-            }}
-            title="Penepene">
-            <Avatar.Accessory size={32} onPress={() => console.log('hey')} />
-          </Avatar>
+          <ImageButton image={image} setImage={setImage} />
           <GeneralInput
             title="Nombre"
             placeholder="Nombre"

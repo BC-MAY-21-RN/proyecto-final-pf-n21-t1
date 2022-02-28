@@ -65,13 +65,11 @@ export const ProviderCreation = ({navigation}) => {
         <SafeAreaView />
         <GeneralHeader
           title="Tarjeta de presentación"
-          isMenuVisible
           isTabRendered
           size="h1"
           color="background"
           weight
           userType="Provider"
-          navigation={navigation}
         />
         <Header />
         <Form
