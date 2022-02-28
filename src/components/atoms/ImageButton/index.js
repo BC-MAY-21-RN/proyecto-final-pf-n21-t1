@@ -3,50 +3,51 @@ import {Avatar} from 'react-native-elements';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {Color} from '../../../theme/default';
 
+const selectImage = setImage => {
+  const options = {
+    title: 'Selecciona una imagen',
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+  };
+  launchImageLibrary(options, response => {
+    if (response.errorCode) {
+      console.log(response.errorMessage);
+    } else if (response.didCancel) {
+      console.log('El usuario canceló la selección');
+    } else {
+      const path = response.assets[0].uri;
+      setImage(path);
+    }
+  });
+};
+
+/*const takePicture = () => {
+  const options = {
+    title: 'Tomar una imagen',
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+    includeBase64: true,
+  };
+  launchCamera(options, response => {
+    if (response.errorCode) {
+      console.log(response.errorMessage);
+    } else if (response.didCancel) {
+      console.log('El usuario canceló la fotografía');
+    } else {
+      const uri = response.assets[0].uri;
+      setImage(uri);
+    }
+  });
+};*/
+
 export const ImageButton = () => {
   const [image, setImage] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
-  const selectImage = () => {
-    const options = {
-      title: 'Selecciona una imagen',
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-    launchImageLibrary(options, response => {
-      if (response.errorCode) {
-        console.log(response.errorMessage);
-      } else if (response.didCancel) {
-        console.log('El usuario canceló la selección');
-      } else {
-        const path = response.assets[0].uri;
-        setImage(path);
-      }
-    });
-
-    /*const takePicture = () => {
-      const options = {
-        title: 'Tomar una imagen',
-        storageOptions: {
-          skipBackup: true,
-          path: 'images',
-        },
-        includeBase64: true,
-      };
-    };
-    launchCamera(options, response => {
-      if (response.errorCode) {
-        console.log(response.errorMessage);
-      } else if (response.didCancel) {
-        console.log('El usuario canceló la fotografía');
-      } else {
-        const uri = response.assets[0].uri;
-        setImage(uri);
-      }
-    });*/
-  };
   return (
     <Avatar
       activeOpacity={1}
@@ -67,7 +68,7 @@ export const ImageButton = () => {
       title="User">
       <Avatar.Accessory
         size={42}
-        onPress={selectImage}
+        onPress={() => selectImage(setImage)}
         style={{backgroundColor: Color.secondary}}
       />
     </Avatar>
