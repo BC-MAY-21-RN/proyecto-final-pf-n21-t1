@@ -7,7 +7,6 @@ import {
   GeneralButton,
   ContainerWhite,
   Container,
-  ImageButton,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {CenterView, MarginView} from '../styled';
@@ -53,8 +52,8 @@ export const ProviderCreation = ({navigation}) => {
   const [service, setService] = useState('');
   const [value, setValue] = useState();
   const handleText = text => {
-    setValue(text)
-  }
+    setValue(text);
+  };
   const style = {
     width: '50%',
   };
@@ -99,7 +98,6 @@ export const ProviderCreation = ({navigation}) => {
           navigation={navigation}
         />
         <Header />
-        <ImageButton />
         <Form
           data={data}
           style={style}

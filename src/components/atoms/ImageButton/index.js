@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Avatar} from 'react-native-elements';
-import {launchImageLibrary} from 'react-native-image-picker';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {Color} from '../../../theme/default';
 
 export const ImageButton = () => {
   const [image, setImage] = useState(
-    'https://www.larutadelagarnacha.mx/wp-content/uploads/2021/06/tripita5.jpeg',
+    'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
   const selectImage = () => {
     const options = {
@@ -15,7 +16,7 @@ export const ImageButton = () => {
       },
     };
     launchImageLibrary(options, response => {
-      if(response.errorCode) {
+      if (response.errorCode) {
         console.log(response.errorMessage);
       } else if (response.didCancel) {
         console.log('El usuario canceló la selección');
@@ -24,10 +25,31 @@ export const ImageButton = () => {
         setImage(path);
       }
     });
+
+    /*const takePicture = () => {
+      const options = {
+        title: 'Tomar una imagen',
+        storageOptions: {
+          skipBackup: true,
+          path: 'images',
+        },
+        includeBase64: true,
+      };
+    };
+    launchCamera(options, response => {
+      if (response.errorCode) {
+        console.log(response.errorMessage);
+      } else if (response.didCancel) {
+        console.log('El usuario canceló la fotografía');
+      } else {
+        const uri = response.assets[0].uri;
+        setImage(uri);
+      }
+    });*/
   };
   return (
     <Avatar
-      activeOpacity={0.2}
+      activeOpacity={1}
       avatarStyle={{}}
       // eslint-disable-next-line react-native/no-inline-styles
       containerStyle={{backgroundColor: '#BDBDBD'}}
@@ -42,8 +64,12 @@ export const ImageButton = () => {
       source={{
         uri: image,
       }}
-      title="Penepene">
-      <Avatar.Accessory size={32} onPress={selectImage} />
+      title="User">
+      <Avatar.Accessory
+        size={42}
+        onPress={selectImage}
+        style={{backgroundColor: Color.secondary}}
+      />
     </Avatar>
   );
 };
