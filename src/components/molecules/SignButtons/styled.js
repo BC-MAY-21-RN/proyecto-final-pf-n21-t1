@@ -1,9 +1,8 @@
 import styled from 'styled-components';
+import {LinkBox} from '../LinkContainer/styled';
 
-export const ButtonContainer = styled.View`
-  align-items: center;
+export const ButtonContainer = styled(LinkBox)`
   justify-content: space-around;
-  height: 20%;
 `;
 
 export const ButtonStyle = styled.View`
