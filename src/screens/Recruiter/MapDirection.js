@@ -53,13 +53,18 @@ const ScreenInfo = () => {
     );
   }, [isPermission]);
 
-  useEffect(() => {
-    if (markerLocation)
-      Geocoder.from({
-        latitude: markerLocation.latitude,
-        longitude: markerLocation.longitude,
-      }).then(res => setAddress(res.results[0].formatted_address));
-  }, [markerLocation]);
+  const handleChangeRegionComplete = ({latitude, longitude}) => {
+    Geocoder.from({
+      latitude,
+      longitude,
+    }).then(res => setAddress(res.results[0].formatted_address));
+    Geocoder.from(address)
+      .then(json => {
+        var location = json.results[0].geometry.location;
+        console.log(location);
+      })
+      .catch(error => console.warn(error));
+  };
 
   return (
     <View style={styles.mapScreen}>
@@ -76,19 +81,26 @@ const ScreenInfo = () => {
           justify={'center'}
         />
       </View>
-        <GeneralInput placeholder="Direccion" leftIcon="location-outline" value={address} />
+      <GeneralInput
+        placeholder="Direccion"
+        leftIcon="location-outline"
+        value={address}
+      />
       {location !== undefined && markerLocation !== undefined ? (
         <MapView
-          style={{width: '100%', height: '60%'}}
+          style={styles.mapView}
           initialRegion={{
             latitude: location.latitude,
             longitude: location.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.04,
+            longitudeDelta: 0.05,
           }}
-          onRegionChangeComplete={({latitude, longitude}) => setMarkerLocation({latitude, longitude})}>
+          onRegionChangeComplete={handleChangeRegionComplete}
+          onRegionChange={({latitude, longitude}) =>
+            setMarkerLocation({latitude, longitude})
+          }>
           <Marker
-            title="Prueba"
+            title={address}
             coordinate={{
               latitude: markerLocation.latitude,
               longitude: markerLocation.longitude,
@@ -124,9 +136,12 @@ const styles = StyleSheet.create({
   mapScreen: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-around',
   },
   mapTexts: {
     alignItems: 'center',
+  },
+  mapView: {
+    width: '100%',
+    height: '60%',
   },
 });
