@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from 'react-native-elements';
 import {Color} from '../../../theme/default';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {View, StyleSheet} from 'react-native';
 
 export const GeneralButton = ({
   width,
