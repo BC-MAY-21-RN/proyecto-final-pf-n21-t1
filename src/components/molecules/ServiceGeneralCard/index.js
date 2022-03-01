@@ -1,9 +1,10 @@
-import React from 'react';
-import {ServiceStatus, GeneralContainer, GeneralText} from '../../atoms';
-import {AcceptDeclineBtns, QualifyButton} from '../index';
-import {GroupRow, GroupColumn, ShadowView, StarAndServiceRow} from './styled';
+import React, { useState } from 'react';
+import { ServiceStatus, GeneralContainer, GeneralText } from '../../atoms';
+import { AcceptDeclineBtns, QualifyButton } from '../index';
+import { GroupRow, GroupColumn, ShadowView, StarAndServiceRow } from './styled';
 import ServiceCardMapping from '../../../utils/ServiceCardMapping';
 import serviceCardData from './ServiceCardData';
+import { AcceptedService } from '../index';
 
 export const ServiceGeneralCard = ({
   servicio,
@@ -11,9 +12,11 @@ export const ServiceGeneralCard = ({
   status,
   qualifyButton,
   navigation,
-  /*setShowQualify, */
 }) => {
+  const [servAceptado, setServAceptado] = useState(true);
+  botones = servAceptado;
   const serviceText = serviceCardData();
+
   if (status === 'Servicio Finalizado') {
     qualifyButton = true;
   } else {
@@ -33,7 +36,11 @@ export const ServiceGeneralCard = ({
         </GroupRow>
         <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
-        {botones ? <AcceptDeclineBtns /> : null}
+        {botones ? (
+          <AcceptDeclineBtns setServAceptado={setServAceptado} />
+        ) : (
+          <AcceptedService navigation={navigation} />
+        )}
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
           {qualifyButton ? <QualifyButton navigation={navigation} /> : null}

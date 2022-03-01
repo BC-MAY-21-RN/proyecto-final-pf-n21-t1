@@ -1,24 +1,24 @@
 import React from 'react';
+import { Container, ContainerWhite } from '../../components/atoms';
 import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
 import {ScrollView} from 'react-native';
-import { Container, ContainerWhite } from '../../components/atoms';
+import { DetailsOrganism } from '../../components/organisms';
 
-export const UpcomingServices = () => {
+
+export const ServiceDetails = () => {
   return (
     <ContainerWhite>
       <Container>
         <GeneralHeader
           isTabRendered
-          title="Servicios Pendientes"
+          title="Detalles de Servicio"
           color="background"
           weight
           size="h1"
           isMenuVisible
           userType="Provider"
           />
-        <ScrollView>
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-        </ScrollView>
+          <DetailsOrganism servicio={'Fontanero'}/>
       </Container>
     </ContainerWhite>
   );
