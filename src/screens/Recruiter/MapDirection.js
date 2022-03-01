@@ -152,25 +152,28 @@ const placesProps = (handlePressAutoComplete, address, setAddress) => {
   };
 };
 
-export const MapDirection = () => {
-  const [markerLocation, setMarkerLocation] = useState(undefined);
-  const [address, setAddress] = useState();
-  const [location, setLocation] = useState();
-  const mapView = useRef(null);
-
-  const handlePressAutoComplete = (_, details = null) => {
+const handlePressAuto = (setMarkerLocation, setAddress, mapView) => {
+  return (_, details = null) => {
     const {lat, lng} = details.geometry.location;
     setMarkerLocation({latitude: lat, longitude: lng});
     setAddress(details.formatted_address);
     handleAnimate(lat, lng, mapView);
   };
+};
+
+export const MapDirection = () => {
+  const [markerLocation, setMarkerLocation] = useState(undefined);
+  const [address, setAddress] = useState();
+  const [location, setLocation] = useState();
+  const mapView = useRef(null);
+  const handlePress = handlePressAuto(setMarkerLocation, setAddress, mapView);
 
   return (
     <ContainerWhite>
       <Container>
         <GeneralHeader {...headerProps} />
         <GooglePlacesAutocomplete
-          {...placesProps(handlePressAutoComplete, address, setAddress)}
+          {...placesProps(handlePress, address, setAddress)}
         />
         <ScreenInfo
           markerLocation={markerLocation}
