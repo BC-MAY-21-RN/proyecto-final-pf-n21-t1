@@ -10,6 +10,7 @@ export const GeneralContainer = ({
   alignItems,
   border,
   borderColor,
+  justify,
 }) => {
   width ? (width = width) : (width = '100%');
   height ? (height = height) : (height = '20%');
@@ -25,7 +26,8 @@ export const GeneralContainer = ({
       height={height}
       direction={direction}
       marginBottom={marginBottom}
-      alignItems={alignItems}>
+      alignItems={alignItems}
+      justify={justify}>
       {children}
     </ContainerGeneral>
   );

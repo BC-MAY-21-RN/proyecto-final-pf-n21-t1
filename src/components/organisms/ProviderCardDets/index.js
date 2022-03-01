@@ -6,32 +6,39 @@ import {LinkContainer, ProviderCard} from '../../molecules';
 import {
   CardDetailsContainer,
   DetailsContainer,
+  HourContainer,
   LinkContain,
   TextContainer,
+  TimeContainer,
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
+import { Avatar } from 'react-native-elements';
 
 export const ProviderCardDets = ({
   navigation,
   buttonType,
+  data,
   name,
   number,
   zone,
   image,
-  beginTime,
-  finishTime,
   notes,
 }) => {
+  const beginTimeHour = data.beginTime.toDate().getHours() + ':';
+  const beginTimeMin = data.beginTime.toDate().getMinutes();
+  const finishTimeHour = data.finishTime.toDate().getHours() + ':';
+  const finishTimeMin = data.finishTime.toDate().getMinutes();
   return (
     <Container>
       <CardDetailsContainer>
+        {console.log(data.image)}
         <ProviderCard
           width={360}
           height={180}
-          name={name}
-          number={number}
-          zone={zone}
-          image={image}
+          name={data.name}
+          number={data.inputNumber}
+          zone={'Funcionalidad de maps'}
+          image={data.image}
         />
       </CardDetailsContainer>
       <DetailsContainer>
@@ -41,9 +48,18 @@ export const ProviderCardDets = ({
           color="text"
           weight
         />
-        <GeneralText title={beginTime} size="h4" color="text" />
-        <GeneralText title={finishTime} size="h4" color="text" />
-        <GeneralContainer width="340px" height="70px">
+        <TimeContainer>
+          <HourContainer>
+            <GeneralText title={beginTimeHour} size="h4" color="text" />
+            <GeneralText title={beginTimeMin} size="h4" color="text" />
+          </HourContainer>
+          <GeneralText title="a" size="h4" color="text" />
+          <HourContainer>
+            <GeneralText title={finishTimeHour} size="h4" color="text" />
+            <GeneralText title={finishTimeMin} size="h4" color="text" />
+          </HourContainer>
+        </TimeContainer>
+        <GeneralContainer width="340px" height="80px" justify>
           <TextContainer>
             <GeneralText
               title="Notas importantes"
@@ -51,7 +67,7 @@ export const ProviderCardDets = ({
               color="secondary"
               weight
             />
-            <GeneralText title={notes} size="h4" color="secondary" />
+            <GeneralText title={data.notes} size="h4" color="secondary" />
           </TextContainer>
         </GeneralContainer>
       </DetailsContainer>
