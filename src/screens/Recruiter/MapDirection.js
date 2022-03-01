@@ -31,17 +31,12 @@ const requestPermission = async setPermission => {
   }
 };
 
-const ScreenInfo = ({
-  markerLocation,
-  setMarkerLocation,
-  mapView,
-  address,
-  setAddress,
-  location,
-  setLocation,
-}) => {
+const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
   const [isPermission, setPermission] = useState(false);
 
+  const {markerLocation, setMarkerLocation} = markerHook;
+  const {address, setAddress} = addressHook;
+  const {location, setLocation} = locationHook;
   useEffect(() => {
     if (!isPermission) requestPermission(setPermission);
     Geocoder.init(apiKey);
@@ -176,13 +171,10 @@ export const MapDirection = () => {
           {...placesProps(handlePress, address, setAddress)}
         />
         <ScreenInfo
-          markerLocation={markerLocation}
-          setMarkerLocation={setMarkerLocation}
+          markerHook={{markerLocation, setMarkerLocation}}
+          addressHook={{address, setAddress}}
+          locationHook={{location, setLocation}}
           mapView={mapView}
-          address={address}
-          setAddress={setAddress}
-          location={location}
-          setLocation={setLocation}
         />
       </Container>
     </ContainerWhite>
