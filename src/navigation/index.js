@@ -20,7 +20,7 @@ import {
   MapDirection,
   EditProvider,
   EditDates,
-  MapDirection,
+  ServiceDetails,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
@@ -55,6 +55,7 @@ const Navigate = () => {
         <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
         <Stack.Screen name="EditProvider" component={EditProvider} />
         <Stack.Screen name="EditDates" component={EditDates} />
+        <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
       </Stack.Navigator>
     </AuthProvider>
   );
