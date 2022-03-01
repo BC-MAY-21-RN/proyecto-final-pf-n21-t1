@@ -33,6 +33,7 @@ const Form = ({
               beginTime,
               finishTime,
               route.params.InputNotes,
+              route.params.Image,
             )
           }
         />
@@ -48,6 +49,7 @@ const providerRegistration = (
   beginTime,
   finishTime,
   notes,
+  image,
 ) => {
   console.log(
     'Data' + inputNumber,
@@ -55,6 +57,7 @@ const providerRegistration = (
     beginTime,
     finishTime,
     notes,
+    image,
   );
   const provider = {
     inputNumber: inputNumber,
@@ -62,6 +65,7 @@ const providerRegistration = (
     beginTime: beginTime,
     finishTime: finishTime,
     notes: notes,
+    image: image,
     providerRegistered: 'true',
   };
   firestore()

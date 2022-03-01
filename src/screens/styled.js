@@ -24,5 +24,11 @@ export const MarginView = styled.View`
 
 export const InputView = styled.View`
   height: 22%;
+  margin-bottom: 20px;
+  ${center}
+`;
+
+export const ButtonContainer = styled.View`
+  margin-bottom: 20px;
   ${center}
 `;

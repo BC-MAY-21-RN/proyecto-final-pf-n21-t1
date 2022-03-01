@@ -41,7 +41,7 @@ const MenuTemplate = ({navigation, logout, type}) => {
         action={() => navigation.navigate(myData)}
       />
       <LinkIcon
-        title="Mis datos"
+        title="Mi perfil"
         icon="person"
         action={() => navigation.navigate(myData)}
       />

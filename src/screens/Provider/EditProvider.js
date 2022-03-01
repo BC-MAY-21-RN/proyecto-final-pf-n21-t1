@@ -12,7 +12,6 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native';
 import triggerValidation from '../../utils/authentication/inputValidations';
 
-
 export const EditProvider = ({navigation}) => {
   const [form, setForm] = useState({
     name: '',

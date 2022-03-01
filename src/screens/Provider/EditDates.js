@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {SafeAreaView} from 'react-native';
 import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 
@@ -12,6 +13,7 @@ export const EditDates = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           title="Tarjeta de presentación"
           isMenuVisible
