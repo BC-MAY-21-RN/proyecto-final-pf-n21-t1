@@ -1,3 +1,3 @@
 export {CardOrganism} from './CardOrganism';
 export {ProviderCardDets} from './ProviderCardDets';
-export {DetailsOrganism} from './DetailsOrganism';
+export {ServiceClosure} from './ServiceClousure';

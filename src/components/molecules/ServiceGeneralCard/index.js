@@ -23,6 +23,8 @@ export const ServiceGeneralCard = ({
     qualifyButton = false;
   }
 
+
+
   return (
     <ShadowView>
       <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
