@@ -1,24 +1,35 @@
 import React from 'react';
-import buttonsMapping from '../../../utils/buttonsMapping'
-import {ButtonGroup, ButtonStyles} from './styled';
+import { Alert } from 'react-native';
+import buttonsMapping from '../../../utils/buttonsMapping';
+import { ButtonGroup, ButtonStyles } from './styled';
 
-export const AcceptDeclineBtns = () => {
+export const AcceptDeclineBtns = ({ setServAceptado }) => {
   const buttonsData = [
     {
       title: 'Aceptar',
       color: 'primary',
-      action: () => console.log("Aceptaste :)"),
+      action: () => setServAceptado(false),
       width: 100,
       height: 37,
     },
     {
-      title: 'Cancelar',
+      title: 'Declinar',
       color: 'secondary',
-      action: () => console.log("Declinaste :("),
+      action: () =>
+        Alert.alert(
+          'Declinar',
+          '¿Estas seguro de que quieres declinar este servicio?',
+          [
+            { text: 'Si', onPress: () => console.log('Servicio declinado') },
+            { text: 'No' },
+          ],
+          { cancelable: true }
+        ),
       width: 100,
       height: 37,
     },
   ];
+
   return (
     <ButtonGroup>
       <ButtonStyles>{buttonsMapping(buttonsData)}</ButtonStyles>

@@ -17,6 +17,7 @@ import {
   UpcomingServices,
   RecruiterCreation,
   CreationSecondary,
+  ServiceDetails,
   MapDirection,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
@@ -50,6 +51,7 @@ const Navigate = () => {
         <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
         <Stack.Screen name="MapDirection" component={MapDirection} />
         <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
+        <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
       </Stack.Navigator>
     </AuthProvider>
   );

@@ -10,3 +10,5 @@ export {ServiceGeneralCard} from './ServiceGeneralCard';
 export {CommentAndQualify} from './CommentAndQualify';
 export {OneStarButton} from './OneStarButton';
 export {MenuModal} from './MenuModal';
+export {AcceptedService} from './AcceptedService';
+export {BackFinishBtns} from './BackFinishBtns';
