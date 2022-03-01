@@ -1,16 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {StyleSheet, View, Alert, PermissionsAndroid} from 'react-native';
 import {
   Container,
   ContainerWhite,
   GeneralButton,
   GeneralText,
-  GeneralInput,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import {Color} from '../../theme/default';
+
+const apiKey = 'AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s';
 
 const requestPermission = async setPermission => {
   try {
@@ -28,15 +31,20 @@ const requestPermission = async setPermission => {
   }
 };
 
-const ScreenInfo = () => {
+const ScreenInfo = ({
+  markerLocation,
+  setMarkerLocation,
+  mapView,
+  address,
+  setAddress,
+  location,
+  setLocation,
+}) => {
   const [isPermission, setPermission] = useState(false);
-  const [location, setLocation] = useState();
-  const [markerLocation, setMarkerLocation] = useState(undefined);
-  const [address, setAddress] = useState();
 
   useEffect(() => {
     if (!isPermission) requestPermission(setPermission);
-    Geocoder.init('AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s');
+    Geocoder.init(apiKey);
   }, []);
 
   useEffect(() => {
@@ -58,12 +66,6 @@ const ScreenInfo = () => {
       latitude,
       longitude,
     }).then(res => setAddress(res.results[0].formatted_address));
-    Geocoder.from(address)
-      .then(json => {
-        var location = json.results[0].geometry.location;
-        console.log(location);
-      })
-      .catch(error => console.warn(error));
   };
 
   return (
@@ -81,11 +83,6 @@ const ScreenInfo = () => {
           justify={'center'}
         />
       </View>
-      <GeneralInput
-        placeholder="Direccion"
-        leftIcon="location-outline"
-        value={address}
-      />
       {location !== undefined && markerLocation !== undefined ? (
         <MapView
           style={styles.mapView}
@@ -95,6 +92,7 @@ const ScreenInfo = () => {
             latitudeDelta: 0.04,
             longitudeDelta: 0.05,
           }}
+          ref={mapView}
           onRegionChangeComplete={handleChangeRegionComplete}
           onRegionChange={({latitude, longitude}) =>
             setMarkerLocation({latitude, longitude})
@@ -108,12 +106,29 @@ const ScreenInfo = () => {
           />
         </MapView>
       ) : undefined}
-      <GeneralButton title={'Asignar dirección'} />
+      <GeneralButton title={'Asignar dirección'} action={() => console.log(address, location)}/>
     </View>
   );
 };
 
 export const MapDirection = () => {
+  const [markerLocation, setMarkerLocation] = useState(undefined);
+  const [address, setAddress] = useState();
+  const [location, setLocation] = useState();
+  const mapView = useRef(null);
+
+  const handleAnimate = (lat, lng) => {
+    mapView.current.animateToRegion(
+      {
+        latitude: lat,
+        longitude: lng,
+        latitudeDelta: 0.001,
+        longitudeDelta: 0.001,
+      },
+      1000,
+    );
+  };
+
   return (
     <ContainerWhite>
       <Container>
@@ -126,7 +141,39 @@ export const MapDirection = () => {
           size="h1"
           userType="Recruiter"
         />
-        <ScreenInfo />
+        <GooglePlacesAutocomplete
+          query={{
+            key: apiKey,
+            language: 'es', // language of the results
+          }}
+          fetchDetails
+          onPress={(data, details = null) => {
+            const {lat, lng} = details.geometry.location;
+            setMarkerLocation({latitude: lat, longitude: lng});
+            setAddress(details.formatted_address);
+            handleAnimate(lat, lng);
+          }}
+          styles={{
+            textInput: {
+              backgroundColor: Color.input,
+              borderRadius: 5,
+              fontSize: 15,
+            },
+          }}
+          textInputProps={{
+            value: address,
+            onChangeText: text => setAddress(text),
+          }}
+        />
+        <ScreenInfo
+          markerLocation={markerLocation}
+          setMarkerLocation={setMarkerLocation}
+          mapView={mapView}
+          address={address}
+          setAddress={setAddress}
+          location={location}
+          setLocation={setLocation}
+        />
       </Container>
     </ContainerWhite>
   );
@@ -134,7 +181,7 @@ export const MapDirection = () => {
 
 const styles = StyleSheet.create({
   mapScreen: {
-    flex: 1,
+    flex: 5,
     alignItems: 'center',
   },
   mapTexts: {
