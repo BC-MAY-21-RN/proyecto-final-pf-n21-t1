@@ -16,4 +16,3 @@ export {RecruiterCreation} from './Recruiter/RecruiterCreation';
 export {ServiceDetails} from './Provider/ServiceDetails'
 export {CreationSecondary} from './Provider/CreationSecondary';
 export {EditProvider} from './Provider/EditProvider';
-export {MapDirection} from './Recruiter/MapDirection';
