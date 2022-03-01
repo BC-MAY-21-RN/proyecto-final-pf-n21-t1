@@ -1,5 +1,6 @@
 import React from 'react';
-import {Container, GeneralText, GeneralButton} from '../../components/atoms';
+import { SafeAreaView } from 'react-native';
+import {Container, GeneralText, GeneralButton, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {CenterView, PickerWrapper, MarginView} from '../styled';
 
@@ -68,25 +69,29 @@ export const ServiceTicket = ({service, navigation}) => {
     client: 'o',
   };
   return (
-    <Container>
-      <GeneralHeader
-        title="Contratar"
-        isTabRendered
-        size="h1"
-        color="background"
-        weight
-        userType="Recruiter"
-      />
-      <CenterView>
-        <GeneralText
-          size="h2"
-          color="secondary"
-          title="Servicio registrado"
+    <ContainerWhite>
+      <Container>
+        <SafeAreaView />
+        <GeneralHeader
+          title="Contratar"
+          isTabRendered
+          size="h1"
+          color="background"
           weight
+          userType="Recruiter"
+          navigation={navigation}
         />
-      </CenterView>
-      <Service serviceItem={service} />
-      <FooterWrapper navigation={navigation} />
-    </Container>
+        <CenterView>
+          <GeneralText
+            size="h2"
+            color="secondary"
+            title="Servicio registrado"
+            weight
+          />
+        </CenterView>
+        <Service serviceItem={service} />
+        <FooterWrapper navigation={navigation} />
+      </Container>
+    </ContainerWhite>
   );
 };

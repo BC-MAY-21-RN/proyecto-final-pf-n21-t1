@@ -8,13 +8,19 @@ export const GeneralContainer = ({
   children,
   marginBottom,
   alignItems,
+  border,
+  borderColor,
 }) => {
   width ? (width = width) : (width = '100%');
   height ? (height = height) : (height = '20%');
   marginBottom ? (marginBottom = marginBottom) : (marginBottom = '0%');
+  border ? (border = '1px') : (border = '0');
+  borderColor ? (borderColor = '#26cbdf') : (borderColor = null);
 
   return (
     <ContainerGeneral
+      border={border}
+      borderColor={borderColor}
       width={width}
       height={height}
       direction={direction}

@@ -1,20 +1,17 @@
 import React, {useState} from 'react';
 import {CenteredView, ModalView} from './styled';
 import {CommentAndQualify, OneStarButton} from '..';
-import {Modal} from 'react-native';
+import {GeneralModal} from '../../atoms/GeneralModal';
 
 export const QualifyButton = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <CenteredView>
       <OneStarButton setModalVisible={setModalVisible} />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
+      <GeneralModal
+        animation="fade"
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}>
         <CenteredView>
           <ModalView>
             <CommentAndQualify
@@ -24,7 +21,7 @@ export const QualifyButton = ({navigation}) => {
             />
           </ModalView>
         </CenteredView>
-      </Modal>
+      </GeneralModal>
     </CenteredView>
   );
 };

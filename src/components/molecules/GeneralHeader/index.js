@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Header, Logo, HeaderContainer, Menu} from './styled';
+import {Header, Logo, HeaderContainer, Menu, Row, BackButton} from './styled';
 import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {Color} from '../../../theme/default';
@@ -14,16 +14,37 @@ const MenuButton = ({setModalVisible}) => {
   );
 };
 
+const GoBackButton = props => {
+  return (
+    <BackButton onPress={() => props.navigation.goBack()}>
+      <Icon name="chevron-back" size={30} color={Color.secondary} />
+    </BackButton>
+  );
+};
+
+const RowHeader = props => {
+  return (
+    <Row>
+      <GoBackButton navigation={props.navigation} />
+      <Header>
+        <Logo source={appLogo} />
+        {props.isMenuVisible ? (
+          <MenuButton setModalVisible={props.setModalVisible} />
+        ) : undefined}
+      </Header>
+    </Row>
+  );
+};
+
 export const GeneralHeader = props => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <HeaderContainer>
-      <Header>
-        <Logo source={appLogo} />
-        {props.isMenuVisible ? (
-          <MenuButton setModalVisible={setModalVisible} />
-        ) : undefined}
-      </Header>
+      <RowHeader
+        navigation={props.navigation}
+        isMenuVisible={props.isMenuVisible}
+        setModalVisible={setModalVisible}
+      />
       <TabRender
         isTabRendered={props.isTabRendered}
         title={props.title}
@@ -35,6 +56,7 @@ export const GeneralHeader = props => {
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
         userType={props.userType}
+        navigation={props.navigation}
       />
     </HeaderContainer>
   );

@@ -6,14 +6,14 @@ export const CenteredView = styled.View`
   align-items: center;
 `;
 export const ModalView = styled.View`
-  padding-top: 5%;
-  background-color: #e0e0e0;
-  border-radius: 20;
-  width: 370;
+
+  padding: 0;
+  border-radius: 20px;
+  width: 360px;
+  height: 200px;
   justify-content: center;
-  shadow-color: #000;
   shadow-opacity: 0.25;
-  shadow-radius: 4;
-  elevation: 5;
-  shadow-offset: {width: 0, height: 2};
+  shadowradius: 4px;
+  elevation: 4;
+  shadow-offset: {width: 0, height: 2px};
 `;
