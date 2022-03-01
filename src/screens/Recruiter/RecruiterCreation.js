@@ -1,5 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {StyleSheet, View, Alert, PermissionsAndroid} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Alert,
+  PermissionsAndroid,
+  Platform,
+} from 'react-native';
 import {
   Container,
   ContainerWhite,
@@ -38,7 +44,10 @@ const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
   const {address, setAddress} = addressHook;
   const {location, setLocation} = locationHook;
   useEffect(() => {
-    if (!isPermission) requestPermission(setPermission);
+    if (!isPermission) {
+      if (Platform.OS === 'ios') requestPermission(setPermission);
+      else Geocoder.requestPermission('whenInUse').then(setPermission(true));
+    }
     Geocoder.init(apiKey);
   }, []);
 
