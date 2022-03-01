@@ -5,7 +5,7 @@ import {ButtonCardContainer, CardButton} from './styled';
 export const CardButtons = ({type, navigation}) => {
   const cardButtons = [
     {
-      title: type === 'ProviderCardData' ? 'Contratar' : 'Crear registro',
+      title: type === 'ProviderCardData' ? 'Contratar' : 'Mis servicios',
       color: 'primary',
       action: () =>
         navigation.navigate(
@@ -13,8 +13,12 @@ export const CardButtons = ({type, navigation}) => {
         ),
     },
     {
-      title: type === 'ProviderCardData' ? 'Chatea conmigo' : 'Editar',
+      title: type === 'ProviderCardData' ? 'Chatea conmigo' : 'Editar datos',
       color: 'secondary',
+      action: () =>
+        navigation.navigate(
+          type === 'ProviderCardData' ? 'DateSelection' : 'EditProvider',
+        ),
     },
   ];
   return (

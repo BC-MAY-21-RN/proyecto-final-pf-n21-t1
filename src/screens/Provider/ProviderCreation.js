@@ -11,7 +11,11 @@ import {
   ImageDetails,
   ServicePicker,
 } from '../../components/molecules';
+<<<<<<< HEAD
 import {ButtonContainer, InputView} from '../styled';
+=======
+import {ButtonContainer, CenterView, InputView} from '../styled';
+>>>>>>> Images can be uploaded to firestore
 
 const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
   return (
@@ -23,13 +27,21 @@ const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
           placeholder="1234567890"
           value={value}
           onChangeText={handleText}
+<<<<<<< HEAD
         />
+=======
+          />
+>>>>>>> Images can be uploaded to firestore
         <GeneralInput
           title="Notas importantes"
           placeholder="Describe tus servicios"
           value={notes}
           onChangeText={handleNotes}
+<<<<<<< HEAD
         />
+=======
+          />
+>>>>>>> Images can be uploaded to firestore
       </InputView>
     </>
   );

@@ -12,3 +12,4 @@ export {OneStarButton} from './OneStarButton';
 export {MenuModal} from './MenuModal';
 export {ServicePicker} from './ServicePicker';
 export {TimePickers} from './TimePickers';
+export {ImageDetails} from './ImageDetails';

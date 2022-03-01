@@ -58,7 +58,6 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
       <LinkContain>
         <Icon name="star" size={20} color={Color.secondary} />
       </LinkContain>
-
       <CardButtons navigation={navigation} type={buttonType} />
     </Container>
   );
