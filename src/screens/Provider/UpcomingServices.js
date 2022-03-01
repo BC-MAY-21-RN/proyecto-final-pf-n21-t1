@@ -20,13 +20,6 @@ export const UpcomingServices = ({navigation}) => {
         />
         <ScrollView>
           <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
         </ScrollView>
       </Container>
     </ContainerWhite>
