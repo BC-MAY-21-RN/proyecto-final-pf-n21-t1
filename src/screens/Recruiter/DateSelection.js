@@ -8,12 +8,14 @@ import {
 import {GeneralHeader} from '../../components/molecules';
 import DatePicker from 'react-native-date-picker';
 import {CenterView} from '../styled';
+import { SafeAreaView } from 'react-native';
 
 export const DateSelection = ({navigation}) => {
   const [date, setDate] = useState(new Date());
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           title="Contratar"
           isTabRendered
@@ -22,6 +24,7 @@ export const DateSelection = ({navigation}) => {
           color="background"
           weight
           userType="Recruiter"
+          navigation={navigation}
         />
         <CenterView>
           <GeneralText

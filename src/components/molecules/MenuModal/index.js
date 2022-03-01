@@ -1,44 +1,74 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, TouchableWithoutFeedback} from 'react-native';
 import {Container, ContainerScreen, LinkStyle} from './styled';
-import {GeneralLink, GeneralModal, GeneralText} from '../../atoms';
-import HomeIcon from '../../../assets/icons/Home';
+import {GeneralLink, GeneralModal} from '../../atoms';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Color} from '../../../theme/default';
+import {AuthContext} from '../../../navigation/AuthProvider';
 
-const LinkIcon = ({icon, title}) => {
+const LinkIcon = ({icon, title, action}) => {
   return (
     <LinkStyle>
       <Icon name={icon} size={22} color={Color.secondary} />
-      <GeneralLink title={'  ' + title} size="h5" color="secondary" />
+      <GeneralLink
+        title={'  ' + title}
+        size="h5"
+        color="secondary"
+        action={action}
+      />
     </LinkStyle>
   );
 };
 
-const RecruiterModal = () => {
+const MenuTemplate = ({navigation, logout, type}) => {
+  const myData = type === 'Provider' ? 'ProviderPreview' : 'ServiceGrid';
+  const serviceNav = type === 'Provider' ? 'UpcomingServices' : 'ServiceGrid';
   return (
     <View>
-      <LinkStyle>
-        <HomeIcon width={22} colorIcon="secondary" />
-        <GeneralText title="  Inicio" size="h4" color="secondary" />
-      </LinkStyle>
-      <LinkIcon title="Contratar servicios" icon="hammer" />
-      <LinkIcon title="Servicios contratados" icon="cog" />
-      <LinkIcon title="Editar dirección" icon="create" />
-      <LinkIcon title="Cerrar sesión" icon="log-out" />
+      <ItemMenu navigation={navigation} type={type} />
+      <LinkIcon
+        title={
+          type === 'Provider'
+            ? 'Solicitudes de servicios'
+            : 'Contratar servicios'
+        }
+        icon="hammer"
+        action={() => navigation.navigate(serviceNav)}
+      />
+      <LinkIcon
+        title="Chats"
+        icon="chatbubble"
+        action={() => navigation.navigate(myData)}
+      />
+      <LinkIcon
+        title="Mis datos"
+        icon="person"
+        action={() => navigation.navigate(myData)}
+      />
+      <LinkIcon
+        title="Cerrar sesión"
+        icon="log-out"
+        action={() => logout() && navigation.navigate('Login')}
+      />
     </View>
   );
 };
 
-const ProviderModal = () => {
+const ItemMenu = ({navigation, type}) => {
+  var itemData = {title: '', icon: 'star', action: ''};
+  if (type === 'Provider') {
+    itemData.title = 'Opiniones de clientes';
+    itemData.action = 'CustomerOpinions';
+  } else if (type === 'Recruiter') {
+    itemData.title = 'Servicios contratados';
+    itemData.action = 'ServicesHistory';
+  }
   return (
-    <View>
-      <LinkIcon title="Solicitudes de servicios" icon="hammer" />
-      <LinkIcon title="Opiniones de clientes" icon="star" />
-      <LinkIcon title="Chats" icon="chatbubble" />
-      <LinkIcon title="Editar perfil" icon="person" />
-      <LinkIcon title="Cerrar sesión" icon="log-out" />
-    </View>
+    <LinkIcon
+      title={itemData.title}
+      icon={itemData.icon}
+      action={() => navigation.navigate(itemData.action)}
+    />
   );
 };
 
@@ -48,16 +78,18 @@ export const MenuModal = ({
   setModalVisible,
   userType,
 }) => {
-  var userModal = null;
+  const {logout} = useContext(AuthContext);
 
-  const ModalType = type => {
-    if (type === 'Provider') {
-      userModal = <ProviderModal />;
-    } else if (type === 'Recruiter') {
-      userModal = <RecruiterModal />;
-    }
-  };
-  ModalType(userType);
+  var userModal = (
+    <>
+      <MenuTemplate
+        navigation={navigation}
+        logout={() => logout()}
+        type={userType}
+      />
+    </>
+  );
+
   return (
     <GeneralModal
       animation="fade"

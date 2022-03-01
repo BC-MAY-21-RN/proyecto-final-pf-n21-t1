@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Alert, PermissionsAndroid} from 'react-native';
-import {Container, GeneralButton} from '../../components/atoms';
+import {Alert, PermissionsAndroid, SafeAreaView} from 'react-native';
+import {Container, ContainerWhite, GeneralButton} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';

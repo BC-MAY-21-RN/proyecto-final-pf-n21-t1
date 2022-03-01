@@ -5,68 +5,38 @@ import electrician from '../../../assets/images/electrician.png';
 import carpenter from '../../../assets/images/carpenter.png';
 import electronics from '../../../assets/images/electronics.png';
 
-const serviceButtonsData = ({navigation}) => {
-  return [
-    {
-      width: '90%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Fontanero',
-      icon: plumbering,
-      toScreen: () => navigation.navigate('ServiceProviders'),
-    },
-    {
-      width: '90%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Constructor',
-      icon: constructor,
-      toScreen: () => navigation.navigate('ServiceProviders'),
-    },
-    {
-      width: '90%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Técnico',
-      icon: electronics,
-      toScreen: () => navigation.navigate('ServiceProviders'),
-    },
-    {
-      width: '90%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Electricista',
-      icon: electrician,
-      toScreen: () => navigation.navigate('ServiceProviders'),
-    },
-    {
-      width: '90%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Carpintero',
-      icon: carpenter,
-      toScreen: () => navigation.navigate('ServiceProviders'),
-    },
-    {
-      width: '90%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Pintor',
-      icon: painter,
-      toScreen: () => navigation.navigate('ServiceProviders'),
-    },
-  ];
+const Fontanero = {
+  serviceTitle: 'Fontanero',
+  icon: plumbering,
+};
+
+const Constructor = {
+  serviceTitle: 'Constructor',
+  icon: constructor,
+};
+
+const Tecnico = {
+  serviceTitle: 'Técnico',
+  icon: electronics,
+};
+
+const Electricista = {
+  serviceTitle: 'Electricista',
+  icon: electrician,
+};
+
+const Carpintero = {
+  serviceTitle: 'Carpintero',
+  icon: carpenter,
+};
+
+const Pintor = {
+  serviceTitle: 'Pintor',
+  icon: painter,
+};
+
+const serviceButtonsData = () => {
+  return [Fontanero, Constructor, Tecnico, Electricista, Carpintero, Pintor];
 };
 
 export default serviceButtonsData;
-
-/*  Este es un ejemplo de como evitar el data en caso de que todos los items del data sean iguales:  let serviceButtonsData = [];
-  for (let i = 0; i < 6; i++) {
-    serviceButtonsData.push({
-      width: '40%',
-      height: '20%',
-      marginBottom: '20%',
-      serviceTitle: 'Escoga su servicio',
-      action: () => navigation.navigate('Login'),
-    });
-  } */

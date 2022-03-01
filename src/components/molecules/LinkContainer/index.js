@@ -9,7 +9,6 @@ export const LinkContainer = ({type, navigation, height}) => {
     Login: '¿Ya eres usuario? Inicia sesión',
     Register: '¿Eres nuevo aquí? Regístrate',
     Logout: 'Cerrar sesión',
-    CustomerOpinions: 'Conoce la opinión de sus clientes',
   };
   const action = () => {
     logout();
