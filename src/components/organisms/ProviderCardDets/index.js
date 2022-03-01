@@ -10,19 +10,28 @@ import {
   TextContainer,
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
-import {jose} from '../../../assets/images';
 
-export const ProviderCardDets = ({navigation, buttonType, type}) => {
+export const ProviderCardDets = ({
+  navigation,
+  buttonType,
+  name,
+  number,
+  zone,
+  image,
+  beginTime,
+  finishTime,
+  notes,
+}) => {
   return (
     <Container>
       <CardDetailsContainer>
         <ProviderCard
           width={360}
           height={180}
-          name={'José Rodríguez'}
-          number={'3123100157'}
-          zone={'Colima y VdeA'}
-          image={jose}
+          name={name}
+          number={number}
+          zone={zone}
+          image={image}
         />
       </CardDetailsContainer>
       <DetailsContainer>
@@ -32,13 +41,8 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
           color="text"
           weight
         />
-        <GeneralText title="8:00 am a 4:00 pm" size="h4" color="text" />
-        <GeneralText title="Descripción" size="h3" color="text" weight />
-        <GeneralText
-          title="Proveedor de servicios de fontanería"
-          size="h4"
-          color="text"
-        />
+        <GeneralText title={beginTime} size="h4" color="text" />
+        <GeneralText title={finishTime} size="h4" color="text" />
         <GeneralContainer width="340px" height="70px">
           <TextContainer>
             <GeneralText
@@ -47,11 +51,7 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
               color="secondary"
               weight
             />
-            <GeneralText
-              title="Estoy disponible los 365 días del año"
-              size="h4"
-              color="secondary"
-            />
+            <GeneralText title={notes} size="h4" color="secondary" />
           </TextContainer>
         </GeneralContainer>
       </DetailsContainer>
