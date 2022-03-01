@@ -6,23 +6,39 @@ import {LinkContainer, ProviderCard} from '../../molecules';
 import {
   CardDetailsContainer,
   DetailsContainer,
+  HourContainer,
   LinkContain,
   TextContainer,
+  TimeContainer,
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
-import {jose} from '../../../assets/images';
+import { Avatar } from 'react-native-elements';
 
-export const ProviderCardDets = ({navigation, buttonType, type}) => {
+export const ProviderCardDets = ({
+  navigation,
+  buttonType,
+  data,
+  name,
+  number,
+  zone,
+  image,
+  notes,
+}) => {
+  const beginTimeHour = data.beginTime.toDate().getHours() + ':';
+  const beginTimeMin = data.beginTime.toDate().getMinutes();
+  const finishTimeHour = data.finishTime.toDate().getHours() + ':';
+  const finishTimeMin = data.finishTime.toDate().getMinutes();
   return (
     <Container>
       <CardDetailsContainer>
+        {console.log(data.image)}
         <ProviderCard
           width={360}
           height={180}
-          name={'José Rodríguez'}
-          number={'3123100157'}
-          zone={'Colima y VdeA'}
-          image={jose}
+          name={data.name}
+          number={data.inputNumber}
+          zone={'Funcionalidad de maps'}
+          image={data.image}
         />
       </CardDetailsContainer>
       <DetailsContainer>
@@ -32,14 +48,18 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
           color="text"
           weight
         />
-        <GeneralText title="8:00 am a 4:00 pm" size="h4" color="text" />
-        <GeneralText title="Descripción" size="h3" color="text" weight />
-        <GeneralText
-          title="Proveedor de servicios de fontanería"
-          size="h4"
-          color="text"
-        />
-        <GeneralContainer width="340px" height="70px">
+        <TimeContainer>
+          <HourContainer>
+            <GeneralText title={beginTimeHour} size="h4" color="text" />
+            <GeneralText title={beginTimeMin} size="h4" color="text" />
+          </HourContainer>
+          <GeneralText title="a" size="h4" color="text" />
+          <HourContainer>
+            <GeneralText title={finishTimeHour} size="h4" color="text" />
+            <GeneralText title={finishTimeMin} size="h4" color="text" />
+          </HourContainer>
+        </TimeContainer>
+        <GeneralContainer width="340px" height="80px" justify>
           <TextContainer>
             <GeneralText
               title="Notas importantes"
@@ -47,11 +67,7 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
               color="secondary"
               weight
             />
-            <GeneralText
-              title="Estoy disponible los 365 días del año"
-              size="h4"
-              color="secondary"
-            />
+            <GeneralText title={data.notes} size="h4" color="secondary" />
           </TextContainer>
         </GeneralContainer>
       </DetailsContainer>
