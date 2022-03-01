@@ -106,9 +106,50 @@ const ScreenInfo = ({
           />
         </MapView>
       ) : undefined}
-      <GeneralButton title={'Asignar dirección'} action={() => console.log(address, location)}/>
+      <GeneralButton
+        title={'Asignar dirección'}
+        action={() => console.log(address, location)}
+      />
     </View>
   );
+};
+
+const headerProps = {
+  isTabRendered: true,
+  isMenuVisible: true,
+  title: 'Geo Localización',
+  color: 'background',
+  weight: true,
+  size: 'h1',
+  userType: 'Recruiter',
+};
+
+const handleAnimate = (lat, lng, mapView) => {
+  mapView.current.animateToRegion(
+    {
+      latitude: lat,
+      longitude: lng,
+      latitudeDelta: 0.001,
+      longitudeDelta: 0.001,
+    },
+    1000,
+  );
+};
+
+const placesProps = (handlePressAutoComplete, address, setAddress) => {
+  return {
+    query: {
+      key: apiKey,
+      language: 'es', // language of the results
+    },
+    fetchDetails: true,
+    onPress: handlePressAutoComplete,
+    styles: {textInput: styles.textInput},
+    textInputProps: {
+      value: address,
+      onChangeText: text => setAddress(text),
+    },
+  };
 };
 
 export const MapDirection = () => {
@@ -117,49 +158,19 @@ export const MapDirection = () => {
   const [location, setLocation] = useState();
   const mapView = useRef(null);
 
-  const handlePressAutoComplete = (data, details = null) => {
+  const handlePressAutoComplete = (_, details = null) => {
     const {lat, lng} = details.geometry.location;
     setMarkerLocation({latitude: lat, longitude: lng});
     setAddress(details.formatted_address);
-    handleAnimate(lat, lng);
-  };
-
-  const handleAnimate = (lat, lng) => {
-    mapView.current.animateToRegion(
-      {
-        latitude: lat,
-        longitude: lng,
-        latitudeDelta: 0.001,
-        longitudeDelta: 0.001,
-      },
-      1000,
-    );
+    handleAnimate(lat, lng, mapView);
   };
 
   return (
     <ContainerWhite>
       <Container>
-        <GeneralHeader
-          isTabRendered
-          isMenuVisible
-          title="Geo Localización"
-          color="background"
-          weight
-          size="h1"
-          userType="Recruiter"
-        />
+        <GeneralHeader {...headerProps} />
         <GooglePlacesAutocomplete
-          query={{
-            key: apiKey,
-            language: 'es', // language of the results
-          }}
-          fetchDetails
-          onPress={handlePressAutoComplete}
-          styles={{textInput: styles.textInput}}
-          textInputProps={{
-            value: address,
-            onChangeText: text => setAddress(text),
-          }}
+          {...placesProps(handlePressAutoComplete, address, setAddress)}
         />
         <ScreenInfo
           markerLocation={markerLocation}
