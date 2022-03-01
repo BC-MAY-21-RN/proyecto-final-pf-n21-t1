@@ -1,26 +1,27 @@
 import React from 'react';
-import {Container, GeneralButton} from '../../components/atoms';
+import { SafeAreaView } from 'react-native';
+import {Container, ContainerWhite, GeneralButton} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-
-
 
 export const RecruiterCreation = ({navigation}) => {
   return (
-    <Container>
-    <GeneralHeader
-        title="Tarjeta de presentación"
-        isMenuVisible
-        isTabRendered
-        size="h1"
-        color="background"
-        weight
-        userType="Recruiter"
-      />
-      <GeneralButton
-        title="Empezar"
-        color="secondary"
-        action={() => navigation.navigate('ProviderPreview')}
-      />
-    </Container>
+    <ContainerWhite>
+      <Container>
+        <SafeAreaView />
+        <GeneralHeader
+          title="Tarjeta de presentación"
+          isTabRendered
+          size="h1"
+          color="background"
+          weight
+          navigation={navigation}
+        />
+        <GeneralButton
+          title="Empezar"
+          color="secondary"
+          action={() => navigation.navigate('ServiceGrid')}
+        />
+      </Container>
+    </ContainerWhite>
   );
 };

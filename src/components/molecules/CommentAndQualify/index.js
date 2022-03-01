@@ -13,10 +13,19 @@ import {
   StarRatingPosition,
   SendButton,
 } from './styled';
-export const CommentAndQualify = ({setModalVisible, modalVisible, navigation}) => {
+export const CommentAndQualify = ({
+  setModalVisible,
+  modalVisible,
+  navigation,
+}) => {
   return (
     <ShadowView>
-      <GeneralContainer height={'180px'} width={'90%'} marginBottom={'5%'}>
+      <GeneralContainer
+        border
+        borderColor
+        height={'212px'}
+        width={'100%'}
+        marginBottom={'5%'}>
         <QualifyQuestion>
           <GeneralText
             title={'Como calificas mi servicio?'}
@@ -46,7 +55,7 @@ export const CommentAndQualify = ({setModalVisible, modalVisible, navigation}) =
             title={'Enviar'}
             height={35}
             color={'primary'}
-            action={() => navigation.navigate("CustomerOpinions")}
+            action={() => navigation.navigate('CustomerOpinions')}
           />
 
           <GeneralButton

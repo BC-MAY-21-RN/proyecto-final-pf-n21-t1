@@ -1,25 +1,25 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {ServiceComponent} from '../../components/molecules/ServiceComponent';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export const ServiceGrid = ({navigation}) => {
+export const EditProvider = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
         <SafeAreaView />
         <GeneralHeader
-          isTabRendered
+          title="Edita tu perfil"
           isMenuVisible
-          title="Servicios para tu hogar"
+          isTabRendered
+          size="h1"
           color="background"
           weight
-          size="h1"
-          userType="Recruiter"
+          userType="Provider"
           navigation={navigation}
         />
-        <ServiceComponent navigation={navigation} />
       </Container>
     </ContainerWhite>
   );

@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {GeneralHeader, SignButtons} from '../components/molecules/index';
 import inputsMapping from '../utils/inputsMapping';
@@ -79,6 +79,7 @@ export const Register = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader />
         <View>
           <GeneralText
@@ -93,11 +94,17 @@ export const Register = ({navigation}) => {
           type="register"
           disabled={form.submit}
           action={() =>
-            register(navigation, form.name.value, form.email.value, form.password.value)
+            register(
+              navigation,
+              form.name.value,
+              form.email.value,
+              form.password.value,
+            )
           }
+          height={'16%'}
           actionGoogle={() => googleLogin()}
         />
-        <LinkContainer navigation={navigation} type="Login" />
+        <LinkContainer navigation={navigation} type="Login" height={'8%'} />
       </Container>
     </ContainerWhite>
   );

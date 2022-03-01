@@ -1,12 +1,13 @@
 import React from 'react';
-import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
-import {ScrollView} from 'react-native';
-import { Container, ContainerWhite } from '../../components/atoms';
+import {GeneralHeader, ServiceGeneralCard, UpcomingServiceComponent, AcceptDeclineBtns} from '../../components/molecules';
+import {SafeAreaView, ScrollView} from 'react-native';
+import {Container, ContainerWhite} from '../../components/atoms';
 
-export const UpcomingServices = () => {
+export const UpcomingServices = ({navigation}) => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader
           isTabRendered
           title="Servicios Pendientes"
@@ -15,7 +16,8 @@ export const UpcomingServices = () => {
           size="h1"
           isMenuVisible
           userType="Provider"
-          />
+          navigation={navigation}
+        />
         <ScrollView>
           <ServiceGeneralCard servicio={'Fontanero'} botones />
         </ScrollView>
