@@ -117,6 +117,13 @@ export const MapDirection = () => {
   const [location, setLocation] = useState();
   const mapView = useRef(null);
 
+  const handlePressAutoComplete = (data, details = null) => {
+    const {lat, lng} = details.geometry.location;
+    setMarkerLocation({latitude: lat, longitude: lng});
+    setAddress(details.formatted_address);
+    handleAnimate(lat, lng);
+  };
+
   const handleAnimate = (lat, lng) => {
     mapView.current.animateToRegion(
       {
@@ -147,19 +154,8 @@ export const MapDirection = () => {
             language: 'es', // language of the results
           }}
           fetchDetails
-          onPress={(data, details = null) => {
-            const {lat, lng} = details.geometry.location;
-            setMarkerLocation({latitude: lat, longitude: lng});
-            setAddress(details.formatted_address);
-            handleAnimate(lat, lng);
-          }}
-          styles={{
-            textInput: {
-              backgroundColor: Color.input,
-              borderRadius: 5,
-              fontSize: 15,
-            },
-          }}
+          onPress={handlePressAutoComplete}
+          styles={{textInput: styles.textInput}}
           textInputProps={{
             value: address,
             onChangeText: text => setAddress(text),
@@ -190,5 +186,10 @@ const styles = StyleSheet.create({
   mapView: {
     width: '100%',
     height: '60%',
+  },
+  textInput: {
+    backgroundColor: Color.input,
+    borderRadius: 5,
+    fontSize: 15,
   },
 });
