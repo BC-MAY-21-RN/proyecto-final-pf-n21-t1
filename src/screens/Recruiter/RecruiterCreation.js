@@ -45,7 +45,7 @@ const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
   const {location, setLocation} = locationHook;
   useEffect(() => {
     if (!isPermission) {
-      if (Platform.OS === 'ios') Geocoder.requestPermission('whenInUse').then(setPermission(true));
+      if (Platform.OS === 'ios') Geocoder.requestAuthorization('whenInUse').then(setPermission(true));
       else requestPermission(setPermission);
     }
     Geocoder.init(apiKey);
