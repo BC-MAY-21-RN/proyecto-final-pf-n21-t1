@@ -20,7 +20,7 @@ export const AcceptDeclineBtns = ({ setServAceptado }) => {
           'Declinar',
           '¿Estas seguro de que quieres declinar este servicio?',
           [
-            { text: 'Si', onPress: () => console.log('Ni pedo') },
+            { text: 'Si', onPress: () => console.log('Servicio declinado') },
             { text: 'No' },
           ],
           { cancelable: true }

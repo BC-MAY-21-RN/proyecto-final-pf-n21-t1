@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, ContainerWhite } from '../../components/atoms';
 import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
 import {ScrollView} from 'react-native';
-import { DetailsOrganism } from '../../components/organisms';
+import { ServiceClosure } from '../../components/organisms';
 
 
 export const ServiceDetails = () => {
@@ -17,8 +17,8 @@ export const ServiceDetails = () => {
           size="h1"
           isMenuVisible
           userType="Provider"
-          />
-          <DetailsOrganism servicio={'Fontanero'}/>
+         />
+        <ServiceClosure servicio={'Fontanero'} fin/>
       </Container>
     </ContainerWhite>
   );
