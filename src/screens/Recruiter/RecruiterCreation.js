@@ -53,9 +53,9 @@ const ScreenInfo = ({
   useEffect(() => {
     if (!isPermission) {
       if (Platform.OS === 'ios')
-        Geolocation.requestAuthorization('whenInUse').then(() =>
-          setPermission(true),
-        );
+        Geolocation.requestAuthorization('whenInUse')
+          .then(() => setPermission(true))
+          .catch(err => console.log(err));
       else requestPermission(setPermission);
     }
     Geocoder.init(apiKey);
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   },
   mapView: {
     width: '100%',
-    height: 400,
+    height: '55%',
     marginBottom: 15,
   },
   textInput: {
