@@ -10,34 +10,28 @@ export const BackFinishBtns = () => {
     {
       title: 'Finalizar ',
       color: 'red',
-      action: () =>
-      Alert.alert(
+      action: () => Alert.alert(
         'Finalizar Servicio',
         '¿Estas seguro de que terminaste este servicio?',
         [
           { text: 'Si', onPress: () => navigation.navigate('UpcomingServices') },
           { text: 'No' },
         ],
-        { cancelable: true }
       ),
-      
-      width: 100,
-      height: 37,
+      width: 99,
+      height: 35,
     },
     {
       title: 'Volver',
       color: 'secondary',
       action: () => navigation.navigate('UpcomingServices'),
-      width: 100,
-      height: 37,
+      width: 99,
+      height: 35,
     },
   ];
-
   return (
     <Group>
-      <Styles>
-        {buttonsMapping(buttonsData)}
-      </Styles>
+      <Styles>{buttonsMapping(buttonsData)}</Styles>
     </Group>
   );
 };
