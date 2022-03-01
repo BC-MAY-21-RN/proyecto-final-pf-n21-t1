@@ -5,6 +5,7 @@ import {
   Alert,
   PermissionsAndroid,
   Platform,
+  SafeAreaView,
 } from 'react-native';
 import {
   Container,
@@ -37,7 +38,13 @@ const requestPermission = async setPermission => {
   }
 };
 
-const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
+const ScreenInfo = ({
+  mapView,
+  addressHook,
+  locationHook,
+  markerHook,
+  children,
+}) => {
   const [isPermission, setPermission] = useState(false);
 
   const {markerLocation, setMarkerLocation} = markerHook;
@@ -45,7 +52,10 @@ const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
   const {location, setLocation} = locationHook;
   useEffect(() => {
     if (!isPermission) {
-      if (Platform.OS === 'ios') Geocoder.requestAuthorization('whenInUse').then(setPermission(true));
+      if (Platform.OS === 'ios')
+        Geolocation.requestAuthorization('whenInUse').then(() =>
+          setPermission(true),
+        );
       else requestPermission(setPermission);
     }
     Geocoder.init(apiKey);
@@ -73,7 +83,7 @@ const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
   };
 
   return (
-    <View style={styles.mapScreen}>
+    <View>
       <View style={styles.mapTexts}>
         <GeneralText
           title="¿Cuál es tu dirección?"
@@ -82,13 +92,15 @@ const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
           color="secondary"
         />
         <GeneralText
-          title="Indica en el mapa la ubicación del inmueble para que el proveedor del servicio pueda acudir."
+          title="Escribe la ubicación del inmueble para que el proveedor del servicio pueda acudir."
           size="h6"
           justify={'center'}
         />
       </View>
+      {children}
       {location !== undefined && markerLocation !== undefined ? (
         <MapView
+          provider="google"
           style={styles.mapView}
           initialRegion={{
             latitude: location.latitude,
@@ -110,10 +122,12 @@ const ScreenInfo = ({mapView, addressHook, locationHook, markerHook}) => {
           />
         </MapView>
       ) : undefined}
-      <GeneralButton
-        title={'Asignar dirección'}
-        action={() => console.log(address, location)}
-      />
+      <View style={styles.mapTexts}>
+        <GeneralButton
+          title={'Asignar dirección'}
+          action={() => console.log(address, location)}
+        />
+      </View>
     </View>
   );
 };
@@ -148,7 +162,7 @@ const placesProps = (handlePressAutoComplete, address, setAddress) => {
     },
     fetchDetails: true,
     onPress: handlePressAutoComplete,
-    styles: {textInput: styles.textInput},
+    styles: {textInput: styles.textInput, container: {flex: 0}},
     textInputProps: {
       value: address,
       onChangeText: text => setAddress(text),
@@ -175,32 +189,31 @@ export const RecruiterCreation = () => {
   return (
     <ContainerWhite>
       <Container>
+        <SafeAreaView />
         <GeneralHeader {...headerProps} />
-        <GooglePlacesAutocomplete
-          {...placesProps(handlePress, address, setAddress)}
-        />
         <ScreenInfo
           markerHook={{markerLocation, setMarkerLocation}}
           addressHook={{address, setAddress}}
           locationHook={{location, setLocation}}
-          mapView={mapView}
-        />
+          mapView={mapView}>
+          <GooglePlacesAutocomplete
+            {...placesProps(handlePress, address, setAddress)}
+          />
+        </ScreenInfo>
       </Container>
     </ContainerWhite>
   );
 };
 
 const styles = StyleSheet.create({
-  mapScreen: {
-    flex: 5,
-    alignItems: 'center',
-  },
   mapTexts: {
     alignItems: 'center',
+    marginBottom: 15,
   },
   mapView: {
     width: '100%',
-    height: '60%',
+    height: 400,
+    marginBottom: 15,
   },
   textInput: {
     backgroundColor: Color.input,
