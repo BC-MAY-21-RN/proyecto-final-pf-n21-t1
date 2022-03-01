@@ -17,13 +17,12 @@ import {
   UpcomingServices,
   RecruiterCreation,
   CreationSecondary,
-  MapDirection,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'MapDirection',
+  initialRouteName: 'RecruiterCreation',
   screenOptions: {
     headerShown: false,
   },
@@ -48,7 +47,6 @@ const Navigate = () => {
         <Stack.Screen name="ServicesHistory" component={ServicesHistory} />
         <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
         <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
-        <Stack.Screen name="MapDirection" component={MapDirection} />
         <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
       </Stack.Navigator>
     </AuthProvider>
