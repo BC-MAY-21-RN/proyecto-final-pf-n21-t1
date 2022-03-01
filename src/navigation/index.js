@@ -17,23 +17,15 @@ import {
   UpcomingServices,
   RecruiterCreation,
   CreationSecondary,
-<<<<<<< HEAD
-  MapDirection,
   EditProvider,
   EditDates,
   ServiceDetails,
-=======
->>>>>>> Fix MapDirection, rename RecruiterCreation
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-<<<<<<< HEAD
   initialRouteName: 'ProviderPreview',
-=======
-  initialRouteName: 'RecruiterCreation',
->>>>>>> Fix MapDirection, rename RecruiterCreation
   screenOptions: {
     headerShown: false,
   },

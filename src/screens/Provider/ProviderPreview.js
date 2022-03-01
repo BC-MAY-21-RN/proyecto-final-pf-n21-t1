@@ -4,7 +4,7 @@ import {Container, ContainerWhite} from '../../components/atoms';
 import {CardOrganism} from '../../components/organisms';
 
 export const ProviderPreview = ({navigation}) => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState(undefined);
   const id = auth().currentUser.uid;
   const userRT = userId => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -25,7 +25,13 @@ export const ProviderPreview = ({navigation}) => {
     <ContainerWhite>
       <Container>
         <SafeAreaView />
-        <CardOrganism navigation={navigation} userType="Provider" data={data} />
+        {data ? (
+          <CardOrganism
+            navigation={navigation}
+            userType="Provider"
+            data={data}
+          />
+        ) : undefined}
       </Container>
     </ContainerWhite>
   );

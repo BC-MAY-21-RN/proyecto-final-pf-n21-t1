@@ -12,18 +12,8 @@ import {
   TimeContainer,
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
-import { Avatar } from 'react-native-elements';
 
-export const ProviderCardDets = ({
-  navigation,
-  buttonType,
-  data,
-  name,
-  number,
-  zone,
-  image,
-  notes,
-}) => {
+export const ProviderCardDets = ({navigation, buttonType, data}) => {
   const beginTimeHour = data.beginTime.toDate().getHours() + ':';
   const beginTimeMin = data.beginTime.toDate().getMinutes();
   const finishTimeHour = data.finishTime.toDate().getHours() + ':';
