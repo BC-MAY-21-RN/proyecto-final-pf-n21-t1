@@ -1,9 +1,9 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 import buttonsMapping from '../../../utils/buttonsMapping';
-import { ButtonGroup, ButtonStyles } from './styled';
+import {ButtonGroup, ButtonStyles} from './styled';
 
-export const AcceptDeclineBtns = ({ setServAceptado }) => {
+export const AcceptDeclineBtns = ({setServAceptado}) => {
   const buttonsData = [
     {
       title: 'Aceptar',
@@ -20,10 +20,10 @@ export const AcceptDeclineBtns = ({ setServAceptado }) => {
           'Declinar',
           '¿Estas seguro de que quieres declinar este servicio?',
           [
-            { text: 'Si', onPress: () => console.log('Servicio declinado') },
-            { text: 'No' },
+            {text: 'Si', onPress: () => console.log('Servicio declinado')},
+            {text: 'No'},
           ],
-          { cancelable: true }
+          {cancelable: true},
         ),
       width: 100,
       height: 37,

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { ServiceStatus, GeneralContainer, GeneralText } from '../../atoms';
-import { AcceptDeclineBtns, QualifyButton } from '../index';
-import { GroupRow, GroupColumn, ShadowView, StarAndServiceRow } from './styled';
+import React, {useState} from 'react';
+import {ServiceStatus, GeneralContainer, GeneralText} from '../../atoms';
+import {AcceptDeclineBtns, QualifyButton} from '../index';
+import {GroupRow, GroupColumn, ShadowView, StarAndServiceRow} from './styled';
 import ServiceCardMapping from '../../../utils/ServiceCardMapping';
 import serviceCardData from './ServiceCardData';
-import { AcceptedService } from '../index';
+import {AcceptedService} from '../index';
 
 export const ServiceGeneralCard = ({
   servicio,
@@ -22,8 +22,6 @@ export const ServiceGeneralCard = ({
   } else {
     qualifyButton = false;
   }
-
-
 
   return (
     <ShadowView>
