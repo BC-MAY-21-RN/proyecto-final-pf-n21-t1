@@ -11,7 +11,7 @@ import {GeneralHeader} from '../../components/molecules';
 import {PickerWrapper, CenterView, MarginView, InputView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import {SafeAreaView} from 'react-native';
+import {Alert, SafeAreaView} from 'react-native';
 
 const Form = ({
   data,
@@ -44,7 +44,11 @@ const Form = ({
             data={data}
             style={style}
             selected={finishTime}
-            setSelected={setFinishTime}
+            setSelected={time => {
+              if (beginTime >= time)
+                Alert.alert('Error', 'Selecciona una hora correcta.');
+              else setFinishTime(time);
+            }}
           />
         </PickerWrapper>
       </MarginView>
@@ -92,70 +96,73 @@ const providerRegistration = (
     );
 };
 
+const data = [
+  {
+    value: '8:00',
+    label: '8:00',
+  },
+  {
+    value: '9:00',
+    label: '9:00',
+  },
+  {
+    value: '10:00',
+    label: '10:00',
+  },
+  {
+    value: '11:00',
+    label: '11:00',
+  },
+  {
+    value: '12:00',
+    label: '12:00',
+  },
+  {
+    value: '13:00',
+    label: '13:00',
+  },
+  {
+    value: '14:00',
+    label: '14:00',
+  },
+  {
+    value: '15:00',
+    label: '15:00',
+  },
+  {
+    value: '16:00',
+    label: '16:00',
+  },
+  {
+    value: '17:00',
+    label: '17:00',
+  },
+  {
+    value: '18:00',
+    label: '18:00',
+  },
+  {
+    value: '19:00',
+    label: '19:00',
+  },
+  {
+    value: '20:00',
+    label: '20:00',
+  },
+];
+
 export const CreationSecondary = ({navigation, route}) => {
-  const [beginTime, setBeginTime] = useState('');
-  const [finishTime, setFinishTime] = useState();
+  const [beginTime, setBeginTime] = useState();
+  const [finishTime, setFinishTime] = useState(data[data.length - 1].value);
   const [notes, setNotes] = useState();
   const handleNotes = text => {
     setNotes(text);
   };
+
   const style = {
     width: '50%',
   };
-  const data = [
-    {
-      value: '8:00',
-      label: '8:00',
-    },
-    {
-      value: '9:00',
-      label: '9:00',
-    },
-    {
-      value: '10:00',
-      label: '10:00',
-    },
-    {
-      value: '11:00',
-      label: '11:00',
-    },
-    {
-      value: '12:00',
-      label: '12:00',
-    },
-    {
-      value: '13:00',
-      label: '13:00',
-    },
-    {
-      value: '14:00',
-      label: '14:00',
-    },
-    {
-      value: '15:00',
-      label: '15:00',
-    },
-    {
-      value: '16:00',
-      label: '16:00',
-    },
-    {
-      value: '17:00',
-      label: '17:00',
-    },
-    {
-      value: '18:00',
-      label: '18:00',
-    },
-    {
-      value: '19:00',
-      label: '19:00',
-    },
-    {
-      value: '20:00',
-      label: '20:00',
-    },
-  ];
+
   return (
     <ContainerWhite>
       <Container>
