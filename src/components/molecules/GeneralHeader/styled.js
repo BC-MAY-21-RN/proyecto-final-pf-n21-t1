@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.View`
   flex-direction: column;
-  height: 20%;
+  height: 15%;
   width: 100%;
   //margin-top: 15%;
 `;
