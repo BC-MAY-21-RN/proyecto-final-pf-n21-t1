@@ -34,7 +34,7 @@ export const providerModification = (
   firestore()
     .collection('Users')
     .doc(auth().currentUser.uid)
-    .set(providerUpdate)
+    .update(providerUpdate)
     .then(() => navigation.navigate('ProviderPreview'));
 };
 

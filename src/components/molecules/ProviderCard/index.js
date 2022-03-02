@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Avatar} from 'react-native-elements';
+import { ImageDetails } from '..';
 import {GeneralText, StarRating} from '../../atoms';
 import {AvatarImg, CardOpacity, ImgContainer, InfoContainer} from './styled';
 
@@ -14,6 +15,7 @@ export const ProviderCard = ({
   const handleCardPress = () => {
     navigation ? navigation.navigate('ProviderCardData') : null;
   };
+  const[userImage, setuserImage] = useState(image);
   return (
     <CardOpacity activeOpacity={1} onPress={handleCardPress}>
       <ImgContainer>
