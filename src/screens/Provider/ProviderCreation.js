@@ -11,6 +11,8 @@ import {
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {CenterView, MarginView} from '../styled';
+import triggerValidation from '../../utils/authentication/inputValidations';
+
 const Header = () => {
   return (
     <>
@@ -27,7 +29,7 @@ const Header = () => {
   );
 };
 
-const Form = ({data, service, setService, handleText, value}) => {
+const Form = ({data, service, setService, handleText, value, phoneError}) => {
   return (
     <>
       <MarginView>
@@ -44,6 +46,7 @@ const Form = ({data, service, setService, handleText, value}) => {
         placeholder="1234567890"
         value={value}
         onChangeText={handleText}
+        errorMessage={phoneError}
       />
     </>
   );
@@ -51,9 +54,13 @@ const Form = ({data, service, setService, handleText, value}) => {
 
 export const ProviderCreation = ({navigation}) => {
   const [service, setService] = useState('');
-  const [value, setValue] = useState();
+  const [phone, setPhone] = useState();
+  const [phoneError, setPhoneError] = useState();
+  const [isOk, setOk] = useState(false);
+
   const handleText = text => {
-    setValue(text);
+    setPhone(text);
+    setOk(triggerValidation(text, 'phone', setPhoneError));
   };
   const style = {
     width: '50%',
@@ -106,7 +113,8 @@ export const ProviderCreation = ({navigation}) => {
           service={service}
           setService={setService}
           handleText={handleText}
-          value={value}
+          phoneError={phoneError}
+          value={phone}
         />
         <CenterView>
           <GeneralButton
@@ -114,10 +122,11 @@ export const ProviderCreation = ({navigation}) => {
             color="secondary"
             action={() =>
               navigation.navigate('CreationSecondary', {
-                InputNumber: value,
+                InputNumber: phone,
                 ServicePicker: service,
               })
             }
+            disabled={!isOk}
           />
         </CenterView>
       </Container>
