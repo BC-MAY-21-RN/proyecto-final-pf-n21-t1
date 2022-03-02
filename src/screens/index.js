@@ -13,14 +13,7 @@ export {ServiceScore} from './Recruiter/ServiceScore';
 export {ServicesHistory} from './Recruiter/ServicesHistory';
 export {ServiceTicket} from './Recruiter/ServiceTicket';
 export {RecruiterCreation} from './Recruiter/RecruiterCreation';
-<<<<<<< HEAD
-=======
 export {ServiceDetails} from './Provider/ServiceDetails';
->>>>>>> Fix eslint styles, and fix header back
 export {CreationSecondary} from './Provider/CreationSecondary';
 export {EditProvider} from './Provider/EditProvider';
 export {EditDates} from './Provider/EditDates';
-export {MapDirection} from './Recruiter/MapDirection';
-export {EditDates} from './Provider/EditDates';
-export {CreationSecondary} from './Provider/CreationSecondary'
-export {ServiceDetails} from './Provider/ServiceDetails'
