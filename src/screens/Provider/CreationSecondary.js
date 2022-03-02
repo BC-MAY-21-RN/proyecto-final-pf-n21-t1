@@ -11,8 +11,7 @@ import {GeneralHeader} from '../../components/molecules';
 import {PickerWrapper, CenterView, MarginView, InputView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import {Alert, SafeAreaView} from 'react-native';
-import triggerValidation from '../../utils/authentication/inputValidations';
+import {SafeAreaView} from 'react-native';
 
 const Form = ({
   data,
@@ -23,7 +22,6 @@ const Form = ({
   setFinishTime,
   handleNotes,
   notes,
-  error,
 }) => {
   return (
     <>
@@ -40,21 +38,13 @@ const Form = ({
             data={data}
             style={style}
             selected={beginTime}
-            setSelected={time => {
-              if (time >= finishTime)
-                Alert.alert('Error', 'Selecciona una hora correcta.');
-              else setBeginTime(time);
-            }}
+            setSelected={setBeginTime}
           />
           <GeneralPicker
             data={data}
             style={style}
             selected={finishTime}
-            setSelected={time => {
-              if (beginTime >= time)
-                Alert.alert('Error', 'Selecciona una hora correcta.');
-              else setFinishTime(time);
-            }}
+            setSelected={setFinishTime}
           />
         </PickerWrapper>
       </MarginView>
@@ -64,7 +54,6 @@ const Form = ({
           placeholder="Describe tus servicios"
           value={notes}
           onChangeText={handleNotes}
-          errorMessage={error}
         />
       </InputView>
     </>
@@ -98,81 +87,73 @@ const providerRegistration = (
     .collection('Users')
     .doc(auth().currentUser.uid)
     .set(provider, {merge: true})
-    .then(() =>
-      navigation.reset({index: 0, routes: [{name: 'UpcomingServices'}]}),
-    );
+    .then(() => navigation.navigate('UpcomingServices'));
 };
 
-const data = [
-  {
-    value: '08:00',
-    label: '8:00',
-  },
-  {
-    value: '09:00',
-    label: '9:00',
-  },
-  {
-    value: '10:00',
-    label: '10:00',
-  },
-  {
-    value: '11:00',
-    label: '11:00',
-  },
-  {
-    value: '12:00',
-    label: '12:00',
-  },
-  {
-    value: '13:00',
-    label: '13:00',
-  },
-  {
-    value: '14:00',
-    label: '14:00',
-  },
-  {
-    value: '15:00',
-    label: '15:00',
-  },
-  {
-    value: '16:00',
-    label: '16:00',
-  },
-  {
-    value: '17:00',
-    label: '17:00',
-  },
-  {
-    value: '18:00',
-    label: '18:00',
-  },
-  {
-    value: '19:00',
-    label: '19:00',
-  },
-  {
-    value: '20:00',
-    label: '20:00',
-  },
-];
-
 export const CreationSecondary = ({navigation, route}) => {
-  const [beginTime, setBeginTime] = useState();
-  const [finishTime, setFinishTime] = useState(data[data.length - 1].value);
-  const [notesError, setNotesError] = useState();
-  const [isOk, setOk] = useState(false);
+  const [beginTime, setBeginTime] = useState('');
+  const [finishTime, setFinishTime] = useState();
   const [notes, setNotes] = useState();
   const handleNotes = text => {
     setNotes(text);
-    setOk(triggerValidation(text, 'name', setNotesError));
   };
-
   const style = {
     width: '50%',
   };
-
+  const data = [
+    {
+      value: '8:00',
+      label: '8:00',
+    },
+    {
+      value: '9:00',
+      label: '9:00',
+    },
+    {
+      value: '10:00',
+      label: '10:00',
+    },
+    {
+      value: '11:00',
+      label: '11:00',
+    },
+    {
+      value: '12:00',
+      label: '12:00',
+    },
+    {
+      value: '13:00',
+      label: '13:00',
+    },
+    {
+      value: '14:00',
+      label: '14:00',
+    },
+    {
+      value: '15:00',
+      label: '15:00',
+    },
+    {
+      value: '16:00',
+      label: '16:00',
+    },
+    {
+      value: '17:00',
+      label: '17:00',
+    },
+    {
+      value: '18:00',
+      label: '18:00',
+    },
+    {
+      value: '19:00',
+      label: '19:00',
+    },
+    {
+      value: '20:00',
+      label: '20:00',
+    },
+  ];
   return (
     <ContainerWhite>
       <Container>
@@ -196,7 +177,6 @@ export const CreationSecondary = ({navigation, route}) => {
           setFinishTime={setFinishTime}
           notes={notes}
           handleNotes={handleNotes}
-          error={notesError}
         />
         <CenterView>
           {console.log(
@@ -219,7 +199,6 @@ export const CreationSecondary = ({navigation, route}) => {
                 notes,
               )
             }
-            disabled={!isOk}
           />
         </CenterView>
       </Container>
