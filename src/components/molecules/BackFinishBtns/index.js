@@ -8,7 +8,7 @@ export const BackFinishBtns = () => {
   const navigation = useNavigation();
   const buttonsData = [{
       title: 'Finalizar ',
-      color: 'red',
+      color: 'facebook',
       action: () => Alert.alert(
         'Finalizar Servicio',
         '¿Estas seguro de que terminaste este servicio?',

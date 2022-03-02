@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ServiceStatus, GeneralContainer, GeneralText } from '../../atoms';
 import { AcceptDeclineBtns, QualifyButton } from '../index';
 import { GroupRow, GroupColumn, ShadowView, StarAndServiceRow } from './styled';
@@ -14,16 +14,14 @@ export const ServiceGeneralCard = ({
   navigation,
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
-  botones = servAceptado;
-  const serviceText = serviceCardData();
+  const [mostrarBotones, setMostrarBotones] = useState(botones);
 
+  const serviceText = serviceCardData();
   if (status === 'Servicio Finalizado') {
     qualifyButton = true;
   } else {
     qualifyButton = false;
   }
-
-
 
   return (
     <ShadowView>
@@ -38,11 +36,16 @@ export const ServiceGeneralCard = ({
         </GroupRow>
         <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
-        {botones ? (
-          <AcceptDeclineBtns setServAceptado={setServAceptado} />
-        ) : (
-          <AcceptedService navigation={navigation} />
-        )}
+
+        {mostrarBotones ? (
+          <AcceptDeclineBtns
+            setServAceptado={setServAceptado}
+            setMostrarBotones={setMostrarBotones}
+          />
+        ) : undefined}
+        {!servAceptado && <AcceptedService navigation={navigation} />}
+     
+
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
           {qualifyButton ? <QualifyButton navigation={navigation} /> : null}
