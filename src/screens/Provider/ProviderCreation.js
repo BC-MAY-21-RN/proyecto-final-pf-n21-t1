@@ -2,18 +2,16 @@ import React, {useState} from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {
   GeneralInput,
-  GeneralText,
   GeneralButton,
   ContainerWhite,
   Container,
-  ImageButton,
 } from '../../components/atoms';
 import {
   GeneralHeader,
   ImageDetails,
   ServicePicker,
 } from '../../components/molecules';
-import {ButtonContainer, CenterView, InputView} from '../styled';
+import {ButtonContainer, InputView} from '../styled';
 
 const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
   return (
@@ -25,13 +23,13 @@ const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
           placeholder="1234567890"
           value={value}
           onChangeText={handleText}
-          />
+        />
         <GeneralInput
           title="Notas importantes"
           placeholder="Describe tus servicios"
           value={notes}
           onChangeText={handleNotes}
-          />
+        />
       </InputView>
     </>
   );

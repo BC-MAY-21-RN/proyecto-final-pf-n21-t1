@@ -4,7 +4,6 @@ export const HeaderContainer = styled.View`
   flex-direction: column;
   height: 20%;
   width: 100%;
-  //margin-top: 15%;
 `;
 
 export const Row = styled.View`

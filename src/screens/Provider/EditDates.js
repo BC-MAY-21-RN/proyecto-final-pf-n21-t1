@@ -7,7 +7,14 @@ export const providerModification = () => {
   console.log('si');
 };
 
-export const EditDates = ({navigation}) => {
+export const EditDates = ({navigation, route}) => {
+  console.log(route.params.Data);
+  console.log(route.params.Image);
+  console.log(route.params.Name);
+  console.log(route.params.Email);
+  console.log(route.params.Password);
+  console.log(route.params.Phone);
+  console.log(route.params.Notes);
   const [beginTime, setBeginTime] = useState(new Date());
   const [finishTime, setFinishTime] = useState(new Date());
   return (
