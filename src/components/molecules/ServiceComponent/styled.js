@@ -21,7 +21,6 @@ export const Touchable = styled.TouchableOpacity`
   width: 50%;
   align-self: center;
   justify-content: space-around;
-
 `;
 
 export const ServiceTitle = styled.View`

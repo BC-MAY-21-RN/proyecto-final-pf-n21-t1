@@ -27,8 +27,9 @@ const requestPermission = async setPermission => {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) setPermission(true);
-    else {
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      setPermission(true);
+    } else {
       Alert.alert('Error', 'Debes de darle permisos de ubicación.', [
         {text: 'Ok', onPress: () => requestPermission(setPermission)},
       ]);
@@ -52,11 +53,13 @@ const ScreenInfo = ({
   const {location, setLocation} = locationHook;
   useEffect(() => {
     if (!isPermission) {
-      if (Platform.OS === 'ios')
+      if (Platform.OS === 'ios') {
         Geolocation.requestAuthorization('whenInUse')
           .then(() => setPermission(true))
           .catch(err => console.log(err));
-      else requestPermission(setPermission);
+      } else {
+        requestPermission(setPermission);
+      }
     }
     Geocoder.init(apiKey);
   }, []);

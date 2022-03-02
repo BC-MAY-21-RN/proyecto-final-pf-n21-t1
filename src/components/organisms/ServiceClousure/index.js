@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-import { ShadowView } from '../../molecules/ServiceGeneralCard/styled';
-import { GeneralContainer, GeneralText } from '../../atoms';
-import { Row, Column } from './styled';
-import { BackFinishBtns } from '../../molecules';
-import { Text } from 'react-native';
+import React, {useState} from 'react';
+import {ShadowView} from '../../molecules/ServiceGeneralCard/styled';
+import {GeneralContainer, GeneralText} from '../../atoms';
+import {Row, Column} from './styled';
+import {BackFinishBtns} from '../../molecules';
+import {Text} from 'react-native';
 
 export const ServiceClosure = ({servicio}) => {
   return (
@@ -20,7 +20,7 @@ export const ServiceClosure = ({servicio}) => {
         <Column>
           <Text>Informacion de firebase</Text>
         </Column>
-        <BackFinishBtns/>
+        <BackFinishBtns />
       </GeneralContainer>
     </ShadowView>
   );
