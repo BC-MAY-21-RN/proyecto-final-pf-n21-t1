@@ -19,5 +19,5 @@ export {
   plumbering,
   provider,
   user,
-  jose
+  jose,
 };

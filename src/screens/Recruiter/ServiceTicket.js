@@ -1,6 +1,11 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import {Container, GeneralText, GeneralButton, ContainerWhite} from '../../components/atoms';
+import {SafeAreaView} from 'react-native';
+import {
+  Container,
+  GeneralText,
+  GeneralButton,
+  ContainerWhite,
+} from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import {CenterView, PickerWrapper, MarginView} from '../styled';
 

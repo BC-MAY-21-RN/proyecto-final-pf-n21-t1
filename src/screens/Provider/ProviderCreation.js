@@ -65,23 +65,23 @@ export const ProviderCreation = ({navigation}) => {
     },
     {
       value: 'Construcción',
-      label: 'Construcción'
+      label: 'Construcción',
     },
     {
       value: 'Técnico',
-      label: 'Técnico'
+      label: 'Técnico',
     },
     {
       value: 'Electricista',
-      label: 'Electricista'
+      label: 'Electricista',
     },
     {
       value: 'Carpintero',
-      label: 'Carpintero'
+      label: 'Carpintero',
     },
     {
       value: 'Pintor',
-      label: 'Pintor'
+      label: 'Pintor',
     },
   ];
   return (
@@ -99,7 +99,7 @@ export const ProviderCreation = ({navigation}) => {
           navigation={navigation}
         />
         <Header />
-        <ImageButton  />
+        <ImageButton />
         <Form
           data={data}
           style={style}
@@ -124,4 +124,3 @@ export const ProviderCreation = ({navigation}) => {
     </ContainerWhite>
   );
 };
-
