@@ -14,7 +14,6 @@ export const CardButtons = ({type, navigation}) => {
     },
     {
       title: type === 'ProviderCardData' ? 'Chatea conmigo' : 'Editar datos',
-      color: 'secondary',
       action: () =>
         navigation.navigate(
           type === 'ProviderCardData' ? 'DateSelection' : 'EditProvider',
