@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const ButtonGroup = styled.View`
+export const Group = styled.View`
   margin-bottom: 3%;
 `;
 
-export const ButtonStyles = styled.View`
+export const Styles = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;

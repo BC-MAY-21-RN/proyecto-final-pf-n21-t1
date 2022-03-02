@@ -3,7 +3,7 @@ import {Picker} from '@react-native-picker/picker';
 
 export const GeneralPicker = ({data, style, selected, setSelected}) => {
   const [value, setValue] = useState();
-  
+
   useEffect(() => {
     const dataPicker = data.map(item => {
       return (
@@ -17,7 +17,7 @@ export const GeneralPicker = ({data, style, selected, setSelected}) => {
     <Picker
       style={style}
       selectedValue={selected}
-      onValueChange={(itemValue) => setSelected(itemValue)}>
+      onValueChange={itemValue => setSelected(itemValue)}>
       {value}
     </Picker>
   );

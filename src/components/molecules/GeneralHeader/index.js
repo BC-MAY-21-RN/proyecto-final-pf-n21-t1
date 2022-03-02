@@ -5,6 +5,7 @@ import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {Color} from '../../../theme/default';
 import {MenuModal} from '..';
+import {useNavigation} from '@react-navigation/native';
 
 const MenuButton = ({setModalVisible}) => {
   return (
@@ -25,7 +26,9 @@ const GoBackButton = props => {
 const RowHeader = props => {
   return (
     <Row>
-      <GoBackButton navigation={props.navigation} />
+      {props.navigation.canGoBack() ? (
+        <GoBackButton navigation={props.navigation} />
+      ) : undefined}
       <Header>
         <Logo source={appLogo} />
         {props.isMenuVisible ? (
@@ -38,10 +41,11 @@ const RowHeader = props => {
 
 export const GeneralHeader = props => {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
   return (
     <HeaderContainer>
       <RowHeader
-        navigation={props.navigation}
+        navigation={navigation}
         isMenuVisible={props.isMenuVisible}
         setModalVisible={setModalVisible}
       />
@@ -56,7 +60,7 @@ export const GeneralHeader = props => {
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
         userType={props.userType}
-        navigation={props.navigation}
+        navigation={navigation}
       />
     </HeaderContainer>
   );

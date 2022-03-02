@@ -20,12 +20,13 @@ import {
   MapDirection,
   EditProvider,
   EditDates,
+  ServiceDetails,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'EditProvider',
+  initialRouteName: 'Login',
   screenOptions: {
     headerShown: false,
   },
@@ -50,10 +51,10 @@ const Navigate = () => {
         <Stack.Screen name="ServicesHistory" component={ServicesHistory} />
         <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
         <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
-        <Stack.Screen name="MapDirection" component={MapDirection} />
         <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
         <Stack.Screen name="EditProvider" component={EditProvider} />
         <Stack.Screen name="EditDates" component={EditDates} />
+        <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
       </Stack.Navigator>
     </AuthProvider>
   );

@@ -1,5 +1,10 @@
 import React from 'react';
-import {GeneralHeader, ServiceGeneralCard, UpcomingServiceComponent, AcceptDeclineBtns} from '../../components/molecules';
+import {
+  GeneralHeader,
+  ServiceGeneralCard,
+  UpcomingServiceComponent,
+  AcceptDeclineBtns,
+} from '../../components/molecules';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {Container, ContainerWhite} from '../../components/atoms';
 
@@ -19,13 +24,6 @@ export const UpcomingServices = ({navigation}) => {
           navigation={navigation}
         />
         <ScrollView>
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
-          <ServiceGeneralCard servicio={'Fontanero'} botones />
           <ServiceGeneralCard servicio={'Fontanero'} botones />
         </ScrollView>
       </Container>
