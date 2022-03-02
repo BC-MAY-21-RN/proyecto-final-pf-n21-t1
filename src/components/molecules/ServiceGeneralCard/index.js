@@ -44,7 +44,6 @@ export const ServiceGeneralCard = ({
           />
         ) : undefined}
         {!servAceptado && <AcceptedService navigation={navigation} />}
-     
 
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
