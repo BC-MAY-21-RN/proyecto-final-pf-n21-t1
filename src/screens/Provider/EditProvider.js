@@ -137,7 +137,7 @@ export const EditProvider = ({navigation}) => {
                 Data: data,
               })
             }
-            />
+          />
           <SafeAreaView />
         </ScrollView>
       </Container>
