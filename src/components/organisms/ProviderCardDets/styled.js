@@ -21,4 +21,3 @@ export const LinkContain = styled.View`
   justify-content: flex-end;
   height: 10%;
 `;
-

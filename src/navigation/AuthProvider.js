@@ -9,7 +9,10 @@ const login = (email, password, setForm, navigation) => {
   auth()
     .signInWithEmailAndPassword(email, password)
     .then(() => {
-      navigation.navigate('Path');
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Path'}],
+      });
     })
     .catch(error => {
       if (error.code === 'auth/invalid-email') {

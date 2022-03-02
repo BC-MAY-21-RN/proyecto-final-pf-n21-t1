@@ -4,7 +4,7 @@ import { AcceptDeclineBtns, QualifyButton } from '../index';
 import { GroupRow, GroupColumn, ShadowView, StarAndServiceRow } from './styled';
 import ServiceCardMapping from '../../../utils/ServiceCardMapping';
 import serviceCardData from './ServiceCardData';
-import { AcceptedService } from '../index';
+import {AcceptedService} from '../index';
 
 export const ServiceGeneralCard = ({
   servicio,

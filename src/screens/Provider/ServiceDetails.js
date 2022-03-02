@@ -1,9 +1,8 @@
 import React from 'react';
-import { Container, ContainerWhite } from '../../components/atoms';
+import {Container, ContainerWhite} from '../../components/atoms';
 import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
 import {ScrollView} from 'react-native';
-import { ServiceClosure } from '../../components/organisms';
-
+import {ServiceClosure} from '../../components/organisms';
 
 export const ServiceDetails = () => {
   return (
@@ -17,8 +16,8 @@ export const ServiceDetails = () => {
           size="h1"
           isMenuVisible
           userType="Provider"
-         />
-        <ServiceClosure servicio={'Fontanero'} fin/>
+        />
+        <ServiceClosure servicio={'Fontanero'} fin />
       </Container>
     </ContainerWhite>
   );

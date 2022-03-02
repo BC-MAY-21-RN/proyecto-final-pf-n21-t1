@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native';
+import {View, Text} from 'react-native';
 import React from 'react';
-import { GeneralButton, GeneralText } from '../../atoms';
-import { Position } from './styled';
-import { useNavigation } from '@react-navigation/native';
+import {GeneralButton, GeneralText} from '../../atoms';
+import {Position} from './styled';
+import {useNavigation} from '@react-navigation/native';
 
 export const AcceptedService = () => {
   const navigation = useNavigation();
