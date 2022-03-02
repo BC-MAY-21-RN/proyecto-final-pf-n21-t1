@@ -5,4 +5,5 @@ export const CenterImage = styled.View`
   height: 250px;
   justify-content: space-between;
   width: 100%;
+  border: 2px solid black;
 `;
