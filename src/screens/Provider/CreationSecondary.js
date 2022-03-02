@@ -12,6 +12,7 @@ import {PickerWrapper, CenterView, MarginView, InputView} from '../styled';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {Alert, SafeAreaView} from 'react-native';
+import triggerValidation from '../../utils/authentication/inputValidations';
 
 const Form = ({
   data,
@@ -22,6 +23,7 @@ const Form = ({
   setFinishTime,
   handleNotes,
   notes,
+  error,
 }) => {
   return (
     <>
@@ -38,7 +40,11 @@ const Form = ({
             data={data}
             style={style}
             selected={beginTime}
-            setSelected={setBeginTime}
+            setSelected={time => {
+              if (time >= finishTime)
+                Alert.alert('Error', 'Selecciona una hora correcta.');
+              else setBeginTime(time);
+            }}
           />
           <GeneralPicker
             data={data}
@@ -58,6 +64,7 @@ const Form = ({
           placeholder="Describe tus servicios"
           value={notes}
           onChangeText={handleNotes}
+          errorMessage={error}
         />
       </InputView>
     </>
@@ -98,11 +105,11 @@ const providerRegistration = (
 
 const data = [
   {
-    value: '8:00',
+    value: '08:00',
     label: '8:00',
   },
   {
-    value: '9:00',
+    value: '09:00',
     label: '9:00',
   },
   {
@@ -154,9 +161,12 @@ const data = [
 export const CreationSecondary = ({navigation, route}) => {
   const [beginTime, setBeginTime] = useState();
   const [finishTime, setFinishTime] = useState(data[data.length - 1].value);
+  const [notesError, setNotesError] = useState();
+  const [isOk, setOk] = useState(false);
   const [notes, setNotes] = useState();
   const handleNotes = text => {
     setNotes(text);
+    setOk(triggerValidation(text, 'name', setNotesError));
   };
 
   const style = {
@@ -186,6 +196,7 @@ export const CreationSecondary = ({navigation, route}) => {
           setFinishTime={setFinishTime}
           notes={notes}
           handleNotes={handleNotes}
+          error={notesError}
         />
         <CenterView>
           {console.log(
@@ -208,6 +219,7 @@ export const CreationSecondary = ({navigation, route}) => {
                 notes,
               )
             }
+            disabled={!isOk}
           />
         </CenterView>
       </Container>
