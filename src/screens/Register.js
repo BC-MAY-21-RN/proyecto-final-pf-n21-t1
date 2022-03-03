@@ -102,7 +102,7 @@ export const Register = ({navigation}) => {
             )
           }
           height={'16%'}
-          actionGoogle={() => googleLogin()}
+          actionGoogle={() => googleLogin(navigation)}
         />
         <LinkContainer navigation={navigation} type="Login" height={'8%'} />
       </Container>

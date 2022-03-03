@@ -43,22 +43,27 @@ const handleError = error => {
   }
 };
 
+const handleFirestoreUser = (navigation, user) => {
+  navigation.reset({
+    index: 0,
+    routes: [{name: 'Path'}],
+  });
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .set(user)
+    .then(value => console.log(value))
+    .catch(error => {
+      handleError(error);
+    });
+};
+
 const register = async (navigation, name, email, password) => {
   const user = userTemplate(name, email, password);
   try {
     await auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        navigation.navigate('Path');
-        firestore()
-          .collection('Users')
-          .doc(auth().currentUser.uid)
-          .set(user)
-          .then(value => console.log(value))
-          .catch(error => {
-            handleError(error);
-          });
-      })
+      .then(() => handleFirestoreUser(navigation, user))
       .catch(error => {
         console.log('Something went wrong with sign up: ', error);
       });
@@ -82,8 +87,10 @@ const googleLogin = async navigation => {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     await auth()
       .signInWithCredential(googleCredential)
-      .then(() => {
-        navigation.navigate('Path');
+      .then(result => {
+        const {displayName, email} = result.user;
+        const user = {name: displayName, email};
+        handleFirestoreUser(navigation, user);
       })
       .catch(error => {
         console.log(error);

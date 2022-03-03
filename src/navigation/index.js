@@ -22,10 +22,11 @@ import {
   ServiceDetails,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
+import auth from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'ProviderCreation',
+  initialRouteName: auth().currentUser ? 'Path' : 'Login',
   screenOptions: {
     headerShown: false,
   },

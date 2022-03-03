@@ -18,10 +18,9 @@ const inputValidations = {
     not: true,
   },
   phone: {
-    regex: /^[0-9]*/,
+    regex: /[^0-9]+/,
     min: 10,
     max: 12,
-    not: true,
   },
 };
 
