@@ -1,50 +1,36 @@
 import React, {useState} from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import {
   GeneralInput,
-  GeneralText,
-  GeneralPicker,
   GeneralButton,
   ContainerWhite,
   Container,
-  ImageButton,
 } from '../../components/atoms';
-import {GeneralHeader} from '../../components/molecules';
-import {CenterView, MarginView} from '../styled';
-const Header = () => {
-  return (
-    <>
-      <CenterView>
-        <GeneralText
-          title="Nos alegra que ofrezcas tus servicios"
-          size="h1"
-          color="secondary"
-          weight
-          justify={'center'}
-        />
-      </CenterView>
-    </>
-  );
-};
+import {
+  GeneralHeader,
+  ImageDetails,
+  ServicePicker,
+} from '../../components/molecules';
+import {ButtonContainer, InputView} from '../styled';
 
-const Form = ({data, service, setService, handleText, value}) => {
+const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
   return (
     <>
-      <MarginView>
-        <GeneralText
-          title="¿Qué servicio deseas proveer?"
-          size="h2"
-          color={'primary'}
-          weight={'bold'}
+      <ServicePicker service={service} setService={setService} />
+      <InputView>
+        <GeneralInput
+          title="Telefono celular"
+          placeholder="1234567890"
+          value={value}
+          onChangeText={handleText}
         />
-      </MarginView>
-      <GeneralPicker data={data} selected={service} setSelected={setService} />
-      <GeneralInput
-        title="Telefono celular"
-        placeholder="1234567890"
-        value={value}
-        onChangeText={handleText}
-      />
+        <GeneralInput
+          title="Notas importantes"
+          placeholder="Describe tus servicios"
+          value={notes}
+          onChangeText={handleNotes}
+        />
+      </InputView>
     </>
   );
 };
@@ -52,45 +38,30 @@ const Form = ({data, service, setService, handleText, value}) => {
 export const ProviderCreation = ({navigation}) => {
   const [service, setService] = useState('');
   const [value, setValue] = useState();
+  const [notes, setNotes] = useState();
+  const [image, setImage] = useState(
+    'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
+  );
+  const formProps = {
+    service,
+    setService,
+    handleText,
+    value,
+    notes,
+    handleNotes,
+  };
   const handleText = text => {
     setValue(text);
   };
-  const style = {
-    width: '50%',
+  const handleNotes = text => {
+    setNotes(text);
   };
-  const data = [
-    {
-      value: 'Fontanería',
-      label: 'Fontanería',
-    },
-    {
-      value: 'Construcción',
-      label: 'Construcción',
-    },
-    {
-      value: 'Técnico',
-      label: 'Técnico',
-    },
-    {
-      value: 'Electricista',
-      label: 'Electricista',
-    },
-    {
-      value: 'Carpintero',
-      label: 'Carpintero',
-    },
-    {
-      value: 'Pintor',
-      label: 'Pintor',
-    },
-  ];
   return (
     <ContainerWhite>
       <Container>
         <SafeAreaView />
         <GeneralHeader
-          title="Tarjeta de presentación"
-          isMenuVisible
+          title="Ofrece tus servicios"
           isTabRendered
           size="h1"
           color="background"
@@ -98,28 +69,25 @@ export const ProviderCreation = ({navigation}) => {
           userType="Provider"
           navigation={navigation}
         />
-        <Header />
-        <ImageButton />
-        <Form
-          data={data}
-          style={style}
-          service={service}
-          setService={setService}
-          handleText={handleText}
-          value={value}
-        />
-        <CenterView>
-          <GeneralButton
-            title="Siguiente"
-            color="secondary"
-            action={() =>
-              navigation.navigate('CreationSecondary', {
-                InputNumber: value,
-                ServicePicker: service,
-              })
-            }
-          />
-        </CenterView>
+        <ScrollView>
+          <ImageDetails image={image} setImage={setImage} />
+          <Form {...formProps} />
+          <ButtonContainer>
+            <GeneralButton
+              title="Siguiente"
+              color="secondary"
+              action={() =>
+                navigation.navigate('CreationSecondary', {
+                  InputNumber: value,
+                  ServicePicker: service,
+                  InputNotes: notes,
+                  Image: image,
+                })
+              }
+            />
+          </ButtonContainer>
+          <SafeAreaView />
+        </ScrollView>
       </Container>
     </ContainerWhite>
   );

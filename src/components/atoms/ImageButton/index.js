@@ -44,7 +44,7 @@ const selectImage = setImage => {
   });
 };*/
 
-export const ImageButton = ({image, setImage}) => {
+export const ImageButton = ({image, setImage, noEdit}) => {
   return (
     <Avatar
       activeOpacity={1}
@@ -63,11 +63,13 @@ export const ImageButton = ({image, setImage}) => {
         uri: image,
       }}
       title="User">
-      <Avatar.Accessory
-        size={42}
-        onPress={() => selectImage(setImage)}
-        style={{backgroundColor: Color.secondary}}
-      />
+      {noEdit === true ? null : (
+        <Avatar.Accessory
+          size={42}
+          onPress={() => selectImage(setImage)}
+          style={{backgroundColor: Color.secondary}}
+        />
+      )}
     </Avatar>
   );
 };
