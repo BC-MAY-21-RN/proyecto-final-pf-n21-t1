@@ -3,14 +3,14 @@ import {Alert} from 'react-native';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonGroup, ButtonStyles} from './styled';
 
-export const AcceptDeclineBtns = ({ setAceptado, setBotones }) => {
+export const AcceptDeclineBtns = ({ setServAceptado, setMostrarBotones }) => {
   const buttonsData = [
     {
       title: 'Aceptar',
       color: 'primary',
       action: () => {
-        setAceptado(false);
-        setBotones(false);
+        setServAceptado(false);
+        setMostrarBotones(false);
       },
       width: 100,
       height: 37,
