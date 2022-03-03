@@ -45,6 +45,10 @@ const Pickers = ({
   );
 };
 
+const uploadImage = async () => {
+  console.log('hola');
+};
+
 const providerRegistration = (
   navigation,
   inputNumber,
