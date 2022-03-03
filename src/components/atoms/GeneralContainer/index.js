@@ -2,24 +2,23 @@ import React from 'react';
 import {ContainerGeneral} from './styled';
 
 export const GeneralContainer = props => {
-  props.width ? (props.width = props.width) : (props.width = '100%');
-  props.height ? (props.height = props.height) : (props.height = '20%');
-  props.marginBottom
-    ? (props.marginBottom = props.marginBottom)
-    : (props.marginBottom = '0%');
-  props.border ? (props.border = '1px') : (props.border = '0');
-  props.borderColor
-    ? (props.borderColor = '#26cbdf')
-    : (props.borderColor = null);
+  let {width, height} = props;
+  let {marginBottom, border} = props;
+  let {borderColor} = props;
+  props.width ? (width = props.width) : (width = '100%');
+  props.height ? (height = props.height) : (height = '20%');
+  marginBottom ? (marginBottom = props.marginBottom) : (marginBottom = '0%');
+  border ? (border = '1px') : (border = '0');
+  borderColor ? (borderColor = '#26cbdf') : (borderColor = null);
 
   return (
     <ContainerGeneral
-      border={props.border}
-      borderColor={props.borderColor}
-      width={props.width}
-      height={props.height}
+      border={border}
+      borderColor={borderColor}
+      width={width}
+      height={height}
       direction={props.direction}
-      marginBottom={props.marginBottom}
+      marginBottom={marginBottom}
       alignItems={props.alignItems}
       justify={props.justify}>
       {props.children}
