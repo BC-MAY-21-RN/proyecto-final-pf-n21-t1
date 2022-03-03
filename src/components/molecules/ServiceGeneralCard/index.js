@@ -15,6 +15,8 @@ export const ServiceGeneralCard = ({
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
+  let aceptado = servAceptado;
+  let showbtns = mostrarBotones;
 
   const serviceText = serviceCardData();
   if (status === 'Servicio Finalizado') {
@@ -37,13 +39,13 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
-        {mostrarBotones ? 
+        {showbtns ? 
           <AcceptDeclineBtns
             setServAceptado={setServAceptado}
             setMostrarBotones={setMostrarBotones}
           />
          : null}
-        {!servAceptado ? <AcceptedService navigation={navigation} /> : null}
+        {!aceptado ? <AcceptedService navigation={navigation} /> : null}
 
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
