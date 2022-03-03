@@ -42,13 +42,20 @@ export const ProviderCreation = ({navigation}) => {
   const [image, setImage] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
+  const formProps = {
+    service,
+    setService,
+    handleText,
+    value,
+    notes,
+    handleNotes,
+  };
   const handleText = text => {
     setValue(text);
   };
   const handleNotes = text => {
     setNotes(text);
   };
- 
   return (
     <ContainerWhite>
       <Container>
@@ -64,14 +71,7 @@ export const ProviderCreation = ({navigation}) => {
         />
         <ScrollView>
           <ImageDetails image={image} setImage={setImage} />
-          <Form
-            service={service}
-            setService={setService}
-            handleText={handleText}
-            value={value}
-            notes={notes}
-            handleNotes={handleNotes}
-          />
+          <Form {...formProps} />
           <ButtonContainer>
             <GeneralButton
               title="Siguiente"
