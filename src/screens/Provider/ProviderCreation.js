@@ -48,9 +48,7 @@ export const ProviderCreation = ({navigation}) => {
   const handleNotes = text => {
     setNotes(text);
   };
-  const style = {
-    width: '50%',
-  };
+ 
   return (
     <ContainerWhite>
       <Container>
@@ -67,7 +65,6 @@ export const ProviderCreation = ({navigation}) => {
         <ScrollView>
           <ImageDetails image={image} setImage={setImage} />
           <Form
-            style={style}
             service={service}
             setService={setService}
             handleText={handleText}

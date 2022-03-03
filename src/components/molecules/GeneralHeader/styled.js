@@ -18,21 +18,23 @@ export const Row = styled.View`
 `;
 
 export const Header = styled.View`
+  align-items: center;
   justify-content: space-between;
   flex-direction: row;
   elevation: 5;
-  width: 90%;
+  width: 95%;
 `;
 export const Logo = styled.Image`
-  width: 110px;
-  height: 55px;
-  margin-top: 4%;
+  width: 80%;
+  height: 80%;
   margin-left: 3%;
 `;
 
+export const LogoContainer = styled.View`
+  width: 40%;
+`;
+
 export const Menu = styled.TouchableOpacity`
-  margin-top: 6%;
-  margin-right: 3%;
 `;
 
 export const BackButton = styled.TouchableOpacity`

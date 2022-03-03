@@ -1,16 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useEffect, useState} from 'react';
-import {
-  Container,
-  ContainerWhite,
-  GeneralButton,
-  GeneralInput,
-  ImageButton,
-} from '../../components/atoms';
+import {Container, ContainerWhite, GeneralButton} from '../../components/atoms';
 import {GeneralHeader, EditData} from '../../components/molecules';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native';
-import triggerValidation from '../../utils/authentication/inputValidations';
 import userRT from '../../utils/userRT';
 import auth from '@react-native-firebase/auth';
 

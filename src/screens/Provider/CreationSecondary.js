@@ -78,9 +78,6 @@ const providerRegistration = (
 export const CreationSecondary = ({navigation, route}) => {
   const [finishTime, setFinishTime] = useState(new Date());
   const [beginTime, setBeginTime] = useState(new Date());
-  const style = {
-    width: '50%',
-  };
   return (
     <ContainerWhite>
       <Container>
@@ -93,7 +90,6 @@ export const CreationSecondary = ({navigation, route}) => {
           weight
         />
         <Form
-          style={style}
           beginTime={beginTime}
           setBeginTime={setBeginTime}
           finishTime={finishTime}
