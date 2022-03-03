@@ -37,12 +37,12 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
-        {mostrarBotones ? (
+        {mostrarBotones ? 
           <AcceptDeclineBtns
             setServAceptado={setServAceptado}
             setMostrarBotones={setMostrarBotones}
           />
-        ) : undefined}
+         : null}
         {!servAceptado && <AcceptedService navigation={navigation} />}
 
         <StarAndServiceRow>
