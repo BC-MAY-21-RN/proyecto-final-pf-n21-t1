@@ -5,9 +5,8 @@ import {Group, Styles} from './styled';
 import {useNavigation} from '@react-navigation/native';
 
 
-export const BackFinishBtns = () => {
-  const navigation = useNavigation();
-  const buttonsData = [{
+const getButtonsData = navigation => [
+    {
       title: 'Finalizar ',
       color: 'facebook',
       action: () => Alert.alert(
@@ -36,7 +35,6 @@ export const BackFinishBtns = () => {
 export const BackFinishBtns = () => {
   const navigation = useNavigation();
   const buttonsData = getButtonsData(navigation);
-
   return (
     <Group>
       <Styles>{buttonsMapping(buttonsData)}</Styles>
