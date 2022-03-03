@@ -17,13 +17,16 @@ import {
   UpcomingServices,
   RecruiterCreation,
   CreationSecondary,
+  EditProvider,
+  EditDates,
   ServiceDetails,
 } from '../screens';
 import {AuthProvider} from './AuthProvider';
+import auth from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: 'Login',
+  initialRouteName: auth().currentUser ? 'Path' : 'Login',
   screenOptions: {
     headerShown: false,
   },
@@ -49,6 +52,8 @@ const Navigate = () => {
         <Stack.Screen name="ServiceTicket" component={ServiceTicket} />
         <Stack.Screen name="RecruiterCreation" component={RecruiterCreation} />
         <Stack.Screen name="CreationSecondary" component={CreationSecondary} />
+        <Stack.Screen name="EditProvider" component={EditProvider} />
+        <Stack.Screen name="EditDates" component={EditDates} />
         <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
       </Stack.Navigator>
     </AuthProvider>

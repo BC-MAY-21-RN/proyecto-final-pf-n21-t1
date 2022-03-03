@@ -13,7 +13,7 @@ export const ModalView = styled.View`
   height: 200px;
   justify-content: center;
   shadow-opacity: 0.25;
-  shadowradius: 4px;
-  elevation: 4;
-  shadow-offset: {width: 0, height: 2px};
+  shadow-radius: 4;
+  elevation: 5;
+  shadow-offset: {width: 0, height: 2};
 `;

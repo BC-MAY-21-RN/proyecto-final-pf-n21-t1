@@ -8,7 +8,8 @@ export const ContainerGeneral = styled.View`
   border-radius: 15px;
   align-self: center;
   flex-direction: ${props => (props.direction ? 'row' : 'column')};
-  justify-content: space-around;
+  justify-content: ${props =>
+    props.justify ? 'space-between' : 'space-around'};
   margin-bottom: ${props => props.marginBottom};
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
   border: ${props => props.border};

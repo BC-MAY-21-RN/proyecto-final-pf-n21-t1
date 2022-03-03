@@ -1,5 +1,7 @@
-import React from 'react';
-import {GeneralText, StarRating} from '../../atoms';
+import React, { useState } from 'react';
+import {Avatar} from 'react-native-elements';
+import { ImageDetails } from '..';
+import {GeneralText, ImageButton, StarRating} from '../../atoms';
 import {AvatarImg, CardOpacity, ImgContainer, InfoContainer} from './styled';
 
 export const ProviderCard = ({
@@ -13,10 +15,11 @@ export const ProviderCard = ({
   const handleCardPress = () => {
     navigation ? navigation.navigate('ProviderCardData') : null;
   };
+  const [userImage, setuserImage] = useState(image);
   return (
     <CardOpacity activeOpacity={1} onPress={handleCardPress}>
       <ImgContainer>
-        <AvatarImg source={image} />
+        <ImageButton image={userImage} setImage={setuserImage} noEdit />
       </ImgContainer>
       <InfoContainer>
         <GeneralText title={name} size="h3" color="secondary" weight />
