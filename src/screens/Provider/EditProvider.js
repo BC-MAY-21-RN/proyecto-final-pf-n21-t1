@@ -21,6 +21,8 @@ export const EditProvider = ({navigation}) => {
     'https://www.larutadelagarnacha.mx/wp-content/uploads/2021/06/tripita5.jpeg',
   );
 
+  const [isOk, setOk] = useState(true);
+
   useEffect(() => {
     data.name &&
       setForm({
@@ -30,7 +32,7 @@ export const EditProvider = ({navigation}) => {
         phone: data.inputNumber,
         notes: data.notes,
       });
-    //setImage(data.image);
+    setImage(data.image);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
@@ -55,7 +57,7 @@ export const EditProvider = ({navigation}) => {
           }}>
           {data && (
             <EditData
-              formHook={{form, setForm}}
+              formHook={{form, setForm, setOk}}
               imageHook={{image, setImage}}
               edition
             />
@@ -73,6 +75,7 @@ export const EditProvider = ({navigation}) => {
                 Data: data,
               })
             }
+            disabled={!isOk}
           />
           <SafeAreaView />
         </ScrollView>
