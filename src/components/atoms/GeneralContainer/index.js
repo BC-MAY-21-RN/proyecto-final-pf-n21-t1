@@ -2,34 +2,27 @@ import React from 'react';
 import {ContainerGeneral} from './styled';
 
 export const GeneralContainer = props => {
-  let {
-    width,
-    height,
-    direction,
-    children,
-    marginBottom,
-    alignItems,
-    border,
-    borderColor,
-    justify,
-  } = props;
-  width ? (width = width) : (width = '100%');
-  height ? (height = height) : (height = '20%');
-  marginBottom ? (marginBottom = marginBottom) : (marginBottom = '0%');
-  border ? (border = '1px') : (border = '0');
-  borderColor ? (borderColor = '#26cbdf') : (borderColor = null);
+  props.width ? (props.width = props.width) : (props.width = '100%');
+  props.height ? (props.height = props.height) : (props.height = '20%');
+  props.marginBottom
+    ? (props.marginBottom = props.marginBottom)
+    : (props.marginBottom = '0%');
+  props.border ? (props.border = '1px') : (props.border = '0');
+  props.borderColor
+    ? (props.borderColor = '#26cbdf')
+    : (props.borderColor = null);
 
   return (
     <ContainerGeneral
-      border={border}
-      borderColor={borderColor}
-      width={width}
-      height={height}
-      direction={direction}
-      marginBottom={marginBottom}
-      alignItems={alignItems}
-      justify={justify}>
-      {children}
+      border={props.border}
+      borderColor={props.borderColor}
+      width={props.width}
+      height={props.height}
+      direction={props.direction}
+      marginBottom={props.marginBottom}
+      alignItems={props.alignItems}
+      justify={props.justify}>
+      {props.children}
     </ContainerGeneral>
   );
 };

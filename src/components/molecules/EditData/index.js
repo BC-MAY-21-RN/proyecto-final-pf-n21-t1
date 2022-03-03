@@ -48,9 +48,7 @@ export const EditData = ({formHook, imageHook, edition}) => {
     <>
       <ImageButton image={image} setImage={setImage} />
       {edition && (
-        <>
-          <GeneralInput {...getInput(formHook, typeData.name, 'name')} />
-        </>
+        <GeneralInput {...getInput(formHook, typeData.name, 'name')} />
       )}
       <GeneralInput {...getInput(formHook, typeData.phone, 'phone')} />
       <GeneralInput {...getInput(formHook, typeData.notes, 'notes')} />
