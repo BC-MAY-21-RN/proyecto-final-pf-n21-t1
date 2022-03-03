@@ -41,8 +41,8 @@ export const ServiceGeneralCard = ({
 
         {showbtns ? 
           <AcceptDeclineBtns
-            setServAceptado={setServAceptado}
-            setMostrarBotones={setMostrarBotones}
+            setAceptado={setServAceptado}
+            setBotones={setMostrarBotones}
           />
          : null}
         {!aceptado ? <AcceptedService navigation={navigation} /> : null}
