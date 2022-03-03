@@ -44,7 +44,8 @@ export const EditDates = ({navigation, route}) => {
       setError();
       setOk(true);
     }
-  }, [beginTime, finishTime])
+  }, [beginTime, finishTime]);
+
   return (
     <ContainerWhite>
       <Container>
@@ -59,6 +60,7 @@ export const EditDates = ({navigation, route}) => {
           navigation={navigation}
         />
         <TimePickers
+          errors={{setError, setOk, isOk, error}}
           beginTime={beginTime}
           setBeginTime={setBeginTime}
           finishTime={finishTime}
@@ -69,8 +71,7 @@ export const EditDates = ({navigation, route}) => {
           buttonTitle={'Confirmar'}
           action={() =>
             providerModification(navigation, route, beginTime, finishTime)
-          }
-          disabled={!isOk}>
+          }>
           <GeneralText title={error} size="h6" color="facebook" />
         </TimePickers>
       </Container>

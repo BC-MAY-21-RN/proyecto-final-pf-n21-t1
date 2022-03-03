@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 import {
   GeneralInput,
@@ -12,8 +12,18 @@ import {
   ServicePicker,
 } from '../../components/molecules';
 import {ButtonContainer, InputView} from '../styled';
+import triggerValidation from '../../utils/authentication/inputValidations';
 
-const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
+const Form = ({
+  service,
+  setService,
+  handleText,
+  value,
+  notes,
+  handleNotes,
+  error,
+}) => {
+  const {phoneError, notesError} = error;
   return (
     <>
       <ServicePicker service={service} setService={setService} />
@@ -23,12 +33,14 @@ const Form = ({service, setService, handleText, value, notes, handleNotes}) => {
           placeholder="1234567890"
           value={value}
           onChangeText={handleText}
+          errorMessage={phoneError}
         />
         <GeneralInput
           title="Notas importantes"
           placeholder="Describe tus servicios"
           value={notes}
           onChangeText={handleNotes}
+          errorMessage={notesError}
         />
       </InputView>
     </>
@@ -42,13 +54,27 @@ export const ProviderCreation = ({navigation}) => {
   const [image, setImage] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
+  const [phoneError, setPhoneError] = useState(' ');
+  const [notesError, setNotesError] = useState(' ');
+  const [isOk, setOk] = useState(false);
+  const initialRender = useRef(true);
+
   const handleText = text => {
     setValue(text);
+    triggerValidation(text, 'phone', setPhoneError);
   };
   const handleNotes = text => {
     setNotes(text);
+    triggerValidation(text, 'name', setNotesError);
   };
 
+  useEffect(() => {
+    if (initialRender.current) initialRender.current = false;
+    else {
+      if (phoneError || notesError) setOk(false);
+      else setOk(true);
+    }
+  }, [notesError, phoneError, isOk]);
   const formProps = {
     service,
     setService,
@@ -56,6 +82,7 @@ export const ProviderCreation = ({navigation}) => {
     value,
     notes,
     handleNotes,
+    error: {notesError, phoneError},
   };
 
   return (
@@ -86,6 +113,7 @@ export const ProviderCreation = ({navigation}) => {
                   Image: image,
                 })
               }
+              disabled={!isOk}
             />
           </ButtonContainer>
           <SafeAreaView />

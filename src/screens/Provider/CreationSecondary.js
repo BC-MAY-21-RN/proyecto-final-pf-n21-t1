@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ContainerWhite, Container} from '../../components/atoms';
+import {ContainerWhite, Container, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -12,6 +12,7 @@ const Pickers = ({
   setFinishTime,
   navigation,
   route,
+  errors,
 }) => {
   return (
     <ContainerWhite>
@@ -36,7 +37,9 @@ const Pickers = ({
               route.params.Image,
             )
           }
-        />
+          errors={errors}>
+          <GeneralText title={errors.error} size="h6" color="facebook" />
+        </TimePickers>
       </Container>
     </ContainerWhite>
   );
@@ -75,6 +78,9 @@ const providerRegistration = (
 export const CreationSecondary = ({navigation, route}) => {
   const [finishTime, setFinishTime] = useState(new Date());
   const [beginTime, setBeginTime] = useState(new Date());
+  const [isOk, setOk] = useState(true);
+  const [error, setError] = useState();
+
   return (
     <ContainerWhite>
       <Container>
@@ -93,6 +99,7 @@ export const CreationSecondary = ({navigation, route}) => {
           setFinishTime={setFinishTime}
           navigation={navigation}
           route={route}
+          errors={{setError, setOk, isOk, error}}
         />
       </Container>
     </ContainerWhite>
