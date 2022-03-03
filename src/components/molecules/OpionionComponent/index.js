@@ -21,7 +21,6 @@ export const OpinionComponent = ({opinion, customer, calification}) => {
             title={opinion}
             color={'text'}
             size={'h5'}
-            justify
           />
         </OpinionText>
         <StarsPosition>

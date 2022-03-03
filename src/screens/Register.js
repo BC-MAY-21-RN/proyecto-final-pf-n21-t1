@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, View, StyleSheet} from 'react-native';
 import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {GeneralHeader, SignButtons} from '../components/molecules/index';
 import inputsMapping from '../utils/inputsMapping';
@@ -81,7 +81,7 @@ export const Register = ({navigation}) => {
       <Container>
         <SafeAreaView />
         <GeneralHeader />
-        <View>
+        <View style={styles.registerTittle}>
           <GeneralText
             size={'h1'}
             color={'secondary'}
@@ -109,3 +109,10 @@ export const Register = ({navigation}) => {
     </ContainerWhite>
   );
 };
+
+const styles = StyleSheet.create({
+  registerTittle: {
+    marginBottom: '5%',
+    left: '3%',
+  },
+});
