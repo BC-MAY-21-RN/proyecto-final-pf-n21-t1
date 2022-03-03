@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native';
-import {Container, ContainerWhite} from '../../components/atoms';
+import {Container, ContainerWhite, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -27,12 +27,24 @@ export const providerModification = (
 };
 
 export const EditDates = ({navigation, route}) => {
+  const [isOk, setOk] = useState(true);
+  const [error, setError] = useState();
   const [beginTime, setBeginTime] = useState(
     route.params.Data.beginTime.toDate(),
   );
   const [finishTime, setFinishTime] = useState(
     route.params.Data.finishTime.toDate(),
   );
+
+  useEffect(() => {
+    if (beginTime > finishTime) {
+      setError('La fecha no es correcta');
+      setOk(false);
+    } else {
+      setError();
+      setOk(true);
+    }
+  }, [beginTime, finishTime])
   return (
     <ContainerWhite>
       <Container>
@@ -58,7 +70,9 @@ export const EditDates = ({navigation, route}) => {
           action={() =>
             providerModification(navigation, route, beginTime, finishTime)
           }
-        />
+          disabled={!isOk}>
+          <GeneralText title={error} size="h6" color="facebook" />
+        </TimePickers>
       </Container>
     </ContainerWhite>
   );

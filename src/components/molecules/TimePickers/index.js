@@ -11,6 +11,8 @@ export const TimePickers = ({
   action,
   textTitle,
   buttonTitle,
+  disabled,
+  children
 }) => {
   return (
     <MarginView height={'600px'}>
@@ -29,10 +31,12 @@ export const TimePickers = ({
           onDateChange={setFinishTime}
         />
       </PickerWrapper>
+      {children}
       <GeneralButton
         title={buttonTitle}
         color="secondary"
         action={() => action()}
+        disabled={disabled}
       />
     </MarginView>
   );
