@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon} from 'react-native-elements/dist/icons/Icon';
 import {Color} from '../../../theme/default';
 import {Container, GeneralContainer, GeneralText} from '../../atoms';
-import {LinkContainer, ProviderCard} from '../../molecules';
+import {ProviderCard} from '../../molecules';
 import {
   CardDetailsContainer,
   DetailsContainer,
@@ -13,6 +13,14 @@ import {
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
 
+const HourPickers = ({hour, min}) => {
+  return (
+    <HourContainer>
+      <GeneralText title={hour} size="h4" color="text" />
+      <GeneralText title={min} size="h4" color="text" />
+    </HourContainer>
+  );
+};
 export const ProviderCardDets = ({navigation, buttonType, data}) => {
   const beginTimeHour = data.beginTime.toDate().getHours() + ':';
   const beginTimeMin = data.beginTime.toDate().getMinutes();
@@ -39,15 +47,9 @@ export const ProviderCardDets = ({navigation, buttonType, data}) => {
           weight
         />
         <TimeContainer>
-          <HourContainer>
-            <GeneralText title={beginTimeHour} size="h4" color="text" />
-            <GeneralText title={beginTimeMin} size="h4" color="text" />
-          </HourContainer>
+          <HourPickers hour={beginTimeHour} min={beginTimeMin} />
           <GeneralText title="a" size="h4" color="text" />
-          <HourContainer>
-            <GeneralText title={finishTimeHour} size="h4" color="text" />
-            <GeneralText title={finishTimeMin} size="h4" color="text" />
-          </HourContainer>
+          <HourPickers hour={finishTimeHour} min={finishTimeMin} />
         </TimeContainer>
         <GeneralContainer width="340px" height="80px" justify>
           <TextContainer>

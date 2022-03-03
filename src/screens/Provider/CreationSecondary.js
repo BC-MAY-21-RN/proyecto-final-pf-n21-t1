@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {SafeAreaView} from 'react-native';
 
-const Form = ({
+const Pickers = ({
   beginTime,
   setBeginTime,
   finishTime,
@@ -89,7 +89,7 @@ export const CreationSecondary = ({navigation, route}) => {
           color="background"
           weight
         />
-        <Form
+        <Pickers
           beginTime={beginTime}
           setBeginTime={setBeginTime}
           finishTime={finishTime}
