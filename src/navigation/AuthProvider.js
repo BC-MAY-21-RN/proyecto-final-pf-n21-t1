@@ -48,14 +48,15 @@ const handleFirestoreUser = (navigation, user) => {
     index: 0,
     routes: [{name: 'Path'}],
   });
-  firestore()
-    .collection('Users')
-    .doc(auth().currentUser.uid)
-    .set(user)
-    .then(value => console.log(value))
-    .catch(error => {
-      handleError(error);
-    });
+  user &&
+    firestore()
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .set(user)
+      .then(value => console.log(value))
+      .catch(error => {
+        handleError(error);
+      });
 };
 
 const register = async (navigation, name, email, password) => {
@@ -72,7 +73,11 @@ const register = async (navigation, name, email, password) => {
   }
 };
 
-const logout = async () => {
+const logout = async navigation => {
+  navigation.reset({
+    index: 0,
+    routes: [{name: 'Login'}],
+  });
   try {
     await auth().signOut();
     await GoogleSignin.signOut();
@@ -95,8 +100,10 @@ const googleLogin = async navigation => {
           providerRegistered: 'false',
           recruiterRegistered: 'false',
         };
-        result.additionalUserInfo.isNewUser &&
-          handleFirestoreUser(navigation, user);
+        handleFirestoreUser(
+          navigation,
+          result.additionalUserInfo.isNewUser ? user : false,
+        );
       })
       .catch(error => {
         console.log(error);

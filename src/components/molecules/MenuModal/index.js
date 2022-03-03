@@ -48,7 +48,7 @@ const MenuTemplate = ({navigation, logout, type}) => {
       <LinkIcon
         title="Cerrar sesión"
         icon="log-out"
-        action={() => logout() && navigation.navigate('Login')}
+        action={() => logout(navigation)}
       />
     </View>
   );
@@ -84,7 +84,7 @@ export const MenuModal = ({
     <>
       <MenuTemplate
         navigation={navigation}
-        logout={() => logout()}
+        logout={() => logout(navigation)}
         type={userType}
       />
     </>
