@@ -8,7 +8,7 @@ export const CardOpacity = styled.TouchableOpacity`
 export const ImgContainer = styled.View`
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 50%;
 `;
 
 export const AvatarImg = styled.Image`

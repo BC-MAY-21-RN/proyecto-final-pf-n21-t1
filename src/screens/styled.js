@@ -3,7 +3,10 @@ const center = 'align-items: center; justify-content: center;';
 const centerEnd = 'align-items: center; justify-content: flex-end;';
 
 export const PickerWrapper = styled.View`
-  flex-direction: row;
+  height: 70%;
+  flex-direction: column;
+  margin: 20px;
+  margin-bottom: 40px;
 `;
 
 export const CenterView = styled.View`
@@ -21,5 +24,11 @@ export const MarginView = styled.View`
 
 export const InputView = styled.View`
   height: 22%;
+  margin-bottom: 20px;
+  ${center}
+`;
+
+export const ButtonContainer = styled.View`
+  margin-bottom: 20px;
   ${center}
 `;
