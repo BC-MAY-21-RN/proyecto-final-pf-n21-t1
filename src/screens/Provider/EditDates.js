@@ -11,16 +11,6 @@ export const providerModification = (
   beginTime,
   finishTime,
 ) => {
-  console.log('Data');
-  console.log(route.params.Data);
-  console.log(route.params.Image);
-  console.log(route.params.Name);
-  console.log(route.params.Email);
-  console.log(route.params.Password);
-  console.log(route.params.Phone);
-  console.log(route.params.Notes);
-  console.log(beginTime);
-  console.log(finishTime);
   const providerUpdate = {
     image: route.params.Image,
     name: route.params.Name,

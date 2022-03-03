@@ -15,3 +15,4 @@ export {TimePickers} from './TimePickers';
 export {ImageDetails} from './ImageDetails';
 export {AcceptedService} from './AcceptedService';
 export {BackFinishBtns} from './BackFinishBtns';
+export {EditData} from './EditData';

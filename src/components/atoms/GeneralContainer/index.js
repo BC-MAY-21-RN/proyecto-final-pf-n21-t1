@@ -1,17 +1,18 @@
 import React from 'react';
 import {ContainerGeneral} from './styled';
 
-export const GeneralContainer = ({
-  width,
-  height,
-  direction,
-  children,
-  marginBottom,
-  alignItems,
-  border,
-  borderColor,
-  justify,
-}) => {
+export const GeneralContainer = props => {
+  let {
+    width,
+    height,
+    direction,
+    children,
+    marginBottom,
+    alignItems,
+    border,
+    borderColor,
+    justify,
+  } = props;
   width ? (width = width) : (width = '100%');
   height ? (height = height) : (height = '20%');
   marginBottom ? (marginBottom = marginBottom) : (marginBottom = '0%');

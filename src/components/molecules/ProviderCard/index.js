@@ -15,7 +15,7 @@ export const ProviderCard = ({
   const handleCardPress = () => {
     navigation ? navigation.navigate('ProviderCardData') : null;
   };
-  const[userImage, setuserImage] = useState(image);
+  const [userImage, setuserImage] = useState(image);
   return (
     <CardOpacity activeOpacity={1} onPress={handleCardPress}>
       <ImgContainer>
