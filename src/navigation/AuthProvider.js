@@ -89,8 +89,14 @@ const googleLogin = async navigation => {
       .signInWithCredential(googleCredential)
       .then(result => {
         const {displayName, email} = result.user;
-        const user = {name: displayName, email};
-        handleFirestoreUser(navigation, user);
+        const user = {
+          name: displayName,
+          email,
+          providerRegistered: 'false',
+          recruiterRegistered: 'false',
+        };
+        result.additionalUserInfo.isNewUser &&
+          handleFirestoreUser(navigation, user);
       })
       .catch(error => {
         console.log(error);

@@ -42,6 +42,13 @@ export const ProviderCreation = ({navigation}) => {
   const [image, setImage] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
+  const handleText = text => {
+    setValue(text);
+  };
+  const handleNotes = text => {
+    setNotes(text);
+  };
+
   const formProps = {
     service,
     setService,
@@ -50,12 +57,7 @@ export const ProviderCreation = ({navigation}) => {
     notes,
     handleNotes,
   };
-  const handleText = text => {
-    setValue(text);
-  };
-  const handleNotes = text => {
-    setNotes(text);
-  };
+
   return (
     <ContainerWhite>
       <Container>

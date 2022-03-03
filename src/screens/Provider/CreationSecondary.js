@@ -51,14 +51,6 @@ const providerRegistration = (
   notes,
   image,
 ) => {
-  console.log(
-    'Data' + inputNumber,
-    servicePicker,
-    beginTime,
-    finishTime,
-    notes,
-    image,
-  );
   const provider = {
     inputNumber: inputNumber,
     servicePicker: servicePicker,
@@ -72,7 +64,12 @@ const providerRegistration = (
     .collection('Users')
     .doc(auth().currentUser.uid)
     .set(provider, {merge: true})
-    .then(() => navigation.navigate('UpcomingServices'));
+    .then(() =>
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'UpcomingServices'}],
+      }),
+    );
 };
 
 export const CreationSecondary = ({navigation, route}) => {
