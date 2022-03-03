@@ -43,7 +43,7 @@ export const ServiceGeneralCard = ({
             setMostrarBotones={setMostrarBotones}
           />
          : null}
-        {!servAceptado && <AcceptedService navigation={navigation} />}
+        {!servAceptado ? <AcceptedService navigation={navigation} /> : null}
 
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
