@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import triggerValidation from '../../../utils/authentication/inputValidations';
 import {GeneralInput, ImageButton} from '../../atoms';
 
@@ -19,9 +19,15 @@ const getInput = (formHook, data, type) => {
 
 export const EditData = ({formHook, imageHook, edition}) => {
   const {image, setImage} = imageHook;
+  const {setOk} = formHook;
   const [nameError, setNameError] = useState();
   const [phoneError, setPhoneError] = useState();
   const [notesError, setNotesError] = useState();
+
+  useEffect(() => {
+    if (nameError || phoneError || notesError) setOk(false);
+    else setOk(true);
+  }, [nameError, phoneError, notesError]);
 
   const typeData = {
     phone: {

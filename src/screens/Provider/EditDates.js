@@ -14,8 +14,6 @@ export const providerModification = (
   const providerUpdate = {
     image: route.params.Image,
     name: route.params.Name,
-    email: route.params.Email,
-    password: route.params.Password,
     inputNumber: route.params.Phone,
     notes: route.params.Notes,
     beginTime: beginTime,
