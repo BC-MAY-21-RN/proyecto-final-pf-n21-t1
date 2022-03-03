@@ -76,12 +76,15 @@ const logout = async () => {
   }
 };
 
-const googleLogin = async () => {
+const googleLogin = async navigation => {
   try {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     await auth()
       .signInWithCredential(googleCredential)
+      .then(() => {
+        navigation.navigate('Path');
+      })
       .catch(error => {
         console.log(error);
       });

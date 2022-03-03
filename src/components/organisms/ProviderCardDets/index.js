@@ -2,27 +2,41 @@ import React from 'react';
 import {Icon} from 'react-native-elements/dist/icons/Icon';
 import {Color} from '../../../theme/default';
 import {Container, GeneralContainer, GeneralText} from '../../atoms';
-import {LinkContainer, ProviderCard} from '../../molecules';
+import {ProviderCard} from '../../molecules';
 import {
   CardDetailsContainer,
   DetailsContainer,
+  HourContainer,
   LinkContain,
   TextContainer,
+  TimeContainer,
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
-import {jose} from '../../../assets/images';
 
-export const ProviderCardDets = ({navigation, buttonType, type}) => {
+const HourPickers = ({hour, min}) => {
+  return (
+    <HourContainer>
+      <GeneralText title={hour} size="h4" color="text" />
+      <GeneralText title={min} size="h4" color="text" />
+    </HourContainer>
+  );
+};
+export const ProviderCardDets = ({navigation, buttonType, data}) => {
+  const beginTimeHour = data.beginTime.toDate().getHours() + ':';
+  const beginTimeMin = data.beginTime.toDate().getMinutes();
+  const finishTimeHour = data.finishTime.toDate().getHours() + ':';
+  const finishTimeMin = data.finishTime.toDate().getMinutes();
   return (
     <Container>
       <CardDetailsContainer>
+        {console.log(data.image)}
         <ProviderCard
           width={360}
           height={180}
-          name={'José Rodríguez'}
-          number={'3123100157'}
-          zone={'Colima y VdeA'}
-          image={jose}
+          name={data.name}
+          number={data.inputNumber}
+          zone={'Funcionalidad de maps'}
+          image={data.image}
         />
       </CardDetailsContainer>
       <DetailsContainer>
@@ -32,14 +46,12 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
           color="text"
           weight
         />
-        <GeneralText title="8:00 am a 4:00 pm" size="h4" color="text" />
-        <GeneralText title="Descripción" size="h3" color="text" weight />
-        <GeneralText
-          title="Proveedor de servicios de fontanería"
-          size="h4"
-          color="text"
-        />
-        <GeneralContainer width="340px" height="70px">
+        <TimeContainer>
+          <HourPickers hour={beginTimeHour} min={beginTimeMin} />
+          <GeneralText title="a" size="h4" color="text" />
+          <HourPickers hour={finishTimeHour} min={finishTimeMin} />
+        </TimeContainer>
+        <GeneralContainer width="340px" height="80px" justify>
           <TextContainer>
             <GeneralText
               title="Notas importantes"
@@ -47,18 +59,13 @@ export const ProviderCardDets = ({navigation, buttonType, type}) => {
               color="secondary"
               weight
             />
-            <GeneralText
-              title="Estoy disponible los 365 días del año"
-              size="h4"
-              color="secondary"
-            />
+            <GeneralText title={data.notes} size="h4" color="secondary" />
           </TextContainer>
         </GeneralContainer>
       </DetailsContainer>
       <LinkContain>
         <Icon name="star" size={20} color={Color.secondary} />
       </LinkContain>
-
       <CardButtons navigation={navigation} type={buttonType} />
     </Container>
   );

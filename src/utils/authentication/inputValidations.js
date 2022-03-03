@@ -17,6 +17,12 @@ const inputValidations = {
     max: 50,
     not: true,
   },
+  phone: {
+    regex: /^[0-9]*/,
+    min: 10,
+    max: 12,
+    not: true,
+  },
 };
 
 const LOG = {

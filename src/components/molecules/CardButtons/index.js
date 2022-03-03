@@ -2,19 +2,43 @@ import React from 'react';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonCardContainer, CardButton} from './styled';
 
+const getButtons = type => {
+  if (type === 'ProviderCardData') {
+    return [
+      {
+        title: 'Contratar',
+        screen: 'DateSelection',
+      },
+      {
+        title: 'Chatea conmigo',
+        screen: 'DateSelection',
+      },
+    ];
+  } else {
+    return [
+      {
+        title: 'Mis servicios',
+        screen: 'UpcomingServices',
+      },
+      {
+        title: 'Chatea conmigo',
+        screen: 'EditProvider',
+      },
+    ];
+  }
+};
+
 export const CardButtons = ({type, navigation}) => {
+  const buttons = getButtons(type);
   const cardButtons = [
     {
-      title: type === 'ProviderCardData' ? 'Contratar' : 'Crear registro',
+      title: buttons[0].title,
       color: 'primary',
-      action: () =>
-        navigation.navigate(
-          type === 'ProviderCardData' ? 'DateSelection' : 'UpcomingServices',
-        ),
+      action: () => navigation.navigate(buttons[0].screen),
     },
     {
-      title: type === 'ProviderCardData' ? 'Chatea conmigo' : 'Editar',
-      color: 'secondary',
+      title: buttons[1].title,
+      action: () => navigation.navigate(buttons[1].screen),
     },
   ];
   return (

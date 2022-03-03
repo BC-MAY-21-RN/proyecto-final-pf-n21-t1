@@ -6,8 +6,8 @@ export const CardDetailsContainer = styled.View`
 `;
 
 export const DetailsContainer = styled.View`
-  height: 23%;
-  justify-content: space-evenly;
+  height: 20%;
+  justify-content: space-around;
   padding-horizontal: 15px;
 `;
 
@@ -20,4 +20,15 @@ export const LinkContain = styled.View`
   flex-direction: row;
   justify-content: flex-end;
   height: 10%;
+`;
+
+export const HourContainer = styled.View`
+  flex-direction: row;
+  width: 16%;
+  justify-content: center;
+  margin-horizontal: 5px;
+`;
+
+export const TimeContainer = styled.View`
+  flex-direction: row;
 `;

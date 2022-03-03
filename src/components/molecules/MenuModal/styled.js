@@ -16,9 +16,9 @@ export const ContainerScreen = styled.TouchableOpacity`
 
 export const Container = styled.TouchableOpacity`
   background-color: ${Color.background};
-  width: 220px;
-  height: 130px;
-  margin-top: 20%;
+  width: 230px;
+  height: 100px;
+  margin-top: 18.5%;
   position: absolute;
   right: 0;
   margin-right: 4%;

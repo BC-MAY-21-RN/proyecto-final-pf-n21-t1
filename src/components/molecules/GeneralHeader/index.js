@@ -1,6 +1,14 @@
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Header, Logo, HeaderContainer, Menu, Row, BackButton} from './styled';
+import {
+  Header,
+  Logo,
+  HeaderContainer,
+  Menu,
+  Row,
+  BackButton,
+  LogoContainer,
+} from './styled';
 import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {Color} from '../../../theme/default';
@@ -30,7 +38,9 @@ const RowHeader = props => {
         <GoBackButton navigation={props.navigation} />
       ) : undefined}
       <Header>
-        <Logo source={appLogo} />
+        <LogoContainer>
+          <Logo source={appLogo} />
+        </LogoContainer>
         {props.isMenuVisible ? (
           <MenuButton setModalVisible={props.setModalVisible} />
         ) : undefined}

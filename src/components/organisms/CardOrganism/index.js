@@ -2,7 +2,7 @@ import React from 'react';
 import {ProviderCardDets} from '..';
 import {GeneralHeader} from '../../molecules';
 
-export const CardOrganism = ({navigation, buttonType, userType}) => {
+export const CardOrganism = ({navigation, buttonType, userType, data}) => {
   return (
     <>
       <GeneralHeader
@@ -15,7 +15,11 @@ export const CardOrganism = ({navigation, buttonType, userType}) => {
         userType={userType}
         navigation={navigation}
       />
-      <ProviderCardDets navigation={navigation} buttonType={buttonType} />
+      <ProviderCardDets
+        navigation={navigation}
+        buttonType={buttonType}
+        data={data}
+      />
     </>
   );
 };
