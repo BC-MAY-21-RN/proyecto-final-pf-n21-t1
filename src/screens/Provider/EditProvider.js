@@ -9,6 +9,7 @@ import auth from '@react-native-firebase/auth';
 
 export const EditProvider = ({navigation}) => {
   const [data, setData] = useState({});
+  const [file, setFile] = useState();
   const id = auth().currentUser.uid;
   userRT(id, setData);
   const [form, setForm] = useState({
@@ -35,6 +36,7 @@ export const EditProvider = ({navigation}) => {
     setImage(data.image);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
+
   return (
     <ContainerWhite>
       <Container>
@@ -58,7 +60,7 @@ export const EditProvider = ({navigation}) => {
           {data && (
             <EditData
               formHook={{form, setForm, setOk}}
-              imageHook={{image, setImage}}
+              imageHook={{image, setImage, setFile}}
               edition
             />
           )}
@@ -67,7 +69,7 @@ export const EditProvider = ({navigation}) => {
             color="secondary"
             action={() =>
               navigation.navigate('EditDates', {
-                Image: image,
+                Image: file,
                 Name: form.name,
                 Password: form.password,
                 Phone: form.phone,

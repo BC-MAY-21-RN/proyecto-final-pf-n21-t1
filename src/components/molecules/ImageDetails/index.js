@@ -2,7 +2,7 @@ import React from 'react';
 import {GeneralText, ImageButton} from '../../atoms';
 import {CenterImage} from './styled';
 
-export const ImageDetails = ({image, setImage}) => {
+export const ImageDetails = ({image, setImage, setFile}) => {
   return (
     <CenterImage>
       <GeneralText
@@ -17,7 +17,7 @@ export const ImageDetails = ({image, setImage}) => {
         color="primary"
         weight="bold"
       />
-      <ImageButton image={image} setImage={setImage} />
+      <ImageButton image={image} setImage={setImage} setFile={setFile} />
     </CenterImage>
   );
 };

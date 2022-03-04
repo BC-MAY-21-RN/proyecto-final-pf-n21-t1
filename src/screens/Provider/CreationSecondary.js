@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {ContainerWhite, Container, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
-import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {SafeAreaView} from 'react-native';
 import createUserType from '../../utils/createUserType';
+import storage from '@react-native-firebase/storage';
 
 const Pickers = ({
   beginTime,
@@ -47,7 +47,13 @@ const Pickers = ({
 };
 
 const uploadImage = async () => {
-  console.log('hola');
+  storage()
+    .ref(fileName)
+    .putFile(uploadUri)
+    .then(res => {
+      setFile(res.metadata.fullPath);
+    })
+    .catch(err => console.log(err));
 };
 
 const providerRegistration = (

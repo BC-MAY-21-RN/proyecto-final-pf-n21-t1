@@ -4,6 +4,13 @@ import {Container, ContainerWhite, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import storage from '@react-native-firebase/storage';
+
+const uploadImage = file => {
+  const {fileName, uploadUri} = file;
+
+  return storage().ref(fileName).putFile(uploadUri);
+};
 
 export const providerModification = (
   navigation,
@@ -11,19 +18,25 @@ export const providerModification = (
   beginTime,
   finishTime,
 ) => {
+  const file = route.params.Image;
+
   const providerUpdate = {
-    image: route.params.Image,
     name: route.params.Name,
     inputNumber: route.params.Phone,
     notes: route.params.Notes,
     beginTime: beginTime,
     finishTime: finishTime,
   };
-  firestore()
-    .collection('Users')
-    .doc(auth().currentUser.uid)
-    .update(providerUpdate)
-    .then(() => navigation.navigate('ProviderPreview'));
+
+  uploadImage(file).then(res => {
+    providerUpdate.image = res.metadata.fullPath;
+
+    firestore()
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .update(providerUpdate)
+      .then(() => navigation.navigate('ProviderPreview'));
+  });
 };
 
 export const EditDates = ({navigation, route}) => {
