@@ -1,27 +1,30 @@
-import React, {useState} from 'react';
-import {ServiceStatus, GeneralContainer, GeneralText} from '../../atoms';
-import {AcceptDeclineBtns, QualifyButton} from '../index';
-import {GroupRow, GroupColumn, ShadowView, StarAndServiceRow} from './styled';
+import React, { useState, useEffect } from 'react';
+import { ServiceStatus, GeneralContainer, GeneralText } from '../../atoms';
+import { AcceptDeclineBtns, QualifyButton } from '../index';
+import { GroupRow, GroupColumn, ShadowView, StarAndServiceRow } from './styled';
 import ServiceCardMapping from '../../../utils/ServiceCardMapping';
 import serviceCardData from './ServiceCardData';
-import {AcceptedService} from '../index';
+import { AcceptedService } from '../index';
 
-export const ServiceGeneralCard = ({
-  servicio,
-  botones,
-  status,
-  qualifyButton,
-  navigation,
-}) => {
-  const [servAceptado, setServAceptado] = useState(true);
-  botones = servAceptado;
-  const serviceText = serviceCardData();
-
+function qualify(status, qualifyButton) {
   if (status === 'Servicio Finalizado') {
     qualifyButton = true;
   } else {
     qualifyButton = false;
   }
+  return qualifyButton;
+} 
+
+export const ServiceGeneralCard = ({
+  servicio,
+  botones,
+  navigation,
+  status,
+  qualifyButton,
+}) => {
+  const [servAceptado, setServAceptado] = useState(true);
+  const [mostrarBotones, setMostrarBotones] = useState(botones);
+  const serviceText = serviceCardData();
 
   return (
     <ShadowView>
@@ -32,18 +35,22 @@ export const ServiceGeneralCard = ({
             title={servicio}
             size={'h3'}
             color={'secondary'}
-          />
+            />
         </GroupRow>
         <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
-        {botones ? (
-          <AcceptDeclineBtns setServAceptado={setServAceptado} />
-        ) : (
-          <AcceptedService navigation={navigation} />
-        )}
+
+        {mostrarBotones ? (
+          <AcceptDeclineBtns
+          setServAceptado={setServAceptado}
+          setMostrarBotones={setMostrarBotones}
+          />
+          ) : null}
+        {!servAceptado ? <AcceptedService navigation={navigation} /> : null}
+
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}
-          {qualifyButton ? <QualifyButton navigation={navigation} /> : null}
+          {qualify(status) ? <QualifyButton navigation={navigation} /> : null}
         </StarAndServiceRow>
       </GeneralContainer>
     </ShadowView>

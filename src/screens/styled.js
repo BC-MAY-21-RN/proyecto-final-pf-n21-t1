@@ -32,3 +32,25 @@ export const ButtonContainer = styled.View`
   margin-bottom: 20px;
   ${center}
 `;
+
+export const CntrView = styled.View`
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+  height: 80%;
+`;
+
+export const CntrComponent = styled.View`
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+  height: 25%;
+`;
+
+export const MrgnView = styled.View`
+  width: 80%;
+  height: 90%;
+`;
+export const PckrWrapper = styled.View`
+  height: 12%;
+`;

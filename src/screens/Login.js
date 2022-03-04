@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView, StyleSheet} from 'react-native';
 import {Container, ContainerWhite, GeneralText} from '../components/atoms';
 import {
   GeneralHeader,
@@ -62,12 +62,14 @@ export const Login = ({navigation}) => {
         <SafeAreaView />
         <GeneralHeader />
         <View>
-          <GeneralText
-            title="Inicia sesión"
-            weight
-            size="h1"
-            color="secondary"
-          />
+          <View style={styles.loginTittle}>
+            <GeneralText
+              title="Inicia sesión"
+              weight
+              size="h1"
+              color="secondary"
+            />
+          </View>
           {inputsRender(form, setForm, errorEmail, errorPassword)}
           <SignButtons
             navigation={navigation}
@@ -84,3 +86,10 @@ export const Login = ({navigation}) => {
     </ContainerWhite>
   );
 };
+
+const styles = StyleSheet.create({
+  loginTittle: {
+    marginBottom: '5%',
+    left: '3%',
+  },
+});
