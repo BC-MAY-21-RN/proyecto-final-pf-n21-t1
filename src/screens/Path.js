@@ -19,6 +19,18 @@ const providerValidation = navigation => {
     });
 };
 
+const recruiterValidation = navigation => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(documentSnapshot => {
+      documentSnapshot.data().providerRegistered === 'true'
+        ? navigation.navigate('ServiceGrid')
+        : navigation.navigate('RecruiterCreation');
+    });
+};
+
 const buttonsRender = navigation => {
   const generalButtons = [
     {
@@ -26,7 +38,7 @@ const buttonsRender = navigation => {
       color: 'primary',
       icon: 'home',
       size: 330,
-      action: () => navigation.navigate('RecruiterCreation'),
+      action: () => recruiterValidation(navigation),
     },
     {
       title: 'Ofrecer servicios de mantenimiento',

@@ -21,11 +21,13 @@ import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete'
 import {Color} from '../../theme/default';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import {useNavigation} from '@react-navigation/native';
 
 const apiKey = 'AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s';
 
-const uploadAddress = (address, location) => {
+const uploadAddress = (navigation, address, location) => {
   console.log(address, location);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const maps = {
     address: address,
     location: location,
@@ -35,7 +37,7 @@ const uploadAddress = (address, location) => {
     .collection('Users')
     .doc(auth().currentUser.uid)
     .set(maps, {merge: true})
-    .then(() => console.log('location uploaded'));
+    .then(() => navigation.navigate('ServiceGrid'));
 };
 
 const requestPermission = async setPermission => {
@@ -101,6 +103,7 @@ const ScreenInfo = ({
       longitude,
     }).then(res => setAddress(res.results[0].formatted_address));
   };
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -145,7 +148,7 @@ const ScreenInfo = ({
       <View style={styles.mapTexts}>
         <GeneralButton
           title={'Asignar dirección'}
-          action={() => uploadAddress(address, location)}
+          action={() => uploadAddress(navigation, address, location)}
         />
       </View>
     </View>
