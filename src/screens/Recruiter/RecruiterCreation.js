@@ -19,8 +19,24 @@ import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {Color} from '../../theme/default';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const apiKey = 'AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s';
+
+const uploadAddress = (address, location) => {
+  console.log(address, location);
+  const maps = {
+    address: address,
+    location: location,
+    recruiterRegistered: true,
+  };
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .set(maps, {merge: true})
+    .then(() => console.log('location uploaded'));
+};
 
 const requestPermission = async setPermission => {
   try {
@@ -76,6 +92,7 @@ const ScreenInfo = ({
       },
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPermission]);
 
   const handleChangeRegionComplete = ({latitude, longitude}) => {
@@ -128,7 +145,7 @@ const ScreenInfo = ({
       <View style={styles.mapTexts}>
         <GeneralButton
           title={'Asignar dirección'}
-          action={() => console.log(address, location)}
+          action={() => uploadAddress(address, location)}
         />
       </View>
     </View>
