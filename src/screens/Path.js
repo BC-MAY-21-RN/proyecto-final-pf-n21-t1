@@ -31,6 +31,18 @@ const recruiterValidation = navigation => {
     });
 };
 
+/*const validations = (navigation, field, firstScreen, secondScreen) => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(documentSnapshot => {
+      documentSnapshot.data().field === true
+        ? navigation.navigate(firstScreen)
+        : navigation.navigate(secondScreen);
+    });
+};*/
+
 const buttonsRender = navigation => {
   const generalButtons = [
     {
