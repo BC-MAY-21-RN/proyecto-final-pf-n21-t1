@@ -7,7 +7,7 @@ import {
   ContainerWhite,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {CenterView, PickerWrapper, MarginView} from '../styled';
+import {CenterView, PckrWrapper, MrgnView, CntrView, CntrComponent} from '../styled';
 
 const ServiceRow = ({title, data}) => {
   const serviceIcon = {
@@ -18,7 +18,7 @@ const ServiceRow = ({title, data}) => {
     Cliente: 'home-outline',
   };
   return (
-    <PickerWrapper>
+    <PckrWrapper>
       <GeneralText
         title={title + ': '}
         icon={serviceIcon[title]}
@@ -26,20 +26,20 @@ const ServiceRow = ({title, data}) => {
         weight
       />
       <GeneralText title={data} size="h4" />
-    </PickerWrapper>
+    </PckrWrapper>
   );
 };
 
 const Service = ({serviceItem}) => {
   const {datetime, provider, service, client} = serviceItem;
   return (
-    <MarginView>
+    <MrgnView>
       <ServiceRow title="Fecha" data={datetime} />
       <ServiceRow title="Horario" data={datetime} />
       <ServiceRow title="Provedor" data={provider} />
       <ServiceRow title="Servicio" data={service} />
       <ServiceRow title="Cliente" data={client} />
-    </MarginView>
+    </MrgnView>
   );
 };
 
@@ -51,7 +51,7 @@ const FooterWrapper = ({navigation}) => {
     left: 0,
   };
   return (
-    <CenterView style={style}>
+    <CntrComponent style={style}>
       <GeneralText
         size="h3"
         title="Favor de esperar confirmacion del provedor en un maximo de 5hrs."
@@ -62,16 +62,16 @@ const FooterWrapper = ({navigation}) => {
         color="secondary"
         action={() => navigation.navigate('ServicesHistory')}
       />
-    </CenterView>
+    </CntrComponent>
   );
 };
 
 export const ServiceTicket = ({service, navigation}) => {
   service = {
-    datetime: 'hey',
-    provider: 'a',
-    service: 'e',
-    client: 'o',
+    datetime: '11:00 pm',
+    provider: 'Pancho Barraza',
+    service: 'Carpinteria',
+    client: 'Alma Marquez',
   };
   return (
     <ContainerWhite>
@@ -86,16 +86,18 @@ export const ServiceTicket = ({service, navigation}) => {
           userType="Recruiter"
           navigation={navigation}
         />
-        <CenterView>
-          <GeneralText
-            size="h2"
-            color="secondary"
-            title="Servicio registrado"
-            weight
-          />
-        </CenterView>
-        <Service serviceItem={service} />
-        <FooterWrapper navigation={navigation} />
+        <CntrView>
+          <CenterView>
+            <GeneralText
+              size="h2"
+              color="secondary"
+              title="Servicio registrado"
+              weight
+            />
+          </CenterView>
+          <Service serviceItem={service} />
+          <FooterWrapper navigation={navigation} />
+        </CntrView>
       </Container>
     </ContainerWhite>
   );

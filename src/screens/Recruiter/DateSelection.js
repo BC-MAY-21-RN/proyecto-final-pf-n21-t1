@@ -7,7 +7,7 @@ import {
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
 import DatePicker from 'react-native-date-picker';
-import {CenterView} from '../styled';
+import {CntrView} from '../styled';
 import {SafeAreaView} from 'react-native';
 
 export const DateSelection = ({navigation}) => {
@@ -26,7 +26,7 @@ export const DateSelection = ({navigation}) => {
           userType="Recruiter"
           navigation={navigation}
         />
-        <CenterView>
+        <CntrView>
           <GeneralText
             title="Seleccione fecha y horario"
             size="h1"
@@ -39,7 +39,7 @@ export const DateSelection = ({navigation}) => {
             color="secondary"
             action={() => navigation.navigate('ServiceTicket')}
           />
-        </CenterView>
+        </CntrView>
       </Container>
     </ContainerWhite>
   );
