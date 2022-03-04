@@ -12,7 +12,7 @@ export const AcceptedService = () => {
       <GeneralText
         title={'Servicio Aceptado  '}
         color={'primary'}
-        size={'h4'}
+        size={'h5'}
         weight
       />
       <GeneralButton
