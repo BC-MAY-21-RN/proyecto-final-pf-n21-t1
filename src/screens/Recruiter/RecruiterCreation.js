@@ -19,8 +19,22 @@ import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {Color} from '../../theme/default';
+import auth from '@react-native-firebase/auth';
+import {useNavigation} from '@react-navigation/native';
+import createUserType from '../../utils/createUserType';
 
 const apiKey = 'AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s';
+
+const uploadAddress = (navigation, address, location) => {
+  console.log(address, location);
+  const maps = {
+    address: address,
+    location: location,
+    recruiterRegistered: true,
+  };
+  const action = () => navigation.navigate('ServiceGrid');
+  createUserType(auth().currentUser.uid, maps, action());
+};
 
 const requestPermission = async setPermission => {
   try {
@@ -76,6 +90,7 @@ const ScreenInfo = ({
       },
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPermission]);
 
   const handleChangeRegionComplete = ({latitude, longitude}) => {
@@ -84,6 +99,7 @@ const ScreenInfo = ({
       longitude,
     }).then(res => setAddress(res.results[0].formatted_address));
   };
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -128,7 +144,7 @@ const ScreenInfo = ({
       <View style={styles.mapTexts}>
         <GeneralButton
           title={'Asignar dirección'}
-          action={() => console.log(address, location)}
+          action={() => uploadAddress(navigation, address, location)}
         />
       </View>
     </View>

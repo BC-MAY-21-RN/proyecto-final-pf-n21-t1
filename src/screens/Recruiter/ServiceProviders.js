@@ -1,6 +1,5 @@
 import React from 'react';
 import {SafeAreaView, TouchableOpacity} from 'react-native';
-import {jose} from '../../assets/images';
 import {
   Container,
   ContainerWhite,
@@ -32,7 +31,6 @@ export const ServiceProviders = ({navigation}) => {
               name={'José Rodríguez'}
               number={'3123100157'}
               zone={'Colima y VdeA'}
-              image={jose}
               navigation={navigation}
             />
           </GeneralContainer>

@@ -19,6 +19,30 @@ const providerValidation = navigation => {
     });
 };
 
+const recruiterValidation = navigation => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(documentSnapshot => {
+      documentSnapshot.data().recruiterRegistered === true
+        ? navigation.navigate('ServiceGrid')
+        : navigation.navigate('RecruiterCreation');
+    });
+};
+
+/*const validations = (navigation, field, firstScreen, secondScreen) => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(documentSnapshot => {
+      documentSnapshot.data().field === true
+        ? navigation.navigate(firstScreen)
+        : navigation.navigate(secondScreen);
+    });
+};*/
+
 const buttonsRender = navigation => {
   const generalButtons = [
     {
@@ -26,7 +50,7 @@ const buttonsRender = navigation => {
       color: 'primary',
       icon: 'home',
       size: 330,
-      action: () => navigation.navigate('RecruiterCreation'),
+      action: () => recruiterValidation(navigation),
     },
     {
       title: 'Ofrecer servicios de mantenimiento',
