@@ -25,7 +25,7 @@ const recruiterValidation = navigation => {
     .doc(auth().currentUser.uid)
     .get()
     .then(documentSnapshot => {
-      documentSnapshot.data().providerRegistered === 'true'
+      documentSnapshot.data().recruiterRegistered === true
         ? navigation.navigate('ServiceGrid')
         : navigation.navigate('RecruiterCreation');
     });

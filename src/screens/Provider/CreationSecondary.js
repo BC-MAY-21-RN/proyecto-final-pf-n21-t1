@@ -4,6 +4,7 @@ import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {SafeAreaView} from 'react-native';
+import createUserType from '../../utils/createUserType';
 
 const Pickers = ({
   beginTime,
@@ -67,16 +68,9 @@ const providerRegistration = (
     image: image,
     providerRegistered: 'true',
   };
-  firestore()
-    .collection('Users')
-    .doc(auth().currentUser.uid)
-    .set(provider, {merge: true})
-    .then(() =>
-      navigation.reset({
-        index: 0,
-        routes: [{name: 'UpcomingServices'}],
-      }),
-    );
+  const action = () =>
+    navigation.reset({index: 0, routes: [{name: 'UpcomingServices'}]});
+  createUserType(auth().currentUser.uid, provider, action());
 };
 
 export const CreationSecondary = ({navigation, route}) => {

@@ -19,25 +19,21 @@ import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {Color} from '../../theme/default';
-import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
+import createUserType from '../../utils/createUserType';
 
 const apiKey = 'AIzaSyDRXA8fQv0Y_C1bv35dVdE2H5yBG5xYA6s';
 
 const uploadAddress = (navigation, address, location) => {
   console.log(address, location);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const maps = {
     address: address,
     location: location,
     recruiterRegistered: true,
   };
-  firestore()
-    .collection('Users')
-    .doc(auth().currentUser.uid)
-    .set(maps, {merge: true})
-    .then(() => navigation.navigate('ServiceGrid'));
+  const action = () => navigation.navigate('ServiceGrid');
+  createUserType(auth().currentUser.uid, maps, action());
 };
 
 const requestPermission = async setPermission => {
