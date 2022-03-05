@@ -1,13 +1,51 @@
-import React from 'react';
-import {SafeAreaView, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, TouchableOpacity, FlatList} from 'react-native';
 import {
   Container,
   ContainerWhite,
   GeneralContainer,
 } from '../../components/atoms';
 import {GeneralHeader, ProviderCard} from '../../components/molecules';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 export const ServiceProviders = ({navigation}) => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    firestore()
+      .collection('Users')
+      .where('servicePicker', '==', 'Fontanería')
+      .where('__name__', '!=', auth().currentUser.uid)
+      .get()
+      .then(result => {
+        const docs = result.docs;
+        const dataArray = docs.map(r => {
+          const uid = r.id;
+          return {...r.data(), uid};
+        });
+        setData(dataArray);
+      });
+  }, []);
+
+  const renderItem = ({item}) => {
+    const style = {marginBottom: 10};
+    return (
+      <TouchableOpacity activeOpacity={1} style={style} key={item.uid}>
+        <GeneralContainer width="360px" height="180px" direction>
+          <ProviderCard
+            width="360px"
+            height="180px"
+            backgroundColor={'hover'}
+            name={item.name}
+            number={item.inputNumber}
+            navigation={navigation}
+          />
+        </GeneralContainer>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <ContainerWhite>
       <Container>
@@ -22,19 +60,7 @@ export const ServiceProviders = ({navigation}) => {
           userType="Recruiter"
           navigation={navigation}
         />
-        <TouchableOpacity activeOpacity={1}>
-          <GeneralContainer width="360px" height="180px" direction>
-            <ProviderCard
-              width="360px"
-              height="180px"
-              backgroundColor={'hover'}
-              name={'José Rodríguez'}
-              number={'3123100157'}
-              zone={'Colima y VdeA'}
-              navigation={navigation}
-            />
-          </GeneralContainer>
-        </TouchableOpacity>
+        {data && <FlatList data={data} renderItem={renderItem} />}
       </Container>
     </ContainerWhite>
   );
