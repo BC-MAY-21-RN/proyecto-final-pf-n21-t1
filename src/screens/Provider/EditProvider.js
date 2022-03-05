@@ -11,7 +11,6 @@ export const EditProvider = ({navigation}) => {
   const [data, setData] = useState({});
   const [file, setFile] = useState();
   const id = auth().currentUser.uid;
-  userRT(id, setData);
   const [form, setForm] = useState({
     name: '',
     password: '',
@@ -25,6 +24,9 @@ export const EditProvider = ({navigation}) => {
   const [isOk, setOk] = useState(true);
 
   useEffect(() => {
+    userRT(id, setData);
+  }, []);
+  useEffect(() => {
     data.name &&
       setForm({
         name: data.name,
@@ -34,6 +36,7 @@ export const EditProvider = ({navigation}) => {
         notes: data.notes,
       });
     setImage(data.image);
+    console.log(data)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 

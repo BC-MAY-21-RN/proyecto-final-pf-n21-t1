@@ -8,8 +8,11 @@ import userRT from '../../utils/userRT';
 export const ProviderPreview = ({navigation}) => {
   const [data, setData] = useState(undefined);
   const id = auth().currentUser.uid;
-  userRT(id, setData);
-  console.log(data);
+  useEffect(() => {
+    userRT(id, setData);
+    return () => setData();
+  }, []);
+
   return (
     <ContainerWhite>
       <Container>

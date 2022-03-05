@@ -35,7 +35,9 @@ export const providerModification = (
       .collection('Users')
       .doc(auth().currentUser.uid)
       .update(providerUpdate)
-      .then(() => navigation.navigate('ProviderPreview'));
+      .then(() =>
+        navigation.reset({index: 0, routes: [{name: 'ProviderPreview'}]}),
+      );
   });
 };
 
@@ -48,7 +50,14 @@ export const EditDates = ({navigation, route}) => {
   const [finishTime, setFinishTime] = useState(
     route.params.Data.finishTime.toDate(),
   );
-
+  useEffect(() => {
+    return () => {
+      setOk();
+      setError();
+      setBeginTime();
+      setFinishTime();
+    };
+  }, []);
   useEffect(() => {
     if (beginTime > finishTime) {
       setError('La fecha no es correcta');
