@@ -5,6 +5,7 @@ import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import uploadImage from '../../utils/uploadImage';
+import TimeHook from '../../utils/timeHook';
 
 export const providerModification = (
   navigation,
@@ -52,7 +53,8 @@ export const EditDates = ({navigation, route}) => {
       setFinishTime();
     };
   }, []);
-  useEffect(() => {
+  TimeHook(beginTime, finishTime, setError, setOk);
+  /*useEffect(() => {
     if (beginTime > finishTime) {
       setError('La fecha no es correcta');
       setOk(false);
@@ -60,7 +62,7 @@ export const EditDates = ({navigation, route}) => {
       setError();
       setOk(true);
     }
-  }, [beginTime, finishTime]);
+  }, [beginTime, finishTime]);*/
 
   return (
     <ContainerWhite>
