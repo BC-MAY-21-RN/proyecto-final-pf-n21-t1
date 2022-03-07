@@ -4,13 +4,7 @@ import {Container, ContainerWhite, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import storage from '@react-native-firebase/storage';
-
-const uploadImage = file => {
-  const {fileName, uploadUri} = file;
-
-  return storage().ref(fileName).putFile(uploadUri);
-};
+import uploadImage from '../../utils/uploadImage';
 
 export const providerModification = (
   navigation,

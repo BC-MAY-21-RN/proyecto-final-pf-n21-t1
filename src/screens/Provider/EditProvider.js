@@ -18,7 +18,7 @@ export const EditProvider = ({navigation}) => {
     notes: '',
   });
   const [image, setImage] = useState(
-    'https://www.larutadelagarnacha.mx/wp-content/uploads/2021/06/tripita5.jpeg',
+    'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
 
   const [isOk, setOk] = useState(true);

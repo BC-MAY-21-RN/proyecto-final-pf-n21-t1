@@ -4,7 +4,7 @@ import {GeneralHeader, TimePickers} from '../../components/molecules';
 import auth from '@react-native-firebase/auth';
 import {SafeAreaView} from 'react-native';
 import createUserType from '../../utils/createUserType';
-import storage from '@react-native-firebase/storage';
+import uploadImage from '../../utils/uploadImage';
 
 const Pickers = ({
   beginTime,
@@ -15,7 +15,6 @@ const Pickers = ({
   route,
   errors,
 }) => {
-  console.log(route.params.Image);
   return (
     <ContainerWhite>
       <Container>
@@ -45,11 +44,6 @@ const Pickers = ({
       </Container>
     </ContainerWhite>
   );
-};
-
-const uploadImage = file => {
-  const {fileName, uploadUri} = file;
-  return storage().ref(fileName).putFile(uploadUri);
 };
 
 const providerRegistration = (
