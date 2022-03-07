@@ -9,13 +9,14 @@ import {GeneralHeader, ProviderCard} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-export const ServiceProviders = ({navigation}) => {
+export const ServiceProviders = ({route, navigation}) => {
   const [data, setData] = useState();
+  const {title} = route.params;
 
   useEffect(() => {
     firestore()
       .collection('Users')
-      .where('servicePicker', '==', 'Fontanería')
+      .where('servicePicker', '==', title)
       .where('__name__', '!=', auth().currentUser.uid)
       .get()
       .then(result => {
@@ -40,6 +41,7 @@ export const ServiceProviders = ({navigation}) => {
             name={item.name}
             number={item.inputNumber}
             navigation={navigation}
+            data={item.uid}
           />
         </GeneralContainer>
       </TouchableOpacity>
@@ -53,7 +55,7 @@ export const ServiceProviders = ({navigation}) => {
         <GeneralHeader
           isTabRendered
           isMenuVisible
-          title="FONTANERÍA"
+          title={title}
           size="h1"
           color="background"
           weight
