@@ -39,7 +39,7 @@ const RowHeader = props => {
       ) : undefined}
       <Header>
         <LogoContainer>
-          <Logo source={appLogo} />
+          <Logo source={appLogo} resizeMode="contain" />
         </LogoContainer>
         {props.isMenuVisible ? (
           <MenuButton setModalVisible={props.setModalVisible} />

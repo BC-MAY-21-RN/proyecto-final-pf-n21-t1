@@ -6,12 +6,12 @@ import carpenter from '../../../assets/images/carpenter.png';
 import electronics from '../../../assets/images/electronics.png';
 
 const Fontanero = {
-  serviceTitle: 'Fontanero',
+  serviceTitle: 'Fontanería',
   icon: plumbering,
 };
 
 const Constructor = {
-  serviceTitle: 'Constructor',
+  serviceTitle: 'Construcción',
   icon: constructor,
 };
 
