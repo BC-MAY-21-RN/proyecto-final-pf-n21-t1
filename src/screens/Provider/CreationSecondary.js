@@ -15,6 +15,7 @@ const Pickers = ({
   route,
   errors,
 }) => {
+  console.log(route.params.Image);
   return (
     <ContainerWhite>
       <Container>
@@ -46,14 +47,9 @@ const Pickers = ({
   );
 };
 
-const uploadImage = async () => {
-  storage()
-    .ref(fileName)
-    .putFile(uploadUri)
-    .then(res => {
-      setFile(res.metadata.fullPath);
-    })
-    .catch(err => console.log(err));
+const uploadImage = file => {
+  const {fileName, uploadUri} = file;
+  return storage().ref(fileName).putFile(uploadUri);
 };
 
 const providerRegistration = (
@@ -74,9 +70,13 @@ const providerRegistration = (
     image: image,
     providerRegistered: 'true',
   };
+  uploadImage(image).then(res => {
+    provider.image = res.metadata.fullPath;
+    createUserType(auth().currentUser.uid, provider, action());
+  });
+
   const action = () =>
     navigation.reset({index: 0, routes: [{name: 'UpcomingServices'}]});
-  createUserType(auth().currentUser.uid, provider, action());
 };
 
 export const CreationSecondary = ({navigation, route}) => {
