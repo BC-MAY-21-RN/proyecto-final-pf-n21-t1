@@ -26,7 +26,7 @@ import auth from '@react-native-firebase/auth';
 
 const Stack = createNativeStackNavigator();
 const stackNavigatorProps = {
-  initialRouteName: auth().currentUser ? 'Path' : 'Login',
+  initialRouteName: auth().currentUser ? 'Path' : 'Register',
   screenOptions: {
     headerShown: false,
   },

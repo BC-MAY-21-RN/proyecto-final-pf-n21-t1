@@ -4,6 +4,8 @@ import {Container, ContainerWhite, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import uploadImage from '../../utils/uploadImage';
+import TimeHook from '../../utils/timeHook';
 
 export const providerModification = (
   navigation,
@@ -11,19 +13,27 @@ export const providerModification = (
   beginTime,
   finishTime,
 ) => {
+  const file = route.params.Image;
+
   const providerUpdate = {
-    image: route.params.Image,
     name: route.params.Name,
     inputNumber: route.params.Phone,
     notes: route.params.Notes,
     beginTime: beginTime,
     finishTime: finishTime,
   };
-  firestore()
-    .collection('Users')
-    .doc(auth().currentUser.uid)
-    .update(providerUpdate)
-    .then(() => navigation.navigate('ProviderPreview'));
+
+  uploadImage(file).then(res => {
+    providerUpdate.image = res.metadata.fullPath;
+
+    firestore()
+      .collection('Users')
+      .doc(auth().currentUser.uid)
+      .update(providerUpdate)
+      .then(() =>
+        navigation.reset({index: 0, routes: [{name: 'ProviderPreview'}]}),
+      );
+  });
 };
 
 export const EditDates = ({navigation, route}) => {
@@ -35,8 +45,16 @@ export const EditDates = ({navigation, route}) => {
   const [finishTime, setFinishTime] = useState(
     route.params.Data.finishTime.toDate(),
   );
-
   useEffect(() => {
+    return () => {
+      setOk();
+      setError();
+      setBeginTime();
+      setFinishTime();
+    };
+  }, []);
+  TimeHook(beginTime, finishTime, setError, setOk);
+  /*useEffect(() => {
     if (beginTime > finishTime) {
       setError('La fecha no es correcta');
       setOk(false);
@@ -44,7 +62,7 @@ export const EditDates = ({navigation, route}) => {
       setError();
       setOk(true);
     }
-  }, [beginTime, finishTime]);
+  }, [beginTime, finishTime]);*/
 
   return (
     <ContainerWhite>

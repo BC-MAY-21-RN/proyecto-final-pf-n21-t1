@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {ContainerWhite, Container, GeneralText} from '../../components/atoms';
 import {GeneralHeader, TimePickers} from '../../components/molecules';
-import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {SafeAreaView} from 'react-native';
 import createUserType from '../../utils/createUserType';
+import uploadImage from '../../utils/uploadImage';
 
 const Pickers = ({
   beginTime,
@@ -46,10 +46,6 @@ const Pickers = ({
   );
 };
 
-const uploadImage = async () => {
-  console.log('hola');
-};
-
 const providerRegistration = (
   navigation,
   inputNumber,
@@ -68,9 +64,13 @@ const providerRegistration = (
     image: image,
     providerRegistered: 'true',
   };
+  uploadImage(image).then(res => {
+    provider.image = res.metadata.fullPath;
+    createUserType(auth().currentUser.uid, provider, action());
+  });
+
   const action = () =>
     navigation.reset({index: 0, routes: [{name: 'UpcomingServices'}]});
-  createUserType(auth().currentUser.uid, provider, action());
 };
 
 export const CreationSecondary = ({navigation, route}) => {

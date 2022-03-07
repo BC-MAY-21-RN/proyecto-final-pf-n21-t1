@@ -18,7 +18,7 @@ const getInput = (formHook, data, type) => {
 };
 
 export const EditData = ({formHook, imageHook, edition}) => {
-  const {image, setImage} = imageHook;
+  const {image, setImage, setFile} = imageHook;
   const {setOk} = formHook;
   const [nameError, setNameError] = useState();
   const [phoneError, setPhoneError] = useState();
@@ -52,7 +52,7 @@ export const EditData = ({formHook, imageHook, edition}) => {
 
   return (
     <>
-      <ImageButton image={image} setImage={setImage} />
+      <ImageButton image={image} setImage={setImage} setFile={setFile} />
       {edition && (
         <GeneralInput {...getInput(formHook, typeData.name, 'name')} />
       )}

@@ -21,7 +21,7 @@ const getButtons = type => {
         screen: 'UpcomingServices',
       },
       {
-        title: 'Chatea conmigo',
+        title: 'Editar perfil',
         screen: 'EditProvider',
       },
     ];

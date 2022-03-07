@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import {Platform} from 'react-native';
 import {Avatar} from 'react-native-elements';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {Color} from '../../../theme/default';
 
-const selectImage = setImage => {
+const selectImage = (setImage, setFile) => {
   const options = {
     title: 'Selecciona una imagen',
     storageOptions: {
@@ -12,14 +13,15 @@ const selectImage = setImage => {
     },
   };
   launchImageLibrary(options, response => {
-    if (response.errorCode) {
-      console.log(response.errorMessage);
-    } else if (response.didCancel) {
-      console.log('El usuario canceló la selección');
-    } else {
-      const path = response.assets[0].uri;
-      setImage(path);
-    }
+    if (response.errorCode) return console.log(response.errorMessage);
+    if (response.didCancel)
+      return console.log('El usuario canceló la selección');
+
+    const {uri} = response.assets[0];
+    const {fileName} = response.assets[0];
+    const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
+    setFile({fileName, uploadUri});
+    setImage(uri);
   });
 };
 
@@ -44,7 +46,7 @@ const selectImage = setImage => {
   });
 };*/
 
-export const ImageButton = ({image, setImage, noEdit}) => {
+export const ImageButton = ({image, setImage, noEdit, setFile}) => {
   return (
     <Avatar
       activeOpacity={1}
@@ -66,7 +68,7 @@ export const ImageButton = ({image, setImage, noEdit}) => {
       {noEdit === true ? null : (
         <Avatar.Accessory
           size={42}
-          onPress={() => selectImage(setImage)}
+          onPress={() => selectImage(setImage, setFile)}
           style={{backgroundColor: Color.secondary}}
         />
       )}
