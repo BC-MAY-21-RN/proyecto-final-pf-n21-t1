@@ -8,7 +8,7 @@ export const CardOrganism = ({navigation, buttonType, userType, data}) => {
       <GeneralHeader
         isTabRendered
         isMenuVisible
-        title="FONTANERÍA"
+        title="Perfil"
         size="h1"
         color="background"
         weight

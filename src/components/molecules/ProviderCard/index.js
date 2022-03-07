@@ -11,9 +11,10 @@ export const ProviderCard = ({
   image,
   backgroundColor,
   navigation,
+  data,
 }) => {
   const handleCardPress = () => {
-    navigation ? navigation.navigate('ProviderCardData') : null;
+    navigation ? navigation.navigate('ProviderCardData', {uid: data}) : null;
   };
   const [userImage, setuserImage] = useState(image);
   return (
