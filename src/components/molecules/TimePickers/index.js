@@ -17,7 +17,6 @@ export const TimePickers = ({
 }) => {
   const {setError, setOk, isOk} = errors;
   useEffect(() => {
-    console.log(isOk)
     if (beginTime > finishTime) {
       setError('La fecha no es correcta');
       setOk(false);

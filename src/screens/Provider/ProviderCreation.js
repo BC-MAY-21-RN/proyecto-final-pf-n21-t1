@@ -81,7 +81,6 @@ export const ProviderCreation = ({navigation}) => {
     }
   }, [notesError, phoneError, isOk]);
 
-  useEffect(() => console.log(file), [file]);
   const formProps = {
     service,
     setService,
