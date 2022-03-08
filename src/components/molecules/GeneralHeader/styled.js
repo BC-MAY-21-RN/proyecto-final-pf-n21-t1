@@ -35,6 +35,7 @@ export const LogoContainer = styled.View`
 `;
 
 export const Menu = styled.TouchableOpacity`
+ right: 85%;
 `;
 
 export const BackButton = styled.TouchableOpacity`
