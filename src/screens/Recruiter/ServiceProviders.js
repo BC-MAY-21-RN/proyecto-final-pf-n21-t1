@@ -42,6 +42,7 @@ export const ServiceProviders = ({route, navigation}) => {
             number={item.inputNumber}
             navigation={navigation}
             data={item.uid}
+            image={item.image}
           />
         </GeneralContainer>
       </TouchableOpacity>
