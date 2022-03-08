@@ -1,8 +1,13 @@
 import React from 'react';
-import {Icon} from 'react-native-elements/dist/icons/Icon';
-import {Color} from '../../../theme/default';
-import {Container, GeneralContainer, GeneralText} from '../../atoms';
-import {ProviderCard} from '../../molecules';
+import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { Color } from '../../../theme/default';
+import {
+  Container,
+  GeneralContainer,
+  GeneralText,
+  GeneralLink,
+} from '../../atoms';
+import { ProviderCard } from '../../molecules';
 import {
   CardDetailsContainer,
   DetailsContainer,
@@ -11,17 +16,17 @@ import {
   TextContainer,
   TimeContainer,
 } from './styled';
-import {CardButtons} from '../../molecules/CardButtons';
+import { CardButtons } from '../../molecules/CardButtons';
 
-const HourPickers = ({hour, min}) => {
+const HourPickers = ({ hour, min }) => {
   return (
     <HourContainer>
-      <GeneralText title={hour} size="h4" color="text" />
-      <GeneralText title={min} size="h4" color="text" />
+      <GeneralText title={hour} size='h4' color='text' />
+      <GeneralText title={min} size='h4' color='text' />
     </HourContainer>
   );
 };
-export const ProviderCardDets = ({navigation, buttonType, data}) => {
+export const ProviderCardDets = ({ navigation, buttonType, data }) => {
   const beginTimeHour = data.beginTime.toDate().getHours() + ':';
   const beginTimeMin = data.beginTime.toDate().getMinutes();
   const finishTimeHour = data.finishTime.toDate().getHours() + ':';
@@ -41,30 +46,37 @@ export const ProviderCardDets = ({navigation, buttonType, data}) => {
       </CardDetailsContainer>
       <DetailsContainer>
         <GeneralText
-          title="Horario de atención"
-          size="h3"
-          color="text"
+          title='Horario de atención'
+          size='h3'
+          color='text'
           weight
         />
         <TimeContainer>
           <HourPickers hour={beginTimeHour} min={beginTimeMin} />
-          <GeneralText title="a" size="h4" color="text" />
+          <GeneralText title='a' size='h4' color='text' />
           <HourPickers hour={finishTimeHour} min={finishTimeMin} />
         </TimeContainer>
-        <GeneralContainer width="340px" height="80px" justify>
+        <GeneralContainer width='340px' height='80px' justify>
           <TextContainer>
             <GeneralText
-              title="Notas importantes"
-              size="h4"
-              color="secondary"
+              title='Notas importantes'
+              size='h4'
+              color='secondary'
               weight
             />
-            <GeneralText title={data.notes} size="h4" color="secondary" />
+            <GeneralText title={data.notes} size='h4' color='secondary' />
           </TextContainer>
         </GeneralContainer>
       </DetailsContainer>
       <LinkContain>
-        <Icon name="star" size={20} color={Color.secondary} />
+        <Icon name='star' size={20} color={Color.secondary} />
+        <GeneralLink
+          title={'Conoce la opinion de sus clientes'}
+          color={'secondary'}
+          weight
+          size={'h7'}
+          action={() => navigation.navigate('CustomerOpinions')}
+        />
       </LinkContain>
       <CardButtons navigation={navigation} type={buttonType} />
     </Container>
