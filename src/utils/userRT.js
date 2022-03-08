@@ -1,10 +1,16 @@
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 
-export default function userRT(userId, setData) {
+export default function userRT(userId, setData, image) {
   const handleUser = async documentSnapshot => {
     const user = documentSnapshot.data();
-    user.image = await storage().ref(user.image).getDownloadURL();
+    if (image)
+      user.image = image;
+    else if (image !== false){
+      const storageImage = await storage().ref(user.image).getDownloadURL();
+      user.image = storageImage;
+      console.log(storageImage)
+    }
     setData(user);
   };
 

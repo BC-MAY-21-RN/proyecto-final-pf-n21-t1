@@ -13,10 +13,13 @@ export const ProviderCard = ({
   image,
 }) => {
   const handleCardPress = () => {
-    navigation ? navigation.navigate('ProviderCardData', {uid: data}) : null;
+    navigation
+      ? navigation.navigate('ProviderCardData', {uid: data, image})
+      : null;
   };
   const handleImage = async () => {
     const storageImage = await storage().ref(image).getDownloadURL();
+    console.log(storageImage)
     setuserImage(storageImage);
   };
   console.log(image)

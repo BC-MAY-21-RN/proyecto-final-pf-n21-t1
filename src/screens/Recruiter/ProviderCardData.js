@@ -6,8 +6,10 @@ import userRT from '../../utils/userRT';
 
 export const ProviderCardData = ({navigation, route}) => {
   const [data, setData] = useState(undefined);
-  const {uid} = route.params;
-  useEffect(() => userRT(uid, setData), []);
+  const {uid, image} = route.params;
+  useEffect(() => {
+    userRT(uid, setData, image);
+  }, []);
 
   return (
     <ContainerWhite>

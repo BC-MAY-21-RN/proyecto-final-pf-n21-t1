@@ -9,7 +9,7 @@ export const ProviderPreview = ({navigation}) => {
   const [data, setData] = useState(undefined);
   const id = auth().currentUser.uid;
   useEffect(() => {
-    userRT(id, setData);
+    userRT(id, setData, false);
     return () => setData();
   }, []);
 
