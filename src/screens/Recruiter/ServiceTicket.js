@@ -1,4 +1,5 @@
-import React from 'react';
+import {useRoute} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import {
   Container,
@@ -7,7 +8,24 @@ import {
   ContainerWhite,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {CenterView, PckrWrapper, MrgnView, CntrView, CntrComponent} from '../styled';
+import {
+  CenterView,
+  PckrWrapper,
+  MrgnView,
+  CntrView,
+  CntrComponent,
+} from '../styled';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
+const getName = setClientName => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .onSnapshot(documentSnapshot => {
+      setClientName(documentSnapshot.data().name);
+    });
+};
 
 const ServiceRow = ({title, data}) => {
   const serviceIcon = {
@@ -32,10 +50,12 @@ const ServiceRow = ({title, data}) => {
 
 const Service = ({serviceItem}) => {
   const {datetime, provider, service, client} = serviceItem;
+  const date = `${datetime.getDate()}/${datetime.getMonth()}/${datetime.getFullYear()}`;
+  const time = `${datetime.getHours()}:${datetime.getMinutes()}`;
   return (
     <MrgnView>
-      <ServiceRow title="Fecha" data={datetime} />
-      <ServiceRow title="Horario" data={datetime} />
+      <ServiceRow title="Fecha" data={date} />
+      <ServiceRow title="Horario" data={time} />
       <ServiceRow title="Provedor" data={provider} />
       <ServiceRow title="Servicio" data={service} />
       <ServiceRow title="Cliente" data={client} />
@@ -67,11 +87,25 @@ const FooterWrapper = ({navigation}) => {
 };
 
 export const ServiceTicket = ({service, navigation}) => {
+  const route = useRoute();
+  const {name, servicePicker} = route.params.data;
+  const {date} = route.params;
+  const datetime = new Date(date);
+  const [clientName, setClientName] = useState();
+
+  useEffect(() => {
+    getName(setClientName);
+
+    return () => {
+      setClientName();
+    };
+  }, []);
+
   service = {
-    datetime: '11:00 pm',
-    provider: 'Pancho Barraza',
-    service: 'Carpinteria',
-    client: 'Alma Marquez',
+    datetime: datetime,
+    provider: name,
+    service: servicePicker,
+    client: clientName,
   };
   return (
     <ContainerWhite>

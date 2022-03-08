@@ -28,13 +28,13 @@ const getButtons = type => {
   }
 };
 
-export const CardButtons = ({type, navigation}) => {
+export const CardButtons = ({type, navigation, data}) => {
   const buttons = getButtons(type);
   const cardButtons = [
     {
       title: buttons[0].title,
       color: 'primary',
-      action: () => navigation.navigate(buttons[0].screen),
+      action: () => navigation.navigate(buttons[0].screen, {data}),
     },
     {
       title: buttons[1].title,
