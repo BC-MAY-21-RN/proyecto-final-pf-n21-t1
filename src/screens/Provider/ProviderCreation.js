@@ -51,6 +51,7 @@ export const ProviderCreation = ({navigation}) => {
   const [service, setService] = useState('');
   const [value, setValue] = useState();
   const [notes, setNotes] = useState();
+  const [file, setFile] = useState();
   const [image, setImage] = useState(
     'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
   );
@@ -69,12 +70,17 @@ export const ProviderCreation = ({navigation}) => {
   };
 
   useEffect(() => {
-    if (initialRender.current) initialRender.current = false;
-    else {
-      if (phoneError || notesError) setOk(false);
-      else setOk(true);
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      if (phoneError || notesError) {
+        setOk(false);
+      } else {
+        setOk(true);
+      }
     }
   }, [notesError, phoneError, isOk]);
+
   const formProps = {
     service,
     setService,
@@ -99,7 +105,7 @@ export const ProviderCreation = ({navigation}) => {
           navigation={navigation}
         />
         <ScrollView>
-          <ImageDetails image={image} setImage={setImage} />
+          <ImageDetails image={image} setImage={setImage} setFile={setFile} />
           <Form {...formProps} />
           <ButtonContainer>
             <GeneralButton
@@ -110,7 +116,7 @@ export const ProviderCreation = ({navigation}) => {
                   InputNumber: value,
                   ServicePicker: service,
                   InputNotes: notes,
-                  Image: image,
+                  Image: file,
                 })
               }
               disabled={!isOk}

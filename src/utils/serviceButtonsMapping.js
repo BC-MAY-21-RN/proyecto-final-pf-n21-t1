@@ -10,7 +10,11 @@ export default function ServiceButtonMapping(serviceButtonsData, navigation) {
   const serviceButtons = serviceButtonsData.map((service, index) => {
     return (
       <Touchable
-        onPress={() => navigation.navigate('ServiceProviders')}
+        onPress={() =>
+          navigation.navigate('ServiceProviders', {
+            title: service.serviceTitle,
+          })
+        }
         key={index}>
         <GeneralContainer width={'90%'} height={'20%'} marginBottom={'20%'}>
           <ServiceImage source={service.icon} />

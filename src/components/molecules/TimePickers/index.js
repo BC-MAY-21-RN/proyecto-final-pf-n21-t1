@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import DatePicker from 'react-native-date-picker';
 import {MarginView, PickerWrapper} from '../../../screens/styled';
+import TimeHook from '../../../utils/timeHook';
 import {GeneralButton, GeneralText} from '../../atoms';
 
 export const TimePickers = ({
@@ -16,8 +17,8 @@ export const TimePickers = ({
   errors,
 }) => {
   const {setError, setOk, isOk} = errors;
-  useEffect(() => {
-    console.log(isOk)
+  TimeHook(beginTime, finishTime, setError, setOk);
+  /*useEffect(() => {
     if (beginTime > finishTime) {
       setError('La fecha no es correcta');
       setOk(false);
@@ -25,7 +26,7 @@ export const TimePickers = ({
       setError();
       setOk(true);
     }
-  }, [beginTime, finishTime]);
+  }, [beginTime, finishTime]);*/
 
   return (
     <MarginView height={'600px'}>

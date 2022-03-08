@@ -25,13 +25,13 @@ export const Header = styled.View`
   width: 95%;
 `;
 export const Logo = styled.Image`
-  width: 80%;
-  height: 80%;
+  height: 100%;
   margin-left: 3%;
+  aspect-ratio: 1;
 `;
 
 export const LogoContainer = styled.View`
-  width: 40%;
+  height: 150%;
 `;
 
 export const Menu = styled.TouchableOpacity`
