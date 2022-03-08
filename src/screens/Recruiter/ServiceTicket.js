@@ -63,7 +63,18 @@ const Service = ({serviceItem}) => {
   );
 };
 
-const FooterWrapper = ({navigation}) => {
+const FooterWrapper = ({navigation, data}) => {
+  const handleAction = () => {
+    firestore()
+      .collection('Services')
+      .add(data)
+      .then(() =>
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'ServicesHistory'}],
+        }),
+      );
+  };
   const style = {
     position: 'absolute',
     bottom: 20,
@@ -80,7 +91,7 @@ const FooterWrapper = ({navigation}) => {
       <GeneralButton
         title="Entendido"
         color="secondary"
-        action={() => navigation.navigate('ServicesHistory')}
+        action={handleAction}
       />
     </CntrComponent>
   );
@@ -88,7 +99,8 @@ const FooterWrapper = ({navigation}) => {
 
 export const ServiceTicket = ({service, navigation}) => {
   const route = useRoute();
-  const {name, servicePicker} = route.params.data;
+  console.log(route.params.data);
+  const {name, servicePicker, uid} = route.params.data;
   const {date} = route.params;
   const datetime = new Date(date);
   const [clientName, setClientName] = useState();
@@ -107,6 +119,14 @@ export const ServiceTicket = ({service, navigation}) => {
     service: servicePicker,
     client: clientName,
   };
+
+  const ticket = {
+    providerUid: uid,
+    clientUid: auth().currentUser.uid,
+    status: 'Pending',
+    datetime,
+  };
+
   return (
     <ContainerWhite>
       <Container>
@@ -130,7 +150,7 @@ export const ServiceTicket = ({service, navigation}) => {
             />
           </CenterView>
           <Service serviceItem={service} />
-          <FooterWrapper navigation={navigation} />
+          <FooterWrapper navigation={navigation} data={ticket} />
         </CntrView>
       </Container>
     </ContainerWhite>

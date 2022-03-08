@@ -3,7 +3,8 @@ import storage from '@react-native-firebase/storage';
 
 export default function userRT(userId, setData, image) {
   const handleUser = async documentSnapshot => {
-    const user = documentSnapshot.data();
+    const uid = documentSnapshot.id;
+    const user = {...documentSnapshot.data(), uid};
     if (image)
       user.image = image;
     else if (image !== false){
