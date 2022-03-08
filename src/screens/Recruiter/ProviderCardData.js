@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import {Container, ContainerWhite} from '../../components/atoms/index.js';
 import {CardOrganism} from '../../components/organisms/index.js';
@@ -6,8 +6,10 @@ import userRT from '../../utils/userRT';
 
 export const ProviderCardData = ({navigation, route}) => {
   const [data, setData] = useState(undefined);
-  const {uid} = route.params;
-  userRT(uid, setData);
+  const {uid, image} = route.params;
+  useEffect(() => {
+    userRT(uid, setData, image);
+  }, []);
 
   return (
     <ContainerWhite>

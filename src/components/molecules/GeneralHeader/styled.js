@@ -30,12 +30,12 @@ export const Logo = styled.Image`
   aspect-ratio: 1;
 `;
 
-export const LogoContainer = styled.View`
+export const LogoContainer = styled.TouchableOpacity`
   height: 150%;
 `;
 
 export const Menu = styled.TouchableOpacity`
- right: 85%;
+  right: 85%;
 `;
 
 export const BackButton = styled.TouchableOpacity`

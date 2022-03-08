@@ -7,6 +7,11 @@ import auth from '@react-native-firebase/auth';
 import uploadImage from '../../utils/uploadImage';
 import TimeHook from '../../utils/timeHook';
 
+const handlePromiseImage = file => {
+  if (file) return uploadImage(file);
+  else return new Promise(resolve => resolve(false));
+};
+
 export const providerModification = (
   navigation,
   route,
@@ -23,8 +28,8 @@ export const providerModification = (
     finishTime: finishTime,
   };
 
-  uploadImage(file).then(res => {
-    providerUpdate.image = res.metadata.fullPath;
+  handlePromiseImage(file).then(res => {
+    if (res) providerUpdate.image = res.metadata.fullPath;
 
     firestore()
       .collection('Users')

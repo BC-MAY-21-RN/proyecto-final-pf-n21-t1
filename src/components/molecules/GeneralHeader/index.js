@@ -9,11 +9,11 @@ import {
   BackButton,
   LogoContainer,
 } from './styled';
-import {appLogo} from '../../../assets/images';
+import {appLogo, user} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {Color} from '../../../theme/default';
 import {MenuModal} from '..';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 const MenuButton = ({setModalVisible}) => {
   return (
@@ -32,13 +32,21 @@ const GoBackButton = props => {
 };
 
 const RowHeader = props => {
+  const route = useRoute();
+  const handleNavigation = () => {
+    if (route.name === 'Path') return;
+    props.navigation.reset({
+      index: 0,
+      routes: [{name: 'Path'}],
+    });
+  };
   return (
     <Row>
       {props.navigation.canGoBack() ? (
         <GoBackButton navigation={props.navigation} />
       ) : undefined}
       <Header>
-        <LogoContainer>
+        <LogoContainer onPress={handleNavigation}>
           <Logo source={appLogo} resizeMode="contain" />
         </LogoContainer>
         {props.isMenuVisible ? (
