@@ -23,6 +23,7 @@ export const ServiceGeneralCard = ({
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
+  data ? data : (data = []);
 
   return (
     <ShadowView>

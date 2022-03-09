@@ -49,7 +49,7 @@ const ServiceRow = ({title, data}) => {
 };
 
 const Service = ({serviceItem}) => {
-  const {datetime, provider, service, client} = serviceItem;
+  const {datetime, provider, service, client, address} = serviceItem;
   const date = `${datetime.getDate()}/${datetime.getMonth()}/${datetime.getFullYear()}`;
   const time = `${datetime.getHours()}:${datetime.getMinutes()}`;
   return (
@@ -59,6 +59,7 @@ const Service = ({serviceItem}) => {
       <ServiceRow title="Provedor" data={provider} />
       <ServiceRow title="Servicio" data={service} />
       <ServiceRow title="Cliente" data={client} />
+      <ServiceRow title="Dirección" data={address} />
     </MrgnView>
   );
 };
@@ -100,7 +101,7 @@ const FooterWrapper = ({navigation, data}) => {
 export const ServiceTicket = ({service, navigation}) => {
   const route = useRoute();
   console.log(route.params.data);
-  const {name, servicePicker, uid} = route.params.data;
+  const {name, servicePicker, uid, location, address} = route.params.data;
   const {date} = route.params;
   const datetime = new Date(date);
   const [clientName, setClientName] = useState();
@@ -118,6 +119,7 @@ export const ServiceTicket = ({service, navigation}) => {
     provider: name,
     service: servicePicker,
     client: clientName,
+    address: address,
   };
 
   const ticket = {
@@ -128,6 +130,8 @@ export const ServiceTicket = ({service, navigation}) => {
     provider: name,
     client: clientName,
     service: servicePicker,
+    location: location,
+    address: address,
   };
 
   return (
