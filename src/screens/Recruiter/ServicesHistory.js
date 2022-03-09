@@ -1,9 +1,58 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {GeneralHeader, ServiceGeneralCard} from '../../components/molecules';
 import {Container, ContainerWhite} from '../../components/atoms';
-import {SafeAreaView, ScrollView} from 'react-native';
+import {SafeAreaView, FlatList} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
+const getServices = setData => {
+  firestore()
+    .collection('Services')
+    .where('clientUid', '==', auth().currentUser.uid)
+    .get()
+    .then(result => {
+      const docs = result.docs;
+      const dataArray = docs.map(doc => doc.data());
+      setData(dataArray);
+    });
+};
 
 export const ServicesHistory = ({navigation}) => {
+  const dataSet = {
+    Accepted: 'Servicio aceptado',
+    Pending: 'Servicio pendiente',
+    Done: 'Servicio finalizado',
+    Decline: 'Servicio declinado',
+  };
+
+  const [data, setData] = useState();
+  useEffect(() => {
+    getServices(setData);
+  }, []);
+
+  const Card = ({item}) => {
+    const card = [
+      {
+        title: 'Provedor: ' + item.provider,
+      },
+      {
+        title: 'Fecha: ' + item.datetime.toDate().toDateString(),
+      },
+      {
+        title: 'Hora: ' + item.datetime.toDate().toLocaleTimeString('es-MX'),
+      },
+    ];
+
+    return (
+      <ServiceGeneralCard
+        servicio={'Fontanero'}
+        status={dataSet[item.status]}
+        navigation={navigation}
+        data={card}
+      />
+    );
+  };
+
   return (
     <ContainerWhite>
       <Container>
@@ -18,19 +67,14 @@ export const ServicesHistory = ({navigation}) => {
           userType="Recruiter"
           navigation={navigation}
         />
-        <ScrollView>
-          {/* AQUI DEBE IR CON MAPPING/FLATLIST CON LAS LECTURAS A FIREBASE Y QUE SE GENEREN LOS UPCOMINGSERVICECOMPONENTS NECESARIOS */}
-          <ServiceGeneralCard
-            servicio={'Fontanero'}
-            status={'Servicio Finalizado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
-            navigation={navigation}
+        {data && (
+          <FlatList
+            data={data}
+            renderItem={Card}
+            refreshing={data ? false : true}
+            onRefresh={() => getServices(setData)}
           />
-          <ServiceGeneralCard
-            servicio={'Pintor'}
-            status={'Servicio Rechazado'} // esto lo recibe como prop y utiliza la cadena "SERVICIO FINALIZADO" para decidir si muestra o no el boton de estrella para calificar.
-            navigation={navigation}
-          />
-        </ScrollView>
+        )}
       </Container>
     </ContainerWhite>
   );

@@ -125,6 +125,9 @@ export const ServiceTicket = ({service, navigation}) => {
     clientUid: auth().currentUser.uid,
     status: 'Pending',
     datetime,
+    provider: name,
+    client: clientName,
+    service: servicePicker,
   };
 
   return (

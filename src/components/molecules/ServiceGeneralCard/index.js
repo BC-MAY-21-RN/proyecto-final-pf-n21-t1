@@ -1,30 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { ServiceStatus, GeneralContainer, GeneralText } from '../../atoms';
-import { AcceptDeclineBtns, QualifyButton } from '../index';
-import { GroupRow, GroupColumn, ShadowView, StarAndServiceRow } from './styled';
+import React, {useState} from 'react';
+import {ServiceStatus, GeneralContainer, GeneralText} from '../../atoms';
+import {AcceptDeclineBtns, QualifyButton} from '../index';
+import {GroupRow, GroupColumn, ShadowView, StarAndServiceRow} from './styled';
 import ServiceCardMapping from '../../../utils/ServiceCardMapping';
-import serviceCardData from './ServiceCardData';
-import { AcceptedService } from '../index';
+import {AcceptedService} from '../index';
 
 function qualify(status, qualifyButton) {
-  if (status === 'Servicio Finalizado') {
+  if (status === 'Servicio finalizado') {
     qualifyButton = true;
   } else {
     qualifyButton = false;
   }
   return qualifyButton;
-} 
+}
 
 export const ServiceGeneralCard = ({
   servicio,
   botones,
   navigation,
   status,
-  qualifyButton,
+  data,
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
-  const serviceText = serviceCardData();
 
   return (
     <ShadowView>
@@ -35,17 +33,17 @@ export const ServiceGeneralCard = ({
             title={servicio}
             size={'h3'}
             color={'secondary'}
-            />
+          />
         </GroupRow>
-        <GroupColumn>{ServiceCardMapping(serviceText)}</GroupColumn>
+        <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
         {mostrarBotones ? (
           <AcceptDeclineBtns
-          setServAceptado={setServAceptado}
-          setMostrarBotones={setMostrarBotones}
+            setServAceptado={setServAceptado}
+            setMostrarBotones={setMostrarBotones}
           />
-          ) : null}
+        ) : null}
         {!servAceptado ? <AcceptedService navigation={navigation} /> : null}
 
         <StarAndServiceRow>
