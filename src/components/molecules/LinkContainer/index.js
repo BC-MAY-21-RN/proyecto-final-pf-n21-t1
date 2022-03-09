@@ -10,7 +10,14 @@ export const LinkContainer = ({type, navigation, height}) => {
     Register: '¿Eres nuevo aquí? Regístrate',
     Logout: 'Cerrar sesión',
   };
-  const action = () => logout(navigation);
+  let action;
+  if (type === 'Logout') action = () => logout(navigation);
+  else
+    action = () =>
+      navigation.reset({
+        index: 0,
+        routes: [{name: type === 'Logout' ? 'Login' : type}],
+      });
 
   return (
     <LinkBox height={height}>
