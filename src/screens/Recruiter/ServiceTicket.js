@@ -7,7 +7,13 @@ import {
   ContainerWhite,
 } from '../../components/atoms';
 import {GeneralHeader} from '../../components/molecules';
-import {CenterView, PckrWrapper, MrgnView, CntrView, CntrComponent} from '../styled';
+import {
+  CenterView,
+  PckrWrapper,
+  MrgnView,
+  CntrView,
+  CntrComponent,
+} from '../styled';
 
 const ServiceRow = ({title, data}) => {
   const serviceIcon = {
@@ -52,11 +58,6 @@ const FooterWrapper = ({navigation}) => {
   };
   return (
     <CntrComponent style={style}>
-      <GeneralText
-        size="h3"
-        title="Favor de esperar confirmacion del provedor en un maximo de 5hrs."
-        icon="alert-outline"
-      />
       <GeneralButton
         title="Entendido"
         color="secondary"
