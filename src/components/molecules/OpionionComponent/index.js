@@ -16,12 +16,7 @@ export const OpinionComponent = ({opinion, customer, calification}) => {
           />
         </CustomerName>
         <OpinionText>
-          <GeneralText
-            italic
-            title={opinion}
-            color={'text'}
-            size={'h5'}
-          />
+          <GeneralText italic title={opinion} color={'text'} size={'h5'} />
         </OpinionText>
         <StarsPosition>
           <StarRating
