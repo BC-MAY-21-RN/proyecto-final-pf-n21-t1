@@ -22,7 +22,6 @@ export const CustomerOpinions = ({navigation}) => {
   }, []);
 
   const OpinionRender = item => {
-    console.log(item);
     return (
       <View>
         <OpinionComponent

@@ -4,12 +4,12 @@ import buttonsMapping from '../../../utils/buttonsMapping';
 import {Group, Styles} from './styled';
 import {useNavigation} from '@react-navigation/native';
 
-
 const getButtonsData = navigation => [
-    {
-      title: 'Finalizar ',
-      color: 'facebook',
-      action: () => Alert.alert(
+  {
+    title: 'Finalizar ',
+    color: 'facebook',
+    action: () =>
+      Alert.alert(
         'Finalizar Servicio',
         '¿Estas seguro de que terminaste este servicio?',
         [

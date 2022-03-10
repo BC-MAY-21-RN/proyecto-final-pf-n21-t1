@@ -18,7 +18,7 @@ export const Container = styled.TouchableOpacity`
   background-color: ${Color.background};
   width: 230px;
   height: 100px;
-  margin-top: 14%; /* // ADRI MUEVE ESTE % PARA QUE QUEDE CHIDO EN IOS EL MODAL */
+  margin-top: 14%; 
   position: absolute;
   right: 0;
   margin-right: 4%;
