@@ -3,7 +3,6 @@ import {Alert} from 'react-native';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonGroup, ButtonStyles} from './styled';
 import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
 
 export const AcceptDeclineBtns = ({
   setServAceptado,

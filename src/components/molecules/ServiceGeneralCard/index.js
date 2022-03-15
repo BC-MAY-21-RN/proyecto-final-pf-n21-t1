@@ -39,6 +39,7 @@ export const ServiceGeneralCard = ({
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
   data ? data : (data = []);
+  console.log(data);
 
   return (
     <ShadowView>
@@ -62,7 +63,7 @@ export const ServiceGeneralCard = ({
           />
         )}
         {handleStatusService(servAceptado, statusPrueba) && (
-          <AcceptedService navigation={navigation} />
+          <AcceptedService navigation={navigation} uid={uid} />
         )}
         <StarAndServiceRow>
           {status && <ServiceStatus status={status} />}
