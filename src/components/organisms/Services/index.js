@@ -18,6 +18,21 @@ const getServices = (setData, provider) => {
     });
 };
 
+const getItemCard = (item, provider) => {
+  return provider
+    ? {
+        title: 'Cliente: ',
+        titleName: item.client,
+        status: undefined,
+        botones: true,
+      }
+    : {
+        title: 'Proveedor: ',
+        titleName: item.provider,
+        status: dataSet[item.status],
+        botones: false,
+      };
+}
 export const Services = ({navigation, provider}) => {
   const dataSet = {
     Accepted: 'Servicio aceptado',
@@ -32,13 +47,7 @@ export const Services = ({navigation, provider}) => {
   }, []);
 
   const Card = ({item}) => {
-    const itemCard = provider
-      ? {title: 'Cliente: ', titleName: item.client, status: undefined}
-      : {
-          title: 'Proveedor: ',
-          titleName: item.provider,
-          status: dataSet[item.status],
-        };
+  const itemCard = getItemCard(item, provider);
     const title = itemCard.title;
     const titleName = itemCard.titleName;
     const card = [
@@ -64,7 +73,7 @@ export const Services = ({navigation, provider}) => {
         navigation={navigation}
         data={card}
         uid={item.uid}
-        botones={provider ? true : false}
+        botones={itemCard.botones}
       />
     );
   };

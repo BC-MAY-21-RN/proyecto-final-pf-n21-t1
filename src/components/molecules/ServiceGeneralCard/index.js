@@ -19,8 +19,12 @@ const handleStatus = (mostrarBotones, statusPrueba) => {
     statusPrueba !== 'Decline' &&
     statusPrueba !== 'Accepted')
     return true;
-  else
-    return false;
+  return false;
+}
+
+const handleStatusService = (servAceptado, statusPrueba) => {
+  if (!servAceptado || statusPrueba === 'Accepted') return true;
+  return false
 }
 
 export const ServiceGeneralCard = ({
@@ -50,20 +54,19 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
-        {handleStatus(mostrarBotones, statusPrueba) ? (
+        {handleStatus(mostrarBotones, statusPrueba) && (
           <AcceptDeclineBtns
             setServAceptado={setServAceptado}
             setMostrarBotones={setMostrarBotones}
             uid={uid}
           />
-        ) : null}
-        {!servAceptado || statusPrueba === 'Accepted' ? (
+        )}
+        {handleStatusService(servAceptado, statusPrueba) && (
           <AcceptedService navigation={navigation} />
-        ) : null}
-
+        )}
         <StarAndServiceRow>
-          {status ? <ServiceStatus status={status} /> : null}
-          {qualify(status) ? <QualifyButton navigation={navigation} /> : null}
+          {status && <ServiceStatus status={status} />}
+          {qualify(status) && <QualifyButton navigation={navigation} />}
         </StarAndServiceRow>
       </GeneralContainer>
     </ShadowView>
