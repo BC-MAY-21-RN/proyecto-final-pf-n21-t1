@@ -14,6 +14,15 @@ function qualify(status, qualifyButton) {
   return qualifyButton;
 }
 
+const handleStatus = (mostrarBotones, statusPrueba) => {
+  if (mostrarBotones &&
+    statusPrueba !== 'Decline' &&
+    statusPrueba !== 'Accepted')
+    return true;
+  else
+    return false;
+}
+
 export const ServiceGeneralCard = ({
   servicio,
   botones,
@@ -41,9 +50,7 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
-        {mostrarBotones &&
-        statusPrueba !== 'Decline' &&
-        statusPrueba !== 'Accepted' ? (
+        {handleStatus(mostrarBotones, statusPrueba) ? (
           <AcceptDeclineBtns
             setServAceptado={setServAceptado}
             setMostrarBotones={setMostrarBotones}
