@@ -32,8 +32,15 @@ export const Services = ({navigation, provider}) => {
   }, []);
 
   const Card = ({item}) => {
-    const title = provider ? 'Cliente: ' : 'Provedor: ';
-    const titleName = provider ? item.client : item.provider;
+    const itemCard = provider
+      ? {title: 'Cliente: ', titleName: item.client, status: undefined}
+      : {
+          title: 'Proveedor: ',
+          titleName: item.provider,
+          status: dataSet[item.status],
+        };
+    const title = itemCard.title;
+    const titleName = itemCard.titleName;
     const card = [
       {
         title: title + titleName,
@@ -52,7 +59,7 @@ export const Services = ({navigation, provider}) => {
     return (
       <ServiceGeneralCard
         servicio={item.service}
-        status={provider ? undefined : dataSet[item.status]}
+        status={itemCard.status}
         statusPrueba={item.status}
         navigation={navigation}
         data={card}
