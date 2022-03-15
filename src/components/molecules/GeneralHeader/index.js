@@ -9,7 +9,7 @@ import {
   BackButton,
   LogoContainer,
 } from './styled';
-import {appLogo, user} from '../../../assets/images';
+import {appLogo} from '../../../assets/images';
 import {TabRender} from '../../atoms';
 import {Color} from '../../../theme/default';
 import {MenuModal} from '..';

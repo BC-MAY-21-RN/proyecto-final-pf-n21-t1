@@ -20,6 +20,8 @@ export const ServiceGeneralCard = ({
   navigation,
   status,
   data,
+  uid,
+  statusPrueba,
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
@@ -39,13 +41,18 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
-        {mostrarBotones ? (
+        {mostrarBotones &&
+        statusPrueba !== 'Decline' &&
+        statusPrueba !== 'Accepted' ? (
           <AcceptDeclineBtns
             setServAceptado={setServAceptado}
             setMostrarBotones={setMostrarBotones}
+            uid={uid}
           />
         ) : null}
-        {!servAceptado ? <AcceptedService navigation={navigation} /> : null}
+        {!servAceptado || statusPrueba === 'Accepted' ? (
+          <AcceptedService navigation={navigation} />
+        ) : null}
 
         <StarAndServiceRow>
           {status ? <ServiceStatus status={status} /> : null}

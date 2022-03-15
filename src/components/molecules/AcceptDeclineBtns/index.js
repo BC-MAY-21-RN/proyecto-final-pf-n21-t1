@@ -2,16 +2,32 @@ import React from 'react';
 import {Alert} from 'react-native';
 import buttonsMapping from '../../../utils/buttonsMapping';
 import {ButtonGroup, ButtonStyles} from './styled';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
-export const AcceptDeclineBtns = ({ setServAceptado, setMostrarBotones }) => {
+export const AcceptDeclineBtns = ({
+  setServAceptado,
+  setMostrarBotones,
+  uid,
+}) => {
+  const handleUpdate = btnStatus => {
+    firestore()
+      .collection('Services')
+      .doc(uid)
+      .update({status: btnStatus})
+      .then(() => {
+        if (btnStatus === 'Accepted') {
+          setServAceptado(false);
+          setMostrarBotones(false);
+        }
+      });
+  };
+
   const buttonsData = [
     {
       title: 'Aceptar',
       color: 'primary',
-      action: () => {
-        setServAceptado(false);
-        setMostrarBotones(false);
-      },
+      action: () => handleUpdate('Accepted'),
       width: 100,
       height: 37,
     },
@@ -23,7 +39,13 @@ export const AcceptDeclineBtns = ({ setServAceptado, setMostrarBotones }) => {
           'Declinar',
           '¿Estas seguro de que quieres declinar este servicio?',
           [
-            {text: 'Si', onPress: () => console.log('Servicio declinado')},
+            {
+              text: 'Si',
+              onPress: () => {
+                handleUpdate('Decline');
+                setMostrarBotones(false);
+              },
+            },
             {text: 'No'},
           ],
           {cancelable: true},

@@ -11,7 +11,9 @@ const getServices = (setData, provider) => {
     .get()
     .then(result => {
       const docs = result.docs;
-      const dataArray = docs.map(doc => doc.data());
+      const dataArray = docs.map(doc => {
+        return {...doc.data(), uid: doc.id};
+      });
       setData(dataArray);
     });
 };
@@ -51,8 +53,10 @@ export const Services = ({navigation, provider}) => {
       <ServiceGeneralCard
         servicio={item.service}
         status={provider ? undefined : dataSet[item.status]}
+        statusPrueba={item.status}
         navigation={navigation}
         data={card}
+        uid={item.uid}
         botones={provider ? true : false}
       />
     );
@@ -67,7 +71,7 @@ export const Services = ({navigation, provider}) => {
         weight
         size="h1"
         isMenuVisible
-        userType="Recruiter"
+        userType={provider ? 'Provider' : 'Recruiter'}
         navigation={navigation}
       />
       {data && (
