@@ -84,11 +84,6 @@ const FooterWrapper = ({navigation, data}) => {
   };
   return (
     <CntrComponent style={style}>
-      <GeneralText
-        size="h3"
-        title="Favor de esperar confirmacion del provedor en un maximo de 5hrs."
-        icon="alert-outline"
-      />
       <GeneralButton
         title="Entendido"
         color="secondary"
