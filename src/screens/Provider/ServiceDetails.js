@@ -5,6 +5,10 @@ import {GeneralHeader} from '../../components/molecules';
 import {ServiceClosure} from '../../components/organisms';
 
 export const ServiceDetails = () => {
+  const handleAction = () => {
+    console.log('prueba');
+  };
+
   return (
     <ContainerWhite>
       <Container>
@@ -18,7 +22,7 @@ export const ServiceDetails = () => {
           isMenuVisible
           userType="Provider"
         />
-        <ServiceClosure servicio={'Fontanero'} fin />
+        <ServiceClosure servicio={'Fontanero'} action={handleAction} fin />
       </Container>
     </ContainerWhite>
   );

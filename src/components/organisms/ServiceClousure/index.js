@@ -5,7 +5,7 @@ import {Row, Column} from './styled';
 import {BackFinishBtns} from '../../molecules';
 import {Text} from 'react-native';
 
-export const ServiceClosure = ({servicio}) => {
+export const ServiceClosure = ({servicio, action}) => {
   return (
     <ShadowView>
       <GeneralContainer height={'490px'} width={'90%'} marginBottom={'5%'}>
@@ -20,7 +20,7 @@ export const ServiceClosure = ({servicio}) => {
         <Column>
           <Text>Informacion de firebase</Text>
         </Column>
-        <BackFinishBtns />
+        <BackFinishBtns action={action} />
       </GeneralContainer>
     </ShadowView>
   );
