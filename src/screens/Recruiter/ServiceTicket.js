@@ -1,4 +1,5 @@
-import React from 'react';
+import {useRoute} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import {
   Container,
@@ -14,6 +15,17 @@ import {
   CntrView,
   CntrComponent,
 } from '../styled';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
+const getName = setClientName => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .onSnapshot(documentSnapshot => {
+      setClientName(documentSnapshot.data().name);
+    });
+};
 
 const ServiceRow = ({title, data}) => {
   const serviceIcon = {
@@ -37,19 +49,33 @@ const ServiceRow = ({title, data}) => {
 };
 
 const Service = ({serviceItem}) => {
-  const {datetime, provider, service, client} = serviceItem;
+  const {datetime, provider, service, client, address} = serviceItem;
+  const date = `${datetime.getDate()}/${datetime.getMonth()}/${datetime.getFullYear()}`;
+  const time = `${datetime.getHours()}:${datetime.getMinutes()}`;
   return (
     <MrgnView>
-      <ServiceRow title="Fecha" data={datetime} />
-      <ServiceRow title="Horario" data={datetime} />
+      <ServiceRow title="Fecha" data={date} />
+      <ServiceRow title="Horario" data={time} />
       <ServiceRow title="Provedor" data={provider} />
       <ServiceRow title="Servicio" data={service} />
       <ServiceRow title="Cliente" data={client} />
+      <ServiceRow title="Dirección" data={address} />
     </MrgnView>
   );
 };
 
-const FooterWrapper = ({navigation}) => {
+const FooterWrapper = ({navigation, data}) => {
+  const handleAction = () => {
+    firestore()
+      .collection('Services')
+      .add(data)
+      .then(() =>
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'ServicesHistory'}],
+        }),
+      );
+  };
   const style = {
     position: 'absolute',
     bottom: 20,
@@ -61,19 +87,48 @@ const FooterWrapper = ({navigation}) => {
       <GeneralButton
         title="Entendido"
         color="secondary"
-        action={() => navigation.navigate('ServicesHistory')}
+        action={handleAction}
       />
     </CntrComponent>
   );
 };
 
 export const ServiceTicket = ({service, navigation}) => {
+  const route = useRoute();
+  console.log(route.params.data);
+  const {name, servicePicker, uid, location, address} = route.params.data;
+  const {date} = route.params;
+  const datetime = new Date(date);
+  const [clientName, setClientName] = useState();
+
+  useEffect(() => {
+    getName(setClientName);
+
+    return () => {
+      setClientName();
+    };
+  }, []);
+
   service = {
-    datetime: '11:00 pm',
-    provider: 'Pancho Barraza',
-    service: 'Carpinteria',
-    client: 'Alma Marquez',
+    datetime: datetime,
+    provider: name,
+    service: servicePicker,
+    client: clientName,
+    address: address,
   };
+
+  const ticket = {
+    providerUid: uid,
+    clientUid: auth().currentUser.uid,
+    status: 'Pending',
+    datetime,
+    provider: name,
+    client: clientName,
+    service: servicePicker,
+    location: location,
+    address: address,
+  };
+
   return (
     <ContainerWhite>
       <Container>
@@ -97,7 +152,7 @@ export const ServiceTicket = ({service, navigation}) => {
             />
           </CenterView>
           <Service serviceItem={service} />
-          <FooterWrapper navigation={navigation} />
+          <FooterWrapper navigation={navigation} data={ticket} />
         </CntrView>
       </Container>
     </ContainerWhite>

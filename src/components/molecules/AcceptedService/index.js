@@ -19,7 +19,7 @@ export const AcceptedService = () => {
         title={'Detalles'}
         action={() => navigation.navigate('ServiceDetails')}
         width={'80%'}
-        height={'47%'}
+        height={'90%'}
         color={'primary'}
       />
     </Position>

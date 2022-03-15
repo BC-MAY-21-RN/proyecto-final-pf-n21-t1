@@ -9,8 +9,11 @@ import {GeneralHeader} from '../../components/molecules';
 import DatePicker from 'react-native-date-picker';
 import {CntrView} from '../styled';
 import {SafeAreaView} from 'react-native';
+import {useRoute} from '@react-navigation/native';
 
 export const DateSelection = ({navigation}) => {
+  const route = useRoute();
+  const {data} = route.params;
   const [date, setDate] = useState(new Date());
   return (
     <ContainerWhite>
@@ -37,7 +40,12 @@ export const DateSelection = ({navigation}) => {
           <GeneralButton
             title="Siguiente"
             color="secondary"
-            action={() => navigation.navigate('ServiceTicket')}
+            action={() =>
+              navigation.navigate('ServiceTicket', {
+                data,
+                date: date.toISOString(),
+              })
+            }
           />
         </CntrView>
       </Container>

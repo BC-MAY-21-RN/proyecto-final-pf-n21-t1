@@ -8,8 +8,8 @@ export default function ServiceCardMapping(serviceCardData) {
         key={index}
         title={service.title}
         weight
-        size={service.size}
-        color={service.color}
+        size="h7"
+        color="text"
       />
     );
   });

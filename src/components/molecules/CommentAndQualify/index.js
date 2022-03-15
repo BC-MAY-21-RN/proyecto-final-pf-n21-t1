@@ -28,7 +28,7 @@ export const CommentAndQualify = ({
         marginBottom={'5%'}>
         <QualifyQuestion>
           <GeneralText
-            title={'Como calificas mi servicio?'}
+            title={'¿Cómo calificas mi servicio?'}
             color={'secondary'}
             size={'h4'}
             weight
@@ -44,7 +44,7 @@ export const CommentAndQualify = ({
         </StarRatingPosition>
         <OpinionInput>
           <GeneralInput
-            placeholder={'Danos tu opinón para este proveedor'}
+            placeholder={'Dános tu opinón para este proveedor'}
             height={70}
             whiteBackground
           />
