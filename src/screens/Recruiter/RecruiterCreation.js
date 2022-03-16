@@ -144,7 +144,7 @@ const ScreenInfo = ({
       <View style={styles.mapTexts}>
         <GeneralButton
           title={'Asignar dirección'}
-          action={() => uploadAddress(navigation, address, location)}
+          action={() => uploadAddress(navigation, address, markerLocation)}
         />
       </View>
     </View>

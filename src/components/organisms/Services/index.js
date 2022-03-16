@@ -18,7 +18,7 @@ const getServices = (setData, provider) => {
     });
 };
 
-const getItemCard = (item, provider) => {
+const getItemCard = (item, provider, dataSet) => {
   return provider
     ? {
         title: 'Cliente: ',
@@ -47,7 +47,7 @@ export const Services = ({navigation, provider}) => {
   }, []);
 
   const Card = ({item}) => {
-    const itemCard = getItemCard(item, provider);
+    const itemCard = getItemCard(item, provider, dataSet);
     const title = itemCard.title;
     const titleName = itemCard.titleName;
     const card = [
@@ -73,6 +73,8 @@ export const Services = ({navigation, provider}) => {
         navigation={navigation}
         data={card}
         uid={item.uid}
+        providerUid={item.providerUid}
+        client={item.client}
         botones={itemCard.botones}
       />
     );

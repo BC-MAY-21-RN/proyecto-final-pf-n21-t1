@@ -37,6 +37,8 @@ export const ServiceGeneralCard = ({
   data,
   uid,
   statusPrueba,
+  providerUid,
+  client,
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
@@ -68,7 +70,14 @@ export const ServiceGeneralCard = ({
         )}
         <StarAndServiceRow>
           {status && <ServiceStatus status={status} />}
-          {qualify(status) && <QualifyButton navigation={navigation} />}
+          {qualify(status) && (
+            <QualifyButton
+              navigation={navigation}
+              uid={uid}
+              providerUid={providerUid}
+              client={client}
+            />
+          )}
         </StarAndServiceRow>
       </GeneralContainer>
     </ShadowView>

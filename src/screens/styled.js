@@ -36,19 +36,19 @@ export const ButtonContainer = styled.View`
 export const CntrView = styled.View`
   flex-direction: column;
   align-items: center;
-  justify-content:space-between;
-  height: 80%;
+  justify-content: space-between;
+  height: 70%;
 `;
 
 export const CntrComponent = styled.View`
   flex-direction: column;
   align-items: center;
-  justify-content:space-between;
-  height: 25%;
+  justify-content: space-between;
+  height: 15%;
 `;
 
 export const MrgnView = styled.View`
-  width: 80%;
+  width: 85%;
   height: 90%;
 `;
 export const PckrWrapper = styled.View`

@@ -3,7 +3,7 @@ import {ShadowView} from '../../molecules/ServiceGeneralCard/styled';
 import {GeneralContainer, GeneralText} from '../../atoms';
 import {Row, Column} from './styled';
 import {BackFinishBtns} from '../../molecules';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import MapView, {Marker} from 'react-native-maps';
 
@@ -21,6 +21,10 @@ export const ServiceClosure = ({servicio, action, uid}) => {
   useEffect(() => {
     getInfo(uid);
   }, []);
+  
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <ShadowView>
@@ -49,7 +53,7 @@ export const ServiceClosure = ({servicio, action, uid}) => {
                 longitudeDelta: 0.05,
               }}>
               <Marker
-                title="Address"
+                title={data.address}
                 coordinate={{
                   latitude: data.location.latitude,
                   longitude: data.location.longitude,
