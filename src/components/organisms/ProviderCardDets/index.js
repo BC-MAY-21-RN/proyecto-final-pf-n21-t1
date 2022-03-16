@@ -18,19 +18,22 @@ import {
 } from './styled';
 import {CardButtons} from '../../molecules/CardButtons';
 
-const HourPickers = ({hour, min}) => {
+const HourPickers = ({hour}) => {
   return (
     <HourContainer>
       <GeneralText title={hour} size="h4" color="text" />
-      <GeneralText title={min} size="h4" color="text" />
     </HourContainer>
   );
 };
 export const ProviderCardDets = ({navigation, buttonType, data}) => {
-  const beginTimeHour = data.beginTime.toDate().getHours() + ':';
-  const beginTimeMin = data.beginTime.toDate().getMinutes();
-  const finishTimeHour = data.finishTime.toDate().getHours() + ':';
-  const finishTimeMin = data.finishTime.toDate().getMinutes();
+  const beginTimeHour =
+    data.beginTime.toDate().getHours() +
+    ':' +
+    data.beginTime.toDate().getMinutes();
+  const finishTimeHour =
+    data.finishTime.toDate().getHours() +
+    ':' +
+    data.finishTime.toDate().getMinutes();
   return (
     <Container>
       <CardDetailsContainer>
@@ -52,9 +55,9 @@ export const ProviderCardDets = ({navigation, buttonType, data}) => {
           weight
         />
         <TimeContainer>
-          <HourPickers hour={beginTimeHour} min={beginTimeMin} />
+          <HourPickers hour={beginTimeHour} />
           <GeneralText title="a" size="h4" color="text" />
-          <HourPickers hour={finishTimeHour} min={finishTimeMin} />
+          <HourPickers hour={finishTimeHour} />
         </TimeContainer>
         <GeneralContainer width="340px" height="80px" justify>
           <TextContainer>
