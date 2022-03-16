@@ -21,7 +21,10 @@ const uploadOpinion = (opinion, navigation) => {
     .collection('Opinions')
     .add(opinion)
     .then(() => {
-      navigation.navigate('CustomerOpinions');
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Path'}],
+      });
     });
 };
 
