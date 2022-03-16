@@ -16,7 +16,6 @@ function qualify(status, qualifyButton) {
 
 export const ServiceGeneralCard = ({
   servicio,
-  botones,
   navigation,
   status,
   data,
@@ -26,20 +25,21 @@ export const ServiceGeneralCard = ({
   client,
   provider,
 }) => {
-  const [servAceptado, setServAceptado] = useState(true);
-  const [mostrarBotones, setMostrarBotones] = useState(botones);
+  const [servAceptado, setServAceptado] = useState();
+  const [mostrarBotones, setMostrarBotones] = useState();
   data ? data : (data = []);
 
   useEffect(() => {
-    if (statusPrueba === 'Done' || statusPrueba === 'Decline') {
+    if (!provider) {
       setMostrarBotones(false);
       setServAceptado(false);
-    }
-    if (statusPrueba === 'Pending') {
+    } else if (statusPrueba === 'Done' || statusPrueba === 'Decline') {
+      setMostrarBotones(false);
+      setServAceptado(false);
+    } else if (statusPrueba === 'Pending') {
       setMostrarBotones(true);
       setServAceptado(false);
-    }
-    if (statusPrueba === 'Accepted') {
+    } else if (statusPrueba === 'Accepted') {
       setMostrarBotones(false);
       setServAceptado(true);
     }

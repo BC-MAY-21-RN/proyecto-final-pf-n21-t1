@@ -44,7 +44,6 @@ export const Services = ({navigation, provider}) => {
   const [data, setData] = useState();
   useEffect(() => {
     getServices(setData, provider);
-    navigation.addListener('didFocus', () => getServices(setData, provider));
   }, []);
 
   const Card = ({item}) => {
