@@ -40,13 +40,6 @@ export const ProviderCard = ({
           color="text"
           icon="call-outline"
         />
-        <GeneralText title={zone} size="h4" color="text" />
-        <StarRating
-          quantity={5}
-          readBoolean={true}
-          startValue={4}
-          backgroundColor={backgroundColor}
-        />
       </InfoContainer>
     </CardOpacity>
   );
