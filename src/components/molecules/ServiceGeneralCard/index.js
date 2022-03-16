@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {ServiceStatus, GeneralContainer, GeneralText} from '../../atoms';
 import {AcceptDeclineBtns, QualifyButton} from '../index';
 import {GroupRow, GroupColumn, ShadowView, StarAndServiceRow} from './styled';
@@ -25,8 +25,12 @@ const handleStatus = (mostrarBotones, statusPrueba) => {
 };
 
 const handleStatusService = (servAceptado, statusPrueba) => {
-  if (!servAceptado || statusPrueba === 'Accepted') return true;
-  else if (statusPrueba === 'Done') return false;
+  if (statusPrueba === 'Done')
+    return false;
+  else if (statusPrueba === 'Accepted' || !servAceptado) return true;
+};
+const handleStatusServiceProvider = statusPrueba => {
+  if (statusPrueba === 'Done') return false;
 };
 
 export const ServiceGeneralCard = ({
@@ -39,11 +43,19 @@ export const ServiceGeneralCard = ({
   statusPrueba,
   providerUid,
   client,
+  provider,
 }) => {
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
   data ? data : (data = []);
+  const prueba = provider
+    ? handleStatusService(servAceptado, statusPrueba)
+    : handleStatusServiceProvider(statusPrueba);
 
+  useEffect(() => {
+    console.log('servAceptado', servAceptado);
+    console.log('mostrarBotones', mostrarBotones);
+  }, [servAceptado, mostrarBotones])
   return (
     <ShadowView>
       <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
@@ -65,9 +77,7 @@ export const ServiceGeneralCard = ({
             uid={uid}
           />
         )}
-        {handleStatusService(servAceptado, statusPrueba) && (
-          <AcceptedService navigation={navigation} uid={uid} />
-        )}
+        {prueba && <AcceptedService navigation={navigation} uid={uid} />}
         <StarAndServiceRow>
           {status && <ServiceStatus status={status} />}
           {qualify(status) && (

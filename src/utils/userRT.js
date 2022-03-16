@@ -10,7 +10,6 @@ export default function userRT(userId, setData, image) {
     else if (image !== false){
       const storageImage = await storage().ref(user.image).getDownloadURL();
       user.image = storageImage;
-      console.log(storageImage)
     }
     setData(user);
   };
