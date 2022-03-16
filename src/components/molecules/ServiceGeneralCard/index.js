@@ -35,7 +35,7 @@ export const ServiceGeneralCard = props => {
       setMostrarBotones(false);
       setServAceptado(true);
     }
-  }, []);
+  }, [data]);
 
   return (
     <ShadowView>
