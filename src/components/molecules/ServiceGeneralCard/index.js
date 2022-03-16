@@ -14,11 +14,9 @@ function qualify(status, qualifyButton) {
   return qualifyButton;
 }
 
-export const ServiceGeneralCard = (
-  props,
-  {navigation, statusPrueba, providerUid, client, provider},
-) => {
+export const ServiceGeneralCard = props => {
   const {servicio, status, data, uid} = props;
+  const {navigation, statusPrueba, providerUid, client, provider} = props;
   const [servAceptado, setServAceptado] = useState();
   const [mostrarBotones, setMostrarBotones] = useState();
   data ? data : (data = []);
