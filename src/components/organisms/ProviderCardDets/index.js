@@ -25,15 +25,13 @@ const HourPickers = ({hour}) => {
     </HourContainer>
   );
 };
+const getTime = time => {
+  const timeAux = time.toDate().getHours() + ':' + time.toDate().getMinutes();
+  return timeAux;
+};
 export const ProviderCardDets = ({navigation, buttonType, data}) => {
-  const beginTimeHour =
-    data.beginTime.toDate().getHours() +
-    ':' +
-    data.beginTime.toDate().getMinutes();
-  const finishTimeHour =
-    data.finishTime.toDate().getHours() +
-    ':' +
-    data.finishTime.toDate().getMinutes();
+  const beginTimeHour = getTime(data.beginTime);
+  const finishTimeHour = getTime(data.finishTime);
   return (
     <Container>
       <CardDetailsContainer>

@@ -83,27 +83,26 @@ const StarRow = ({status, navigation, uid, providerUid, client}) => {
 };
 
 export const ServiceGeneralCard = props => {
-  const {servicio, status, data, uid} = props;
   const {navigation, statusPrueba, providerUid, client, provider} = props;
   const [servAceptado, setServAceptado] = useState();
   const [mostrarBotones, setMostrarBotones] = useState();
   useEffect(() => {
     setStatus(statusPrueba, setServAceptado, setMostrarBotones, provider);
-  }, [data]);
+  }, [props.data]);
   return (
     <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
-      <GroupWrapper servicio={servicio} />
-      <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
+      <GroupWrapper servicio={props.servicio} />
+      <GroupColumn>{ServiceCardMapping(props.data)}</GroupColumn>
       <HandleStatus
-        uid={uid}
+        uid={props.uid}
         accepted={{servAceptado, setServAceptado}}
         botones={{mostrarBotones, setMostrarBotones}}
         navigation={navigation}
       />
       <StarRow
-        status={status}
+        status={props.status}
         navigation={navigation}
-        uid={uid}
+        uid={props.uid}
         providerUid={providerUid}
         client={client}
       />
