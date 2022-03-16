@@ -7,9 +7,10 @@ export const Row = styled.View`
   margin-top: 1%;
 `;
 export const Column = styled.View`
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 3%;
-  margin-left: 5%;
+  justify-content: space-around;
+  width: 95%;
+  align-self: center;
 `;

@@ -10,13 +10,11 @@ export const ServiceDetails = ({route}) => {
   const uid = route.params.uid;
   const navigation = useNavigation();
   const handleAction = userId => {
-    console.log('prueba2', userId);
     firestore()
       .collection('Services')
       .doc(userId)
       .update({status: 'Done'})
       .then(() => {
-        console.log('status modified');
         navigation.goBack();
       });
   };
@@ -38,6 +36,7 @@ export const ServiceDetails = ({route}) => {
           servicio={'Fontanero'}
           action={() => handleAction(uid)}
           fin
+          uid={uid}
         />
       </Container>
     </ContainerWhite>

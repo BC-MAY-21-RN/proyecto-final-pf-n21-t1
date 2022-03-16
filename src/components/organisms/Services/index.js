@@ -47,7 +47,7 @@ export const Services = ({navigation, provider}) => {
   }, []);
 
   const Card = ({item}) => {
-  const itemCard = getItemCard(item, provider);
+    const itemCard = getItemCard(item, provider);
     const title = itemCard.title;
     const titleName = itemCard.titleName;
     const card = [

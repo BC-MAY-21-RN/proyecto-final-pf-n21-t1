@@ -15,17 +15,19 @@ function qualify(status, qualifyButton) {
 }
 
 const handleStatus = (mostrarBotones, statusPrueba) => {
-  if (mostrarBotones &&
+  if (
+    mostrarBotones &&
     statusPrueba !== 'Decline' &&
-    statusPrueba !== 'Accepted')
+    statusPrueba !== 'Accepted'
+  )
     return true;
   return false;
-}
+};
 
 const handleStatusService = (servAceptado, statusPrueba) => {
   if (!servAceptado || statusPrueba === 'Accepted') return true;
-  return false
-}
+  else if (statusPrueba === 'Done') return false;
+};
 
 export const ServiceGeneralCard = ({
   servicio,
@@ -39,7 +41,6 @@ export const ServiceGeneralCard = ({
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
   data ? data : (data = []);
-  console.log(data);
 
   return (
     <ShadowView>
