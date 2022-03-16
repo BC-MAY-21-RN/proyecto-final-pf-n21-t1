@@ -26,6 +26,7 @@ export const CustomerOpinions = ({navigation}) => {
     return (
       <View>
         <OpinionComponent
+          key={item.item._data.uid}
           calification={item.item._data.rating}
           customer={item.item._data.client}
           opinion={item.item._data.message}
@@ -48,11 +49,7 @@ export const CustomerOpinions = ({navigation}) => {
           userType="Provider"
           navigation={navigation}
         />
-        <FlatList
-          data={opinions}
-          renderItem={OpinionRender}
-          keyExtractor={item => item.uid}
-        />
+        <FlatList data={opinions} renderItem={OpinionRender} />
       </Container>
     </ContainerWhite>
   );
