@@ -4,7 +4,7 @@ import buttonsMapping from '../../../utils/buttonsMapping';
 import {Group, Styles} from './styled';
 import {useNavigation} from '@react-navigation/native';
 
-const getButtonsData = navigation => [
+const getButtonsData = (navigation, action) => [
   {
     title: 'Finalizar ',
     color: 'facebook',
@@ -15,7 +15,7 @@ const getButtonsData = navigation => [
         [
           {
             text: 'Si',
-            onPress: () => navigation.navigate('UpcomingServices'),
+            onPress: action,
           },
           {text: 'No'},
         ],
@@ -32,9 +32,9 @@ const getButtonsData = navigation => [
   },
 ];
 
-export const BackFinishBtns = () => {
+export const BackFinishBtns = ({action}) => {
   const navigation = useNavigation();
-  const buttonsData = getButtonsData(navigation);
+  const buttonsData = getButtonsData(navigation, action);
   return (
     <Group>
       <Styles>{buttonsMapping(buttonsData)}</Styles>

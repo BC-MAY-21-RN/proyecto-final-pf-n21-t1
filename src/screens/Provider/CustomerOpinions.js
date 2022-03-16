@@ -10,7 +10,6 @@ export const CustomerOpinions = ({navigation}) => {
   const getArrayOpinions = setOpinions => {
     firestore()
       .collection('Opinions')
-      // Filter results
       .get()
       .then(async response => {
         setOpinions(response._docs);
@@ -26,7 +25,7 @@ export const CustomerOpinions = ({navigation}) => {
       <View>
         <OpinionComponent
           calification={item.item._data.rating}
-          customer={item.item._data.clientUid}
+          customer={item.item._data.client}
           opinion={item.item._data.message}
         />
       </View>

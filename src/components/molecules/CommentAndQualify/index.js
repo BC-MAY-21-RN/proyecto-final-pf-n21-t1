@@ -13,11 +13,43 @@ import {
   StarRatingPosition,
   SendButton,
 } from './styled';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
+const uploadOpinion = (opinion, navigation) => {
+  firestore()
+    .collection('Opinions')
+    .add(opinion)
+    .then(() => {
+      navigation.navigate('CustomerOpinions');
+    });
+};
+
 export const CommentAndQualify = ({
   setModalVisible,
   modalVisible,
   navigation,
+  uid,
+  providerUid,
+  client,
 }) => {
+  const [opinion, setOpinion] = useState('');
+  const [stars, setStars] = useState();
+  const handleText = text => {
+    console.log(text);
+    setOpinion(text);
+  };
+  const handleRating = rating => {
+    setStars(rating);
+  };
+  const data = {
+    clientUid: auth().currentUser.uid,
+    message: opinion,
+    rating: stars,
+    serviceUid: uid,
+    providerUid: providerUid,
+    client: client,
+  };
   return (
     <ShadowView>
       <GeneralContainer
@@ -37,9 +69,10 @@ export const CommentAndQualify = ({
         <StarRatingPosition>
           <StarRating
             quantity={5}
-            startValue={1}
+            startValue={stars}
             readBoolean={false}
             backgroundColor={'hover'}
+            handleRating={handleRating}
           />
         </StarRatingPosition>
         <OpinionInput>
@@ -47,6 +80,7 @@ export const CommentAndQualify = ({
             placeholder={'Dános tu opinón para este proveedor'}
             height={70}
             whiteBackground
+            onChangeText={handleText}
           />
         </OpinionInput>
         <SendButton>
@@ -55,7 +89,7 @@ export const CommentAndQualify = ({
             title={'Enviar'}
             height={35}
             color={'primary'}
-            action={() => navigation.navigate('CustomerOpinions')}
+            action={() => uploadOpinion(data, navigation)}
           />
 
           <GeneralButton

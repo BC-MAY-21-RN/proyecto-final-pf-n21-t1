@@ -3,7 +3,7 @@ import {CenteredView, ModalView} from './styled';
 import {CommentAndQualify, OneStarButton} from '..';
 import {GeneralModal} from '../../atoms/GeneralModal';
 
-export const QualifyButton = ({navigation}) => {
+export const QualifyButton = ({navigation, uid, providerUid, client}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <CenteredView>
@@ -18,6 +18,9 @@ export const QualifyButton = ({navigation}) => {
               modalVisible={modalVisible}
               setModalVisible={setModalVisible}
               navigation={navigation}
+              uid={uid}
+              providerUid={providerUid}
+              client={client}
             />
           </ModalView>
         </CenteredView>

@@ -18,12 +18,14 @@ import {
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-const getName = setClientName => {
+const getName = (setClientName, setClientAddress) => {
   firestore()
     .collection('Users')
     .doc(auth().currentUser.uid)
     .onSnapshot(documentSnapshot => {
       setClientName(documentSnapshot.data().name);
+      setClientAddress(documentSnapshot.data().address);
+      console.log(documentSnapshot.data().address);
     });
 };
 
@@ -92,17 +94,24 @@ const FooterWrapper = ({navigation, data}) => {
     </CntrComponent>
   );
 };
-
+const getLocation = ticket => {
+  firestore()
+    .collection('Users')
+    .doc(auth().currentUser.uid)
+    .get()
+    .then(result => (ticket.location = result.data().location));
+}
 export const ServiceTicket = ({service, navigation}) => {
   const route = useRoute();
   console.log(route.params.data);
-  const {name, servicePicker, uid, location, address} = route.params.data;
+  const {name, servicePicker, uid} = route.params.data;
   const {date} = route.params;
   const datetime = new Date(date);
   const [clientName, setClientName] = useState();
+  const [clientAddress, setClientAddress] = useState();
 
   useEffect(() => {
-    getName(setClientName);
+    getName(setClientName, setClientAddress);
 
     return () => {
       setClientName();
@@ -114,7 +123,7 @@ export const ServiceTicket = ({service, navigation}) => {
     provider: name,
     service: servicePicker,
     client: clientName,
-    address: address,
+    address: clientAddress,
   };
 
   const ticket = {
@@ -125,9 +134,9 @@ export const ServiceTicket = ({service, navigation}) => {
     provider: name,
     client: clientName,
     service: servicePicker,
-    location: location,
-    address: address,
+    address: clientAddress,
   };
+  getLocation(ticket);
 
   return (
     <ContainerWhite>
