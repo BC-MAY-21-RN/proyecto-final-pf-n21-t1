@@ -14,25 +14,6 @@ function qualify(status, qualifyButton) {
   return qualifyButton;
 }
 
-const handleStatus = (mostrarBotones, statusPrueba) => {
-  if (
-    mostrarBotones &&
-    statusPrueba !== 'Decline' &&
-    statusPrueba !== 'Accepted'
-  )
-    return true;
-  return false;
-};
-
-const handleStatusService = (servAceptado, statusPrueba) => {
-  if (statusPrueba === 'Done')
-    return false;
-  else if (statusPrueba === 'Accepted' || !servAceptado) return true;
-};
-const handleStatusServiceProvider = statusPrueba => {
-  if (statusPrueba === 'Done') return false;
-};
-
 export const ServiceGeneralCard = ({
   servicio,
   botones,
@@ -48,14 +29,22 @@ export const ServiceGeneralCard = ({
   const [servAceptado, setServAceptado] = useState(true);
   const [mostrarBotones, setMostrarBotones] = useState(botones);
   data ? data : (data = []);
-  const prueba = provider
-    ? handleStatusService(servAceptado, statusPrueba)
-    : handleStatusServiceProvider(statusPrueba);
 
   useEffect(() => {
-    console.log('servAceptado', servAceptado);
-    console.log('mostrarBotones', mostrarBotones);
-  }, [servAceptado, mostrarBotones])
+    if (statusPrueba === 'Done' || statusPrueba === 'Decline') {
+      setMostrarBotones(false);
+      setServAceptado(false);
+    }
+    if (statusPrueba === 'Pending') {
+      setMostrarBotones(true);
+      setServAceptado(false);
+    }
+    if (statusPrueba === 'Accepted') {
+      setMostrarBotones(false);
+      setServAceptado(true);
+    }
+  }, []);
+
   return (
     <ShadowView>
       <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
@@ -70,14 +59,21 @@ export const ServiceGeneralCard = ({
         <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
         {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
 
-        {handleStatus(mostrarBotones, statusPrueba) && (
+        {mostrarBotones && (
           <AcceptDeclineBtns
             setServAceptado={setServAceptado}
             setMostrarBotones={setMostrarBotones}
             uid={uid}
           />
         )}
-        {prueba && <AcceptedService navigation={navigation} uid={uid} />}
+        {servAceptado && (
+          <AcceptedService
+            navigation={navigation}
+            uid={uid}
+            setServAceptado={setServAceptado}
+            setMostrarBotones={setMostrarBotones}
+          />
+        )}
         <StarAndServiceRow>
           {status && <ServiceStatus status={status} />}
           {qualify(status) && (

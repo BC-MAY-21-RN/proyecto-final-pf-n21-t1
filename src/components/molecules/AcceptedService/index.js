@@ -4,7 +4,7 @@ import {GeneralButton, GeneralText} from '../../atoms';
 import {Position} from './styled';
 import {useNavigation} from '@react-navigation/native';
 
-export const AcceptedService = ({uid}) => {
+export const AcceptedService = ({uid, setServAceptado, setMostrarBotones}) => {
   const navigation = useNavigation();
 
   return (
@@ -17,7 +17,13 @@ export const AcceptedService = ({uid}) => {
       />
       <GeneralButton
         title={'Detalles'}
-        action={() => navigation.navigate('ServiceDetails', {uid: uid})}
+        action={() =>
+          navigation.navigate('ServiceDetails', {
+            uid,
+            setServAceptado,
+            setMostrarBotones,
+          })
+        }
         width={'80%'}
         height={'90%'}
         color={'primary'}

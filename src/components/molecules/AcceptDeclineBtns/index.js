@@ -16,8 +16,8 @@ export const AcceptDeclineBtns = ({
       .update({status: btnStatus})
       .then(() => {
         if (btnStatus === 'Accepted') {
-          setServAceptado(false);
           setMostrarBotones(false);
+          setServAceptado(true);
         }
       });
   };
@@ -43,6 +43,7 @@ export const AcceptDeclineBtns = ({
               onPress: () => {
                 handleUpdate('Decline');
                 setMostrarBotones(false);
+                setServAceptado(false);
               },
             },
             {text: 'No'},
