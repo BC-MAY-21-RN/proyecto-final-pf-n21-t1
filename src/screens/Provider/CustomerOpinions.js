@@ -3,6 +3,7 @@ import {GeneralHeader, OpinionComponent} from '../../components/molecules';
 import {Container, ContainerWhite} from '../../components/atoms';
 import {SafeAreaView, FlatList, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 export const CustomerOpinions = ({navigation}) => {
   const [opinions, setOpinions] = useState([]);
@@ -10,9 +11,10 @@ export const CustomerOpinions = ({navigation}) => {
   const getArrayOpinions = setOpinions => {
     firestore()
       .collection('Opinions')
+      .where('providerUid', '==', auth().currentUser.uid)
       .get()
       .then(async response => {
-        setOpinions(response._docs);
+        setOpinions(response.docs);
       });
   };
   useEffect(() => {
@@ -49,7 +51,7 @@ export const CustomerOpinions = ({navigation}) => {
         <FlatList
           data={opinions}
           renderItem={OpinionRender}
-          keyExtractor={item => item._data}
+          keyExtractor={item => item.uid}
         />
       </Container>
     </ContainerWhite>
