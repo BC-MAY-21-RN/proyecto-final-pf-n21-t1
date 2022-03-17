@@ -20,9 +20,9 @@ export const ServiceDetails = ({route}) => {
       .doc(userId)
       .update({status: 'Done'})
       .then(() => {
-        navigation.goBack();
         setMostrarBotones(false);
         setServAceptado(false);
+        navigation.goBack();
       });
   };
 

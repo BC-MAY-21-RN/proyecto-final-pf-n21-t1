@@ -3,16 +3,19 @@ import {GeneralHeader, OpinionComponent} from '../../components/molecules';
 import {Container, ContainerWhite} from '../../components/atoms';
 import {SafeAreaView, FlatList, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
-export const CustomerOpinions = ({navigation}) => {
+export const CustomerOpinions = ({route, navigation}) => {
   const [opinions, setOpinions] = useState([]);
+  const uid = route.params?.uid ? route.params.uid : auth().currentUser.uid;
 
   const getArrayOpinions = setOpinions => {
     firestore()
       .collection('Opinions')
+      .where('providerUid', '==', uid)
       .get()
       .then(async response => {
-        setOpinions(response._docs);
+        setOpinions(response.docs);
       });
   };
   useEffect(() => {
@@ -24,6 +27,7 @@ export const CustomerOpinions = ({navigation}) => {
     return (
       <View>
         <OpinionComponent
+          key={item.item._data.uid}
           calification={item.item._data.rating}
           customer={item.item._data.client}
           opinion={item.item._data.message}
@@ -46,11 +50,7 @@ export const CustomerOpinions = ({navigation}) => {
           userType="Provider"
           navigation={navigation}
         />
-        <FlatList
-          data={opinions}
-          renderItem={OpinionRender}
-          keyExtractor={item => item._data}
-        />
+        <FlatList data={opinions} renderItem={OpinionRender} />
       </Container>
     </ContainerWhite>
   );

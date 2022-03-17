@@ -14,72 +14,98 @@ function qualify(status, qualifyButton) {
   return qualifyButton;
 }
 
-export const ServiceGeneralCard = (
-  props,
-  {navigation, statusPrueba, providerUid, client, provider},
+const HandleStatus = props => {
+  const {accepted, botones} = props;
+  return (
+    <>
+      {botones.mostrarBotones && (
+        <AcceptDeclineBtns
+          setServAceptado={accepted.setServAceptado}
+          setMostrarBotones={botones.setMostrarBotones}
+          uid={props.uid}
+        />
+      )}
+      {accepted.servAceptado && (
+        <AcceptedService
+          navigation={props.navigation}
+          uid={props.uid}
+          setServAceptado={accepted.setServAceptado}
+          setMostrarBotones={botones.setMostrarBotones}
+        />
+      )}
+    </>
+  );
+};
+
+const setStatus = (
+  statusPrueba,
+  setServAceptado,
+  setMostrarBotones,
+  provider,
 ) => {
-  const {servicio, status, data, uid} = props;
+  if (!provider) {
+    setMostrarBotones(false);
+    setServAceptado(false);
+  } else if (statusPrueba === 'Done' || statusPrueba === 'Decline') {
+    setMostrarBotones(false);
+    setServAceptado(false);
+  } else if (statusPrueba === 'Pending') {
+    setMostrarBotones(true);
+    setServAceptado(false);
+  } else if (statusPrueba === 'Accepted') {
+    setMostrarBotones(false);
+    setServAceptado(true);
+  }
+};
+
+const GroupWrapper = ({servicio}) => {
+  return (
+    <GroupRow>
+      <GeneralText weight title={servicio} size={'h3'} color={'secondary'} />
+    </GroupRow>
+  );
+}
+
+const StarRow = ({status, navigation, uid, providerUid, client}) => {
+  return (
+    <StarAndServiceRow>
+      {status && <ServiceStatus status={status} />}
+      {qualify(status) && (
+        <QualifyButton
+          navigation={navigation}
+          uid={uid}
+          providerUid={providerUid}
+          client={client}
+        />
+      )}
+    </StarAndServiceRow>
+  );
+};
+
+export const ServiceGeneralCard = props => {
+  const {navigation, statusPrueba, providerUid, client, provider} = props;
   const [servAceptado, setServAceptado] = useState();
   const [mostrarBotones, setMostrarBotones] = useState();
-  data ? data : (data = []);
-
   useEffect(() => {
-    if (!provider) {
-      setMostrarBotones(false);
-      setServAceptado(false);
-    } else if (statusPrueba === 'Done' || statusPrueba === 'Decline') {
-      setMostrarBotones(false);
-      setServAceptado(false);
-    } else if (statusPrueba === 'Pending') {
-      setMostrarBotones(true);
-      setServAceptado(false);
-    } else if (statusPrueba === 'Accepted') {
-      setMostrarBotones(false);
-      setServAceptado(true);
-    }
-  }, []);
-
+    setStatus(statusPrueba, setServAceptado, setMostrarBotones, provider);
+  }, [props.data]);
   return (
-    <ShadowView>
-      <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
-        <GroupRow>
-          <GeneralText
-            weight
-            title={servicio}
-            size={'h3'}
-            color={'secondary'}
-          />
-        </GroupRow>
-        <GroupColumn>{ServiceCardMapping(data)}</GroupColumn>
-        {/* mencionar botones, estrellita de qualify y service status como prop en caso de necesitarlos */}
-
-        {mostrarBotones && (
-          <AcceptDeclineBtns
-            setServAceptado={setServAceptado}
-            setMostrarBotones={setMostrarBotones}
-            uid={uid}
-          />
-        )}
-        {servAceptado && (
-          <AcceptedService
-            navigation={navigation}
-            uid={uid}
-            setServAceptado={setServAceptado}
-            setMostrarBotones={setMostrarBotones}
-          />
-        )}
-        <StarAndServiceRow>
-          {status && <ServiceStatus status={status} />}
-          {qualify(status) && (
-            <QualifyButton
-              navigation={navigation}
-              uid={uid}
-              providerUid={providerUid}
-              client={client}
-            />
-          )}
-        </StarAndServiceRow>
-      </GeneralContainer>
-    </ShadowView>
+    <GeneralContainer height={'160px'} width={'90%'} marginBottom={'5%'}>
+      <GroupWrapper servicio={props.servicio} />
+      <GroupColumn>{ServiceCardMapping(props.data)}</GroupColumn>
+      <HandleStatus
+        uid={props.uid}
+        accepted={{servAceptado, setServAceptado}}
+        botones={{mostrarBotones, setMostrarBotones}}
+        navigation={navigation}
+      />
+      <StarRow
+        status={props.status}
+        navigation={navigation}
+        uid={props.uid}
+        providerUid={providerUid}
+        client={client}
+      />
+    </GeneralContainer>
   );
 };

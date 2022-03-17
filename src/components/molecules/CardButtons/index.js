@@ -12,6 +12,7 @@ const getButtons = type => {
       {
         title: 'Chatea conmigo',
         screen: 'DateSelection',
+        disabled: true,
       },
     ];
   } else {
@@ -39,6 +40,7 @@ export const CardButtons = ({type, navigation, data}) => {
     {
       title: buttons[1].title,
       action: () => navigation.navigate(buttons[1].screen),
+      disabled: buttons[1]?.disabled,
     },
   ];
   return (

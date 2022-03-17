@@ -17,7 +17,7 @@ export const AvatarImg = styled.Image`
 `;
 
 export const InfoContainer = styled.View`
-  padding-vertical: 10px;
+  padding-vertical: 25px;
   justify-content: space-around;
   width: 60%;
 `;

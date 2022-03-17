@@ -4,15 +4,11 @@ import {Tab} from './styled';
 
 export const TabRender = props => {
   const isTabRendered = props.isTabRendered;
+  const {title, size, color, weight} = props;
   if (isTabRendered) {
     return (
       <Tab>
-        <GeneralText
-          title={props.title}
-          size={props.size}
-          color={props.color}
-          weight={props.weight}
-        />
+        <GeneralText title={title} size={size} color={color} weight={weight} />
       </Tab>
     );
   } else {
