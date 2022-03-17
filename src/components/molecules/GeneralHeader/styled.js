@@ -15,6 +15,7 @@ export const Row = styled.View`
   flex-direction: row;
   width: 100%;
   height: 50%;
+  justify-content: space-around;
 `;
 
 export const Header = styled.View`
@@ -35,7 +36,6 @@ export const LogoContainer = styled.TouchableOpacity`
 `;
 
 export const Menu = styled.TouchableOpacity`
-  right: 85%;
 `;
 
 export const BackButton = styled.TouchableOpacity`
