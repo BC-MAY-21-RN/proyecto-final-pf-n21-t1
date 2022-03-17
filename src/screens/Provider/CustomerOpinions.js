@@ -7,7 +7,7 @@ import auth from '@react-native-firebase/auth';
 
 export const CustomerOpinions = ({route, navigation}) => {
   const [opinions, setOpinions] = useState([]);
-  const uid = route.params.uid ? route.params.uid : auth().currentUser.uid;
+  const uid = route.params?.uid ? route.params.uid : auth().currentUser.uid;
 
   const getArrayOpinions = setOpinions => {
     firestore()
