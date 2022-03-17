@@ -76,7 +76,9 @@ export const ProviderCardDets = ({navigation, buttonType, data}) => {
           color={'secondary'}
           weight
           size={'h7'}
-          action={() => navigation.navigate('CustomerOpinions')}
+          action={() =>
+            navigation.navigate('CustomerOpinions', {uid: data.uid})
+          }
         />
       </LinkContain>
       <CardButtons navigation={navigation} type={buttonType} data={data} />

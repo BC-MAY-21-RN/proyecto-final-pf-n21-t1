@@ -5,13 +5,14 @@ import {SafeAreaView, FlatList, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-export const CustomerOpinions = ({navigation}) => {
+export const CustomerOpinions = ({route, navigation}) => {
   const [opinions, setOpinions] = useState([]);
+  const uid = route.params.uid ? route.params.uid : auth().currentUser.uid;
 
   const getArrayOpinions = setOpinions => {
     firestore()
       .collection('Opinions')
-      .where('providerUid', '==', auth().currentUser.uid)
+      .where('providerUid', '==', uid)
       .get()
       .then(async response => {
         setOpinions(response.docs);
