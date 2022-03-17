@@ -17,6 +17,7 @@ export default function userRT(userId, setData, image) {
   const subscriber = firestore()
     .collection('Users')
     .doc(userId)
-    .onSnapshot(documentSnapshot => handleUser(documentSnapshot));
+    .get()
+    .then(documentSnapshot => handleUser(documentSnapshot));
   return () => subscriber();
 }
