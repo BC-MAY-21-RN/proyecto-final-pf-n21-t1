@@ -7,6 +7,7 @@ export default function buttonsMapping(buttonsData) {
       button,
       index, //button=item
     ) => {
+      console.log(button.disabled);
       const spaceText = button.icon ? '  ' : '';
       return (
         <GeneralButton
