@@ -1,6 +1,6 @@
-## Calificación Code Climate &nbsp; <a href="https://codeclimate.com/github/BC-MAY-21-RN/proyecto-final-pf-n21-t1/maintainability"><img src="https://api.codeclimate.com/v1/badges/e2063dac08659677bedc/maintainability" /></a>
+## [Calificación Code Climate](https://codeclimate.com/github/dylanson25/bedu-pf-fsd-frontend-2023) 
 
-## Calificación Deep Scan &nbsp; <a href="https://deepscan.io/dashboard#view=project&tid=16270&pid=19916&bid=526506"><img src="https://deepscan.io/api/teams/16270/projects/19916/branches/526506/badge/grade.svg" alt="DeepScan grade"></a>
+## [Calificación Deep Scan](https://deepscan.io/dashboard/#view=project&tid=16820&pid=25575&bid=802141)
 
 ![BrightCoders Logo](img/logo-bc.png)
 
